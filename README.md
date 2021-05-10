@@ -6,4 +6,7 @@ La motivación de este repositorio es crear un ambiente de trabajo a distancia, 
 
 <br>
 
-![Esquema del procesamiento de miRNA en humanos, sacado de [Catuogno _et al._, 2011](https://www.researchgate.net/publication/258429636_Recent_Advance_in_Biosensors_for_microRNAs_Detection_in_Cancer) ](https://www.researchgate.net/profile/Cristina-Quintavalle/publication/258429636/figure/fig1/AS:202959121063936@1425400633104/Scheme-of-miRNA-processing-pathway.png)
+![](https://www.researchgate.net/profile/Cristina-Quintavalle/publication/258429636/figure/fig1/AS:202959121063936@1425400633104/Scheme-of-miRNA-processing-pathway.png)
+
+
+Esquema del procesamiento de miRNA en humanos, sacado de [Catuogno _et al._, 2011]((https://www.researchgate.net/publication/258429636_Recent_Advance_in_Biosensors_for_microRNAs_Detection_in_Cancer))
