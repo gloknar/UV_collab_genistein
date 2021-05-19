@@ -1,6 +1,0 @@
-Revision del workflow de STAR:
-https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/lessons/03_alignment.html
-
-
-Workflow STAR
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631051/
