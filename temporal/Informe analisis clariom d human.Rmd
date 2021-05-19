@@ -48,9 +48,7 @@ https://www.thermofisher.com/es/es/home/life-science/microarray-analysis/microar
 
 ***
 
-# Protocolo de análisis de microarrays de ARNm Clariom D Human
-
-## Carga de datos y librerías
+# Carga de datos y librerías
 
 Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.14 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
 
@@ -135,7 +133,7 @@ Al cargar los archivos `.CEL` con `read.celfiles()`, se almacena en el bolsillo 
 
 * Las filas corresponden a cada sonda individual del microarray, identificada por un nº que va desde el 1 hasta el nº máximo de sondas presentes en el mismo (en el caso de los microarrays _Clariom D Human_, estos contienen un máximo de 6.892.960 sondas).
 
-* Las columnas son las muestras, en nuestro caso `Control_1`, `Genisteina_1`, `Resveratrol_1`... etc
+* Las columnas son las muestras, en nuestro caso `Control_1`, `Genisteina_1`, `Control_2`... etc
 
 ```{r}
 # Obtenemos la matriz de intensidades cruda
@@ -225,11 +223,13 @@ pData(datos_crudos_microarrays)$condicion <- as.factor(rep(c("Control", "Geniste
 pData(datos_crudos_microarrays)
 ```
 
+<br>
 
+***
 
-## Generar fotos de los microarrays
+# Generar fotos de los microarrays
 
-A partir de la matriz de intensidades del microarray, podemos reconstruir su apariencia original.
+A partir de la matriz de intensidades del microarray, podemos reconstruir su apariencia original con las siguientes líneas de código:
 
 ```{r, eval = F}
 # Generamos paleta de colores verde -> amarillo -> rojo
@@ -241,7 +241,6 @@ setwd("./Fotos arrays Clariom D Human/")
 # Reconstruimos la apariencia original de los microarrays hibridados y guardamos
 # las imágenes resultantes con resolución 720p en la carpeta
 # "imagenes_microarrays"
-
 for (i in pData(datos_crudos_microarrays)$muestra) {
   nombre.imagen = paste(sampleNames(datos_crudos_microarrays)[i],".png",sep="")
   png(filename = nombre.imagen, width = 1280, height = 720, units = "px", bg = "black")
@@ -253,7 +252,18 @@ for (i in pData(datos_crudos_microarrays)$muestra) {
 setwd("./")
 ```
 
+Las fotos reconstruidas se encuentran en la carpeta `Fotos arrays Clariom D Human`.
 
+
+<details>
+<summary>Click para ver imagen</summary>
+
+![Muestra control nº1](./Fotos arrays Clariom D Human/Control_1.png)
+<br>
+
+Muestra control nº1
+
+</details>
 
 ***
 
