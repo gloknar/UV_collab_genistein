@@ -46,6 +46,12 @@ https://www.thermofisher.com/es/es/home/life-science/microarray-analysis/microar
 
 <br>
 
+***
+
+# Protocolo de análisis de microarrays de ARNm Clariom D Human
+
+## Carga de datos y librerías
+
 Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.14 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
 
 ```{r instalacion oligo y dependencias, eval = F}
@@ -82,7 +88,7 @@ directorio_trabajo <- "C:/Users/Adam_/Desktop/microvesiculas - copia para trabaj
 ```
 
 
-Listamos y cargamos los archivos de secuenciado en el objeto de tipo `HTAFeatureSet` denominado `datos_crudos_microarrays`:
+Listamos y cargamos los archivos de secuenciado en el objeto de tipo `HTAFeatureSet` denominado `datos_crudos_microarrays`. La carga de los archivos `.CEL` se hace mediante la función `read.celfiles`, la cual lee y carga los archivos por orden alfabético de sus nombres (_i.e._ primero carga el archivo `52CNT_(Clariom_D_Human).CEL`, luego `52GEN_(Clariom_D_Human).CEL`, luego `53CNT_(Clariom_D_Human).CEL`, ...etc):
 
 ```{r}
 # Obtenemos la ruta completa de los archivos con el argumento `full.names = T`
