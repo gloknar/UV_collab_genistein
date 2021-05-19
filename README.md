@@ -28,6 +28,8 @@ Este repositorio consta de las siguientes carpetas:
 
 <br>
 
+***
+
 ![](https://www.researchgate.net/profile/Cristina-Quintavalle/publication/258429636/figure/fig1/AS:202959121063936@1425400633104/Scheme-of-miRNA-processing-pathway.png)
 
 
