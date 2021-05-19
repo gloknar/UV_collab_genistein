@@ -85,6 +85,7 @@ Acto seguido definimos el directorio de trabajo en la carpeta donde se encuentra
 
 ```{r}
 directorio_trabajo <- "C:/Users/Adam_/Desktop/microvesiculas - copia para trabajar/Resultados ClariomD_Human"
+directorio_trabajo <- "./microvesiculas - copia para trabajar/Resultados ClariomD_Human"
 ```
 
 
@@ -121,11 +122,10 @@ sampleNames(datos_crudos_microarrays)
 Vamos a cambiar sus nombres por otros más claros:
 
 ```{r}
-sampleNames(datos_crudos_microarrays) <- c("Control_1", "Genisteina_1", "Resveratrol_1", 
-                                           "Control_2", "Genisteina_2", "Resveratrol_2",
-                                           "Control_3", "Genisteina_3", "Resveratrol_3",
-                                           "Control_4", "Genisteina_4", "Resveratrol_4")
-
+sampleNames(datos_crudos_microarrays) <- c("Control_1", "Genisteina_1",
+                                           "Control_2", "Genisteina_2",
+                                           "Control_3", "Genisteina_3",
+                                           "Control_4", "Genisteina_4")
 sampleNames(datos_crudos_microarrays)
 ```
 
@@ -153,7 +153,7 @@ Para acceder a las intensidades de las sondas PM, podemos usar el comando `pm()`
 
 ```{r}
 sondas_PM <- oligo::pm(datos_crudos_microarrays)
-head(sondas_PM)[,1:3]
+head(sondas_PM)[,1:4]
 ```
 
 <br>
@@ -219,7 +219,7 @@ En relación a lo dicho en el párrafo anterior, las gráficas que generemos a l
 colnames(pData(datos_crudos_microarrays)) <- "muestra"
 
 # Añadimos el factor "Condición" a los metadatos de nuestro estudio
-pData(datos_crudos_microarrays)$condicion <- as.factor(rep(c("Control", "Genisteina", "Resveratrol"), times = 4))
+pData(datos_crudos_microarrays)$condicion <- as.factor(rep(c("Control", "Genisteina"), times = 4))
 
 # Visualizamos los metadatos
 pData(datos_crudos_microarrays)
@@ -229,14 +229,28 @@ pData(datos_crudos_microarrays)
 
 ## Generar fotos de los microarrays
 
+A partir de la matriz de intensidades del microarray, podemos reconstruir su apariencia original.
+
 ```{r, eval = F}
+# Generamos paleta de colores verde -> amarillo -> rojo
+colores_hibridacion <- rev(RColorBrewer::brewer.pal(n = 11, name = "RdYlGn"))
+
+# Establecemos temporalmente la carpeta de trabajo en "imagenes_microarrays"
+setwd("./Fotos arrays Clariom D Human/")
+
+# Reconstruimos la apariencia original de los microarrays hibridados y guardamos
+# las imágenes resultantes con resolución 720p en la carpeta
+# "imagenes_microarrays"
+
 for (i in pData(datos_crudos_microarrays)$muestra) {
-  nombre.imagen = paste("imagen",i,".jpg",sep="")
-  png(filename = nombre.imagen, width = 1920, height = 1080, units = "px", bg = "white")
-  image(datos_crudos_microarrays[,i], 
-        main = pData(datos_crudos_microarrays)$muestra[i])
+  nombre.imagen = paste(sampleNames(datos_crudos_microarrays)[i],".png",sep="")
+  png(filename = nombre.imagen, width = 1280, height = 720, units = "px", bg = "black")
+  image(x = datos_crudos_microarrays[,i], col = colores_hibridacion)
   dev.off()
 }
+
+# Reestablecemos la carpeta de trabajo original
+setwd("./")
 ```
 
 
