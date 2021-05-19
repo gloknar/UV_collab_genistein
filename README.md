@@ -1,4 +1,4 @@
-# Repositorio Genisteína y miRNAs
+# Repositorio Colaboración Genisteína y miRNAs con la Universidad de Valencia
  
 Este es un repositorio privado de acceso limitado al creador (Adam Casas) y colaboradores que previamente hayan pedido acceso (Drs. Juan Gambini y Kristine Strømsnes).
 
