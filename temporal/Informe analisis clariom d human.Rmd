@@ -232,7 +232,7 @@ pData(datos_crudos_microarrays)
 ```{r, eval = F}
 for (i in pData(datos_crudos_microarrays)$muestra) {
   nombre.imagen = paste("imagen",i,".jpg",sep="")
-  jpeg(nombre.imagen)
+  png(filename = nombre.imagen, width = 1920, height = 1080, units = "px", bg = "white")
   image(datos_crudos_microarrays[,i], 
         main = pData(datos_crudos_microarrays)$muestra[i])
   dev.off()
