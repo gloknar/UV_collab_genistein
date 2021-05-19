@@ -10,7 +10,9 @@ La motivación de este repositorio es crear un ambiente de trabajo a distancia, 
 
 Este repositorio consta de las siguientes carpetas:
 
- * Papers
+ * __Apuntes reuniones__. Aquí van los resúmenes de los contenidos que tratemos en las reuniones
+
+ * __Papers y referencias__. Contiene los pdfs de las publicaciones que vayamos a referenciar, o que necesitemos consultar durante la realización del proyecto
  
  * Placeholder
 
