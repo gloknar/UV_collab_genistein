@@ -1,0 +1,1 @@
+Leyendo los archivos .CEL de los Clariom D Human en GeneChip Command Console 6.0, todos se secuenciaron el mismo día (13/03/2018), por lo que podemos descartar efecto batch.  Podemos asumir lo mismo de los miRNA
