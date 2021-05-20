@@ -82,7 +82,6 @@ library("dplyr")
 Acto seguido definimos el directorio de trabajo en la carpeta donde se encuentran los archivos de secuenciado.
 
 ```{r}
-directorio_trabajo <- "C:/Users/Adam_/Desktop/microvesiculas - copia para trabajar/Resultados ClariomD_Human"
 directorio_trabajo <- "./microvesiculas - copia para trabajar/Resultados ClariomD_Human"
 ```
 
@@ -235,12 +234,12 @@ A partir de la matriz de intensidades del microarray, podemos reconstruir su apa
 # Generamos paleta de colores verde -> amarillo -> rojo
 colores_hibridacion <- rev(RColorBrewer::brewer.pal(n = 11, name = "RdYlGn"))
 
-# Establecemos temporalmente la carpeta de trabajo en "imagenes_microarrays"
+# Establecemos temporalmente la carpeta de trabajo en "Fotos arrays Clariom D
+# Human"
 setwd("./Fotos arrays Clariom D Human/")
 
 # Reconstruimos la apariencia original de los microarrays hibridados y guardamos
-# las imágenes resultantes con resolución 720p en la carpeta
-# "imagenes_microarrays"
+# las imágenes resultantes con resolución 720p en la carpeta de trabajo temporal
 for (i in pData(datos_crudos_microarrays)$muestra) {
   nombre.imagen = paste(sampleNames(datos_crudos_microarrays)[i],".png",sep="")
   png(filename = nombre.imagen, width = 1280, height = 720, units = "px", bg = "black")
