@@ -1,1 +1,0 @@
-Creo que la hoja 1 contiene los datos originales del microarray GeneChip, mientras que la hoja 2 contiene solo las moleculas de tipo stem-loop y miRNA (ademas de haber resaltado de colores distintos las muestras control y las tratadas con genisteina. Tambien saco la media de ambas clases e hizo t-tests en excel, SIN CORREGIR EL p-VALOR ¡AY MI MADRE!)
