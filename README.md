@@ -18,7 +18,7 @@ Este repositorio consta de las siguientes carpetas:
 
 <br>
 
-## Navegación
+## Secciones
 
 * La sección __Discussions__ permite abrir hilos de mensajes para comentar ideas, resolver dudas,... etc
 
