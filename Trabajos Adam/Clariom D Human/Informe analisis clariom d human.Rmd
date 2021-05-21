@@ -226,6 +226,96 @@ pData(datos_crudos_microarrays)
 
 ***
 
+# Histogramas
+
+```{r}
+# Con bucle for
+for (i in pData(datos_crudos_microarrays)$muestra) {
+hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
+     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
+     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))
+}
+
+
+# Con lapply (tarda 2 segundos menos)
+histogramas <- lapply(
+  seq(1,8), # tenemos 8 muestras
+  function(i) hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
+     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
+     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14)))
+```
+
+
+
+
+```{r, echo = F, eval = F}
+tiempo_for <-  system.time(for (i in pData(datos_crudos_microarrays)$muestra) {
+hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
+     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
+     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))
+})
+
+tiempo_lapply <- system.time(lapply(
+  seq(1,8), # tenemos 8 muestras
+  function(i) hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
+     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
+     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))))
+```
+
+
+
+
+jejeje
+
+
+
+```{r}
+# Distribucion intensidades sondas de todos los arrays con graphics
+colores <- rep(c("green", "red"), each = 4)
+
+hist(datos_crudos_microarrays[,1:8], lwd=2, which = "all", 
+     col= colores, ylab="Densidad", xlab= "Intensidad(log2)",
+     main = "Distribución de densidad de intensidades de sondas")
+```
+
+
+```{r}
+# REVISAR EL CODIGO ORIGINAL
+
+# Distribucion intensidades sondas de todos los arrays con ggplot2
+sampleNames = rownames(pData(datos_crudos_microarrays))
+logs = vector()
+for (i in sampleNames) {
+  logs = c(logs,log2(sondas_PM[,i]))
+}
+logs
+
+
+logData = data.frame(logInt=logs,sampleName=sampleNames)
+
+dataHist2 = ggplot(logData, aes(logInt, colour = sampleName)) 
+dataHist2 + geom_density()
+# Refactorizar y comentar este codigo...
+```
+
+  
+  
+
+
+```{r}
+# analissi efecto lote!
+affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
+```
+
+
+```{r}
+# Control qc, por ahora puedo usar el TAC, pero me gustaria poder hacerlo aquí
+devtools::install_github("grimbough/arrayQualityMetrics")
+library(arrayQualityMetrics)
+arrayQualityMetrics(datos_crudos_microarrays)
+```
+
+
 
 
 
