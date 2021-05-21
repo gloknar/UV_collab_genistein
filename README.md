@@ -10,19 +10,23 @@ La motivación de este repositorio es crear un ambiente de trabajo a distancia, 
 
 Este repositorio consta de las siguientes carpetas:
 
- * __Apuntes reuniones__. Aquí van los resúmenes de los contenidos que tratemos en las reuniones
+ * `Apuntes reuniones`. Aquí van los resúmenes de los contenidos que tratemos en las reuniones
 
- * __Papers y referencias__. Contiene los pdfs de las publicaciones que vayamos a referenciar, o que necesitemos consultar durante la realización del proyecto
+ * `Documentacion microarrays`. Contiene documentación técnica sobre los microarrays de tipo Clariom D Human (ARNm), GeneChip miRNA 4.0 (miARN) y TAC 4.0.2 (suite de análisis de arrays de Affymetrix)
  
- * Placeholder
+ * `Papers y referencias`. Contiene los pdfs de las publicaciones que vayamos a referenciar, o que necesitemos consultar durante la realización del proyecto
 
+ * `Trabajos previos`. Aquí se guardan los estudios previamente realizados por las estudiantes de medicina Elisa Sánchez y María Isabel Callau. 
+ 
 <br>
+
+***
 
 ## Secciones
 
-* La sección __Discussions__ permite abrir hilos de mensajes para comentar ideas, resolver dudas,... etc
+* La sección `Discussions` permite abrir hilos de mensajes para comentar ideas, resolver dudas,... etc
 
-* La sección __Projects__ contiene la lista de tareas pendientes y el organigrama del proyecto
+* La sección `Projects` contiene la lista de tareas pendientes y el organigrama del proyecto
 
 
 
