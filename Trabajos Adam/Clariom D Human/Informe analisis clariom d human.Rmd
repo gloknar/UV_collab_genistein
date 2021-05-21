@@ -329,6 +329,7 @@ affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
 
 ```{r}
 datos_crudos_microarrays <- oligo::rma(datos_crudos_microarrays)
+
 datos_crudos_microarrays@phenoData
 pData(datos_crudos_microarrays)
 View(fData(datos_crudos_microarrays))
@@ -341,6 +342,18 @@ show(object)
 
 data.rma = oligo::rma(datos_crudos_microarrays)
 data.matrix = exprs(data.rma)
+pcaMethods::pca(t(data.matrix))
+FactoMineR::plot.PCA(pca)
+pca <- FactoMineR::PCA(t(data.matrix), axes = c(1:3))
+pca$ind
+library(rgl)
+plot3d(pca$ind$coord[,1:3])
+
+pca$ind$coord$color <- c(rep(c("red", "blue"), times = 4))
+
+
+pca$ind
+
 ```
 
 # Podria añadir parallel backend
