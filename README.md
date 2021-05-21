@@ -18,6 +18,9 @@ Este repositorio consta de las siguientes carpetas:
 
  * `Trabajos previos`. Aquí se guardan los estudios previamente realizados por las estudiantes de medicina Elisa Sánchez y María Isabel Callau. 
  
+ * `Trabajos Adam`. Almacena los análisis de Adam y los archivos necesarios para los mismos. 
+
+
 <br>
 
 ***
