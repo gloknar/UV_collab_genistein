@@ -387,9 +387,21 @@ rma(datos_crudos_microarrays)
 
 <br>
 
+
+# Diagramas Venn
+
+
+https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/
+paquetes ggvenn o ggVennDiagram
+
+***
+
+<br>
+
+
 # Bibliografía
 
-* jaja
+* PlaceHolder
 
 
 
