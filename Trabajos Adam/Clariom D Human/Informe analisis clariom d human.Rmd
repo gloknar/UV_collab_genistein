@@ -340,12 +340,23 @@ preproc(object)
 show(object)
 
 
+
 data.rma = oligo::rma(datos_crudos_microarrays)
 data.matrix = exprs(data.rma)
+
+library("umap")
+cosa <- umap::umap(iris[,1:4])
+cosa
+plot
+
+iris
+data(iris)
+iris
 pcaMethods::pca(t(data.matrix))
 FactoMineR::plot.PCA(pca)
 pca <- FactoMineR::PCA(t(data.matrix), axes = c(1:3))
 pca$ind
+
 library(rgl)
 plot3d(pca$ind$coord[,1:3])
 
