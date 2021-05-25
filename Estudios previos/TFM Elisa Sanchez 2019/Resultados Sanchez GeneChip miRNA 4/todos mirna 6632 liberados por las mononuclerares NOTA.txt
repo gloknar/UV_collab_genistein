@@ -1,1 +1,3 @@
-La hoja 1 contiene los datos originales del microarray GeneChip, mientras que la hoja 2 contiene solo las moleculas de tipo stem-loop y miRNA, creo. Además, en la hoja 2 ha resaltado de colores distintos las muestras control y las tratadas con genisteína, y también hizo t-tests (y no corigió los p-valores) para contrastar diferencias entre la intensidad media de ambas condiciones.
+La hoja 1 contiene los datos originales del microarray GeneChip, mientras que la hoja 2 contiene solo las moleculas de tipo stem-loop y miRNA, creo. 
+
+Además, en la hoja 2 ha resaltado de colores distintos las muestras control y las tratadas con genisteína, y también hizo t-tests (y no corrigió los p-valores) para contrastar diferencias entre la intensidad media de ambas condiciones. Por lo visto, el programa ya hizo un ANOVA (SS, estadístico F...), aunque Sanchez hizo t-tests sobre los resultados del ANOVA (no es necesario)
