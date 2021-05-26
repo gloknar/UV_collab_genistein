@@ -10,13 +10,13 @@ La motivación de este repositorio es crear un ambiente de trabajo a distancia, 
 
 Este repositorio consta de las siguientes carpetas:
 
- * `Apuntes reuniones`. Aquí van los resúmenes de los contenidos que tratemos en las reuniones
+ * `Reuniones`. Aquí van los resúmenes de los contenidos que tratemos en las reuniones
 
  * `Documentacion microarrays`. Contiene documentación técnica sobre los microarrays de tipo Clariom D Human (ARNm), GeneChip miRNA 4.0 (miARN) y TAC 4.0.2 (suite de análisis de arrays de Affymetrix)
  
  * `Papers y referencias`. Contiene los pdfs de las publicaciones que vayamos a referenciar, o que necesitemos consultar durante la realización del proyecto
 
- * `Trabajos previos`. Aquí se guardan los estudios previamente realizados por las estudiantes de medicina Elisa Sánchez y María Isabel Callau. 
+ * `Estudios previos`. Aquí se guardan los estudios previamente realizados por las estudiantes de medicina Elisa Sánchez y María Isabel Callau. 
  
  * `Trabajos Adam`. Almacena los análisis de Adam y los archivos necesarios para los mismos. 
 
