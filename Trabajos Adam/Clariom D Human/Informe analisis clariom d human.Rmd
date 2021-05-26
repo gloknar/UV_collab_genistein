@@ -226,10 +226,23 @@ pData(datos_crudos_microarrays)
 
 ***
 
-# Histogramas
+# SECCIÓN EXPERIMENTAL!!!!!!!!
+
+## Histogramas
 
 ```{r}
-library("umap")
+library("Rtsne")
+??Rtsne
+head(intensidades)
+normalizado_tsne <- normalize_input(t(intensidades))
+tsne <- Rtsne(X = normalizado_tsne, perplexity = 2)
+plot(tsne$Y, col = c("red", "blue")); legend(-450, 500, legend = c("Control", "Genisteína"), col = c("red", "blue"), pch = 1)
+
+
+
+
+
+library("umap") # Usar paquete uwot?
 umap::umap(intensidades)
 library(FactoMineR)
 FactoMineR::PCA(intensidades)
@@ -305,7 +318,7 @@ dataHist2 + geom_density()
 ```
 
   
-# Analisis efecto lote
+## Analisis efecto lote
 
 Para analizar el efecto lote, podemos usar las fechas en las que se hicieron.
 
@@ -315,7 +328,7 @@ affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
 
 ```
 
-# QC
+## QC
 
 ```{r}
 # Control qc, por ahora puedo usar el TAC, pero me gustaria poder hacerlo aquí
@@ -325,7 +338,7 @@ affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
 ```
 
 
-#  background subtraction, normalization and summarization using median-polish (RMA)
+##  background subtraction, normalization and summarization using median-polish (RMA)
 
 ```{r}
 datos_crudos_microarrays <- oligo::rma(datos_crudos_microarrays)
@@ -367,7 +380,7 @@ pca$ind
 
 ```
 
-# Podria añadir parallel backend
+## Podria añadir parallel backend
 
 mirar documentacion oligo
 
@@ -388,7 +401,7 @@ rma(datos_crudos_microarrays)
 <br>
 
 
-# Diagramas Venn
+## Diagramas Venn
 
 
 https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/
