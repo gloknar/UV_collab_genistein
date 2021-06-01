@@ -138,7 +138,7 @@ Al cargar los archivos `.CEL` con `read.celfiles()`, se almacena en el bolsillo 
 # Obtenemos la matriz de intensidades cruda
 intensidades <- oligo::exprs(datos_crudos_microarrays)
 
-# Identificamos el nº de sondas presentes en cada microchips
+# Identificamos el nº de sondas presentes en cada microchip
 dim(intensidades)[1]
 ```
 
@@ -178,17 +178,17 @@ Si tenemos cuenta en la página web de ThermoFisher, podemos usar el centro de a
 
 
 ```{r, echo = F, eval = F}
-which(transcription_clusters == "TC1300007722.hg.1") # me devuelve 6 de 6 sondas
+which(transcription_clusters == "TC1300007722.hg.1") # Devuelve 6 de 6 sondas
 
-which(transcription_clusters == "TC0300011139.hg.1") # me devuelve 10 de 12 sondas
+which(transcription_clusters == "TC0300011139.hg.1") # Devuelve 10 de 12 sondas
 
-which(transcription_clusters == "TC1600006939.hg.1") # me devuelve 6 de 8 sondas
+which(transcription_clusters == "TC1600006939.hg.1") # Devuelve 6 de 8 sondas
 
-which(transcription_clusters == "TC0100018028.hg.1") # me devuelve 10 de 12 sondas
+which(transcription_clusters == "TC0100018028.hg.1") # Devuelve 10 de 12 sondas
 
-which(transcription_clusters == "TC0500010071.hg.1") # me devuelve 10 de 12 sondas
+which(transcription_clusters == "TC0500010071.hg.1") # Devuelve 10 de 12 sondas
 
-which(transcription_clusters == "TC1900010290.hg.1") # me devuelve 10 de 16 sondas
+which(transcription_clusters == "TC1900010290.hg.1") # Devuelve 10 de 16 sondas
 ```
 
 
@@ -230,7 +230,7 @@ pData(datos_crudos_microarrays)
 
 ## Histogramas
 
-```{r}
+```{r, eval = F}
 library("Rtsne")
 ??Rtsne
 head(intensidades)
@@ -268,11 +268,13 @@ histogramas <- lapply(
 
 
 ```{r, echo = F, eval = F}
+# Diferencia de tiempo entre bucle for y apply
 tiempo_for <-  system.time(for (i in pData(datos_crudos_microarrays)$muestra) {
 hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
      col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
      main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))
 })
+
 
 tiempo_lapply <- system.time(lapply(
   seq(1,8), # tenemos 8 muestras
@@ -288,7 +290,7 @@ jejeje
 
 
 
-```{r}
+```{r, eval = F}
 # Distribucion intensidades sondas de todos los arrays con graphics
 colores <- rep(c("green", "red"), each = 4)
 
@@ -298,7 +300,7 @@ hist(datos_crudos_microarrays[,1:8], lwd=2, which = "all",
 ```
 
 
-```{r}
+```{r, eval = F}
 # REVISAR EL CODIGO ORIGINAL
 
 # Distribucion intensidades sondas de todos los arrays con ggplot2
@@ -340,7 +342,7 @@ affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
 
 ##  background subtraction, normalization and summarization using median-polish (RMA)
 
-```{r}
+```{r, eval = F}
 datos_crudos_microarrays <- oligo::rma(datos_crudos_microarrays)
 
 datos_crudos_microarrays@phenoData
@@ -384,7 +386,7 @@ pca$ind
 
 mirar documentacion oligo
 
-```{r}
+```{r, eval = F}
 library(ff)
 library(foreach)
 library(doMC)

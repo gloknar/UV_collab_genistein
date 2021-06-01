@@ -330,7 +330,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Análisis de microarrays <em>Clariom D Human</em> en R</h1>
 <h4 class="author">Adam Casas</h4>
-<h4 class="date">Compilado: 21 de mayo del 2021</h4>
+<h4 class="date">Compilado: 01 de junio del 2021</h4>
 
 </div>
 
@@ -420,7 +420,7 @@ div.tocify {
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtenemos la matriz de intensidades cruda</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>intensidades <span class="ot">&lt;-</span> oligo<span class="sc">::</span><span class="fu">exprs</span>(datos_crudos_microarrays)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificamos el nº de sondas presentes en cada microchips</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificamos el nº de sondas presentes en cada microchip</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(intensidades)[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 6892960</code></pre>
 <p><br></p>
@@ -485,19 +485,148 @@ div.tocify {
 </div>
 <p><br></p>
 <hr />
+</div>
+<div id="sección-experimental" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> SECCIÓN EXPERIMENTAL!!!!!!!!</h1>
+<div id="histogramas" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Histogramas</h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;Rtsne&quot;</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>??Rtsne</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(intensidades)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>normalizado_tsne <span class="ot">&lt;-</span> <span class="fu">normalize_input</span>(<span class="fu">t</span>(intensidades))</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>tsne <span class="ot">&lt;-</span> <span class="fu">Rtsne</span>(<span class="at">X =</span> normalizado_tsne, <span class="at">perplexity =</span> <span class="dv">2</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tsne<span class="sc">$</span>Y, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)); <span class="fu">legend</span>(<span class="sc">-</span><span class="dv">450</span>, <span class="dv">500</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Genisteína&quot;</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">pch =</span> <span class="dv">1</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;umap&quot;</span>) <span class="co"># Usar paquete uwot?</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>umap<span class="sc">::</span><span class="fu">umap</span>(intensidades)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>FactoMineR<span class="sc">::</span><span class="fu">PCA</span>(intensidades)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">t</span>(intensidades))</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Con bucle for</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">pData</span>(datos_crudos_microarrays)<span class="sc">$</span>muestra) {</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos_crudos_microarrays[,i], <span class="at">transfo =</span> log2, <span class="at">which =</span> <span class="st">&quot;all&quot;</span>, </span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Intensidad (log2)&quot;</span>,</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">rownames</span>(<span class="fu">pData</span>(datos_crudos_microarrays))[i], <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">3.9</span>, <span class="dv">14</span>))</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Con lapply (tarda 2 segundos menos)</span></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>histogramas <span class="ot">&lt;-</span> <span class="fu">lapply</span>(</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">8</span>), <span class="co"># tenemos 8 muestras</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(i) <span class="fu">hist</span>(datos_crudos_microarrays[,i], <span class="at">transfo =</span> log2, <span class="at">which =</span> <span class="st">&quot;all&quot;</span>, </span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Intensidad (log2)&quot;</span>,</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">rownames</span>(<span class="fu">pData</span>(datos_crudos_microarrays))[i], <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">3.9</span>, <span class="dv">14</span>)))</span></code></pre></div>
+<p>jejeje</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribucion intensidades sondas de todos los arrays con graphics</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>colores <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="at">each =</span> <span class="dv">4</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(datos_crudos_microarrays[,<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">which =</span> <span class="st">&quot;all&quot;</span>, </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span> colores, <span class="at">ylab=</span><span class="st">&quot;Densidad&quot;</span>, <span class="at">xlab=</span> <span class="st">&quot;Intensidad(log2)&quot;</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución de densidad de intensidades de sondas&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># REVISAR EL CODIGO ORIGINAL</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribucion intensidades sondas de todos los arrays con ggplot2</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>sampleNames <span class="ot">=</span> <span class="fu">rownames</span>(<span class="fu">pData</span>(datos_crudos_microarrays))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>logs <span class="ot">=</span> <span class="fu">vector</span>()</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> sampleNames) {</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  logs <span class="ot">=</span> <span class="fu">c</span>(logs,<span class="fu">log2</span>(sondas_PM[,i]))</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>logs</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>logData <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">logInt=</span>logs,<span class="at">sampleName=</span>sampleNames)</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>dataHist2 <span class="ot">=</span> <span class="fu">ggplot</span>(logData, <span class="fu">aes</span>(logInt, <span class="at">colour =</span> sampleName)) </span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>dataHist2 <span class="sc">+</span> <span class="fu">geom_density</span>()</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Refactorizar y comentar este codigo...</span></span></code></pre></div>
+</div>
+<div id="analisis-efecto-lote" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Analisis efecto lote</h2>
+<p>Para analizar el efecto lote, podemos usar las fechas en las que se hicieron.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># analisis efecto lote!</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>affyio<span class="sc">::</span><span class="fu">get.celfile.dates</span>(ruta_completa_archivos_secuenciado)</span></code></pre></div>
+<pre><code>## [1] &quot;2018-03-13&quot; &quot;2018-03-13&quot; &quot;2018-03-13&quot; &quot;2018-03-13&quot; &quot;2018-03-13&quot;
+## [6] &quot;2018-03-13&quot; &quot;2018-03-13&quot; &quot;2018-03-13&quot;</code></pre>
+</div>
+<div id="qc" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> QC</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Control qc, por ahora puedo usar el TAC, pero me gustaria poder hacerlo aquí</span></span></code></pre></div>
+</div>
+<div id="background-subtraction-normalization-and-summarization-using-median-polish-rma" class="section level2" number="3.4">
+<h2 number="3.4"><span class="header-section-number">3.4</span> background subtraction, normalization and summarization using median-polish (RMA)</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>datos_crudos_microarrays <span class="ot">&lt;-</span> oligo<span class="sc">::</span><span class="fu">rma</span>(datos_crudos_microarrays)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>datos_crudos_microarrays<span class="sc">@</span>phenoData</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(datos_crudos_microarrays)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">fData</span>(datos_crudos_microarrays))</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">varMetadata</span>(datos_crudos_microarrays)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">umap</span>(datos_crudos_microarrays<span class="sc">@</span>assayData<span class="sc">$</span>exprs)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">preproc</span>(object)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(object)</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>data.rma <span class="ot">=</span> oligo<span class="sc">::</span><span class="fu">rma</span>(datos_crudos_microarrays)</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>data.matrix <span class="ot">=</span> <span class="fu">exprs</span>(data.rma)</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;umap&quot;</span>)</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>cosa <span class="ot">&lt;-</span> umap<span class="sc">::</span><span class="fu">umap</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>cosa</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>plot</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>iris</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>iris</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>pcaMethods<span class="sc">::</span><span class="fu">pca</span>(<span class="fu">t</span>(data.matrix))</span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>FactoMineR<span class="sc">::</span><span class="fu">plot.PCA</span>(pca)</span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> FactoMineR<span class="sc">::</span><span class="fu">PCA</span>(<span class="fu">t</span>(data.matrix), <span class="at">axes =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>ind</span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgl)</span>
+<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot3d</span>(pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>ind<span class="sc">$</span>coord<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">times =</span> <span class="dv">4</span>))</span>
+<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>ind</span></code></pre></div>
+</div>
+<div id="podria-añadir-parallel-backend" class="section level2" number="3.5">
+<h2 number="3.5"><span class="header-section-number">3.5</span> Podria añadir parallel backend</h2>
+<p>mirar documentacion oligo</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ff)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doMC)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoMC</span>(<span class="dv">2</span>)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(oligo)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rma</span>(datos_crudos_microarrays)</span></code></pre></div>
 <hr />
 <p><br></p>
 </div>
-<div id="bibliografía" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Bibliografía</h1>
+<div id="diagramas-venn" class="section level2" number="3.6">
+<h2 number="3.6"><span class="header-section-number">3.6</span> Diagramas Venn</h2>
+<p><a href="https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/" class="uri">https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/</a> paquetes ggvenn o ggVennDiagram</p>
+<hr />
+<p><br></p>
+</div>
+</div>
+<div id="bibliografía" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Bibliografía</h1>
 <ul>
-<li>jaja</li>
+<li>PlaceHolder</li>
 </ul>
 <hr />
 <p><br></p>
 </div>
-<div id="sessioninfo" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> sessionInfo()</h1>
+<div id="sessioninfo" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> sessionInfo()</h1>
 <pre><code>## R version 3.6.3 (2020-02-29)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 10 x64 (build 19042)
@@ -525,7 +654,7 @@ div.tocify {
 ## loaded via a namespace (and not attached):
 ##  [1] sass_0.4.0                  bit64_4.0.5                
 ##  [3] jsonlite_1.7.2              splines_3.6.3              
-##  [5] foreach_1.5.1               bslib_0.2.5                
+##  [5] foreach_1.5.1               bslib_0.2.5.1              
 ##  [7] BiocManager_1.30.15         blob_1.2.1                 
 ##  [9] GenomeInfoDbData_1.2.2      yaml_2.2.1                 
 ## [11] pillar_1.6.1                lattice_0.20-44            
