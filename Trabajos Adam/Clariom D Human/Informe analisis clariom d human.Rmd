@@ -226,6 +226,71 @@ pData(datos_crudos_microarrays)
 
 ***
 
+
+# Métricas de calidad
+
+## Efecto lote
+
+Para analizar el efecto lote, podemos usar las fechas en las que se secuenciaron los microarrays. El comando `get.celfile.dates()` del paquete `affyio` devuelve la fecha de dicho proceso.
+
+```{r}
+affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
+```
+Vemos que los microarrays se secuenciaron el mismo día. Adicionalmente, el programa `GeneChip Command Console 6.0` aportó la hora del secuenciado, el cual duró 6 horas en total (11AM-5PM).
+
+
+<br>
+
+## Análisis QC
+
+El programa `TAC 4.0.2` de Thermofisher muestra un resumen muy claro de las métricas de calidad de los microarrays.
+
+![](./imagenes adjuntas/QC TAC.png)
+
+Según la documentación del programa, un valor de `pos vs neg auc` > 0.7 es un buen primer cribado de calidad. Además, el resto de controles han salido bien, por lo que podemos confiar en la calidad del secuenciado de los presentes microarrays.
+
+
+
+<br>
+
+En R, el paquete `oligo` no parece poder sacar dichas métricas en microarrays nuevos de Affymetrix al carecer de archivos .CDF. Quizás `limma` o `DeSeq2` puedan.
+
+
+
+<br>
+
+***
+
+# Preprocesado microarrays: RMA
+
+Se puede usar RMA, GCRMA o SST-RMA
+
+```{r}
+eSet_normalizado <- oligo::rma(object = datos_crudos_microarrays,
+                                 normalize = T, background = T)
+```
+
+
+
+
+<br>
+
+***
+
+# Análisis DEG
+
+
+
+```{r}
+
+```
+
+
+
+<br>
+
+***
+
 # SECCIÓN EXPERIMENTAL!!!!!!!!
 
 ## Histogramas
