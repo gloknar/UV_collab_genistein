@@ -68,13 +68,16 @@ install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite
 
 <br>
 
-Comenzamos cargando `oligo`:
+Comenzamos cargando `oligo` y paquetes accesorios:
 
 ```{r carga librerias, message = F}
 # Cargamos librerías
 library("oligo")
 library("ggplot2")
-library("dplyr")
+library("dplyr") 
+library("FactoMineR") # PCA
+library("rgl") # gráficos 3D
+library("Rtsne") # t-SNE
 ```
 
 <br>
@@ -128,7 +131,7 @@ sampleNames(datos_crudos_microarrays)
 
 <br>
 
-Al cargar los archivos `.CEL` con `read.celfiles()`, se almacena en el bolsillo `datos_crudos_microarrays@assayData$exprs` la matriz de intensidades crudas de los fluoróforos que hibridan con las distintas sondas de cada microarray. Esta matriz tiene tantas filas como sondas tiene el microarray, y tantas columnas como muestras hayamos secuenciado. Las funciones `exprs()` e `intensity()` del paquete `oligo` simplifican el acceso a la misma (ambas funciones devuelven exactamente el mismo _output_).
+Al cargar los archivos `.CEL` con `read.celfiles()`, se almacena en el bolsillo `datos_crudos_microarrays@assayData$exprs` la matriz de intensidades crudas de los fluoróforos Cy3 y Cy5 que hibridan con las distintas sondas de cada microarray. Esta matriz tiene tantas filas como sondas tiene el microarray, y tantas columnas como muestras hayamos secuenciado. Las funciones `exprs()` e `intensity()` del paquete `oligo` simplifican el acceso a la misma (ambas funciones devuelven exactamente el mismo _output_).
 
 * Las filas corresponden a cada sonda individual del microarray, identificada por un nº que va desde el 1 hasta el nº máximo de sondas presentes en el mismo (en el caso de los microarrays _Clariom D Human_, estos contienen un máximo de 6.892.960 sondas).
 
@@ -142,16 +145,6 @@ intensidades <- oligo::exprs(datos_crudos_microarrays)
 dim(intensidades)[1]
 ```
 
-<br>
-
-Los microarrays de Affymetrix usan dos tipos de sondas: las PM (_Perfect Match_) y las MM (_MisMatch_). De acuerdo a [Flight _et al._](http://rmflight.github.io/affyMM/), las sondas PM contienen la secuencia complementaria exacta del transcrito con el que hibridan, mientras que las sondas MM contienen un nucleótido erróneo exactamente en la mitad de la sonda.
-
-Para acceder a las intensidades de las sondas PM, podemos usar el comando `pm()` de `oligo`:
-
-```{r}
-sondas_PM <- oligo::pm(datos_crudos_microarrays)
-head(sondas_PM)[,1:4]
-```
 
 <br>
 
@@ -236,24 +229,23 @@ Para analizar el efecto lote, podemos usar las fechas en las que se secuenciaron
 ```{r}
 affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
 ```
-Vemos que los microarrays se secuenciaron el mismo día. Adicionalmente, el programa `GeneChip Command Console 6.0` aportó la hora del secuenciado, el cual duró 6 horas en total (11AM-5PM).
+Vemos que los microarrays se secuenciaron el mismo día. Adicionalmente, el programa `GeneChip Command Console 6.0` de ThermoFisher (compañía propietaria de Affymetrix) aportó la hora del secuenciado, el cual duró 6 horas en total (11AM-5PM).
+
+En vista de que el secuenciado se realizó en un sólo lote (el mismo día y en horas consecutivas), concluimos que la probabilidad de observar varianza debida al ruido técnico del efecto lote es mínima.
 
 
 <br>
 
 ## Análisis QC
 
-El programa `TAC 4.0.2` de Thermofisher muestra un resumen muy claro de las métricas de calidad de los microarrays.
+El programa `TAC 4.0.2`, propiedad también de ThermoFisher, muestra un resumen muy claro de las métricas de calidad de los microarrays.
 
 ![](./imagenes adjuntas/QC TAC.png)
 
-Según la documentación del programa, un valor de `pos vs neg auc` > 0.7 es un buen primer cribado de calidad. Además, el resto de controles han salido bien, por lo que podemos confiar en la calidad del secuenciado de los presentes microarrays.
+Según la documentación del programa, un valor de `pos vs neg auc` > 0.7 es un buen primer cribado de calidad. Además de presentar un AUC > 0.7, el resto de controles han salido bien, por lo que podemos confiar en la calidad del secuenciado de los presentes microarrays.
 
 
-
-<br>
-
-En R, el paquete `oligo` no parece poder sacar dichas métricas en microarrays nuevos de Affymetrix al carecer de archivos .CDF. Quizás `limma` o `DeSeq2` puedan.
+En R, el paquete `oligo` parece no poder sacar dichas métricas en microarrays de tipo _Clariom_, puesto que al ser nuevos, no llevan asociados archivos `.CDF`. Quizás `limma` o `DESeq2` puedan tratar dichos microchips.
 
 
 
@@ -261,16 +253,51 @@ En R, el paquete `oligo` no parece poder sacar dichas métricas en microarrays n
 
 ***
 
-# Preprocesado microarrays: RMA
+# Preprocesado de los microarrays: RMA
 
-Se puede usar RMA, GCRMA o SST-RMA
+
+Antes de analizar los microarrays, necesitamos preprocesar las señales de las sondas para corregir el ruido técnico (problema común en los microarrays) y agrupar la información de las sondas que mapeen para un mismo gen (_summarization_).
+
+Para preprocesar y normalizar datos de microarrays, se suelen emplear el algoritmo `RMA` o derivados (_i.e._ `GCRMA` o `SST-RMA`). En nuestro caso vamos a usar el algoritmo `RMA`, implementado en `oligo`. Este algoritmo consta de 3 pasos:
+
+* __Background subtraction__. De acuerdo a la [documentación](http://bioconductor.org/packages/release/bioc/vignettes/oligo/inst/doc/oug.pdf) de `oligo`, el método de _background substraction_ implementado en RMA trata las sondas PM (_Perfect Match_, más informacion en [Flight _et al._](http://rmflight.github.io/affyMM/)) como una convolución de ruido y señal verdadera.
+
+* __Quantile normalization__. Paso necesario para dotar de igual valor a los genes estudiados, independientemente de su nivel de expresión constitutivo (este paso evita, por ejemplo, que genes expresados de manera constitutiva pero poco interesantes para el estudio estén sobrerrepresentados en análisis posteriores con respecto de genes más relevantes, pero de menor expresión basal como son los genes codificantes de factores de transcripcion). El método de normalizado implementado en `oligo` es `quantile`.
+
+* __Summarization__. Pasamos de analizar intensidades de sondas a niveles de expresión de genes. `oligo` realiza este paso mediante el método `medianpolish`.
+
+
+Para más información sobre la implementación de estos pasos en oligo, por favor consulte la documentación de los comandos `rma`, `backgroundCorrectionMethods()` y sucedáneos.
+
+
+
+<br>
+
+En `oligo`, el comando `rma` nos devuelve un objeto de tipo `ExpressionSet` (similar al objeto `datos_crudos_microarrays`) con los datos preprocesados en el bolsillo `eSet_normalizado@assayData$exprs`. Procedemos al RMA:
 
 ```{r}
 eSet_normalizado <- oligo::rma(object = datos_crudos_microarrays,
-                                 normalize = T, background = T)
+                                 background = T, normalize = T)
+
+head(eSet_normalizado@assayData$exprs)[,1:4]
 ```
 
+<br>
 
+## Comprobación del normalizado: Boxplots
+
+Podemos comparar los datos antes y después del normalizado y control de ruido técnico. Observamos que las intensidades medianas y los cuartiles 25-75 son idénticos entre todos los microarrays tras el normalizado, cosa que no era cierta en los datos crudos:
+
+```{r}
+par(mfcol = c(1,2))
+
+boxplot(datos_crudos_microarrays, "all", 
+        main = "Antes", col = rainbow(8), 
+        ylab = "intensidad sondas (log2)")
+
+boxplot(eSet_normalizado, main = "Después",
+        col = rainbow(8), ylab = "intensidad sondas (log2)")
+```
 
 
 <br>
@@ -281,8 +308,95 @@ eSet_normalizado <- oligo::rma(object = datos_crudos_microarrays,
 
 
 
-```{r}
+## Separación de las muestras: PCA y t-SNE
 
+Con los datos ya normalizados, podemos graficar los microarrays estudiados en un espacio de dimensionalidad reducida. La separación de los microarrays en dicho espacio nos dará una idea general de si existen genes diferencialmente expresados entre las condiciones estudiadas.
+
+Para el PCA, podemos usar las utilidades del paquete `FactoMineR` tal que así:
+
+```{r}
+# Creamos un dataframe de intensidades procesable por el PCA de 
+# dimensiones instancias x variables
+intensidades_normalizadas <- t(exprs(eSet_normalizado))
+intensidades_normalizadas_df <- as.data.frame(intensidades_normalizadas)
+
+# Añadimos al dataframe el factor "condicion"
+intensidades_normalizadas_df$condicion <- pData(eSet_normalizado)$condicion
+
+# Computamos las 3 primeras componentes principales
+pca_microarrays <- PCA(intensidades_normalizadas_df, graph = F, 
+                       axes = c(1:3), quali.sup = 138746)
+
+# Graficamos las 2 primeras componentes principales
+plot.PCA(pca_microarrays, choix = "ind", habillage = 138746)
+```
+
+
+```{r, eval = F}
+# Graficamos las 3 primeras componentes principales
+plot3d(pca_microarrays$ind$coord[,1:3], type = "s", 
+       col = c(rep(c("black", "red"), times = 4)))
+```
+
+
+![Puntos negros: control; puntos rojos: tratados con genisteína](./imagenes adjuntas/PCA 3D.png)
+
+
+<br>
+
+<br>
+
+y para el t-SNE:
+
+```{r}
+normalizado_tsne <- normalize_input(intensidades_normalizadas)
+tsne_microarrays <- Rtsne(normalizado_tsne, dims = 3, perplexity = 2)
+
+# Leyenda: Control negro, Genisteína rojo
+plot(tsne_microarrays$Y, col = c("black", "red"))
+```
+
+```{r, eval = F}
+plot3d(tsne_microarrays$Y[,1:3], type = "s", 
+       col = c(rep(c("black", "red"), times = 4)))
+```
+
+
+<br>
+
+<br>
+
+y el UMAP:
+
+```{r}
+library("uwot")
+umap_microarrays <- uwot::umap(intensidades_normalizadas, n_neighbors = 3, 
+                               n_components = 3)
+
+# Leyenda: Control negro, Genisteína rojo
+plot(umap_microarrays, col = c("black", "red"))
+```
+
+```{r, eval = F}
+# Graficamos el UMAP en 3D
+plot3d(umap_microarrays, type = "s", 
+       col = c(rep(c("black", "red"), times = 4)))
+
+```
+
+
+<br>
+
+## Análisis cualitativo: MA Plots
+
+Para visualizar si hay genes diferencialmente expresados, podemos emplear el comando `MAplot` del paquete `oligo`. Los gráficos MA muestran en el eje X la intensidad media de una sonda dada a lo largo de los microarrays estudiados, y en el eje Y se observa el log2(fold change) o logaritmo en base dos del ratio de sobre/infraexpresión del gen al que mapea dicha sonda. 
+
+Los genes diferencialmente expresados se encontrarán lejos de la nube de puntos (log2(FC) > |1|), mientras que los genes que no varíen entre condiciones presentarán valores de log2(FC) cercano a 0.
+
+```{r}
+par(mfrow=c(2,2))
+
+oligo::MAplot(eSet_normalizado, refSamples = c(1,3,5,7), which = c(2,4,6,8), main = "vs grupo Control")
 ```
 
 
@@ -292,180 +406,6 @@ eSet_normalizado <- oligo::rma(object = datos_crudos_microarrays,
 ***
 
 # SECCIÓN EXPERIMENTAL!!!!!!!!
-
-## Histogramas
-
-```{r, eval = F}
-library("Rtsne")
-??Rtsne
-head(intensidades)
-normalizado_tsne <- normalize_input(t(intensidades))
-tsne <- Rtsne(X = normalizado_tsne, perplexity = 2)
-plot(tsne$Y, col = c("red", "blue")); legend(-450, 500, legend = c("Control", "Genisteína"), col = c("red", "blue"), pch = 1)
-
-
-
-
-
-library("umap") # Usar paquete uwot?
-umap::umap(intensidades)
-library(FactoMineR)
-FactoMineR::PCA(intensidades)
-head(t(intensidades))
-
-# Con bucle for
-for (i in pData(datos_crudos_microarrays)$muestra) {
-hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
-     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
-     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))
-}
-
-
-# Con lapply (tarda 2 segundos menos)
-histogramas <- lapply(
-  seq(1,8), # tenemos 8 muestras
-  function(i) hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
-     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
-     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14)))
-```
-
-
-
-
-```{r, echo = F, eval = F}
-# Diferencia de tiempo entre bucle for y apply
-tiempo_for <-  system.time(for (i in pData(datos_crudos_microarrays)$muestra) {
-hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
-     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
-     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))
-})
-
-
-tiempo_lapply <- system.time(lapply(
-  seq(1,8), # tenemos 8 muestras
-  function(i) hist(datos_crudos_microarrays[,i], transfo = log2, which = "all", 
-     col = "black", ylab = "Densidad", xlab = "Intensidad (log2)",
-     main = rownames(pData(datos_crudos_microarrays))[i], xlim = c(3.9, 14))))
-```
-
-
-
-
-jejeje
-
-
-
-```{r, eval = F}
-# Distribucion intensidades sondas de todos los arrays con graphics
-colores <- rep(c("green", "red"), each = 4)
-
-hist(datos_crudos_microarrays[,1:8], lwd=2, which = "all", 
-     col= colores, ylab="Densidad", xlab= "Intensidad(log2)",
-     main = "Distribución de densidad de intensidades de sondas")
-```
-
-
-```{r, eval = F}
-# REVISAR EL CODIGO ORIGINAL
-
-# Distribucion intensidades sondas de todos los arrays con ggplot2
-sampleNames = rownames(pData(datos_crudos_microarrays))
-logs = vector()
-for (i in sampleNames) {
-  logs = c(logs,log2(sondas_PM[,i]))
-}
-logs
-
-
-logData = data.frame(logInt=logs,sampleName=sampleNames)
-
-dataHist2 = ggplot(logData, aes(logInt, colour = sampleName)) 
-dataHist2 + geom_density()
-# Refactorizar y comentar este codigo...
-```
-
-  
-## Analisis efecto lote
-
-Para analizar el efecto lote, podemos usar las fechas en las que se hicieron.
-
-```{r}
-# analisis efecto lote!
-affyio::get.celfile.dates(ruta_completa_archivos_secuenciado)
-
-```
-
-## QC
-
-```{r}
-# Control qc, por ahora puedo usar el TAC, pero me gustaria poder hacerlo aquí
-
-
-
-```
-
-
-##  background subtraction, normalization and summarization using median-polish (RMA)
-
-```{r, eval = F}
-datos_crudos_microarrays <- oligo::rma(datos_crudos_microarrays)
-
-datos_crudos_microarrays@phenoData
-pData(datos_crudos_microarrays)
-View(fData(datos_crudos_microarrays))
-varMetadata(datos_crudos_microarrays)
-umap(datos_crudos_microarrays@assayData$exprs)
-
-preproc(object)
-show(object)
-
-
-
-data.rma = oligo::rma(datos_crudos_microarrays)
-data.matrix = exprs(data.rma)
-
-library("umap")
-cosa <- umap::umap(iris[,1:4])
-cosa
-plot
-
-iris
-data(iris)
-iris
-pcaMethods::pca(t(data.matrix))
-FactoMineR::plot.PCA(pca)
-pca <- FactoMineR::PCA(t(data.matrix), axes = c(1:3))
-pca$ind
-
-library(rgl)
-plot3d(pca$ind$coord[,1:3])
-
-pca$ind$coord$color <- c(rep(c("red", "blue"), times = 4))
-
-
-pca$ind
-
-```
-
-## Podria añadir parallel backend
-
-mirar documentacion oligo
-
-```{r, eval = F}
-library(ff)
-library(foreach)
-library(doMC)
-registerDoMC(2)
-library(oligo)
-
-
-rma(datos_crudos_microarrays)
-```
-
-
-***
-
-<br>
 
 
 ## Diagramas Venn
