@@ -306,6 +306,9 @@ boxplot(eSet_normalizado, main = "Después",
 
 # Análisis DEG
 
+De acuerdo a [McDermaid _et al._(2019)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6954399/), podría usar para DGE análisis edgeR, Cutdiff/Cutdiff2, limma, DESeq2.. etc
+
+<br>
 
 
 ## Separación de las muestras: PCA y t-SNE
@@ -387,16 +390,79 @@ plot3d(umap_microarrays, type = "s",
 
 <br>
 
+
+En resumen, sólo el PCA 3D es informativo de la posible distribución de las muestras. El t-SNE y el UMAP en 3D no son concluyentes (los datos parecen mezclarse).
+
+
+
+<br>
+
 ## Análisis cualitativo: MA Plots
 
 Para visualizar si hay genes diferencialmente expresados, podemos emplear el comando `MAplot` del paquete `oligo`. Los gráficos MA muestran en el eje X la intensidad media de una sonda dada a lo largo de los microarrays estudiados, y en el eje Y se observa el log2(fold change) o logaritmo en base dos del ratio de sobre/infraexpresión del gen al que mapea dicha sonda. 
 
-Los genes diferencialmente expresados se encontrarán lejos de la nube de puntos (log2(FC) > |1|), mientras que los genes que no varíen entre condiciones presentarán valores de log2(FC) cercano a 0.
+Los genes diferencialmente expresados se encontrarán lejos de la nube de puntos (log2(FC) > |1|), mientras que los genes que no varíen entre condiciones presentarán valores de log2(FC) cercano a 0. No obstante, el MA plot no devuelve p-valores, por lo que para asegurarnos de que los resultados son significativos, deberíamos recurrir a un Volcano plot, que combina el log2FC y los p-valores de los genes estudiados.
 
 ```{r}
 par(mfrow=c(2,2))
 
 oligo::MAplot(eSet_normalizado, refSamples = c(1,3,5,7), which = c(2,4,6,8), main = "vs grupo Control")
+```
+
+
+
+<br>
+
+
+## limma
+
+
+Identification of DE genes is not done by the affy nor the oligo package but by the limma package. Limma uses the output of the rma() method (data.rma) as input. Since the output of the rma() method is the same in the affy and in the oligo package, limma works well with both packages. This means that all following code is valid for all normalized Affymetrix data regardless of the package that was used for normalization
+
+
+
+
+First of all you need to tell limma which samples are replicates and which samples belong to different groups by providing this information in the phenoData slot of the AffyBatch/FeatureSet. To this end, we add a second column with sample annotation describing the source of each sample. We will give this new column a name. 
+
+
+```{r}
+# Creamos el diseño del t-test
+diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
+colnames(diseno) = c("Control","Genisteina")
+
+
+library("limma")
+# Generamos modelo lineal
+data.fit = lmFit(t(intensidades_normalizadas), diseno)
+
+data.fit$coefficients[1:10,]
+
+
+
+
+contrast.matrix = makeContrasts(Genisteina-Control, levels = diseno)
+
+data.fit.con = contrasts.fit(data.fit, contrast.matrix)
+
+
+data.fit.eb = eBayes(data.fit.con)
+
+
+# Log2FC de genes:
+data.fit.eb$coefficients[11600:11610,]
+
+# p-valores de los t-tests moderados por eBayes
+data.fit.eb$p.value[11600:11610,]
+
+data.fit.eb$coefficients
+
+# Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes diferencialmente expresados y estadísticamente significativos
+volcanoplot(data.fit.eb, highlight = 10); abline(h = 1.301, v = c(-1,1))
+```
+
+```{r}
+tab = topTable(data.fit.eb ,coef = 1 ,number = 200, adjust.method ="BH", sort.by = "p")
+head(tab)
 ```
 
 
@@ -417,6 +483,8 @@ paquetes ggvenn o ggVennDiagram
 ***
 
 <br>
+
+De acuerdo a [McDermaid _et al._(2019)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6954399/), podría usar para DGE análisis edgeR, Cutdiff/Cutdiff2, limma, DESeq2.. etc
 
 
 # Bibliografía
