@@ -56,8 +56,8 @@ Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la 
 # Instalación oligo en R 3.6:
 BiocManager::install("oligo")
 
-# Paquete ff versión 2.2.14:
-install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-14.tar.gz", 
+# Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
+install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
                  repos=NULL, type = "source")
 
 # Paquete RSQLite versión 2.1.4:
