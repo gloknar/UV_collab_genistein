@@ -59,7 +59,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -330,7 +329,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Análisis de microarrays <em>Clariom D Human</em> en R</h1>
 <h4 class="author">Adam Casas</h4>
-<h4 class="date">Compilado: 02 de junio del 2021</h4>
+<h4 class="date">Compilado: 04 de junio del 2021</h4>
 
 </div>
 
@@ -355,8 +354,8 @@ div.tocify {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación oligo en R 3.6:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;oligo&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete ff versión 2.2.14:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-14.tar.gz&quot;</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz&quot;</span>, </span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete RSQLite versión 2.1.4:</span></span>
@@ -648,7 +647,7 @@ div.tocify {
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] uwot_0.1.10               Matrix_1.3-3             
+##  [1] uwot_0.1.10               Matrix_1.3-4             
 ##  [3] pd.clariom.d.human_3.14.1 DBI_1.1.1                
 ##  [5] RSQLite_2.1.4             Rtsne_0.15               
 ##  [7] rgl_0.106.8               FactoMineR_2.4           
@@ -659,50 +658,50 @@ div.tocify {
 ## [17] oligoClasses_1.48.0       BiocGenerics_0.32.0      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bitops_1.0-7                matrixStats_0.58.0         
-##  [3] bit64_4.0.5                 webshot_0.5.2              
-##  [5] GenomeInfoDb_1.22.1         tools_3.6.3                
-##  [7] bslib_0.2.5.1               utf8_1.2.1                 
-##  [9] R6_2.5.0                    DT_0.18                    
-## [11] affyio_1.56.0               KernSmooth_2.23-20         
-## [13] colorspace_2.0-1            manipulateWidget_0.10.1    
-## [15] withr_2.4.2                 tidyselect_1.1.1           
-## [17] bit_4.0.4                   compiler_3.6.3             
-## [19] preprocessCore_1.48.0       flashClust_1.01-2          
-## [21] DelayedArray_0.12.3         labeling_0.4.2             
-## [23] sass_0.4.0                  scales_1.1.1               
-## [25] stringr_1.4.0               digest_0.6.27              
-## [27] rmarkdown_2.8               pkgconfig_2.0.3            
-## [29] htmltools_0.5.1.1           highr_0.9                  
-## [31] fastmap_1.1.0               htmlwidgets_1.5.3          
-## [33] rlang_0.4.11                FNN_1.1.3                  
-## [35] shiny_1.6.0                 farver_2.1.0               
-## [37] jquerylib_0.1.4             generics_0.1.0             
-## [39] jsonlite_1.7.2              crosstalk_1.1.1            
-## [41] BiocParallel_1.20.1         RCurl_1.98-1.3             
-## [43] magrittr_2.0.1              GenomeInfoDbData_1.2.2     
-## [45] leaps_3.1                   Rcpp_1.0.6                 
-## [47] munsell_0.5.0               fansi_0.4.2                
-## [49] lifecycle_1.0.0             scatterplot3d_0.3-41       
-## [51] stringi_1.6.2               yaml_2.2.1                 
-## [53] MASS_7.3-54                 SummarizedExperiment_1.16.1
-## [55] zlibbioc_1.32.0             grid_3.6.3                 
-## [57] affxparser_1.58.0           blob_1.2.1                 
-## [59] promises_1.2.0.1            ggrepel_0.9.1              
-## [61] crayon_1.4.1                miniUI_0.1.1.1             
-## [63] lattice_0.20-44             splines_3.6.3              
-## [65] knitr_1.33                  pillar_1.6.1               
-## [67] GenomicRanges_1.38.0        codetools_0.2-18           
-## [69] glue_1.4.2                  evaluate_0.14              
-## [71] BiocManager_1.30.15         vctrs_0.3.8                
-## [73] httpuv_1.6.1                foreach_1.5.1              
-## [75] gtable_0.3.0                purrr_0.3.4                
-## [77] cachem_1.0.5                xfun_0.23                  
-## [79] mime_0.10                   xtable_1.8-4               
-## [81] ff_2.2-14                   RSpectra_0.16-0            
-## [83] later_1.2.0                 tibble_3.1.2               
-## [85] iterators_1.0.13            memoise_2.0.0              
-## [87] cluster_2.1.2               ellipsis_0.3.2</code></pre>
+##  [1] bitops_1.0-7                matrixStats_0.59.0         
+##  [3] bit64_4.0.5                 GenomeInfoDb_1.22.1        
+##  [5] tools_3.6.3                 bslib_0.2.5.1              
+##  [7] utf8_1.2.1                  R6_2.5.0                   
+##  [9] DT_0.18                     affyio_1.56.0              
+## [11] KernSmooth_2.23-20          colorspace_2.0-1           
+## [13] manipulateWidget_0.11.0     withr_2.4.2                
+## [15] tidyselect_1.1.1            bit_4.0.4                  
+## [17] compiler_3.6.3              preprocessCore_1.48.0      
+## [19] flashClust_1.01-2           DelayedArray_0.12.3        
+## [21] labeling_0.4.2              sass_0.4.0                 
+## [23] scales_1.1.1                stringr_1.4.0              
+## [25] digest_0.6.27               rmarkdown_2.8              
+## [27] pkgconfig_2.0.3             htmltools_0.5.1.1          
+## [29] highr_0.9                   fastmap_1.1.0              
+## [31] htmlwidgets_1.5.3           rlang_0.4.11               
+## [33] FNN_1.1.3                   shiny_1.6.0                
+## [35] farver_2.1.0                jquerylib_0.1.4            
+## [37] generics_0.1.0              jsonlite_1.7.2             
+## [39] crosstalk_1.1.1             BiocParallel_1.20.1        
+## [41] RCurl_1.98-1.3              magrittr_2.0.1             
+## [43] GenomeInfoDbData_1.2.2      leaps_3.1                  
+## [45] Rcpp_1.0.6                  munsell_0.5.0              
+## [47] fansi_0.5.0                 lifecycle_1.0.0            
+## [49] scatterplot3d_0.3-41        stringi_1.6.2              
+## [51] yaml_2.2.1                  MASS_7.3-54                
+## [53] SummarizedExperiment_1.16.1 zlibbioc_1.32.0            
+## [55] grid_3.6.3                  affxparser_1.58.0          
+## [57] blob_1.2.1                  promises_1.2.0.1           
+## [59] ggrepel_0.9.1               crayon_1.4.1               
+## [61] miniUI_0.1.1.1              lattice_0.20-44            
+## [63] splines_3.6.3               knitr_1.33                 
+## [65] pillar_1.6.1                GenomicRanges_1.38.0       
+## [67] codetools_0.2-18            glue_1.4.2                 
+## [69] evaluate_0.14               BiocManager_1.30.15        
+## [71] vctrs_0.3.8                 httpuv_1.6.1               
+## [73] foreach_1.5.1               gtable_0.3.0               
+## [75] purrr_0.3.4                 cachem_1.0.5               
+## [77] xfun_0.23                   mime_0.10                  
+## [79] xtable_1.8-4                ff_2.2-0                   
+## [81] RSpectra_0.16-0             later_1.2.0                
+## [83] tibble_3.1.2                iterators_1.0.13           
+## [85] memoise_2.0.0               cluster_2.1.2              
+## [87] ellipsis_0.3.2</code></pre>
 </div>
 
 
