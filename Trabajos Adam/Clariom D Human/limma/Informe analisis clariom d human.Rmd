@@ -467,8 +467,21 @@ volcanoplot(data.fit.eb, highlight = 10); abline(h = 1.301, v = c(-1,1))
 ```
 
 ```{r}
-tab = topTable(data.fit.eb ,coef = 1 ,number = 200, adjust.method ="BH", sort.by = "p")
+tab = topTable(data.fit.eb ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
 head(tab)
+
+
+# Elegimos los genes que caen en las regiones del volcano plot de interés
+genes_diferencialmente_expresados <- which(tab$P.Value <= 0.05 & abs(tab$logFC) >= 1)
+
+# Encontramos 204 candidatos. Recordemos que el 60% de ellos puede ser ruido,
+# otros serán sondas de QC (HTA-pos/neg-3371052_st...)
+length(genes_diferencialmente_expresados)
+
+lista_DGE_limma <- rownames(tab[genes_diferencialmente_expresados,])
+
+# lista_DGE_limma <- as.vector(lista_DGE_limma)
+write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, row.names = F, col.names = F)
 ```
 
 
