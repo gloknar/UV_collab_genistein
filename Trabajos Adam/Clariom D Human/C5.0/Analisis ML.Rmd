@@ -1,5 +1,5 @@
 ---
-title: "Análisis de microarrays _Clariom D Human_ en R"
+title: "Análisis de microarrays _Clariom D Human_ en R - ML"
 author: "Adam Casas"
 date: 'Compilado: `r format(Sys.Date(), "%d de %B del %Y")`'
 output: 
@@ -33,16 +33,11 @@ set.seed(1)
 
 # Introducción
 
-En este documento se muestra cómo analizar los archivos con extensión `.CEL` resultantes de secuenciar muestras biológicas en los microchips _Clariom D Human_ de Affymetrix. Llevaremos a cabo este análisis en R 3.6 con el paquete de Bioconductor `oligo` versión 1.50.0. La versión de Biocondcutor empleada es la 3.10.
+Vamos a hacer un análisis exploratorio en árboles de decisiones para ver qué genes son los más importantes a la hora de clasificar un microarray como control o como tratado con genisteína.
 
-![Microchip Clariom D Human y sus correspondientes reactivos](https://assets.thermofisher.com/TFS-Assets/LSG/product-images/902922-650x600.jpg-650.jpg)
+El análisis será exploratorio porque tenemos un tamaño muestral demasiado bajo como para aplicar técnicas avanzadas de ML, pero nos servirá pàra cruzar los datos con el resto de análisis que hagamos (_i.e._ `limma`, `DESEq2`, `edgeR`, etc).
 
-Fuente: https://wiki.bits.vib.be/index.php/Analyze_your_own_microarray_data_in_R/Bioconductor
-
-y
-
-https://www.thermofisher.com/es/es/home/life-science/microarray-analysis/microarray-data-analysis.html
-
+Si el ANOVA trata de predecir la intensidad de una sonda a partir del factor `condición` (=`tratamiento`) y calcula el p-valor de la diferencia de medias de cada sonda, el análisis en ML tiene el enfoque contrario: A partir de las intensidades de todas las sondas, predecir la clase (=condición) a la que pertenece la instancia.
 
 <br>
 
@@ -50,11 +45,11 @@ https://www.thermofisher.com/es/es/home/life-science/microarray-analysis/microar
 
 # Carga de datos y librerías
 
-Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.14 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
 
-```{r instalacion oligo y dependencias, eval = F}
-# Instalación oligo en R 3.6:
-BiocManager::install("oligo")
+
+```{r instalacion caret y dependencias, eval = F}
+# Instalación caret en R 3.6:
+install.packages("caret")
 
 # Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
 install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
@@ -72,98 +67,101 @@ Comenzamos cargando `oligo` y paquetes accesorios:
 
 ```{r carga librerias, message = F}
 # Cargamos librerías
-library("oligo")
-library("ggplot2")
-library("dplyr") 
-library("FactoMineR") # PCA
-library("rgl") # gráficos 3D
-library("Rtsne") # t-SNE
+library(caret)
+library(Boruta)
+
+library(partykit)
+library(pROC)
+library(MLmetrics)
+library(partykit)
 ```
 
 <br>
 
-Acto seguido definimos el directorio de trabajo en la carpeta donde se encuentran los archivos de secuenciado.
 
 ```{r}
-directorio_trabajo <- "../Archivos secuenciado/"
+intensidades_normalizadas_df <- readRDS("./intensidades_normalizadas_df.rds")
+
+head(intensidades_normalizadas_df)
+dim(intensidades_normalizadas_df)
+# La última columna es la clase
 ```
 
 
-Listamos y cargamos los archivos de secuenciado en el objeto de tipo `HTAFeatureSet` denominado `datos_crudos_microarrays`. La carga de los archivos `.CEL` se hace mediante la función `read.celfiles`, la cual lee y carga los archivos por orden alfabético de sus nombres (_i.e._ primero carga el archivo `52CNT_(Clariom_D_Human).CEL`, luego `52GEN_(Clariom_D_Human).CEL`, luego `53CNT_(Clariom_D_Human).CEL`, ...etc):
 
-```{r}
-# Obtenemos la ruta completa de los archivos con el argumento `full.names = T`
-ruta_completa_archivos_secuenciado <- list.files(path = directorio_trabajo, pattern = "*.CEL", full.names = T)
-
-# Cargamos datos
-datos_crudos_microarrays <- read.celfiles(filenames = ruta_completa_archivos_secuenciado)
-
-# Observamos el tipo de objeto que hemos cargado
-summary(datos_crudos_microarrays)
-
-# Observamos las sondas y muestras que tenemos
-dim(datos_crudos_microarrays)
-```
-
-```{r, echo = F, eval = F}
-# Con el comando str() podemos ver la estructura general y bolsillos del objeto
-# `datos_crudos_microarrays`, pero no lo ejecutaremos para no llenar de
-# información la terminal:
-str(datos_crudos_microarrays)
-```
-
-
-Podemos ver el nombre de los microchips con el comando `sampleNames()`.
-
-```{r}
-sampleNames(datos_crudos_microarrays)
-```
-
-Vamos a cambiar sus nombres por otros más claros:
-
-```{r}
-sampleNames(datos_crudos_microarrays) <- c("Control_1", "Genisteina_1",
-                                           "Control_2", "Genisteina_2",
-                                           "Control_3", "Genisteina_3",
-                                           "Control_4", "Genisteina_4")
-sampleNames(datos_crudos_microarrays)
-```
 
 <br>
 
-Al cargar los archivos `.CEL` con `read.celfiles()`, se almacena en el bolsillo `datos_crudos_microarrays@assayData$exprs` la matriz de intensidades crudas de los fluoróforos Cy3 y Cy5 que hibridan con las distintas sondas de cada microarray. Esta matriz tiene tantas filas como sondas tiene el microarray, y tantas columnas como muestras hayamos secuenciado. Las funciones `exprs()` e `intensity()` del paquete `oligo` simplifican el acceso a la misma (ambas funciones devuelven exactamente el mismo _output_).
+***
 
-* Las filas corresponden a cada sonda individual del microarray, identificada por un nº que va desde el 1 hasta el nº máximo de sondas presentes en el mismo (en el caso de los microarrays _Clariom D Human_, estos contienen un máximo de 6.892.960 sondas).
+# Preprocesado
 
-* Las columnas son las muestras, en nuestro caso `Control_1`, `Genisteina_1`, `Control_2`... etc
+Antes de aplicar los algoritmos de ML, necesitamos preprocesar el dataset.
+
+
+<br>
+
+## Imputación de valores NA
+
+Como hemos generado nosotros mismos el dataset, sabemos que carece de valores NA, por lo que no hay que imputar nada.
+
+
+<br>
+
+## Formato de variables
+
+Como vimos antes, todas las variables salvo la clase están en formato `numeric`. Por si acaso, volvemos a comprobar que R reconozca bien la clase y sus niveles.
 
 ```{r}
-# Obtenemos la matriz de intensidades cruda
-intensidades <- oligo::exprs(datos_crudos_microarrays)
-
-# Identificamos el nº de sondas presentes en cada microchip
-dim(intensidades)[1]
+class(intensidades_normalizadas_df)
+levels(intensidades_normalizadas_df$condicion)
 ```
 
 
 <br>
 
-De acuerdo a la documentación de [Affymetrix](https://www.affymetrix.com/support/help/exon_glossary/index.jsp#clusteroverview), las sondas de los microarrays de tipo Clariom D Human (Gene Arrays) están agrupadas en _transcription clusters_ en vez de _probesets_.
+## Escalado
 
-Con el comando `probeNames()` obtenemos los _transcription clusters_ a los que pertenecen las sondas de nuestro microchip, de manera que la primera sonda del microarray pertenece al _transcription cluster_ TC1300007722.hg.1: 
+
+Escalaríamos los datos si tuviesemos variables recogidas en distintas unidades (por ejemplo, algunas en metros, otras en kilometros...), pero al estar trabajando con arrays, no es necesario (todas las sondas se miden con las mismas unidades... ¿lumens?)
+
+
+<br>
+
+## Normalizado
+
+Normalizamos previamente el dataset con `oligo` (algoritmo `RMA`) antes de cargarlo aquí, por lo que no es necesario.
+
+
+<br>
+
+## Variables redundantes (correlacionadas)
+
+
+A cotinuación eliminamos las variables numéricas altamente correlacionadas con el metodo `findCorrelation` del paquete `caret`. Para ello necesitamos crear una __matriz de correlaciones__ que contenga exclusivamente las variables predictoras numéricas del dataset, por lo que seleccionaremos todas menos al última columa (clase)
 
 ```{r}
-# Obtenemos y mostramos los transcription clusters a los que pertenece cada sonda
-transcription_clusters <- probeNames(datos_crudos_microarrays)
-head(transcription_clusters)
-
-# Cada microarray de tipo Clariom D Human contiene 1.220.891 transcription
-# clusters
-length(transcription_clusters)
-
-# Obtenemos las sondas que pertenecen al transcription cluster TC1300007722.hg.1
-which(transcription_clusters == "TC1300007722.hg.1")
+R <- cor(intensidades_normalizadas_df[,1:dim(intensidades_normalizadas_df)[2]-1])
+caret::findCorrelation(
+  R,
+  cutoff = 0.75,
+  verbose = TRUE,
+  names = TRUE)
 ```
+
+```{r, eval = F}
+memory.limit(size = 2500)
+memory.limit()
+?gc()
+gc()
+```
+
+
+
+
+
+
+
 
 <br>
 
