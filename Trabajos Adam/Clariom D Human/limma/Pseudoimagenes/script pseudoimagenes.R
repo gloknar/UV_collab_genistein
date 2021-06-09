@@ -16,7 +16,7 @@ library("ggplot2")
 library("dplyr")
 
 
-ruta_completa_archivos_secuenciado <- list.files(path = "../Archivos secuenciado/", 
+ruta_completa_archivos_secuenciado <- list.files(path = "../../Archivos secuenciado/", 
                                                  pattern = "*.CEL", full.names = T)
 
 # Cargamos datos
