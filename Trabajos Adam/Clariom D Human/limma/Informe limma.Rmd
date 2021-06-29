@@ -425,6 +425,8 @@ Procedemos a detectar los genes diferencialmente expresados mediante las utilida
 
 NOTA: usé t-test no pareado, pero si las células troncales provienen del mismo individuo (no son sets independientes), entonces tendré que usar un t-test para datos pareados.
 
+Tras hablar con gambini, reuslta que son datos pareados. debo corregir eso-.
+
 ```{r}
 # Creamos el diseño del t-test no pareado
 diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
