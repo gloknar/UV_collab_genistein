@@ -52,8 +52,12 @@ Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la 
 BiocManager::install("oligo")
 
 # Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
+remove.packages("ff")
+
 install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
                  repos=NULL, type = "source")
+
+installed.packages()
 
 # Paquete RSQLite versión 2.1.4:
 install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",
@@ -427,7 +431,7 @@ NOTA: usé t-test no pareado, pero si las células troncales provienen del mismo
 
 Tras hablar con gambini, reuslta que son datos pareados. debo corregir eso-.
 
-```{r}
+```{r, eval = F}
 # Creamos el diseño del t-test no pareado
 diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
 colnames(diseno) = c("Control","Genisteina")
@@ -462,6 +466,73 @@ head(data.fit.eb$coefficients)
 # diferencialmente expresados y estadísticamente significativos
 volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1))
 ```
+
+
+
+```{r}
+# Creamos el diseño del t-test pareado (este es el bueno)
+
+
+# As an example we will compare 2 groups of 4 patients before and after treatment (no genistein and after genistein):
+
+# Treatment is the grouping variable dividing the data set into two groups:
+# control and genistein-treated. To tell limma that your data is paired you just
+# create a second grouping variable called patient:
+pData(eSet_normalizado)
+pData(eSet_normalizado)[,3] = c("muestra1", "muestra1", "muestra2", "muestra2", "muestra3", "muestra3", "muestra4", "muestra4")
+colnames(eSet_normalizado@phenoData@data)[3] = "pareados"
+
+# Of course, now you need to factorize both grouping variables: 
+
+groupsP = pData(eSet_normalizado)$pareados 
+groupsT = pData(eSet_normalizado)$condicion
+fp = factor(groupsP,levels=c("muestra1","muestra2","muestra3","muestra4"))
+ft = factor(groupsT,levels=c("Control","Genisteina"))
+
+# Then you need to create a design matrix, a matrix of values of the grouping
+# variable. ANOVA needs such a matrix to know which samples belong to which
+# group. Since limma performs an ANOVA, it needs such a design matrix. You can
+# create it using the model.matrix() method.
+
+# The argument of the model.matrix method is a model formula. The tilde (~) in
+# the argument specifies the right hand side of the model equation. The plus (+)
+# is used to combine factors.
+
+paired.design = model.matrix(~ fp + ft)
+colnames(paired.design)=c("Intercept","muestra2vsmuestra1","muestra3versusmuestra1","muestra4versusmuestra1", "GenisteinavsControl")
+data.fit = lmFit(t(intensidades_normalizadas), paired.design)
+data.fit$coefficients[1:20,]
+
+
+
+# Lmfit() will fit a linear model to the data. It will create a data frame called data.fit. The interesting data is in the coefficients table which contains 4 columns:
+# 
+#     the first column contains the intercept of the linear fit, in most cases it has no implicit meaning.
+#     the second column compares patient 1 and patient 2: it is the difference between the average expression of patient 2 over the two treatments and the average expression level of patient 1 over the two treatments.
+#     the third column compares patient 1 and patient 3 in the same way.
+#     the fourth column compares before and after treatment: it calculates the average difference in expression level between after and before treatment. This is the measure that is used in the paired t-test and compared to 0. So these are the values we are interested in. The more this measure differs from 0 the more likely it is that the treatment has an effect.
+# 
+# Performing a moderated paired t-test is now done using eBayes(). 
+
+data.fit.eb = eBayes(data.fit)
+data.fit.eb$p.value[1:20,]
+
+
+# Log2FC de genes:
+data.fit.eb$coefficients[11600:11610,]
+
+# p-valores de los t-tests moderados por eBayes
+data.fit.eb$p.value[11600:11610,]
+
+
+volcanoplot(data.fit.eb, highlight = 0)
+
+
+; abline(h = 1.301, v = c(-1,1))
+```
+
+
+
 
 ```{r}
 tab = topTable(data.fit.eb ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
