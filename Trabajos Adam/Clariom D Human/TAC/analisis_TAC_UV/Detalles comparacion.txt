@@ -1,2 +1,0 @@
-la comparacion se hizo con p-valor < 0.05 y fold change +-2 (este fold change es log fold, o como?)
-La comparacion fue genisteina vs control, de manera que nos centramos en las diferencias que presentan las muestras tratadas vs las muestras control

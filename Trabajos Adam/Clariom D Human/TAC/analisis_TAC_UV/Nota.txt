@@ -1,0 +1,4 @@
+la comparacion se hizo con p-valor < 0.05 y log2FC +-1 (i.e. fold change 1 y 0.5)
+La comparacion fue genisteina vs control, de manera que nos centramos en las diferencias que presentan las muestras tratadas vs las muestras control.
+
+Los archivos son archivos separados por tabuladores

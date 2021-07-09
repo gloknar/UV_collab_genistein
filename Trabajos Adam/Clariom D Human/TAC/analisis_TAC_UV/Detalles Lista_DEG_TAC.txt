@@ -1,0 +1,771 @@
+ID	Public Gene IDs	Gene Symbol	Description	Chromosome	Strand	Group	Start	Stop
+TC0100006501.hg.1	NM_001029885; ENST00000343938; ENST00000464957; ENST00000488011; OTTHUMT00000008742; OTTHUMT00000008743; OTTHUMT00000008744	CPTP	ceramide-1-phosphate transfer protein	chr1	+	Multiple_Complex	1324756	1328897
+TC0100006841.hg.1	forreybo.aAug10-unspliced	forreybo	Transcript Identified by AceView	chr1	+	Unassigned	11026529	11028008
+TC0100007271.hg.1	wularbo.aAug10-unspliced	wularbo	Transcript Identified by AceView	chr1	+	Unassigned	22104832	22105049
+TC0100007800.hg.1	hsa_circ_0004157	THRAP3	Jeck2013 ALT_ACCEPTOR, ALT_DONOR, coding, INTERNAL, intronic best transcript NM_005119	chr1	+	NonCoding	36287477	36288753
+TC0100007824.hg.1	floyrawbu.aAug10-unspliced	floyrawbu	Transcript Identified by AceView	chr1	+	Coding	36961010	36961629
+TC0100007890.hg.1				chr1	+	NonCoding	39053105	39053753
+TC0100007902.hg.1	ENST00000602528.1; OTTHUMT00000467750; uc057fad.1	RP11-416A14.1	novel transcript, intronic to MACF1	chr1	+	NonCoding	39206512	39206957
+TC0100008307.hg.1				chr1	+	NonCoding	52095686	52098488
+TC0100008634.hg.1	blawklor.aAug10-unspliced	blawklor	Transcript Identified by AceView	chr1	+	Unassigned	66636349	66637050
+TC0100009242.hg.1	ENST00000561748.1; OTTHUMT00000431242; uc057irz.1	RP4-575N6.5	novel transcript sense overlapping S1PR1	chr1	+	NonCoding	101243158	101243749
+TC0100009265.hg.1				chr1	+	NonCoding	103124801	103135387
+TC0100009481.hg.1	wawleybo.aAug10-unspliced	wawleybo	Transcript Identified by AceView	chr1	+	Unassigned	113957325	113957918
+TC0100009838.hg.1	spawby.aAug10-unspliced	spawby	Transcript Identified by AceView	chr1	+	Unassigned	148852504	148853928
+TC0100009844.hg.1	stukler.aAug10-unspliced	stukler	Transcript Identified by AceView	chr1	+	Coding	148956112	148958794
+TC0100009854.hg.1	ENST00000610119.1; OTTHUMT00000473106; uc057kki.1	RP11-326G21.1	novel transcript	chr1	+	NonCoding	149264252	149264816
+TC0100009875.hg.1	ENST00000608318.1; OTTHUMT00000473115; uc057kls.1	RP11-196G18.24	novel transcript	chr1	+	NonCoding	149845816	149846486
+TC0100009956.hg.1	ENST00000459254; uc057kwx.1	RNY4P25	RNA, Ro-associated Y4 pseudogene 25 [Source:HGNC Symbol;Acc:HGNC:42475]	chr1	+	NonCoding	151439000	151439095
+TC0100010353.hg.1				chr1	+	NonCoding	161431458	161434952
+TC0100010422.hg.1	swerloybu.aAug10-unspliced	swerloybu	Transcript Identified by AceView	chr1	+	Unassigned	164594444	164595691
+TC0100010429.hg.1	skopoybo.aAug10-unspliced	skopoybo	Transcript Identified by AceView	chr1	+	Unassigned	164647001	164650981
+TC0100010432.hg.1	ENST00000602747.1; OTTHUMT00000468113; uc057mxn.1	RP11-477H21.2	novel transcript, sense intronic to PBX1	chr1	+	NonCoding	164680085	164680799
+TC0100010456.hg.1	loybar.aAug10-unspliced	loybar	Transcript Identified by AceView	chr1	+	Unassigned	165640169	165644017
+TC0100010737.hg.1	neebu.aAug10-unspliced	neebu	Transcript Identified by AceView	chr1	+	Coding	178160724	178161115
+TC0100011209.hg.1	ENST00000391210; uc057ola.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr1	+	NonCoding	202070841	202070943
+TC0100011220.hg.1	vormobu.aAug10-unspliced	vormobu	Transcript Identified by AceView	chr1	+	Coding	202408054	202408553
+TC0100011365.hg.1				chr1	+	NonCoding	206222289	206227567
+TC0100011556.hg.1	zorklor.aAug10-unspliced	zorklor	Transcript Identified by AceView	chr1	+	Unassigned	213260230	213261371
+TC0100011877.hg.1	uc057qfc.1	RNA5SP19	5S ribosomal pseudogene 19 [Source:HGNC Symbol;Acc:HGNC:42587]	chr1	+	Ribosomal	228555793	228555901
+TC0100012223.hg.1	sormerbu.aAug10-unspliced	sormerbu	Transcript Identified by AceView	chr1	+	Unassigned	244657642	244658397
+TC0100012409.hg.1	NR_106781; ENST00000621981	MIR6723	microRNA 6723	chr1	-	Precursor_microRNA	632325	632413
+TC0100012701.hg.1	zeynobu.aAug10-unspliced	zeynobu	Transcript Identified by AceView	chr1	-	Coding	6841299	6841672
+TC0100012740.hg.1	reeplu.aAug10-unspliced	reeplu	Transcript Identified by AceView	chr1	-	Unassigned	8016161	8019116
+TC0100012764.hg.1	gomabo.aAug10-unspliced	gomabo	Transcript Identified by AceView	chr1	-	Unassigned	8408514	8410817
+TC0100012773.hg.1	toyplu.aAug10-unspliced	toyplu	Transcript Identified by AceView	chr1	-	Unassigned	8803511	8804278
+TC0100013271.hg.1	rawabo.aAug10-unspliced	rawabo	Transcript Identified by AceView	chr1	-	Coding	23150024	23150463
+TC0100013274.hg.1	meeloybu.aAug10-unspliced	meeloybu	Transcript Identified by AceView	chr1	-	Unassigned	23320034	23320992
+TC0100013293.hg.1	NM_002167; ENST00000374561; ENST00000463312; ENST00000486541; BC003107; OTTHUMT00000008904; OTTHUMT00000008905; OTTHUMT00000091255	ID3	inhibitor of DNA binding 3, dominant negative helix-loop-helix protein	chr1	-	Multiple_Complex	23557918	23559794
+TC0100013498.hg.1	ENST00000611385; uc057eas.1	uc_338	TUC338 [Source:RFAM;Acc:RF02271]	chr1	-	NonCoding	29171285	29171453
+TC0100013559.hg.1	smozubo.aAug10-unspliced	smozubo	Transcript Identified by AceView	chr1	-	Coding	31290771	31291284
+TC0100013785.hg.1	uc057faa.1	RNU6-608P	RNA, U6 small nuclear 608, pseudogene [Source:HGNC Symbol;Acc:HGNC:47571]	chr1	-	Small_RNA	39120940	39121043
+TC0100013858.hg.1	heroro.aAug10-unspliced	heroro	Transcript Identified by AceView	chr1	-	Unassigned	41168644	41170734
+TC0100013924.hg.1	NM_001256399; NM_001256401; NM_001256402; NM_022821; NR_046117; NR_106792; ENST00000372458; ENST00000413844; ENST00000464204; ENST00000465321; ENST00000468865; ENST00000470769; ENST00000470968; ENST00000478481; ENST00000479439; ENST00000479686; ENST00000482302; ENST00000487209; ENST00000496932; ENST00000497050; ENST00000497569; ENST00000621166; ENST00000621943; BC000618; BC095456; OTTHUMT00000019496; OTTHUMT00000019497; OTTHUMT00000019498; OTTHUMT00000019499; OTTHUMT00000019500; OTTHUMT00000019501; OTTHUMT00000019502; OTTHUMT00000019503; OTTHUMT00000019504; OTTHUMT00000019505; OTTHUMT00000019506; OTTHUMT00000019507; OTTHUMT00000019508; OTTHUMT00000019509	ELOVL1; MIR6734	ELOVL fatty acid elongase 1; microRNA 6734	chr1	-	Multiple_Complex	43363397	43368074
+TC0100014028.hg.1	jeyrobo.aAug10-unspliced	jeyrobo	Transcript Identified by AceView	chr1	-	Unassigned	45649084	45649948
+TC0100014267.hg.1	uc057gur.1	AC099796.2		chr1	-	Precursor_microRNA	54481504	54481566
+TC0100014317.hg.1	spawreybo.aAug10-unspliced	spawreybo	Transcript Identified by AceView	chr1	-	Unassigned	56569193	56570735
+TC0100014461.hg.1	ENST00000607528.1; OTTHUMT00000471371; uc057hgm.1	RP4-535B20.4	novel transcript	chr1	-	NonCoding	65003470	65004087
+TC0100014462.hg.1				chr1	-	NonCoding	65008873	65012794
+TC0100014651.hg.1	kleyneebu.aAug10-unspliced	kleyneebu	Transcript Identified by AceView	chr1	-	Unassigned	77627899	77630470
+TC0100014661.hg.1	snerneebu.aAug10-unspliced	snerneebu	Transcript Identified by AceView	chr1	-	Unassigned	77952369	77953154
+TC0100014787.hg.1	swanerbu.bAug10-unspliced	swanerbu	Transcript Identified by AceView	chr1	-	Unassigned	85631097	85632502
+TC0100014898.hg.1	sneymawbo.aAug10-unspliced	sneymawbo	Transcript Identified by AceView	chr1	-	Coding	90989401	90989900
+TC0100014939.hg.1	klerneybu.aAug10-unspliced	klerneybu	Transcript Identified by AceView	chr1	-	Coding	92930705	92934098
+TC0100014960.hg.1	temira.aAug10-unspliced	temira	Transcript Identified by AceView	chr1	-	Coding	93594945	93596787
+TC0100015563.hg.1	plawmeybo.aAug10-unspliced	plawmeybo	Transcript Identified by AceView	chr1	-	Coding	144452659	144453537
+TC0100015573.hg.1	timuma.aAug10-unspliced	timuma	Transcript Identified by AceView	chr1	-	Unassigned	144948907	144949546
+TC0100015575.hg.1	sleemorbo.aAug10-unspliced	sleemorbo	Transcript Identified by AceView	chr1	-	Coding	145018139	145018948
+TC0100015644.hg.1				chr1	-	NonCoding	148100257	148107415
+TC0100016909.hg.1	skokorbo.aAug10	skokorbo	Transcript Identified by AceView	chr1	-	Unassigned	201286507	201287185
+TC0100017139.hg.1	verlorbo.aAug10-unspliced	verlorbo	Transcript Identified by AceView	chr1	-	Coding	207858761	207859363
+TC0100017324.hg.1				chr1	-	NonCoding	217501775	217509265
+TC0100017552.hg.1				chr1	-	NonCoding	227238130	227242231
+TC0100017993.hg.1	mumerbu.aAug10-unspliced	mumerbu	Transcript Identified by AceView	chr1	-	Unassigned	243803186	243806369
+TC0100018055.hg.1	seseyo.aAug10-unspliced	seseyo	Transcript Identified by AceView	chr1	-	Unassigned	246255791	246258423
+TC0100018291.hg.1	NR_103778; NR_103779; ENST00000392688; ENST00000445097; ENST00000629331	FLG-AS1	FLG antisense RNA 1	chr1	+	NonCoding	152313459	152366692
+TC0200007185.hg.1	chawklaw.aAug10-unspliced	chawklaw	Transcript Identified by AceView	chr2	+	Unassigned	32358586	32359013
+TC0200007193.hg.1	ENST00000623116; OTTHUMT00000476394; uc061hyl.1	AL133243.4	TEC	chr2	+	Unassigned	32563328	32566436
+TC0200007367.hg.1				chr2	+	NonCoding	42637961	42638048
+TC0200007461.hg.1	joyjoybu.aAug10-unspliced	joyjoybu	Transcript Identified by AceView	chr2	+	Unassigned	46305768	46306148
+TC0200007717.hg.1	NM_152392; ENST00000357022; ENST00000394457; ENST00000410073; ENST00000463681; ENST00000471542; ENST00000484217; ENST00000487904; ENST00000489653; ENST00000491217; ENST00000493310; ENST00000493628; BC113671; BC117278; OTTHUMT00000251598; OTTHUMT00000251599; OTTHUMT00000325689; OTTHUMT00000325691; OTTHUMT00000325707; OTTHUMT00000325736; OTTHUMT00000325737; OTTHUMT00000325738; OTTHUMT00000325739; OTTHUMT00000325740; OTTHUMT00000327078	AHSA2	AHA1, activator of heat shock 90kDa protein ATPase homolog 2 (yeast)	chr2	+	Multiple_Complex	61177418	61191203
+TC0200007763.hg.1	studaw.aAug10-unspliced	studaw	Transcript Identified by AceView	chr2	+	Unassigned	62895807	62896681
+TC0200007764.hg.1	shukubu.aAug10-unspliced	shukubu	Transcript Identified by AceView	chr2	+	Unassigned	62896914	62901082
+TC0200007767.hg.1	sherkubu.aAug10-unspliced	sherkubu	Transcript Identified by AceView	chr2	+	Unassigned	62953034	62954288
+TC0200008272.hg.1				chr2	+	NonCoding	85837017	85839082
+TC0200008313.hg.1	nadorbu.aAug10-unspliced	nadorbu	Transcript Identified by AceView	chr2	+	Unassigned	87486761	87487555
+TC0200008318.hg.1	spokabo.aAug10-unspliced	spokabo	Transcript Identified by AceView	chr2	+	Unassigned	87697087	87697919
+TC0200008540.hg.1	NR_103732; NR_103733; NR_130704; OTTHUMT00000476581; OTTHUMT00000476582; OTTHUMT00000476583; OTTHUMT00000476587; OTTHUMT00000476589; OTTHUMT00000476873; romomo.eAug10; uc061lyo.1; uc061lyp.1; uc061lyq.1; uc061lyr.1; uc061lys.1; uc061lyt.1	LOC100506076; LOC100506123; RP11-734K23.9; romomo	uncharacterized LOC100506076; uncharacterized LOC100506123; novel transcript; Transcript Identified by AceView	chr2	+	Multiple_Complex	97278717	97291878
+TC0200009368.hg.1				chr2	+	NonCoding	132278655	132281513
+TC0200009779.hg.1	NR_106948; ENST00000621977	MIR6888	microRNA 6888	chr2	+	Precursor_microRNA	159186835	159186901
+TC0200009891.hg.1	jordar.aAug10	jordar	Transcript Identified by AceView	chr2	+	Coding	168117142	168121604
+TC0200010403.hg.1	jawgeybo.aAug10-unspliced	jawgeybo	Transcript Identified by AceView	chr2	+	Unassigned	199962922	199963446
+TC0200010411.hg.1	rorswaby.aAug10-unspliced	rorswaby	Transcript Identified by AceView	chr2	+	Unassigned	200313180	200314112
+TC0200010467.hg.1	NM_001261435; NM_001261436; NM_139158; ENST00000260967; ENST00000410091; ENST00000434439; ENST00000450471; ENST00000451080; ENST00000460149; ENST00000466337; ENST00000488419; ENST00000493754; BC038807; OTTHUMT00000256311; OTTHUMT00000336049; OTTHUMT00000336050; OTTHUMT00000336051; OTTHUMT00000336053; OTTHUMT00000336054; OTTHUMT00000336055; OTTHUMT00000336056; OTTHUMT00000336057	CDK15	cyclin-dependent kinase 15	chr2	+	Multiple_Complex	201790461	201895550
+TC0200010735.hg.1	ENST00000623250; OTTHUMT00000431724; uc061sev.1	RP11-566E18.1	TEC	chr2	+	NonCoding	216211404	216213519
+TC0200010812.hg.1	smoypabo.aAug10-unspliced	smoypabo	Transcript Identified by AceView	chr2	+	Coding	218799319	218799735
+TC0200011114.hg.1	sajabo.aAug10-unspliced	sajabo	Transcript Identified by AceView	chr2	+	Coding	232823409	232824014
+TC0200011248.hg.1	slydoybu.aAug10-unspliced	slydoybu	Transcript Identified by AceView	chr2	+	Coding	237392491	237393363
+TC0200011383.hg.1	ruyura.aAug10-unspliced	ruyura	Transcript Identified by AceView	chr2	+	Coding	241076059	241078382
+TC0200011401.hg.1				chr2	+	NonCoding	241339087	241342962
+TC0200011756.hg.1	uc061gst.1	RNA5SP85	5S ribosomal pseudogene 85 [Source:HGNC Symbol;Acc:HGNC:42883]	chr2	-	Ribosomal	11561661	11561779
+TC0200011963.hg.1				chr2	-	NonCoding	23724948	23730450
+TC0200012253.hg.1	uc061icv.1	RNU6-577P	RNA, U6 small nuclear 577, pseudogene [Source:HGNC Symbol;Acc:HGNC:47540]	chr2	-	Small_RNA	36867398	36867495
+TC0200012322.hg.1	nerkly.aAug10-unspliced	nerkly	Transcript Identified by AceView	chr2	-	Unassigned	39312131	39314172
+TC0200012323.hg.1	ENST00000609671.1; OTTHUMT00000471547; uc061ilj.1	RP11-449G16.1	novel transcript, sense intronic to MAP4K3	chr2	-	NonCoding	39323328	39323804
+TC0200012406.hg.1	kloklaw.aAug10-unspliced	kloklaw	Transcript Identified by AceView	chr2	-	Unassigned	43257783	43258242
+TC0200012507.hg.1				chr2	-	NonCoding	47305824	47306050
+TC0200012856.hg.1	klolar.aAug10-unspliced	klolar	Transcript Identified by AceView	chr2	-	Unassigned	65117579	65118775
+TC0200012965.hg.1	snoydarbu.aAug10-unspliced	snoydarbu	Transcript Identified by AceView	chr2	-	Coding	69523349	69525736
+TC0200013353.hg.1	jeekeybo.aAug10-unspliced	jeekeybo	Transcript Identified by AceView	chr2	-	Coding	87824890	87825365
+TC0200013504.hg.1				chr2	-	NonCoding	95766763	95775965
+TC0200013623.hg.1	kaklar.aAug10-unspliced	kaklar	Transcript Identified by AceView	chr2	-	Unassigned	99819587	99820163
+TC0200013632.hg.1	fleejybu.aAug10-unspliced; soni.aAug10-unspliced	fleejybu; soni	Transcript Identified by AceView	chr2	-	Coding	99973706	99978899
+TC0200013633.hg.1	kleydey.aAug10-unspliced	kleydey	Transcript Identified by AceView	chr2	-	Unassigned	99979502	99981073
+TC0200013847.hg.1	barder.aAug10-unspliced	barder	Transcript Identified by AceView	chr2	-	Coding	109838997	109839651
+TC0200013892.hg.1	ENST00000432268.1; OTTHUMT00000332148; uc061mye.1	AC017002.2	novel transcript	chr2	-	NonCoding	111491943	111494811
+TC0200014169.hg.1	manemo.aAug10-unspliced	manemo	Transcript Identified by AceView	chr2	-	Unassigned	127267447	127269451
+TC0200014718.hg.1	meydo.aAug10-unspliced	meydo	Transcript Identified by AceView	chr2	-	Unassigned	159261924	159263264
+TC0200014720.hg.1	joyfarbu.aAug10-unspliced	joyfarbu	Transcript Identified by AceView	chr2	-	Coding	159400061	159400431
+TC0200014742.hg.1	wawly.aAug10-unspliced	wawly	Transcript Identified by AceView	chr2	-	Unassigned	160490465	160491475
+TC0200014950.hg.1				chr2	-	NonCoding	173632531	173634381
+TC0200014997.hg.1	forveybo.aAug10-unspliced	forveybo	Transcript Identified by AceView	chr2	-	Coding	174635519	174636181
+TC0200015008.hg.1				chr2	-	NonCoding	175068910	175069992
+TC0200015061.hg.1	laklaw.aAug10-unspliced	laklaw	Transcript Identified by AceView	chr2	-	Unassigned	177249634	177250791
+TC0200015372.hg.1	smeegabu.aAug10-unspliced	smeegabu	Transcript Identified by AceView	chr2	-	Unassigned	199790981	199794673
+TC0200015894.hg.1	DOCK10.rAug10-unspliced	DOCK10	Transcript Identified by AceView, Entrez Gene ID(s) 55619	chr2	-	Unassigned	224766764	224767264
+TC0200015896.hg.1	hunimo.aAug10-unspliced	hunimo	Transcript Identified by AceView	chr2	-	Unassigned	224965465	224966216
+TC0200016583.hg.1	NR_131917	LOC105747689	uncharacterized LOC105747689	chr2	+	NonCoding	191690181	191720329
+TC0200016677.hg.1				chr2	-	NonCoding	63675614	63711585
+TC0300006545.hg.1	fudawbo.aAug10-unspliced	fudawbo	Transcript Identified by AceView	chr3	+	Unassigned	9405766	9406606
+TC0300006841.hg.1	garfabo.aAug10-unspliced	garfabo	Transcript Identified by AceView	chr3	+	Unassigned	23828082	23829176
+TC0300006912.hg.1	sweeskoyby.aAug10-unspliced	sweeskoyby	Transcript Identified by AceView	chr3	+	Coding	29919529	29920857
+TC0300007064.hg.1	ENST00000363709; uc062iev.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr3	+	NonCoding	38014568	38014669
+TC0300007403.hg.1	shaforbo.aAug10-unspliced	shaforbo	Transcript Identified by AceView	chr3	+	Coding	50018085	50018492
+TC0300007614.hg.1	ENST00000607214.1; OTTHUMT00000471115; uc062laf.1	RP11-802O23.3	novel transcript, antisense to PDHB	chr3	+	NonCoding	58428255	58428815
+TC0300007650.hg.1				chr3	+	NonCoding	61894556	61895136
+TC0300007766.hg.1				chr3	+	NonCoding	70863027	70871757
+TC0300008077.hg.1				chr3	+	NonCoding	96617185	96618195
+TC0300008131.hg.1	nerswoyby.aAug10-unspliced	nerswoyby	Transcript Identified by AceView	chr3	+	Unassigned	99639269	99639653
+TC0300008164.hg.1	reebawbo.aAug10-unspliced	reebawbo	Transcript Identified by AceView	chr3	+	Unassigned	101332560	101333105
+TC0300009166.hg.1	deedoybu.aAug10-unspliced	deedoybu	Transcript Identified by AceView	chr3	+	NonCoding	150429000	150431242
+TC0300009365.hg.1				chr3	+	NonCoding	161723213	161723607
+TC0300009501.hg.1	jorkarbu.aAug10-unspliced	jorkarbu	Transcript Identified by AceView	chr3	+	Unassigned	172104576	172105637
+TC0300009598.hg.1	komura.aAug10-unspliced	komura	Transcript Identified by AceView	chr3	+	Unassigned	179175661	179178080
+TC0300009731.hg.1	NM_001242314; NM_001242317; NM_004721; NR_038322; ENST00000265026; ENST00000420577; ENST00000424227; ENST00000428617; ENST00000433092; ENST00000438053; ENST00000438798; ENST00000439882; ENST00000443863; ENST00000446828; ENST00000447637; ENST00000448876; ENST00000454237; ENST00000455188; ENST00000477582; BC111726; OTTHUMT00000345268; OTTHUMT00000345269; OTTHUMT00000345270; OTTHUMT00000345271; OTTHUMT00000345272; OTTHUMT00000345273; OTTHUMT00000345274; OTTHUMT00000345275; OTTHUMT00000345276; OTTHUMT00000345277; OTTHUMT00000345278; OTTHUMT00000345279; OTTHUMT00000345280; OTTHUMT00000345281; OTTHUMT00000345282	MAP3K13	mitogen-activated protein kinase kinase kinase 13	chr3	+	Multiple_Complex	185282941	185489097
+TC0300009791.hg.1	fonybu.aAug10-unspliced	fonybu	Transcript Identified by AceView	chr3	+	Unassigned	186979271	186980619
+TC0300009816.hg.1	mamera.aAug10-unspliced	mamera	Transcript Identified by AceView	chr3	+	Coding	188161440	188163951
+TC0300009975.hg.1	flarnarbo.aAug10-unspliced	flarnarbo	Transcript Identified by AceView	chr3	+	Unassigned	195674522	195676330
+TC0300010083.hg.1	uc062shj.1	RNU6-860P	RNA, U6 small nuclear 860, pseudogene [Source:HGNC Symbol;Acc:HGNC:47823]	chr3	+	Small_RNA	198196746	198196849
+TC0300010398.hg.1				chr3	-	NonCoding	15252882	15254247
+TC0300010451.hg.1	shydorbo.aAug10-unspliced	shydorbo	Transcript Identified by AceView	chr3	-	Coding	17665598	17666036
+TC0300010723.hg.1	ENST00000383918; uc062icd.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr3	-	NonCoding	37093133	37093234
+TC0300010726.hg.1	florfobo.aAug10-unspliced	florfobo	Transcript Identified by AceView	chr3	-	Unassigned	37147661	37148788
+TC0300010787.hg.1	snyfarbo.aAug10-unspliced	snyfarbo	Transcript Identified by AceView	chr3	-	Unassigned	40041517	40042233
+TC0300010847.hg.1	smyswerby.bAug10-unspliced	smyswerby	Transcript Identified by AceView	chr3	-	Unassigned	42621299	42622425
+TC0300011005.hg.1	syfeybo.aAug10-unspliced	syfeybo	Transcript Identified by AceView	chr3	-	Unassigned	47964340	47965086
+TC0300011496.hg.1				chr3	-	NonCoding	71191518	71192220
+TC0300011545.hg.1				chr3	-	NonCoding	72976858	72983040
+TC0300011589.hg.1	ENST00000481669	RP11-413E6.2		chr3	-	Pseudogene	75590298	75590649
+TC0300011654.hg.1	chordybo.aAug10-unspliced	chordybo	Transcript Identified by AceView	chr3	-	Unassigned	81501717	81503714
+TC0300011818.hg.1	kakome.aAug10-unspliced	kakome	Transcript Identified by AceView	chr3	-	Coding	98831085	98834115
+TC0300012378.hg.1	charvawbo.aAug10-unspliced	charvawbo	Transcript Identified by AceView	chr3	-	Unassigned	129173101	129174303
+TC0300012540.hg.1	weydybu.aAug10-unspliced	weydybu	Transcript Identified by AceView	chr3	-	Unassigned	136699563	136700098
+TC0300012896.hg.1				chr3	-	NonCoding	156535066	156536901
+TC0300013091.hg.1				chr3	-	NonCoding	170100977	170101164
+TC0300013214.hg.1	ENST00000434246	MTND5P15	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 5 pseudogene 15 [Source:HGNC Symbol;Acc:HGNC:42277]	chr3	-	Multiple_Complex	177010719	177011067
+TC0300013295.hg.1				chr3	-	NonCoding	180977630	180980379
+TC0300013424.hg.1	NR_049838; ENST00000580207	MIR548AQ	microRNA 548aq	chr3	-	Precursor_microRNA	185767847	185767904
+TC0400006469.hg.1	rekume.bAug10-unspliced	rekume	Transcript Identified by AceView	chr4	+	Unassigned	597310	597846
+TC0400006964.hg.1				chr4	+	NonCoding	16260542	16261153
+TC0400007025.hg.1	netome.aAug10-unspliced	netome	Transcript Identified by AceView	chr4	+	Coding	20736858	20740015
+TC0400007123.hg.1	sutome.aAug10-unspliced	sutome	Transcript Identified by AceView	chr4	+	Coding	26354385	26355638
+TC0400007273.hg.1	swoysmeyby.aAug10-unspliced	swoysmeyby	Transcript Identified by AceView	chr4	+	Unassigned	38923641	38924348
+TC0400007496.hg.1	snospawby.aAug10-unspliced	snospawby	Transcript Identified by AceView	chr4	+	Coding	51858914	51859647
+TC0400007560.hg.1				chr4	+	NonCoding	55398392	55398888
+TC0400007563.hg.1	nesiyu.aAug10	nesiyu	Transcript Identified by AceView	chr4	+	Unassigned	55427808	55429606
+TC0400007907.hg.1	smeegla.aAug10-unspliced	smeegla	Transcript Identified by AceView	chr4	+	Coding	76725450	76726526
+TC0400007939.hg.1	lergar.aAug10-unspliced	lergar	Transcript Identified by AceView	chr4	+	Unassigned	78781535	78782644
+TC0400008043.hg.1	PTPN13.tAug10-unspliced	PTPN13	Transcript Identified by AceView, Entrez Gene ID(s) 5783	chr4	+	Unassigned	86693816	86694076
+TC0400008044.hg.1	shybybo.aAug10-unspliced	shybybo	Transcript Identified by AceView	chr4	+	Coding	86767240	86767752
+TC0400008261.hg.1				chr4	+	NonCoding	102168742	102175810
+TC0400008273.hg.1	fuswoby.aAug10-unspliced	fuswoby	Transcript Identified by AceView	chr4	+	Unassigned	102586262	102588873
+TC0400008383.hg.1				chr4	+	NonCoding	109706419	109706484
+TC0400008432.hg.1	teesnawby.aAug10-unspliced	teesnawby	Transcript Identified by AceView	chr4	+	Unassigned	112417755	112419239
+TC0400008459.hg.1	uc062zdx.1	RNU1-138P	RNA, U1 small nuclear 138, pseudogene [Source:HGNC Symbol;Acc:HGNC:48480]	chr4	+	Small_RNA	113420323	113420486
+TC0400008522.hg.1				chr4	+	NonCoding	117258141	117259576
+TC0400008558.hg.1	tawsneeby.aAug10-unspliced	tawsneeby	Transcript Identified by AceView	chr4	+	Unassigned	119236173	119237544
+TC0400008985.hg.1	hsa_circ_0092309	RPS3A	Zhang2013 ALT_DONOR, coding, INTERNAL, intronic best transcript NM_001006	chr4	+	NonCoding	151100589	151100928
+TC0400009378.hg.1				chr4	+	NonCoding	176296368	176296825
+TC0400009614.hg.1				chr4	+	NonCoding	189276208	189277937
+TC0400009876.hg.1	ENST00000363891	RN7SKP113	RNA, 7SK small nuclear pseudogene 113 [Source:HGNC Symbol;Acc:HGNC:45837]	chr4	-	NonCoding	4920770	4921064
+TC0400010148.hg.1	kysmeeby.aAug10-unspliced	kysmeeby	Transcript Identified by AceView	chr4	-	Coding	16870248	16870610
+TC0400010311.hg.1				chr4	-	NonCoding	27025314	27025765
+TC0400011067.hg.1	uc032tmp.2	RNU6-145P	RNA, U6 small nuclear 145, pseudogene [Source:HGNC Symbol;Acc:HGNC:47108]	chr4	-	Small_RNA	76532222	76532327
+TC0400011384.hg.1	sweyfloy.aAug10-unspliced	sweyfloy	Transcript Identified by AceView	chr4	-	Coding	98495460	98496481
+TC0400011385.hg.1	jeesnoby.aAug10-unspliced	jeesnoby	Transcript Identified by AceView	chr4	-	Coding	98561704	98562091
+TC0400011386.hg.1	keysnoby.aAug10-unspliced	keysnoby	Transcript Identified by AceView	chr4	-	Coding	98613137	98618380
+TC0400011388.hg.1	staswuby.aAug10-unspliced	staswuby	Transcript Identified by AceView	chr4	-	Unassigned	98644131	98646001
+TC0400011389.hg.1	nerglu.aAug10-unspliced	nerglu	Transcript Identified by AceView	chr4	-	Coding	98652041	98656126
+TC0400011525.hg.1	barglu.aAug10-unspliced	barglu	Transcript Identified by AceView	chr4	-	Unassigned	106074314	106078378
+TC0400011713.hg.1	susume.aAug10-unspliced	susume	Transcript Identified by AceView	chr4	-	Unassigned	119512998	119515565
+TC0400011910.hg.1	uc032txu.2	AC093875.1		chr4	-	Precursor_microRNA	136707178	136707261
+TC0400012235.hg.1	uc032uax.2	AC093817.1		chr4	-	Precursor_microRNA	157588148	157588235
+TC0400012299.hg.1				chr4	-	NonCoding	163048197	163075201
+TC0400012368.hg.1	sharbeybo.aAug10-unspliced	sharbeybo	Transcript Identified by AceView	chr4	-	Coding	168365760	168366151
+TC0400012435.hg.1				chr4	-	NonCoding	173347733	173351574
+TC0400012713.hg.1	ENST00000624757; OTTHUMT00000431705; uc063bqm.1	RP11-756P10.6	tec	chr4	-	Unassigned	188740507	188741281
+TC0400012972.hg.1	NM_020724; ENST00000306799; ENST00000420921; ENST00000506101; ENST00000507500; ENST00000515057; BC101992; OTTHUMT00000364740; OTTHUMT00000364741; OTTHUMT00000364742; OTTHUMT00000364743; OTTHUMT00000364744	RNF150	ring finger protein 150	chr4	-	Multiple_Complex	140865571	141212877
+TC0500006804.hg.1	peyskoby.aAug10-unspliced	peyskoby	Transcript Identified by AceView	chr5	+	Coding	14147234	14147569
+TC0500006805.hg.1	pleygor.aAug10-unspliced	pleygor	Transcript Identified by AceView	chr5	+	Unassigned	14188786	14192278
+TC0500006808.hg.1	uc063ckq.1	AC016549.1	GALI1870  [Source:UniProtKB/TrEMBL;Acc:Q6UWR0]	chr5	+	Coding	14341288	14343089
+TC0500006812.hg.1	voyslarbu.aAug10-unspliced	voyslarbu	Transcript Identified by AceView	chr5	+	Unassigned	14425316	14430237
+TC0500006813.hg.1	dastuby.aAug10-unspliced	dastuby	Transcript Identified by AceView	chr5	+	Unassigned	14425936	14427385
+TC0500006814.hg.1	smerflu.aAug10-unspliced	smerflu	Transcript Identified by AceView	chr5	+	Unassigned	14463207	14465420
+TC0500006837.hg.1	ferslawbu.aAug10-unspliced	ferslawbu	Transcript Identified by AceView	chr5	+	Coding	15553154	15553580
+TC0500006838.hg.1	speyflu.aAug10-unspliced	speyflu	Transcript Identified by AceView	chr5	+	Unassigned	15620400	15621610
+TC0500006841.hg.1	cheeworby.aAug10-unspliced; jerstuby.aAug10-unspliced	cheeworby; jerstuby	Transcript Identified by AceView	chr5	+	Unassigned	15649698	15655226
+TC0500006846.hg.1				chr5	+	NonCoding	15775711	15777036
+TC0500006934.hg.1				chr5	+	NonCoding	21958912	21959598
+TC0500007063.hg.1	hihime.aAug10-unspliced	hihime	Transcript Identified by AceView	chr5	+	Coding	32124431	32126637
+TC0500007510.hg.1				chr5	+	NonCoding	59305178	59305626
+TC0500007551.hg.1	uc063dxa.1	AC122718.1		chr5	+	Precursor_microRNA	61356436	61356545
+TC0500007614.hg.1				chr5	+	NonCoding	65968831	65972392
+TC0500007701.hg.1	jawvubo.aAug10-unspliced	jawvubo	Transcript Identified by AceView	chr5	+	Coding	70982623	70986467
+TC0500007703.hg.1	peychaby.aAug10-unspliced	peychaby	Transcript Identified by AceView	chr5	+	Coding	70995193	70996243
+TC0500007708.hg.1				chr5	+	NonCoding	71088632	71088735
+TC0500007711.hg.1	cheychaby.aAug10-unspliced	cheychaby	Transcript Identified by AceView	chr5	+	Coding	71120077	71121127
+TC0500007739.hg.1	hewara.aAug10-unspliced	hewara	Transcript Identified by AceView	chr5	+	Coding	72143317	72145374
+TC0500007740.hg.1				chr5	+	NonCoding	72152757	72155240
+TC0500007842.hg.1				chr5	+	NonCoding	77066511	77066794
+TC0500007891.hg.1	torstawby.aAug10-unspliced	torstawby	Transcript Identified by AceView	chr5	+	Unassigned	79616190	79617483
+TC0500007918.hg.1				chr5	+	NonCoding	80650503	80650977
+TC0500008119.hg.1	uc063flz.1	RNU6-308P	RNA, U6 small nuclear 308, pseudogene [Source:HGNC Symbol;Acc:HGNC:47271]	chr5	+	Small_RNA	95521369	95521475
+TC0500008230.hg.1	swawswubu.aAug10-unspliced	swawswubu	Transcript Identified by AceView	chr5	+	Unassigned	102979752	102985012
+TC0500008319.hg.1	NR_002922; ENST00000458790; uc003kpt.1	SNORA13	small nucleolar RNA, H/ACA box 13	chr5	+	Small_RNA	112161485	112161617
+TC0500008385.hg.1	uc063geh.1	AC026449.1	Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A0A096LPA7]	chr5	+	Coding	115855994	115858468
+TC0500008428.hg.1				chr5	+	NonCoding	119007571	119007668
+TC0500008591.hg.1	turura.aAug10-unspliced	turura	Transcript Identified by AceView	chr5	+	Unassigned	130007285	130009471
+TC0500008710.hg.1	sweeblawby.aAug10-unspliced	sweeblawby	Transcript Identified by AceView	chr5	+	Unassigned	134925103	134925604
+TC0500008711.hg.1	gloysneebu.aAug10-unspliced	gloysneebu	Transcript Identified by AceView	chr5	+	Unassigned	134926706	134927501
+TC0500008712.hg.1	NR_039666; ENST00000580862; uc021ydt.1	MIR4461	microRNA 4461	chr5	+	Precursor_microRNA	134928039	134928112
+TC0500008799.hg.1				chr5	+	NonCoding	138821939	138822153
+TC0500008831.hg.1	sleyjy.aAug10-unspliced	sleyjy	Transcript Identified by AceView	chr5	+	Unassigned	139569223	139569623
+TC0500008882.hg.1	NM_018931; ENST00000354757; ENST00000624887; BC112132; BC113611; OTTHUMT00000251813; OTTHUMT00000478889	PCDHB11	protocadherin beta 11	chr5	+	Coding	141199582	141203779
+TC0500008893.hg.1	OTTHUMT00000476711; styjy.aAug10; uc063iap.1	CTD-2024I7.18; styjy	novel transcript, sense intronic to PCDHG cluster; Transcript Identified by AceView	chr5	+	NonCoding	141468465	141471528
+TC0500009196.hg.1				chr5	+	NonCoding	156503810	156503932
+TC0500009411.hg.1	NM_022897; ENST00000389118; ENST00000443155; ENST00000517629; ENST00000518492; ENST00000519130; ENST00000519256; ENST00000519944; ENST00000519949; ENST00000520586; ENST00000520864; ENST00000520879; ENST00000521165; ENST00000521759; ENST00000521834; ENST00000522066; ENST00000522380; ENST00000522533; ENST00000522734; ENST00000523189; ENST00000523665; ENST00000523727; ENST00000524364; ENST00000616486; OTTHUMT00000372036; OTTHUMT00000372037; OTTHUMT00000372038; OTTHUMT00000372039; OTTHUMT00000372040; OTTHUMT00000372041; OTTHUMT00000372042; OTTHUMT00000372043; OTTHUMT00000372044; OTTHUMT00000372045; OTTHUMT00000372046; OTTHUMT00000372047; OTTHUMT00000372048; OTTHUMT00000372049; OTTHUMT00000372050; OTTHUMT00000372051; OTTHUMT00000372052; OTTHUMT00000372053; OTTHUMT00000372054; OTTHUMT00000372055; OTTHUMT00000372056; OTTHUMT00000372057	RANBP17	RAN binding protein 17	chr5	+	Multiple_Complex	170861870	171300015
+TC0500009581.hg.1	dawstoybu.aAug10-unspliced	dawstoybu	Transcript Identified by AceView	chr5	+	Unassigned	176261720	176262508
+TC0500009857.hg.1	blorplaby.aAug10-unspliced	blorplaby	Transcript Identified by AceView	chr5	-	Unassigned	1327917	1328451
+TC0500010047.hg.1				chr5	-	NonCoding	9131885	9132162
+TC0500010063.hg.1	ENST00000515377.1; OTTHUMT00000365859; uc063cgg.1	CTD-2201E9.2	novel transcript	chr5	-	NonCoding	9519853	9523178
+TC0500010064.hg.1	klerflu.aAug10-unspliced	klerflu	Transcript Identified by AceView	chr5	-	Unassigned	9538689	9541009
+TC0500010109.hg.1				chr5	-	NonCoding	10713338	10713628
+TC0500010214.hg.1	ENST00000384087; uc063cnf.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr5	-	NonCoding	17117576	17117686
+TC0500010375.hg.1				chr5	-	NonCoding	29567254	29617270
+TC0500010420.hg.1	chustuby.aAug10-unspliced	chustuby	Transcript Identified by AceView	chr5	-	Coding	32145692	32146235
+TC0500010461.hg.1				chr5	-	NonCoding	34109179	34112492
+TC0500010559.hg.1	DAB2andC9.vkAug10-unspliced	DAB2andC9	Transcript Identified by AceView, Entrez Gene ID(s) 735; 1601	chr5	-	Unassigned	39406827	39407339
+TC0500010926.hg.1	jorger.aAug10-unspliced	jorger	Transcript Identified by AceView	chr5	-	Unassigned	65426844	65427376
+TC0500010945.hg.1	darvubo.aAug10-unspliced	darvubo	Transcript Identified by AceView	chr5	-	Coding	66653992	66654621
+TC0500011013.hg.1	vostarby.aAug10-unspliced	vostarby	Transcript Identified by AceView	chr5	-	Coding	69651592	69652374
+TC0500011055.hg.1	LOC647859.cAug10-unspliced	LOC647859	Transcript Identified by AceView, Entrez Gene ID(s) 647859	chr5	-	Unassigned	71069793	71073308
+TC0500011064.hg.1				chr5	-	NonCoding	71216457	71236397
+TC0500011265.hg.1	zorflo.aAug10-unspliced	zorflo	Transcript Identified by AceView	chr5	-	Coding	80242381	80243325
+TC0500011276.hg.1	hsa_circ_0001507	FAM151B	Memczak2013 ANTISENSE, coding, INTERNAL, intronic best transcript NM_205548	chr5	-	NonCoding	80514813	80514947
+TC0500011302.hg.1				chr5	-	NonCoding	81536528	81537392
+TC0500011521.hg.1	ENST00000364014; uc063fqs.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr5	-	NonCoding	96962656	96962757
+TC0500011744.hg.1				chr5	-	NonCoding	115186508	115192786
+TC0500011980.hg.1	uc063gre.1	RNU7-53P	RNA, U7 small nuclear 53 pseudogene [Source:HGNC Symbol;Acc:HGNC:34149]	chr5	-	Small_RNA	130386621	130386680
+TC0500012373.hg.1	basteyby.aAug10-unspliced	basteyby	Transcript Identified by AceView	chr5	-	Coding	146140418	146142071
+TC0500012580.hg.1	uc063jbo.1	AC016577.1	Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A0A096LNJ9]	chr5	-	Coding	156658587	156660435
+TC0500012581.hg.1	wocheyby.aAug10-unspliced	wocheyby	Transcript Identified by AceView	chr5	-	Coding	156661217	156663007
+TC0500013251.hg.1	NM_020768; ENST00000512467; BC111962; BC113435; OTTHUMT00000371897	KCTD16	potassium channel tetramerization domain containing 16	chr5	+	Multiple_Complex	144170832	144477381
+TC0500013423.hg.1	NM_001257293; NM_005520; ENST00000329433; ENST00000356731; ENST00000393432; ENST00000442819; ENST00000502632; ENST00000502904; ENST00000503105; ENST00000503664; ENST00000504348; ENST00000504549; ENST00000504779; ENST00000505087; ENST00000505811; ENST00000506721; ENST00000508103; ENST00000510411; ENST00000510431; ENST00000510678; ENST00000512273; ENST00000513225; ENST00000513230; ENST00000513972; ENST00000514332; ENST00000514731; ENST00000515158; ENST00000515446; ENST00000515481; ENST00000515714; ENST00000518548; ENST00000519033; ENST00000519056; ENST00000519455; ENST00000519707; ENST00000519943; ENST00000519958; ENST00000520415; ENST00000521173; ENST00000521720; ENST00000521790; ENST00000522958; ENST00000523136; ENST00000523137; ENST00000523449; ENST00000523921; ENST00000524179; ENST00000524180; ENST00000630639; BC001348; OTTHUMT00000253497; OTTHUMT00000372276; OTTHUMT00000372277; OTTHUMT00000372279; OTTHUMT00000372280; OTTHUMT00000372281; OTTHUMT00000372282; OTTHUMT00000372283; OTTHUMT00000372284; OTTHUMT00000372285; OTTHUMT00000372286; OTTHUMT00000372287; OTTHUMT00000372288; OTTHUMT00000372289; OTTHUMT00000372290; OTTHUMT00000372291; OTTHUMT00000372292; OTTHUMT00000372293; OTTHUMT00000372294; OTTHUMT00000372295; OTTHUMT00000372305; OTTHUMT00000372306; OTTHUMT00000372307; OTTHUMT00000372308; OTTHUMT00000372312; OTTHUMT00000372313; OTTHUMT00000372314; OTTHUMT00000372568; OTTHUMT00000375488; OTTHUMT00000375489; OTTHUMT00000375490; OTTHUMT00000375510; OTTHUMT00000375511; OTTHUMT00000375512; OTTHUMT00000375513; OTTHUMT00000375514; OTTHUMT00000375515; OTTHUMT00000375516; OTTHUMT00000375517; OTTHUMT00000375594; OTTHUMT00000375595; OTTHUMT00000375596; OTTHUMT00000375597; OTTHUMT00000375598; OTTHUMT00000375599; OTTHUMT00000375600	HNRNPH1	heterogeneous nuclear ribonucleoprotein H1 (H)	chr5	-	Multiple_Complex	179614178	179624669
+TC0600006858.hg.1	vakloyby.bAug10-unspliced	vakloyby	Transcript Identified by AceView	chr6	+	Unassigned	7234424	7234984
+TC0600007039.hg.1	larfleyby.aAug10-unspliced	larfleyby	Transcript Identified by AceView	chr6	+	Coding	15246958	15247354
+TC0600007258.hg.1				chr6	+	NonCoding	25976547	25977067
+TC0600007414.hg.1	jasnoybu.aAug10-unspliced	jasnoybu	Transcript Identified by AceView	chr6	+	Coding	28290121	28291360
+TC0600007604.hg.1	ENST00000364337; uc063nef.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr6	+	NonCoding	31663288	31663401
+TC0600007660.hg.1				chr6	+	NonCoding	32662209	32665074
+TC0600007683.hg.1	ENST00000365571; uc021ywi.2	RNY4P10	RNA, Ro-associated Y4 pseudogene 10 [Source:HGNC Symbol;Acc:HGNC:34060]	chr6	+	NonCoding	33199601	33199696
+TC0600007701.hg.1	NM_002636; NM_024165; NR_027692; ENST00000374512; ENST00000374516; ENST00000427004; ENST00000427826; ENST00000428274; ENST00000459809; ENST00000479029; ENST00000486845; ENST00000487667; ENST00000488767; ENST00000495509; BC008834; OTTHUMT00000076174; OTTHUMT00000076175; OTTHUMT00000276478; OTTHUMT00000276479; OTTHUMT00000276480; OTTHUMT00000276481; OTTHUMT00000276482; OTTHUMT00000276483; OTTHUMT00000276484; OTTHUMT00000276486; OTTHUMT00000276487	PHF1	PHD finger protein 1	chr6	+	Multiple_Complex	33410399	33416453
+TC0600007866.hg.1	sloyjaw.aAug10-unspliced	sloyjaw	Transcript Identified by AceView	chr6	+	Coding	37297228	37309936
+TC0600007899.hg.1	leegloby.aAug10-unspliced	leegloby	Transcript Identified by AceView	chr6	+	Unassigned	37955346	37958811
+TC0600007906.hg.1	seeseyby.aAug10-unspliced	seeseyby	Transcript Identified by AceView	chr6	+	Unassigned	38117259	38118755
+TC0600007930.hg.1	ENST00000363068; uc063ohf.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr6	+	NonCoding	38565950	38566055
+TC0600008066.hg.1	NM_057161; NR_040101; ENST00000244670; ENST00000326974; ENST00000332245; BC000295; BC001789; BC001793; BC007296; BC009460; BC021546; BC041793; BC045612; OTTHUMT00000040570	KLHDC3	kelch domain containing 3	chr6	+	Multiple_Complex	43014103	43021298
+TC0600008144.hg.1	motaby.aAug10-unspliced	motaby	Transcript Identified by AceView	chr6	+	Coding	45179411	45180142
+TC0600008357.hg.1				chr6	+	NonCoding	57917096	57917266
+TC0600008379.hg.1	NM_001190706; OTTHUMT00000438044	MTRNR2L9	MT-RNR2-like 9	chr6	+	Multiple_Complex	61574103	61574629
+TC0600008563.hg.1	uc063pqw.1	RNU6-1016P	RNA, U6 small nuclear 1016, pseudogene [Source:HGNC Symbol;Acc:HGNC:47979]	chr6	+	Small_RNA	75644084	75644177
+TC0600008617.hg.1	ENST00000607718.1; OTTHUMT00000471301; uc063psc.1	RP11-177G23.2	novel transcript	chr6	+	NonCoding	79561132	79561602
+TC0600009542.hg.1	snakluby.aAug10-unspliced	snakluby	Transcript Identified by AceView	chr6	+	Unassigned	135526077	135526790
+TC0600009756.hg.1	varsperbu.aAug10-unspliced	varsperbu	Transcript Identified by AceView	chr6	+	Unassigned	147294830	147296920
+TC0600009793.hg.1	korfly.aAug10-unspliced	korfly	Transcript Identified by AceView	chr6	+	Unassigned	149333434	149334130
+TC0600010019.hg.1				chr6	+	NonCoding	158566570	158566764
+TC0600010310.hg.1	peeflarby.aAug10-unspliced	peeflarby	Transcript Identified by AceView	chr6	+	Coding	169793285	169794229
+TC0600010635.hg.1				chr6	-	NonCoding	3999188	3999469
+TC0600010651.hg.1				chr6	-	NonCoding	4149802	4149925
+TC0600010811.hg.1	losneybu.aAug10-unspliced	losneybu	Transcript Identified by AceView	chr6	-	Coding	11207819	11208203
+TC0600010815.hg.1	merblor.aAug10-unspliced	merblor	Transcript Identified by AceView	chr6	-	Unassigned	11225802	11227170
+TC0600010920.hg.1	slawglorbu.aAug10-unspliced	slawglorbu	Transcript Identified by AceView	chr6	-	Coding	16293690	16294176
+TC0600010924.hg.1	blufleyby.aAug10-unspliced	blufleyby	Transcript Identified by AceView	chr6	-	Coding	16362020	16362580
+TC0600011086.hg.1	plysnorbu.aAug10-unspliced	plysnorbu	Transcript Identified by AceView	chr6	-	Unassigned	25101199	25102246
+TC0600011169.hg.1				chr6	-	NonCoding	26864872	26866098
+TC0600011199.hg.1				chr6	-	NonCoding	27505828	27505910
+TC0600011873.hg.1	kloyglarby.aAug10-unspliced	kloyglarby	Transcript Identified by AceView	chr6	-	Coding	43327852	43329094
+TC0600012366.hg.1	ENST00000364594	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr6	-	NonCoding	79301963	79302066
+TC0600012802.hg.1	jawglorby.aAug10-unspliced	jawglorby	Transcript Identified by AceView	chr6	-	Coding	109038107	109038615
+TC0600012866.hg.1	weesporby.aAug10-unspliced	weesporby	Transcript Identified by AceView	chr6	-	Unassigned	111479523	111481892
+TC0600012867.hg.1	spaplobu.aAug10-unspliced	spaplobu	Transcript Identified by AceView	chr6	-	Unassigned	111481994	111482594
+TC0600013053.hg.1	ENST00000624649; OTTHUMT00000431293	RP3-425C14.4	TEC	chr6	-	NonCoding	122436789	122439223
+TC0600013285.hg.1	lykloby.aAug10-unspliced	lykloby	Transcript Identified by AceView	chr6	-	Coding	136666777	136667725
+TC0600013416.hg.1	swawspeebu.aAug10-unspliced	swawspeebu	Transcript Identified by AceView	chr6	-	Coding	143045905	143046251
+TC0600013435.hg.1				chr6	-	NonCoding	144149073	144149902
+TC0600013684.hg.1				chr6	-	NonCoding	157310590	157312707
+TC0600013903.hg.1	sharfleeby.aAug10-unspliced	sharfleeby	Transcript Identified by AceView	chr6	-	Coding	166930682	166931025
+TC0600014287.hg.1	NM_001075098; NM_005943; NR_033233; ENST00000340692; ENST00000373186; ENST00000373188; ENST00000373195; ENST00000425303; ENST00000432280; ENST00000473742; ENST00000487924; OTTHUMT00000040472; OTTHUMT00000040473; OTTHUMT00000040476; OTTHUMT00000040477; OTTHUMT00000040478; OTTHUMT00000040479; OTTHUMT00000357735; OTTHUMT00000357736	MOCS1	molybdenum cofactor synthesis 1	chr6	-	Multiple_Complex	39904165	39934551
+TC0700006899.hg.1	NR_003075; ENST00000408813; uc003svl.3	SNORD93	small nucleolar RNA, C/D box 93	chr7	+	Small_RNA	22856613	22856686
+TC0700007026.hg.1	tarblar.aAug10-unspliced	tarblar	Transcript Identified by AceView	chr7	+	Unassigned	27817908	27819270
+TC0700007142.hg.1	sperky.aAug10-unspliced	sperky	Transcript Identified by AceView	chr7	+	Unassigned	33677023	33678213
+TC0700007181.hg.1	pleyblar.aAug10-unspliced	pleyblar	Transcript Identified by AceView	chr7	+	Unassigned	35875352	35876962
+TC0700007274.hg.1	kochoyby.aAug10-unspliced	kochoyby	Transcript Identified by AceView	chr7	+	Unassigned	39637210	39637461
+TC0700007761.hg.1				chr7	+	NonCoding	64110327	64110398
+TC0700007950.hg.1	sterslerbu.aAug10-unspliced	sterslerbu	Transcript Identified by AceView	chr7	+	Coding	72916808	72922261
+TC0700008020.hg.1	flymerby.aAug10-unspliced; slorkloyby.aAug10-unspliced	flymerby; slorkloyby	Transcript Identified by AceView	chr7	+	Unassigned	74936408	74937566
+TC0700008108.hg.1	teymorby.aAug10-unspliced	teymorby	Transcript Identified by AceView	chr7	+	Coding	76594833	76596999
+TC0700008109.hg.1	jeesmeebu.aAug10-unspliced	jeesmeebu	Transcript Identified by AceView	chr7	+	Unassigned	76597075	76599249
+TC0700008739.hg.1				chr7	+	NonCoding	106624072	106628696
+TC0700008884.hg.1	dorskoyby.aAug10-unspliced	dorskoyby	Transcript Identified by AceView	chr7	+	Unassigned	117057349	117059828
+TC0700009054.hg.1	ENST00000605836.1; OTTHUMT00000468356; uc064huq.1	RP11-274B21.10	novel transcript	chr7	+	NonCoding	128667043	128668156
+TC0700009179.hg.1				chr7	+	NonCoding	131339965	131344277
+TC0700009239.hg.1	smorbler.aAug10-unspliced	smorbler	Transcript Identified by AceView	chr7	+	Unassigned	134868624	134872388
+TC0700009313.hg.1				chr7	+	NonCoding	138360727	138363193
+TC0700009341.hg.1	spoyslerby.aAug10-unspliced	spoyslerby	Transcript Identified by AceView	chr7	+	Unassigned	139413090	139414626
+TC0700010368.hg.1	blerlaby.aAug10-unspliced	blerlaby	Transcript Identified by AceView	chr7	-	Unassigned	17345262	17346150
+TC0700010462.hg.1				chr7	-	NonCoding	23307891	23309455
+TC0700010496.hg.1	sparshobu.aAug10-unspliced	sparshobu	Transcript Identified by AceView	chr7	-	Unassigned	24572156	24573910
+TC0700010537.hg.1				chr7	-	NonCoding	26184064	26184809
+TC0700010672.hg.1	kihere.aAug10-unspliced	kihere	Transcript Identified by AceView	chr7	-	Coding	31856700	31858921
+TC0700010688.hg.1	neegloyby.aAug10-unspliced	neegloyby	Transcript Identified by AceView	chr7	-	Unassigned	32888224	32890425
+TC0700010813.hg.1	uc064czt.1	AC004837.1		chr7	-	Precursor_microRNA	39685011	39685098
+TC0700011773.hg.1	gloysmerbu.aAug10-unspliced	gloysmerbu	Transcript Identified by AceView	chr7	-	Coding	92204221	92204686
+TC0700011960.hg.1	spushorby.aAug10-unspliced	spushorby	Transcript Identified by AceView	chr7	-	Coding	99894959	99897960
+TC0700012096.hg.1	boneyby.aAug10-unspliced	boneyby	Transcript Identified by AceView	chr7	-	Unassigned	102559181	102559888
+TC0700012124.hg.1	ENST00000516043; uc033abl.2	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr7	-	NonCoding	103433461	103433561
+TC0700012157.hg.1	rykaw.aAug10-unspliced	rykaw	Transcript Identified by AceView	chr7	-	Unassigned	105387389	105387909
+TC0700012226.hg.1				chr7	-	NonCoding	107948414	107950027
+TC0700012272.hg.1				chr7	-	NonCoding	111439924	111439989
+TC0700012613.hg.1	NR_029503; NR_029517; NR_034120; NR_110472; NR_110473; ENST00000385015; uc003vqm.1	MIR29A; MIR29B1; LINC-PINT	microRNA 29a; microRNA 29b-1; long intergenic non-protein coding RNA, p53 induced transcript	chr7	-	Multiple_Complex	130876735	130913310
+TC0700012614.hg.1	noykee.aAug10-unspliced	noykee	Transcript Identified by AceView	chr7	-	Coding	130887511	130888878
+TC0700012618.hg.1	pokee.aAug10-unspliced	pokee	Transcript Identified by AceView	chr7	-	Unassigned	130899410	130899920
+TC0700012620.hg.1	flobler.aAug10-unspliced	flobler	Transcript Identified by AceView	chr7	-	Unassigned	130904774	130905335
+TC0700012622.hg.1	peekee.aAug10-unspliced	peekee	Transcript Identified by AceView	chr7	-	Coding	130920239	130920925
+TC0700013217.hg.1	smuslawbu.aAug10-unspliced	smuslawbu	Transcript Identified by AceView	chr7	-	Unassigned	156632455	156635695
+TC0700013294.hg.1	leysleebu.aAug10-unspliced	leysleebu	Transcript Identified by AceView	chr7	-	Coding	158775206	158775899
+TC0700013297.hg.1	farbley.aAug10-unspliced	farbley	Transcript Identified by AceView	chr7	-	Coding	158782486	158783437
+TC0800006440.hg.1	ENST00000609090.1; OTTHUMT00000471619; uc064jvz.1	RP5-855D21.3	novel transcript, sense intronic to ZNF596	chr8	+	NonCoding	233119	233692
+TC0800006476.hg.1	blybly.aAug10-unspliced	blybly	Transcript Identified by AceView	chr8	+	Unassigned	1684449	1684877
+TC0800006771.hg.1	leezuby.aAug10-unspliced	leezuby	Transcript Identified by AceView	chr8	+	Unassigned	12157310	12161972
+TC0800006780.hg.1	plawgoyby.aAug10-unspliced	plawgoyby	Transcript Identified by AceView	chr8	+	Coding	12219343	12219732
+TC0800006882.hg.1	boyblu.aAug10-unspliced	boyblu	Transcript Identified by AceView	chr8	+	Unassigned	18000831	18001325
+TC0800006883.hg.1	swarslobu.aAug10-unspliced	swarslobu	Transcript Identified by AceView	chr8	+	Coding	18003349	18004044
+TC0800007081.hg.1	ENST00000522547.1; OTTHUMT00000376746; uc064ljm.1	RP11-14I17.2	novel transcript	chr8	+	NonCoding	26422593	26423929
+TC0800007191.hg.1	sarshor.aAug10-unspliced	sarshor	Transcript Identified by AceView	chr8	+	Unassigned	30520369	30521481
+TC0800007192.hg.1	zaveebu.aAug10-unspliced	zaveebu	Transcript Identified by AceView	chr8	+	Coding	30540951	30541413
+TC0800007375.hg.1				chr8	+	NonCoding	39560937	39561027
+TC0800008033.hg.1	slarkor.aAug10-unspliced	slarkor	Transcript Identified by AceView	chr8	+	Unassigned	78706354	78706874
+TC0800008212.hg.1				chr8	+	NonCoding	92146792	92193603
+TC0800008268.hg.1	mohomu.aAug10-unspliced	mohomu	Transcript Identified by AceView	chr8	+	Coding	94876771	94878093
+TC0800008320.hg.1				chr8	+	NonCoding	97773978	97774033
+TC0800008482.hg.1	royveeby.aAug10-unspliced	royveeby	Transcript Identified by AceView	chr8	+	Unassigned	103379453	103380384
+TC0800008483.hg.1	uc064piq.1	RNU6-1011P	RNA, U6 small nuclear 1011, pseudogene [Source:HGNC Symbol;Acc:HGNC:47974]	chr8	+	Small_RNA	103384961	103385067
+TC0800008727.hg.1	ENST00000628694; uc064pwm.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr8	+	NonCoding	123044717	123044812
+TC0800008857.hg.1	NR_031611	MIR1206	microRNA 1206	chr8	+	Multiple_Complex	128008898	128008956
+TC0800009303.hg.1				chr8	-	NonCoding	65046	205299
+TC0800009470.hg.1	bloygeyby.aAug10-unspliced	bloygeyby	Transcript Identified by AceView	chr8	-	Coding	7502653	7503247
+TC0800009504.hg.1	blawslarbu.aAug10-unspliced	blawslarbu	Transcript Identified by AceView	chr8	-	Coding	8172860	8173208
+TC0800009771.hg.1	ratimu.aAug10-unspliced	ratimu	Transcript Identified by AceView	chr8	-	Coding	18902365	18905501
+TC0800009773.hg.1	gaslarbu.bAug10-unspliced	gaslarbu	Transcript Identified by AceView	chr8	-	Unassigned	18928621	18929063
+TC0800010261.hg.1	plawerby.aAug10-unspliced	plawerby	Transcript Identified by AceView	chr8	-	Coding	41987564	41989644
+TC0800010289.hg.1				chr8	-	NonCoding	42530049	42533173
+TC0800010537.hg.1				chr8	-	NonCoding	57984087	57987079
+TC0800011049.hg.1				chr8	-	NonCoding	89383780	89535745
+TC0800011051.hg.1	skuveybu.aAug10-unspliced	skuveybu	Transcript Identified by AceView	chr8	-	Unassigned	89517425	89518650
+TC0800011055.hg.1	slarzeeby.bAug10-unspliced	slarzeeby	Transcript Identified by AceView	chr8	-	Unassigned	89692808	89693383
+TC0800011057.hg.1	swaly.aAug10-unspliced	swaly	Transcript Identified by AceView	chr8	-	Coding	89750783	89752175
+TC0800011318.hg.1	darveeby.aAug10-unspliced	darveeby	Transcript Identified by AceView	chr8	-	Unassigned	102382727	102383471
+TC0800011402.hg.1	ENST00000518897	TMCC1P1	transmembrane and coiled-coil domain family 1 pseudogene 1 [Source:HGNC Symbol;Acc:HGNC:31901]	chr8	-	Multiple_Complex	105194990	105196969
+TC0800011508.hg.1				chr8	-	NonCoding	112175936	112177977
+TC0800011535.hg.1	blerverby.aAug10-unspliced	blerverby	Transcript Identified by AceView	chr8	-	Unassigned	115462657	115463603
+TC0800011541.hg.1	klarverby.aAug10-unspliced	klarverby	Transcript Identified by AceView	chr8	-	Unassigned	115537765	115538433
+TC0800011580.hg.1	varger.aAug10-unspliced	varger	Transcript Identified by AceView	chr8	-	Unassigned	117921986	117922971
+TC0800011582.hg.1	kyveyby.aAug10-unspliced	kyveyby	Transcript Identified by AceView	chr8	-	Unassigned	117968588	117969859
+TC0800011583.hg.1	slobly.aAug10-unspliced	slobly	Transcript Identified by AceView	chr8	-	Coding	117980713	117984906
+TC0800011584.hg.1	sneela.aAug10-unspliced	sneela	Transcript Identified by AceView	chr8	-	Unassigned	117986208	117989212
+TC0800011591.hg.1	snorla.aAug10-unspliced	snorla	Transcript Identified by AceView	chr8	-	Unassigned	118035778	118036607
+TC0800011592.hg.1	snoyla.aAug10-unspliced	snoyla	Transcript Identified by AceView	chr8	-	Coding	118036773	118041582
+TC0800011595.hg.1	hsa_circ_0002817; hunera.aAug10-unspliced	EXT1; hunera	Jeck2013 ALT_ACCEPTOR, ALT_DONOR, coding, INTERNAL, intronic best transcript NM_000127; Transcript Identified by AceView	chr8	-	NonCoding	118069371	118072777
+TC0800011597.hg.1	hsa_circ_0007696; spawla.aAug10	EXT1; spawla	Jeck2013 ALT_ACCEPTOR, ALT_DONOR, coding, INTERNAL, intronic best transcript NM_000127; Transcript Identified by AceView	chr8	-	NonCoding	118080749	118099405
+TC0800011598.hg.1				chr8	-	NonCoding	118085495	118088259
+TC0800011635.hg.1	snerveyby.aAug10-unspliced	snerveyby	Transcript Identified by AceView	chr8	-	Coding	120553216	120553884
+TC0800011678.hg.1				chr8	-	NonCoding	123266642	123266745
+TC0800011701.hg.1	sarfarby.aAug10-unspliced	sarfarby	Transcript Identified by AceView	chr8	-	Coding	124187030	124188410
+TC0800012058.hg.1				chr8	-	NonCoding	142098385	142099520
+TC0800012098.hg.1	skeeforby.aAug10-unspliced	skeeforby	Transcript Identified by AceView	chr8	-	Coding	143004334	143004870
+TC0800012438.hg.1	NR_125822; ENST00000504145; ENST00000519655; ENST00000519854; ENST00000520306; ENST00000521996; ENST00000523859; ENST00000523995; ENST00000524166; ENST00000524190; ENST00000621883; ENST00000504145.1; ENST00000519655.2; ENST00000519854.1; ENST00000520306.1; ENST00000521996.1; ENST00000523859.1; ENST00000523995.1; ENST00000524166.1; ENST00000524190.1; OTTHUMT00000375476; OTTHUMT00000375477; OTTHUMT00000375478; OTTHUMT00000375479; OTTHUMT00000375480; OTTHUMT00000375481; OTTHUMT00000375482; OTTHUMT00000375483; OTTHUMT00000375485; OTTHUMT00000375685; smarzeeby.bAug10; uc064ohe.1; uc064ohf.1; uc064ohg.1; uc064ohh.1; uc064ohi.1; uc064ohj.1; uc064ohk.1; uc064ohl.1; uc064ohm.1; uc064ohn.1	LOC101929709; RP11-37B2.1; smarzeeby	uncharacterized LOC101929709; novel transcript; Transcript Identified by AceView	chr8	-	Multiple_Complex	89608544	89757727
+TC0800012456.hg.1	ENST00000607837.1	RP11-383J24.6		chr8	-	NonCoding	124306189	124308376
+TC0900006474.hg.1				chr9	+	NonCoding	2042994	2046019
+TC0900006534.hg.1	wyplabu.aAug10-unspliced	wyplabu	Transcript Identified by AceView	chr9	+	Coding	4857051	4857869
+TC0900006734.hg.1	ENST00000488178; uc064sgq.1	RN7SL720P	RNA, 7SL, cytoplasmic 720, pseudogene [Source:HGNC Symbol;Acc:HGNC:46736]	chr9	+	NonCoding	17053901	17054204
+TC0900006759.hg.1				chr9	+	NonCoding	19231309	19234862
+TC0900007217.hg.1	farskobu.aAug10	farskobu	Transcript Identified by AceView	chr9	+	Unassigned	39739202	39740960
+TC0900007369.hg.1	NR_126047; ENST00000305709.5; ENST00000467494.2; ENST00000476224.1; OTTHUMT00000037077; OTTHUMT00000037078; OTTHUMT00000037079; uc033ctr.2; uc064tkj.1; uc064tkk.1	LOC728673; GLIDR; RP11-262H14.4	uncharacterized LOC728673; glioblastoma down-regulated RNA [Source:HGNC Symbol;Acc:HGNC:48823]; novel transcript	chr9	+	NonCoding	62897376	62900104
+TC0900007377.hg.1	blyshey.aAug10-unspliced	blyshey	Transcript Identified by AceView	chr9	+	Coding	63119407	63119793
+TC0900007474.hg.1	ENST00000425587.1; OTTHUMT00000052545; uc064tne.1	RP11-561O23.8	putative novel transcript	chr9	+	NonCoding	68228651	68229312
+TC0900007500.hg.1	fleyshee.aAug10-unspliced	fleyshee	Transcript Identified by AceView	chr9	+	Unassigned	69241905	69243089
+TC0900007522.hg.1				chr9	+	NonCoding	70320137	70322843
+TC0900007845.hg.1	plawtawbo.aAug10-unspliced	plawtawbo	Transcript Identified by AceView	chr9	+	Unassigned	88406550	88407153
+TC0900007995.hg.1	NR_049853_2	MIR548AU	Homo sapiens microRNA 548au (MIR548AU), microRNA.	chr9	+	Multiple_Complex	93594841	93594894
+TC0900008052.hg.1	slawtoby.aAug10-unspliced	slawtoby	Transcript Identified by AceView	chr9	+	Unassigned	95013478	95015455
+TC0900008053.hg.1	gawlar.aAug10-unspliced	gawlar	Transcript Identified by AceView	chr9	+	Coding	95023048	95025881
+TC0900008055.hg.1	chershee.aAug10-unspliced	chershee	Transcript Identified by AceView	chr9	+	Unassigned	95039626	95041373
+TC0900008056.hg.1	rimemu.aAug10-unspliced	rimemu	Transcript Identified by AceView	chr9	+	Coding	95061717	95063927
+TC0900008443.hg.1	swoshey.aAug10-unspliced	swoshey	Transcript Identified by AceView	chr9	+	Unassigned	111927794	111929038
+TC0900008766.hg.1	lawgar.aAug10-unspliced	lawgar	Transcript Identified by AceView	chr9	+	Coding	125806392	125807330
+TC0900008898.hg.1	wusher.aAug10-unspliced	wusher	Transcript Identified by AceView	chr9	+	Coding	129049004	129049359
+TC0900009001.hg.1	NR_002914; NR_003050; ENST00000428514; uc004caq.3	SNORD62A; SNORD62B	small nucleolar RNA, C/D box 62A; small nucleolar RNA, C/D box 62B	chr9	+	Small_RNA	131485665	131485750
+TC0900009002.hg.1	ENST00000426867; uc004car.3	SNORD62B; SNORD62A	small nucleolar RNA, C/D box 62B; small nucleolar RNA, C/D box 62A	chr9	+	Small_RNA	131490486	131490571
+TC0900009336.hg.1	uc064xoe.1	RNU6-785P	RNA, U6 small nuclear 785, pseudogene [Source:HGNC Symbol;Acc:HGNC:47748]	chr9	+	Small_RNA	138259595	138259698
+TC0900009418.hg.1	flupawbu.aAug10-unspliced	flupawbu	Transcript Identified by AceView	chr9	-	Unassigned	3522611	3523100
+TC0900009608.hg.1	BC020879	MGC24103	uncharacterized MGC24103	chr9	-	Coding	16525995	16527733
+TC0900009611.hg.1	skorspey.aAug10-unspliced	skorspey	Transcript Identified by AceView	chr9	-	Coding	16785578	16787435
+TC0900009734.hg.1				chr9	-	NonCoding	22953019	22953103
+TC0900010221.hg.1	zarskubu.aAug10-unspliced	zarskubu	Transcript Identified by AceView	chr9	-	Coding	63331375	63332398
+TC0900010223.hg.1	zorskubu.aAug10-unspliced	zorskubu	Transcript Identified by AceView	chr9	-	Coding	63340646	63341032
+TC0900010251.hg.1	gluvubu.aAug10-unspliced	gluvubu	Transcript Identified by AceView	chr9	-	Coding	64645154	64645540
+TC0900010542.hg.1				chr9	-	NonCoding	81574668	81575219
+TC0900010982.hg.1	somire.aAug10-unspliced	somire	Transcript Identified by AceView	chr9	-	Unassigned	98787366	98789048
+TC0900011076.hg.1	plylo.aAug10-unspliced	plylo	Transcript Identified by AceView	chr9	-	Coding	104887742	104888542
+TC0900011187.hg.1				chr9	-	NonCoding	110691327	110784847
+TC0900011222.hg.1				chr9	-	NonCoding	112205662	112213174
+TC0900011338.hg.1	uc064vhk.1	AL137024.1		chr9	-	Precursor_microRNA	116393589	116393676
+TC0X00006575.hg.1				chrX	+	NonCoding	9195825	9199740
+TC0X00006987.hg.1				chrX	+	NonCoding	39786876	39787116
+TC0X00007082.hg.1				chrX	+	NonCoding	45018379	45018549
+TC0X00007109.hg.1	sneyfer.aAug10-unspliced	sneyfer	Transcript Identified by AceView	chrX	+	Unassigned	46463656	46464557
+TC0X00007130.hg.1	sperfor.aAug10-unspliced	sperfor	Transcript Identified by AceView	chrX	+	Coding	47194519	47195112
+TC0X00007364.hg.1	NR_002953; ENST00000408789	SNORA11	small nucleolar RNA, H/ACA box 11	chrX	+	Small_RNA	54814370	54814500
+TC0X00007399.hg.1				chrX	+	NonCoding	56734151	56734568
+TC0X00007564.hg.1	kawgee.aAug10-unspliced	kawgee	Transcript Identified by AceView	chrX	+	Coding	71335930	71336457
+TC0X00007909.hg.1				chrX	+	NonCoding	98518682	98524523
+TC0X00008565.hg.1				chrX	+	Pseudogene	138483707	138484510
+TC0X00008815.hg.1	serera.aAug10-unspliced	serera	Transcript Identified by AceView	chrX	+	Unassigned	154010507	154012133
+TC0X00008881.hg.1	NM_001304990; NM_005840; ENST00000302805; BC069609; BC074972; BC074973; OTTHUMT00000058823	SPRY3	sprouty RTK signaling antagonist 3	chrX	+	Coding	155612565	155782459
+TC0X00009242.hg.1	uc064yie.1	AC004673.1		chrX	-	Precursor_microRNA	23120832	23120905
+TC0X00009292.hg.1	RDXP2.aAug10-unspliced	RDXP2	Transcript Identified by AceView, Entrez Gene ID(s) 5964	chrX	-	Unassigned	27515176	27515266
+TC0X00009582.hg.1	NM_004182; NM_153477; NR_045559; NR_045560; ENST00000333119; ENST00000335890; ENST00000376964; ENST00000460840; ENST00000485641; BC000720; BC008890; OTTHUMT00000056440; OTTHUMT00000056441; OTTHUMT00000056442; OTTHUMT00000056443; OTTHUMT00000056444	UXT	ubiquitously expressed prefoldin like chaperone	chrX	-	Multiple_Complex	47651792	47659180
+TC0X00010064.hg.1	NR_028379; ENST00000418855; ENST00000423992; ENST00000429124; ENST00000430772; ENST00000455395; ENST00000602420; ENST00000602576; ENST00000602776; ENST00000602812; ENST00000603672; uc004ebr.1; uc010nlq.1	FTX	FTX transcript, XIST regulator (non-protein coding)	chrX	-	NonCoding	73963955	74293574
+TC0X00010068.hg.1	jyvar.aAug10-unspliced	jyvar	Transcript Identified by AceView	chrX	-	Coding	73991525	73993609
+TC0X00010071.hg.1	spagor.aAug10-unspliced	spagor	Transcript Identified by AceView	chrX	-	Coding	74046369	74046825
+TC0X00010072.hg.1	bygoy.aAug10-unspliced	bygoy	Transcript Identified by AceView	chrX	-	Unassigned	74063313	74064556
+TC0X00010075.hg.1	gugoy.aAug10-unspliced	gugoy	Transcript Identified by AceView	chrX	-	Coding	74123014	74123321
+TC0X00010076.hg.1	teti.aAug10-unspliced	teti	Transcript Identified by AceView	chrX	-	Coding	74124412	74126023
+TC0X00010080.hg.1				chrX	-	NonCoding	74155845	74156122
+TC0X00010082.hg.1	shargoy.aAug10-unspliced	shargoy	Transcript Identified by AceView	chrX	-	Unassigned	74191379	74192509
+TC0X00010121.hg.1	roydu.aAug10-unspliced	roydu	Transcript Identified by AceView	chrX	-	Coding	76576792	76577399
+TC0X00010183.hg.1	uc065adk.1	AL022574.1		chrX	-	Precursor_microRNA	82675638	82675727
+TC0X00010368.hg.1	ENST00000384561	RNU6-30P	RNA, U6 small nuclear 30, pseudogene	chrX	-	Small_RNA	101634006	101634112
+TC0X00010427.hg.1	choyvar.aAug10-unspliced	choyvar	Transcript Identified by AceView	chrX	-	Unassigned	103681243	103682849
+TC0X00010463.hg.1	lufey.aAug10-unspliced	lufey	Transcript Identified by AceView	chrX	-	Unassigned	107083189	107084403
+TC0X00010517.hg.1	uc065asj.1	RNU6-496P	RNA, U6 small nuclear 496, pseudogene [Source:HGNC Symbol;Acc:HGNC:47459]	chrX	-	Multiple_Complex	111384256	111421608
+TC0X00010578.hg.1	bygar.aAug10-unspliced	bygar	Transcript Identified by AceView	chrX	-	Coding	115854449	115856073
+TC0X00010585.hg.1	florgar.aAug10-unspliced	florgar	Transcript Identified by AceView	chrX	-	Coding	115881305	115882921
+TC0X00010586.hg.1	spagar.aAug10-unspliced	spagar	Transcript Identified by AceView	chrX	-	Coding	115884314	115885949
+TC0X00010605.hg.1				chrX	-	NonCoding	117282456	117284368
+TC0X00010756.hg.1	uc065bas.1	AL359973.1		chrX	-	Precursor_microRNA	126472809	126472882
+TC0X00010780.hg.1	studo.aAug10-unspliced	studo	Transcript Identified by AceView	chrX	-	Coding	129254219	129254661
+TC0X00011009.hg.1	uc065bkt.1	AC239395.1		chrX	-	Precursor_microRNA	143446208	143446337
+TC0X00011360.hg.1	NR_029635; ENST00000385135; uc011mle.1	MIR221	microRNA 221	chrX	-	Precursor_microRNA	45746157	45746266
+TC0Y00006855.hg.1	NM_005840_2; ENSTR0000302805; BC069609_2; BC074972_2; BC074973_2; CCDS14769.4_2; uc004fxi.2	SPRY3	Homo sapiens sprouty RTK signaling antagonist 3 (SPRY3), transcript variant 1, mRNA.; sprouty homolog 3 (Drosophila) [Source:HGNC Symbol;Acc:HGNC:11271]; Homo sapiens sprouty homolog 3 (Drosophila), mRNA (cDNA clone MGC:97072 IMAGE:7262284), complete cds.; Homo sapiens sprouty homolog 3 (Drosophila), mRNA (cDNA clone MGC:103904 IMAGE:30915293), complete cds.; Homo sapiens sprouty homolog 3 (Drosophila), mRNA (cDNA clone MGC:104063 IMAGE:30915511), complete cds.	chrY	+	Coding	56954255	56968979
+TC0Y00006878.hg.1	slabo.aAug10-unspliced	slabo	Transcript Identified by AceView	chrY	-	Unassigned	1355572	1356538
+TC0Y00007019.hg.1				chrY	-	NonCoding	9898858	9904416
+TC1000007017.hg.1				chr10	+	NonCoding	23382328	23384423
+TC1000007348.hg.1	uc057svg.1	RNU6-1118P	RNA, U6 small nuclear 1118, pseudogene [Source:HGNC Symbol;Acc:HGNC:48081]	chr10	+	Small_RNA	38423625	38423728
+TC1000007525.hg.1	romare.aAug10-unspliced	romare	Transcript Identified by AceView	chr10	+	Coding	46792220	46793924
+TC1000007597.hg.1				chr10	+	NonCoding	49963245	49964457
+TC1000007628.hg.1	uc057thd.1	AC022537.1		chr10	+	Precursor_microRNA	51265325	51265452
+TC1000007632.hg.1	uc057thf.1	AL157399.1		chr10	+	Precursor_microRNA	51526341	51526433
+TC1000007634.hg.1				chr10	+	NonCoding	51566643	51573457
+TC1000007705.hg.1	zoygleybu.aAug10-unspliced	zoygleybu	Transcript Identified by AceView	chr10	+	Coding	58547618	58547994
+TC1000007707.hg.1	tumare.aAug10-unspliced	tumare	Transcript Identified by AceView	chr10	+	Unassigned	58712507	58714888
+TC1000007762.hg.1				chr10	+	NonCoding	62025675	62025811
+TC1000007764.hg.1	temare.aAug10-unspliced	temare	Transcript Identified by AceView	chr10	+	Unassigned	62073459	62076952
+TC1000008389.hg.1	ENST00000620386; uc057utx.1	FAS-AS1	FAS antisense RNA 1 conserved region [Source:RFAM;Acc:RF02116]	chr10	+	NonCoding	88992370	88992539
+TC1000008720.hg.1	pykleebu.aAug10-unspliced	pykleebu	Transcript Identified by AceView	chr10	+	Coding	102269028	102269414
+TC1000008936.hg.1	mymu.aAug10-unspliced	mymu	Transcript Identified by AceView	chr10	+	Coding	112708227	112708755
+TC1000009068.hg.1	ENST00000421206.1; OTTHUMT00000050638; uc057wie.1	GRK5-IT1; RP11-567J24.4	GRK5 intronic transcript 1 (non-protein coding) [Source:HGNC Symbol;Acc:HGNC:49478]; novel transcript, sense intronic to GRK5; GRK5 intronic transcript 1 [Source:HGNC Symbol;Acc:HGNC:49478]	chr10	+	NonCoding	119208531	119211760
+TC1000009197.hg.1				chr10	+	NonCoding	123981811	123982232
+TC1000009281.hg.1	kyfoy.aAug10-unspliced	kyfoy	Transcript Identified by AceView	chr10	+	Unassigned	127131032	127133487
+TC1000009284.hg.1	borma.aAug10-unspliced	borma	Transcript Identified by AceView	chr10	+	Coding	127409892	127410666
+TC1000009388.hg.1				chr10	+	NonCoding	131916617	131920222
+TC1000009468.hg.1	mitaro.aAug10-unspliced	mitaro	Transcript Identified by AceView	chr10	+	Unassigned	133446684	133449757
+TC1000009522.hg.1				chr10	-	NonCoding	657187	658242
+TC1000009857.hg.1	snareeby.aAug10-unspliced	snareeby	Transcript Identified by AceView	chr10	-	Coding	14105784	14108472
+TC1000009910.hg.1	slorlor.aAug10-unspliced	slorlor	Transcript Identified by AceView	chr10	-	Unassigned	16659301	16660663
+TC1000010066.hg.1	goneyby.aAug10-unspliced	goneyby	Transcript Identified by AceView	chr10	-	Unassigned	24650667	24651037
+TC1000010274.hg.1	boyshar.aAug10-unspliced	boyshar	Transcript Identified by AceView	chr10	-	Unassigned	33199390	33200539
+TC1000010275.hg.1	foynoyby.aAug10-unspliced	foynoyby	Transcript Identified by AceView	chr10	-	Coding	33232662	33235367
+TC1000010278.hg.1	jonoyby.aAug10-unspliced	jonoyby	Transcript Identified by AceView	chr10	-	Unassigned	33290368	33292432
+TC1000010279.hg.1	jornoyby.aAug10-unspliced	jornoyby	Transcript Identified by AceView	chr10	-	Coding	33316956	33317828
+TC1000010535.hg.1	NR_027632; OTTHUMT00000047827; OTTHUMT00000047829; OTTHUMT00000047832	FAM35BP; RHEBP1	family with sequence similarity 35, member A pseudogene; Ras-homolog enriched in brain pseudogene 1	chr10	-	Multiple_Complex	46610472	46652025
+TC1000010567.hg.1	charsho.aAug10-unspliced	charsho	Transcript Identified by AceView	chr10	-	Unassigned	48034625	48035934
+TC1000010709.hg.1	skostorby.aAug10-unspliced	skostorby	Transcript Identified by AceView	chr10	-	Coding	58541717	58542150
+TC1000010846.hg.1	sharsha.aAug10-unspliced	sharsha	Transcript Identified by AceView	chr10	-	Unassigned	68385297	68385886
+TC1000011024.hg.1	sloma.aAug10-unspliced	sloma	Transcript Identified by AceView	chr10	-	Unassigned	73432374	73433076
+TC1000011336.hg.1	reypoby.aAug10-unspliced	reypoby	Transcript Identified by AceView	chr10	-	Unassigned	87314594	87315514
+TC1000012186.hg.1	storloy.aAug10-unspliced	storloy	Transcript Identified by AceView	chr10	-	Unassigned	126268378	126268996
+TC1100006607.hg.1				chr11	+	NonCoding	3166788	3168829
+TC1100006865.hg.1				chr11	+	NonCoding	12024332	12029419
+TC1100006871.hg.1	chaflerbu.aAug10-unspliced	chaflerbu	Transcript Identified by AceView	chr11	+	Unassigned	12121979	12122967
+TC1100006875.hg.1	gogloy.aAug10-unspliced	gogloy	Transcript Identified by AceView	chr11	+	Coding	12229425	12229871
+TC1100006881.hg.1				chr11	+	NonCoding	12421241	12423561
+TC1100006999.hg.1	vycher.aAug10-unspliced	vycher	Transcript Identified by AceView	chr11	+	Unassigned	18349239	18351227
+TC1100007248.hg.1	spoymaw.aAug10-unspliced	spoymaw	Transcript Identified by AceView	chr11	+	Unassigned	34077273	34078340
+TC1100007275.hg.1	sterchee.aAug10-unspliced	sterchee	Transcript Identified by AceView	chr11	+	Unassigned	35191670	35193039
+TC1100007277.hg.1	ENST00000510619.2; OTTHUMT00000388934; uc058ajn.1	RP1-68D18.2	novel transcript	chr11	+	NonCoding	35212550	35214007
+TC1100007534.hg.1				chr11	+	NonCoding	48949217	48956438
+TC1100007690.hg.1	moyplu.aAug10-unspliced	moyplu	Transcript Identified by AceView	chr11	+	Coding	57746351	57746805
+TC1100007692.hg.1	glyny.aAug10-unspliced	glyny	Transcript Identified by AceView	chr11	+	Unassigned	57764523	57765256
+TC1100007695.hg.1	kise.aAug10-unspliced	kise	Transcript Identified by AceView	chr11	+	Unassigned	57772097	57773294
+TC1100007696.hg.1	pyplu.aAug10-unspliced	pyplu	Transcript Identified by AceView	chr11	+	Unassigned	57786858	57788059
+TC1100008018.hg.1	NR_028272; NR_030343; NR_131012; ENST00000384994; ENST00000499732; ENST00000501122; ENST00000601801; ENST00000612303; ENST00000616315	NEAT1; MIR612	nuclear paraspeckle assembly transcript 1 (non-protein coding); microRNA 612	chr11	+	Multiple_Complex	65416655	65450093
+TC1100008463.hg.1	NR_000025; ENST00000384714; uc001owl.1	SNORD15B	small nucleolar RNA, C/D box 15B	chr11	+	Small_RNA	75404421	75404566
+TC1100008624.hg.1	NR_038903; ENST00000501011; ENST00000526795; ENST00000527627; ENST00000528156; ENST00000530270; ENST00000533528; ENST00000533708; ENST00000534499	RAB30-AS1	RAB30 antisense RNA 1 (head to head)	chr11	+	NonCoding	83072066	83106719
+TC1100008699.hg.1				chr11	+	NonCoding	88337937	88428226
+TC1100008848.hg.1	keymaw.aAug10-unspliced	keymaw	Transcript Identified by AceView	chr11	+	Coding	95800291	95801312
+TC1100009741.hg.1	lergler.aAug10-unspliced	lergler	Transcript Identified by AceView	chr11	-	Coding	1498536	1499502
+TC1100009821.hg.1	NR_002982; ENST00000384281; uc001lxd.1	SNORA54	small nucleolar RNA, H/ACA box 54	chr11	-	Small_RNA	2963771	2963893
+TC1100010689.hg.1	lucher.aAug10-unspliced	lucher	Transcript Identified by AceView	chr11	-	Unassigned	45940213	45941607
+TC1100010982.hg.1	blumor.aAug10-unspliced	blumor	Transcript Identified by AceView	chr11	-	Unassigned	59660113	59660729
+TC1100011312.hg.1	uc058ecd.1	AP003176.1		chr11	-	Precursor_microRNA	66882812	66882870
+TC1100011798.hg.1	ENST00000530976	RP11-113K21.1		chr11	-	Multiple_Complex	83040806	83041403
+TC1100011806.hg.1	rysku.aAug10-unspliced	rysku	Transcript Identified by AceView	chr11	-	Coding	83160223	83166175
+TC1100011834.hg.1	riyare.aAug10-unspliced	riyare	Transcript Identified by AceView	chr11	-	Unassigned	85702199	85704327
+TC1100012042.hg.1	leemaw.aAug10-unspliced	leemaw	Transcript Identified by AceView	chr11	-	Unassigned	96221689	96223133
+TC1100012043.hg.1	lermaw.aAug10-unspliced	lermaw	Transcript Identified by AceView	chr11	-	Unassigned	96224460	96225521
+TC1100012047.hg.1	snykawby.aAug10-unspliced	snykawby	Transcript Identified by AceView	chr11	-	Unassigned	96273501	96275047
+TC1100012049.hg.1	sekira.aAug10-unspliced	sekira	Transcript Identified by AceView	chr11	-	Unassigned	96277916	96281531
+TC1100012050.hg.1	chuchee.aAug10-unspliced	chuchee	Transcript Identified by AceView	chr11	-	Unassigned	96286640	96287149
+TC1100012051.hg.1	werforby.aAug10-unspliced	werforby	Transcript Identified by AceView	chr11	-	Unassigned	96309704	96311963
+TC1100012185.hg.1	steeklee.aAug10-unspliced	steeklee	Transcript Identified by AceView	chr11	-	Coding	105979185	105980621
+TC1100012297.hg.1	tuleeby.aAug10-unspliced	tuleeby	Transcript Identified by AceView	chr11	-	Unassigned	111633464	111633702
+TC1100012307.hg.1	OTTHUMT00000351095	RPL37AP8	ribosomal protein L37a pseudogene 8	chr11	-	Multiple_Complex	111889199	111889474
+TC1100012392.hg.1	plyspoby.aAug10-unspliced	plyspoby	Transcript Identified by AceView	chr11	-	Unassigned	115391125	115391586
+TC1100012425.hg.1	teyjeeby.aAug10-unspliced	teyjeeby	Transcript Identified by AceView	chr11	-	Unassigned	116881551	116883277
+TC1100012824.hg.1	uc058jdb.1	U4	U4 spliceosomal RNA [Source:RFAM;Acc:RF00015]	chr11	-	Small_RNA	130114251	130114335
+TC1200006487.hg.1	swunar.aAug10-unspliced	swunar	Transcript Identified by AceView	chr12	+	Coding	2158427	2163204
+TC1200006489.hg.1				chr12	+	NonCoding	2191191	2191835
+TC1200006490.hg.1				chr12	+	NonCoding	2213219	2214496
+TC1200006492.hg.1	snerblarbu.aAug10-unspliced	snerblarbu	Transcript Identified by AceView	chr12	+	Coding	2296100	2296803
+TC1200006498.hg.1	porcho.aAug10-unspliced	porcho	Transcript Identified by AceView	chr12	+	Coding	2635724	2636379
+TC1200006586.hg.1				chr12	+	NonCoding	5469252	5471088
+TC1200006712.hg.1	ENST00000535746.1; ENST00000539795.1; OTTHUMT00000400536; OTTHUMT00000400537; uc058kwf.1; uc058kwg.1	RP11-90D4.3	novel transcript	chr12	+	NonCoding	8321876	8329614
+TC1200007155.hg.1	snawchar.aAug10-unspliced	snawchar	Transcript Identified by AceView	chr12	+	Unassigned	27685792	27686883
+TC1200007467.hg.1	spawflu.aAug10-unspliced	spawflu	Transcript Identified by AceView	chr12	+	Coding	47251597	47252028
+TC1200008029.hg.1	ENST00000545709.1; OTTHUMT00000401432; uc058qlk.1	RP11-305O6.3	novel transcript	chr12	+	NonCoding	65281657	65286728
+TC1200008042.hg.1	uc058qmh.1	AC090673.1		chr12	+	Precursor_microRNA	65858013	65858132
+TC1200008044.hg.1	kunemi.aAug10-unspliced	kunemi	Transcript Identified by AceView	chr12	+	Unassigned	65869151	65870177
+TC1200008109.hg.1				chr12	+	NonCoding	68625270	68625651
+TC1200008261.hg.1				chr12	+	NonCoding	77010709	77024966
+TC1200008445.hg.1	uc058rsb.1	RNU6-1329P	RNA, U6 small nuclear 1329, pseudogene [Source:HGNC Symbol;Acc:HGNC:48292]	chr12	+	Small_RNA	92952639	92952745
+TC1200008467.hg.1	faney.aAug10-unspliced	faney	Transcript Identified by AceView	chr12	+	Unassigned	93389724	93391140
+TC1200008509.hg.1	yotami.aAug10-unspliced	yotami	Transcript Identified by AceView	chr12	+	Unassigned	95260390	95261707
+TC1200008597.hg.1	NM_001303130; NM_001303131; NM_174942; ENST00000266754; ENST00000537247; ENST00000539410; ENST00000547739; ENST00000547754; ENST00000548067; ENST00000548113; ENST00000550295; ENST00000552854; BC043366; OTTHUMT00000409143; OTTHUMT00000409144; OTTHUMT00000409145; OTTHUMT00000409146; OTTHUMT00000409147; OTTHUMT00000409148; OTTHUMT00000409149; OTTHUMT00000409161	GAS2L3	growth arrest-specific 2 like 3	chr12	+	Multiple_Complex	100573661	100628288
+TC1200009218.hg.1	woytybo.aAug10	woytybo	Transcript Identified by AceView	chr12	+	Unassigned	122755845	122757577
+TC1200009553.hg.1	saswer.aAug10-unspliced	saswer	Transcript Identified by AceView	chr12	-	Coding	421314	421830
+TC1200010164.hg.1	uc058mba.1	RNU4-67P	RNA, U4 small nuclear 67, pseudogene [Source:HGNC Symbol;Acc:HGNC:47003]	chr12	-	Small_RNA	25404288	25404428
+TC1200010401.hg.1	uc058mrl.1	AC067735.1		chr12	-	Precursor_microRNA	38913240	38913326
+TC1200011313.hg.1	hsa_circ_0000422	NAP1L1	Memczak2013 ALT_ACCEPTOR, ALT_DONOR, coding, INTERNAL, intronic best transcript NM_139207	chr12	-	NonCoding	76083127	76083229
+TC1200011440.hg.1				chr12	-	NonCoding	86552875	86552952
+TC1200011522.hg.1	fleyglyby.aAug10-unspliced	fleyglyby	Transcript Identified by AceView	chr12	-	Coding	92883686	92884489
+TC1200011537.hg.1	ENST00000363141; uc058rsy.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr12	-	NonCoding	93460725	93460826
+TC1200011694.hg.1				chr12	-	NonCoding	101358748	101358849
+TC1200011853.hg.1	doytubo.aAug10-unspliced	doytubo	Transcript Identified by AceView	chr12	-	Coding	108847675	108848425
+TC1200011947.hg.1	blafu.aAug10-unspliced	blafu	Transcript Identified by AceView	chr12	-	Unassigned	111666483	111667112
+TC1200012186.hg.1	steybleebu.bAug10-unspliced	steybleebu	Transcript Identified by AceView	chr12	-	Coding	120873860	120874677
+TC1200012295.hg.1	ENST00000602474.1; OTTHUMT00000467837; uc058uvv.1	RP11-214K3.22	novel transcript, sense intronic to CCDC92	chr12	-	NonCoding	123962555	123962817
+TC1200012296.hg.1	ENST00000602988.1; OTTHUMT00000467838; uc058uvw.1	RP11-214K3.21	novel transcript, sense intronic to CCDC92	chr12	-	NonCoding	123966077	123966629
+TC1200012298.hg.1	ENST00000602741.1; OTTHUMT00000467840; uc058uvy.1	RP11-214K3.19	novel transcript, sense intronic to CCDC92	chr12	-	NonCoding	123969990	123970344
+TC1300006864.hg.1	ENST00000439854	SCAND3P1	SCAN domain containing 3 pseudogene 1 [Source:HGNC Symbol;Acc:HGNC:42037]	chr13	+	Multiple_Complex	35185294	35186679
+TC1300007340.hg.1	ENST00000448913	TARDBPP2	TAR DNA binding protein pseudogene 2 [Source:HGNC Symbol;Acc:HGNC:39848]	chr13	+	Multiple_Complex	60274776	60277236
+TC1300007407.hg.1	glarfa.aAug10; glarfa.bAug10-unspliced	glarfa	Transcript Identified by AceView	chr13	+	NonCoding	66666240	66669928
+TC1300007836.hg.1	jydeeby.aAug10-unspliced	jydeeby	Transcript Identified by AceView	chr13	+	Unassigned	99369371	99371903
+TC1300008115.hg.1	boyblabu.aAug10-unspliced	boyblabu	Transcript Identified by AceView	chr13	+	Unassigned	113228050	113228965
+TC1300008116.hg.1	uc058ymp.1	AL136221.3		chr13	+	Precursor_microRNA	113262834	113262913
+TC1300008142.hg.1				chr13	+	NonCoding	113562795	113563816
+TC1300008257.hg.1	uc031zya.2	AL590096.1		chr13	-	Precursor_microRNA	20575758	20575835
+TC1300008559.hg.1	wawcha.aAug10-unspliced	wawcha	Transcript Identified by AceView	chr13	-	Unassigned	32527794	32531226
+TC1300008576.hg.1	bleefaby.aAug10-unspliced	bleefaby	Transcript Identified by AceView	chr13	-	Coding	33209470	33210121
+TC1300008601.hg.1	shorcha.aAug10-unspliced	shorcha	Transcript Identified by AceView	chr13	-	Unassigned	35310072	35310511
+TC1300008795.hg.1	dorfoby.aAug10-unspliced	dorfoby	Transcript Identified by AceView	chr13	-	Coding	44508917	44509303
+TC1300008832.hg.1	ENST00000618452; uc058wvv.1; uc058wvw.1	Metazoa_SRP; AL139320.1	Metazoan signal recognition particle RNA [Source:RFAM;Acc:RF00017]	chr13	-	Multiple_Complex	45732082	45732356
+TC1300008941.hg.1	chofarby.aAug10-unspliced	chofarby	Transcript Identified by AceView	chr13	-	Unassigned	50062634	50064137
+TC1300009244.hg.1				chr13	-	NonCoding	73376414	73381501
+TC1300009261.hg.1	ENST00000383890; uc058xlr.1	RNY1P5	RNA, Ro-associated Y1 pseudogene 5 [Source:HGNC Symbol;Acc:HGNC:42482]	chr13	-	NonCoding	74289100	74289214
+TC1300009771.hg.1	teenoy.aAug10-unspliced	teenoy	Transcript Identified by AceView	chr13	-	Unassigned	109779661	109781743
+TC1400006558.hg.1				chr14	+	NonCoding	21210557	21210707
+TC1400006619.hg.1	OTTHUMT00000410935	TRDJ3	T cell receptor delta joining 3	chr14	+	Coding	22459098	22459156
+TC1400006961.hg.1	ENST00000362415; uc059azh.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr14	+	NonCoding	38987281	38987383
+TC1400007269.hg.1	lacheybu.aAug10-unspliced	lacheybu	Transcript Identified by AceView	chr14	+	Coding	56596987	56598576
+TC1400007467.hg.1	NR_030355; ENST00000385047	MIR625	microRNA 625	chr14	+	Precursor_microRNA	65471102	65471186
+TC1400007719.hg.1	tihuri.aAug10-unspliced	tihuri	Transcript Identified by AceView	chr14	+	Coding	75853523	75855165
+TC1400007900.hg.1	spushabu.aAug10-unspliced	spushabu	Transcript Identified by AceView	chr14	+	Unassigned	88400993	88402977
+TC1400008262.hg.1				chr14	+	NonCoding	100997653	100997724
+TC1400008336.hg.1	chorsnu.aAug10-unspliced	chorsnu	Transcript Identified by AceView	chr14	+	Coding	101839257	101840489
+TC1400008396.hg.1	NR_002964; ENST00000606769; uc001ymv.1	SNORA28	small nucleolar RNA, H/ACA box 28	chr14	+	Small_RNA	103337849	103337974
+TC1400008500.hg.1	karshobu.aAug10-unspliced	karshobu	Transcript Identified by AceView	chr14	+	Coding	105726619	105726995
+TC1400008632.hg.1	NR_003029; ENST00000362566	SNORD9	small nucleolar RNA, C/D box 9	chr14	-	Multiple_Complex	21392150	21392253
+TC1400008710.hg.1	uc058zpv.1	RNU6-1046P	RNA, U6 small nuclear 1046, pseudogene [Source:HGNC Symbol;Acc:HGNC:48009]	chr14	-	Small_RNA	23259460	23259566
+TC1400008751.hg.1	swarpy.aAug10-unspliced	swarpy	Transcript Identified by AceView	chr14	-	Unassigned	24294821	24295929
+TC1400008839.hg.1	warslar.aAug10-unspliced	warslar	Transcript Identified by AceView	chr14	-	Unassigned	30919609	30921400
+TC1400008992.hg.1				chr14	-	NonCoding	38195371	38196403
+TC1400009174.hg.1	hituru.aAug10-unspliced	hituru	Transcript Identified by AceView	chr14	-	NonCoding	51998175	51999916
+TC1400009794.hg.1	ENST00000362570; uc059dwe.1	Y_RNA	Y RNA [Source:RFAM;Acc:RF00019]	chr14	-	NonCoding	77821030	77821142
+TC1400009843.hg.1				chr14	-	NonCoding	81560724	81573946
+TC1400010487.hg.1	OTTHUMT00000325166	IGHVIII-25-1	immunoglobulin heavy variable (III)-25-1 (pseudogene)	chr14	-	Multiple_Complex	106293568	106293808
+TC1400010677.hg.1	uc059fhj.1	SNORD113	Small nucleolar RNA SNORD113/SNORD114 family [Source:RFAM;Acc:RF00181]	chr14	+	Small_RNA	100979002	100979090
+TC1400010680.hg.1	NR_003214; ENST00000606412	SNORD114-21	small nucleolar RNA, C/D box 114-21	chr14	+	Multiple_Complex	100981975	100982046
+TC1400010688.hg.1	NR_003223; ENST00000364448	SNORD114-30	small nucleolar RNA, C/D box 114-30	chr14	+	Multiple_Complex	100991919	100991990
+TC1500006574.hg.1	NR_003317; ENST00000384274	SNORD116-2	small nucleolar RNA, C/D box 116-2	chr15	+	Multiple_Complex	25054209	25054305
+TC1500006677.hg.1	pluchubu.aAug10-unspliced	pluchubu	Transcript Identified by AceView	chr15	+	Coding	28603111	28605507
+TC1500006678.hg.1	flychobu.aAug10-unspliced	flychobu	Transcript Identified by AceView	chr15	+	Coding	28608150	28608703
+TC1500006701.hg.1	NR_026859; NR_027470; ENST00000563895; ENST00000565158; ENST00000566138; ENST00000568274; ENST00000568486; OTTHUMT00000430685; OTTHUMT00000430686; OTTHUMT00000430687; OTTHUMT00000430688; OTTHUMT00000430689	ULK4P3; ULK4P2	ULK4 pseudogene 3; ULK4 pseudogene 2	chr15	+	Multiple_Complex	30103547	30131757
+TC1500006722.hg.1	lusper.aAug10-unspliced	lusper	Transcript Identified by AceView	chr15	+	Unassigned	30548895	30549783
+TC1500006817.hg.1				chr15	+	NonCoding	34136566	34140741
+TC1500007092.hg.1				chr15	+	NonCoding	44434254	44434507
+TC1500007336.hg.1	chuzerbu.aAug10-unspliced	chuzerbu	Transcript Identified by AceView	chr15	+	Unassigned	56981621	56984012
+TC1500007506.hg.1				chr15	+	NonCoding	62812950	62813027
+TC1500007566.hg.1	dorgorby.aAug10-unspliced	dorgorby	Transcript Identified by AceView	chr15	+	Unassigned	64697578	64700692
+TC1500007634.hg.1	snarstee.aAug10-unspliced	snarstee	Transcript Identified by AceView	chr15	+	Unassigned	67105797	67107158
+TC1500007730.hg.1	lyjoby.aAug10-unspliced	lyjoby	Transcript Identified by AceView	chr15	+	Coding	70708480	70708958
+TC1500007746.hg.1	jorey.aAug10-unspliced	jorey	Transcript Identified by AceView	chr15	+	Coding	71424331	71424877
+TC1500007751.hg.1	worrey.aAug10-unspliced	worrey	Transcript Identified by AceView	chr15	+	NonCoding	71506363	71508014
+TC1500007794.hg.1	chaper.aAug10-unspliced	chaper	Transcript Identified by AceView	chr15	+	Unassigned	72488599	72490245
+TC1500007988.hg.1	ENST00000624440; OTTHUMT00000421839; uc059mgi.1	RP11-16K12.2	tec	chr15	+	NonCoding	78906127	78906809
+TC1500008026.hg.1	moyzar.aAug10-unspliced	moyzar	Transcript Identified by AceView	chr15	+	Unassigned	80131779	80132955
+TC1500008048.hg.1	hsa_circ_0002568	KIAA1199	Jeck2013 ALT_ACCEPTOR, ALT_DONOR, coding, INTERNAL, intronic best transcript NM_018689	chr15	+	NonCoding	80790536	80871067
+TC1500008050.hg.1	klorstoy.aAug10-unspliced	klorstoy	Transcript Identified by AceView	chr15	+	Coding	80802978	80803485
+TC1500008246.hg.1	morsky.aAug10-unspliced	morsky	Transcript Identified by AceView	chr15	+	Unassigned	89091807	89092642
+TC1500008273.hg.1	uc059nbs.1	RNU6-132P	RNA, U6 small nuclear 132, pseudogene [Source:HGNC Symbol;Acc:HGNC:47095]	chr15	+	Small_RNA	89714232	89714338
+TC1500008493.hg.1	plyskaw.aAug10-unspliced	plyskaw	Transcript Identified by AceView	chr15	+	Unassigned	98779763	98780171
+TC1500008496.hg.1	toypoy.aAug10-unspliced	toypoy	Transcript Identified by AceView	chr15	+	Unassigned	98823356	98823789
+TC1500008874.hg.1	ENST00000501830.2; OTTHUMT00000430725; uc059hbr.1	RP11-932O9.7	novel transcript, antisense to ARHGAP11B	chr15	-	NonCoding	30564940	30625773
+TC1500008889.hg.1				chr15	-	NonCoding	30813588	30814206
+TC1500008911.hg.1				chr15	-	NonCoding	31446556	31447321
+TC1500009153.hg.1	uc059hyk.1	RNU6-1169P	RNA, U6 small nuclear 1169, pseudogene [Source:HGNC Symbol;Acc:HGNC:48132]	chr15	-	Small_RNA	41448742	41448844
+TC1500009183.hg.1	flyzawbu.aAug10-unspliced	flyzawbu	Transcript Identified by AceView	chr15	-	Unassigned	42180935	42181564
+TC1500009464.hg.1	lustu.aAug10-unspliced	lustu	Transcript Identified by AceView	chr15	-	Unassigned	52671861	52672081
+TC1500009613.hg.1	seezo.aAug10-unspliced	seezo	Transcript Identified by AceView	chr15	-	Unassigned	59369173	59370823
+TC1500009652.hg.1	veezo.aAug10-unspliced	veezo	Transcript Identified by AceView	chr15	-	Unassigned	60884348	60885780
+TC1500009664.hg.1				chr15	-	NonCoding	61220726	61221110
+TC1500009811.hg.1	veestee.aAug10-unspliced	veestee	Transcript Identified by AceView	chr15	-	Coding	65782978	65783999
+TC1500009842.hg.1	smawstee.aAug10-unspliced	smawstee	Transcript Identified by AceView	chr15	-	Coding	67092306	67092783
+TC1500009922.hg.1	OTTHUMT00000474076; uc059kwb.1	RP11-138H8.8	novel transcript, sense intronic to UACA	chr15	-	NonCoding	70758269	70758856
+TC1500010804.hg.1				chr15	+	NonCoding	101756653	101756721
+TC1500010813.hg.1				chr15	+	NonCoding	101759531	101759599
+TC1500010818.hg.1				chr15	+	NonCoding	101760924	101760989
+TC1600006671.hg.1				chr16	+	NonCoding	3188094	3188165
+TC1600006830.hg.1	bosmey.aAug10-unspliced	bosmey	Transcript Identified by AceView	chr16	+	Coding	8817311	8819731
+TC1600006946.hg.1	wupa.aAug10-unspliced	wupa	Transcript Identified by AceView	chr16	+	Coding	12117108	12117444
+TC1600007204.hg.1	wospar.aAug10-unspliced	wospar	Transcript Identified by AceView	chr16	+	Unassigned	22498491	22499877
+TC1600007205.hg.1	fusny.aAug10-unspliced	fusny	Transcript Identified by AceView	chr16	+	Unassigned	22499913	22502532
+TC1600007273.hg.1				chr16	+	NonCoding	25072411	25072473
+TC1600007501.hg.1				chr16	+	NonCoding	30918681	30919021
+TC1600007898.hg.1	ENST00000624987; OTTHUMT00000433145; uc059ugq.1	RP11-357N13.6	novel transcript	chr16	+	Unassigned	53991012	53994454
+TC1600008167.hg.1	glawoy.aAug10-unspliced	glawoy	Transcript Identified by AceView	chr16	+	Unassigned	67567277	67567576
+TC1600008375.hg.1	uc059xah.1	AC132068.1		chr16	+	Precursor_microRNA	72984857	72984954
+TC1600008378.hg.1	ENST00000604855.2; ENST00000606272.1; OTTHUMT00000469920; OTTHUMT00000470854; uc059xam.1; uc059xan.1	RP11-346C20.3; RP11-346C20.4	novel transcript	chr16	+	NonCoding	73059901	73062316
+TC1600008919.hg.1	uc059yww.1	RNU6-355P	RNA, U6 small nuclear 355, pseudogene [Source:HGNC Symbol;Acc:HGNC:47318]	chr16	+	Small_RNA	90144592	90144695
+TC1600009179.hg.1				chr16	-	NonCoding	3184133	3184204
+TC1600009203.hg.1	flusnor.aAug10-unspliced	flusnor	Transcript Identified by AceView	chr16	-	Coding	3752459	3753182
+TC1600009298.hg.1				chr16	-	NonCoding	7818157	7818413
+TC1600009359.hg.1				chr16	-	NonCoding	10462686	10465944
+TC1600009588.hg.1				chr16	-	NonCoding	17455121	17457748
+TC1600009707.hg.1	pleypo.aAug10-unspliced	pleypo	Transcript Identified by AceView	chr16	-	Unassigned	22498669	22499259
+TC1600009922.hg.1				chr16	-	NonCoding	29419360	29419939
+TC1600009923.hg.1				chr16	-	NonCoding	29422373	29422806
+TC1600009959.hg.1	NR_002453	SMG1P5	SMG1 pseudogene 5	chr16	-	Multiple_Complex	30264576	30336730
+TC1600010693.hg.1	uc059whk.1	snoU109	Small nucleolar RNA U109 [Source:RFAM;Acc:RF01233]	chr16	-	Small_RNA	68630223	68630354
+TC1600010878.hg.1	chawro.aAug10-unspliced	chawro	Transcript Identified by AceView	chr16	-	Coding	75383955	75384761
+TC1600011502.hg.1	NR_024456	LOC100190986	uncharacterized LOC100190986	chr16	-	NonCoding	21432003	21434455
+TC1700006671.hg.1				chr17	+	NonCoding	5252622	5252986
+TC1700006950.hg.1	ENST00000584683.1; OTTHUMT00000447654; uc060bkt.1	RP11-214O1.3	novel transcript	chr17	+	NonCoding	14327335	14329474
+TC1700007420.hg.1	storsmy.aAug10	storsmy	Transcript Identified by AceView	chr17	+	Coding	29410320	29411966
+TC1700007465.hg.1	ENST00000623719; OTTHUMT00000444267; uc060dos.1	CTD-2349P21.3	TEC	chr17	+	Unassigned	30738182	30740275
+TC1700008067.hg.1	ENST00000587960.1; OTTHUMT00000458128; uc060gij.1	RP11-798G7.8	novel transcript	chr17	+	NonCoding	45531577	45533838
+TC1700008380.hg.1	jawserbo.aAug10-unspliced	jawserbo	Transcript Identified by AceView	chr17	+	Unassigned	57284997	57287047
+TC1700008714.hg.1	jychu.aAug10-unspliced	jychu	Transcript Identified by AceView	chr17	+	Unassigned	67886925	67889908
+TC1700009382.hg.1	skoysker.aAug10-unspliced	skoysker	Transcript Identified by AceView	chr17	-	Unassigned	1549336	1551812
+TC1700009418.hg.1				chr17	-	NonCoding	2072823	2072886
+TC1700009619.hg.1	NM_001128827; NM_001365; ENST00000302955; ENST00000399506; ENST00000399510; ENST00000447163; ENST00000451807; ENST00000485100; ENST00000486626; ENST00000489885; ENST00000491753; ENST00000493294; BC136553; OTTHUMT00000259418; OTTHUMT00000259419; OTTHUMT00000259420; OTTHUMT00000259421; OTTHUMT00000259422; OTTHUMT00000259423; OTTHUMT00000259424; OTTHUMT00000259425; OTTHUMT00000259426; OTTHUMT00000259428	DLG4	discs, large homolog 4 (Drosophila)	chr17	-	Multiple_Complex	7189890	7220050
+TC1700009699.hg.1				chr17	-	NonCoding	8640120	8643959
+TC1700010258.hg.1	tarserbo.aAug10-unspliced	tarserbo	Transcript Identified by AceView	chr17	-	Unassigned	29737924	29740325
+TC1700010264.hg.1				chr17	-	NonCoding	29876608	29876847
+TC1700010508.hg.1	joywobu.aAug10	joywobu	Transcript Identified by AceView	chr17	-	Unassigned	37923533	37924823
+TC1700010540.hg.1	NM_007144; ENST00000610747; ENST00000611883; ENST00000616129; ENST00000616199; ENST00000618506; ENST00000618941; ENST00000620225; BC004858; BC024255; OTTHUMT00000477447; OTTHUMT00000477448; OTTHUMT00000477449; OTTHUMT00000477450; OTTHUMT00000477451; OTTHUMT00000477452	PCGF2	polycomb group ring finger 2	chr17	-	Coding	38733897	38749817
+TC1700010756.hg.1	uc060fph.1	SNORA40	Small nucleolar RNA SNORA40 [Source:RFAM;Acc:RF00561]	chr17	-	Small_RNA	42940575	42940702
+TC1700010835.hg.1	smeewaw.aAug10-unspliced	smeewaw	Transcript Identified by AceView	chr17	-	Unassigned	44449821	44450518
+TC1700011155.hg.1	uc060hpu.1	AC091154.1		chr17	-	Precursor_microRNA	53106069	53106157
+TC1700011301.hg.1	uc060ifl.1	AC005702.4		chr17	-	Precursor_microRNA	60042546	60042627
+TC1700011302.hg.1	uc060ifm.1	AC005702.3		chr17	-	Precursor_microRNA	60042694	60042772
+TC1700011303.hg.1	uc060ifn.1	AC005702.2		chr17	-	Precursor_microRNA	60042805	60042882
+TC1700011304.hg.1	NR_039890; ENST00000583979; uc021uba.1	MIR4737	microRNA 4737	chr17	-	Precursor_microRNA	60043025	60043105
+TC1700011455.hg.1	tuwaw.aAug10-unspliced	tuwaw	Transcript Identified by AceView	chr17	-	Unassigned	64656902	64658197
+TC1700011469.hg.1	ENST00000606708	RP11-927P21.12		chr17	-	Pseudogene	64905883	64906018
+TC1700011488.hg.1				chr17	-	NonCoding	65420583	65420660
+TC1800006507.hg.1	hahima.aAug10-unspliced	hahima	Transcript Identified by AceView	chr18	+	Unassigned	3250308	3251735
+TC1800006580.hg.1				chr18	+	NonCoding	7164741	7166948
+TC1800006696.hg.1				chr18	+	NonCoding	11336323	11346672
+TC1800007157.hg.1	OTTHUMT00000473314; uc060ori.1	RP11-687E1.2	novel transcript, sense intronic to PIK3C3	chr18	+	NonCoding	42052705	42053030
+TC1800007491.hg.1	uc060psc.1	RNU6-116P	RNA, U6 small nuclear 116, pseudogene [Source:HGNC Symbol;Acc:HGNC:47079]	chr18	+	Small_RNA	61391595	61391703
+TC1800007940.hg.1	glarklaw.aAug10-unspliced	glarklaw	Transcript Identified by AceView	chr18	-	Unassigned	3997031	3997478
+TC1800008083.hg.1				chr18	-	NonCoding	11640152	11640773
+TC1800008122.hg.1				chr18	-	NonCoding	12533424	12533525
+TC1800008829.hg.1	swoywo.aAug10-unspliced	swoywo	Transcript Identified by AceView	chr18	-	Coding	59672123	59672641
+TC1800008830.hg.1	kohiri.aAug10-unspliced	kohiri	Transcript Identified by AceView	chr18	-	Coding	59676987	59677550
+TC1800009224.hg.1	NR_024565; NR_024566; ENST00000399070; ENST00000465539	ZNF271P	zinc finger protein 271, pseudogene	chr18	+	Multiple_Complex	35290272	35313375
+TC1900006668.hg.1	dorko.aAug10-unspliced	dorko	Transcript Identified by AceView	chr19	+	Coding	3977883	3978265
+TC1900006989.hg.1	NM_001281504; NM_032885; NR_104024; NR_104025; ENST00000309469; ENST00000585437; ENST00000585752; ENST00000586417; ENST00000586477; ENST00000586863; ENST00000587256; ENST00000588667; ENST00000588857; ENST00000588972; ENST00000589753; ENST00000590096; BC068992; OTTHUMT00000452018; OTTHUMT00000452019; OTTHUMT00000452020; OTTHUMT00000452021; OTTHUMT00000452022; OTTHUMT00000452023; OTTHUMT00000452024; OTTHUMT00000452025; OTTHUMT00000452026; OTTHUMT00000452027; OTTHUMT00000452028; OTTHUMT00000452029	ATG4D	autophagy related 4D, cysteine peptidase	chr19	+	Multiple_Complex	10543894	10553423
+TC1900007928.hg.1	neeva.aAug10-unspliced	neeva	Transcript Identified by AceView	chr19	+	Coding	36294531	36295002
+TC1900007972.hg.1	sperwy.aAug10-unspliced	sperwy	Transcript Identified by AceView	chr19	+	Unassigned	37354402	37355158
+TC1900007984.hg.1	NR_040013; ENST00000586819; ENST00000587248; ENST00000589653; ENST00000590433; ENST00000592103; ENST00000586819.1; ENST00000587248.1; ENST00000589653.1; ENST00000590433.1; ENST00000592103.1; OTTHUMT00000459786; OTTHUMT00000459787; OTTHUMT00000459788; OTTHUMT00000459790; OTTHUMT00000459791; uc010eft.2; uc060xxt.1; uc060xxu.1; uc060xxv.1; uc060xxw.1	LOC644554; CTD-2554C21.2	uncharacterized LOC644554; novel transcript	chr19	+	NonCoding	37817359	37828244
+TC1900008113.hg.1	NM_001042544; NM_001042545; NM_003573; ENST00000204005; ENST00000243562; ENST00000308370; ENST00000318809; ENST00000396819; ENST00000546155; ENST00000593463; ENST00000593738; ENST00000594116; ENST00000594448; ENST00000594537; ENST00000595118; ENST00000595529; ENST00000595665; ENST00000596351; ENST00000597071; ENST00000597151; ENST00000597816; ENST00000598055; ENST00000598166; ENST00000598178; ENST00000598256; ENST00000598717; ENST00000599016; ENST00000599225; ENST00000599724; ENST00000600026; ENST00000600499; ENST00000601032; ENST00000601464; ENST00000602251; ENST00000610893; ENST00000612121; ENST00000612845; ENST00000617753; ENST00000618486; ENST00000622107; ENST00000622457; ENST00000622565; OTTHUMT00000462815; OTTHUMT00000462816; OTTHUMT00000462817; OTTHUMT00000462818; OTTHUMT00000462819; OTTHUMT00000462820; OTTHUMT00000462821; OTTHUMT00000462822; OTTHUMT00000463029; OTTHUMT00000463030; OTTHUMT00000463031; OTTHUMT00000463032; OTTHUMT00000463033; OTTHUMT00000463034; OTTHUMT00000463035; OTTHUMT00000463036; OTTHUMT00000463037; OTTHUMT00000463064; OTTHUMT00000463065; OTTHUMT00000463082; OTTHUMT00000463083; OTTHUMT00000463084; OTTHUMT00000463085; OTTHUMT00000463086; OTTHUMT00000463087; OTTHUMT00000463088; OTTHUMT00000463089; OTTHUMT00000463092; OTTHUMT00000463784; OTTHUMT00000463785; OTTHUMT00000463786; OTTHUMT00000463787; OTTHUMT00000463895; OTTHUMT00000463896; OTTHUMT00000463902; OTTHUMT00000463903; OTTHUMT00000463904; OTTHUMT00000463905; OTTHUMT00000463906	LTBP4	latent transforming growth factor beta binding protein 4	chr19	+	Multiple_Complex	40592883	40629820
+TC1900009827.hg.1	shoglu.aAug10	shoglu	Transcript Identified by AceView	chr19	-	Unassigned	14550111	14560548
+TC1900010335.hg.1				chr19	-	NonCoding	31336998	31338924
+TC1900010968.hg.1	ploysorbu.aAug10-unspliced	ploysorbu	Transcript Identified by AceView	chr19	-	Coding	46030367	46030860
+TC1900011144.hg.1				chr19	-	NonCoding	49496472	49496969
+TC1900011146.hg.1	poyjoy.aAug10-unspliced	poyjoy	Transcript Identified by AceView	chr19	-	Unassigned	49497925	49498047
+TC1900011348.hg.1				chr19	-	NonCoding	53378081	53379544
+TC2000006451.hg.1				chr20	+	NonCoding	474560	476900
+TC2000006675.hg.1	swywar.aAug10-unspliced	swywar	Transcript Identified by AceView	chr20	+	Unassigned	9081879	9084838
+TC2000007117.hg.1	NM_001164603; NM_015338; ENST00000306058; ENST00000375687; ENST00000375689; ENST00000470145; ENST00000497249; ENST00000542461; ENST00000553345; ENST00000555343; ENST00000555564; ENST00000613218; ENST00000619344; ENST00000620121; BC137278; BC137280; OTTHUMT00000078624; OTTHUMT00000078625; OTTHUMT00000078626; OTTHUMT00000078627; OTTHUMT00000411870; OTTHUMT00000411871; OTTHUMT00000411872; OTTHUMT00000476763	ASXL1	additional sex combs like transcriptional regulator 1	chr20	+	Multiple_Complex	32358344	32439319
+TC2000007118.hg.1	fartar.aAug10-unspliced	fartar	Transcript Identified by AceView	chr20	+	Unassigned	32362649	32363270
+TC2000007188.hg.1	NR_030374; ENST00000385262; uc021wcb.1	MIR644A	microRNA 644a	chr20	+	Precursor_microRNA	34466325	34466418
+TC2000007189.hg.1	vytaw.aAug10-unspliced	vytaw	Transcript Identified by AceView	chr20	+	Unassigned	34468854	34469431
+TC2000007226.hg.1	ENST00000410528	RN7SKP271	RNA, 7SK small nuclear pseudogene 271 [Source:HGNC Symbol;Acc:HGNC:45995]	chr20	+	NonCoding	35643143	35643462
+TC2000007381.hg.1				chr20	+	NonCoding	41037833	41038992
+TC2000007405.hg.1				chr20	+	NonCoding	42262158	42266569
+TC2000007621.hg.1	seysobo.aAug10-unspliced	seysobo	Transcript Identified by AceView	chr20	+	Unassigned	48922585	48924678
+TC2000007667.hg.1	beeku.aAug10-unspliced	beeku	Transcript Identified by AceView	chr20	+	Unassigned	49938036	49938954
+TC2000007721.hg.1	uc061xtg.1	AL035457.1		chr20	+	Precursor_microRNA	51177505	51177599
+TC2000007965.hg.1				chr20	+	NonCoding	60911926	60923463
+TC2000008533.hg.1	NM_006606; ENST00000337227; ENST00000491835; ENST00000493184; ENST00000622282; BC015938; OTTHUMT00000078175; OTTHUMT00000078177; OTTHUMT00000078178	RBBP9	retinoblastoma binding protein 9	chr20	-	Multiple_Complex	18486540	18497243
+TC2000008989.hg.1	gleyzer.aAug10-unspliced	gleyzer	Transcript Identified by AceView	chr20	-	Unassigned	35807992	35808518
+TC2000009072.hg.1	NR_003017; ENST00000364642	SNORA71C	small nucleolar RNA, H/ACA box 71C	chr20	-	Small_RNA	38429667	38429804
+TC2000009413.hg.1	chorvey.aAug10-unspliced	chorvey	Transcript Identified by AceView	chr20	-	Unassigned	50092759	50093790
+TC2000009441.hg.1	smeera.aAug10-unspliced	smeera	Transcript Identified by AceView	chr20	-	Coding	50897752	50898605
+TC2000009512.hg.1				chr20	-	NonCoding	53843718	53843768
+TC2100006862.hg.1				chr21	+	NonCoding	29412173	29413063
+TC2100006961.hg.1	kuhora.aAug10-unspliced	kuhora	Transcript Identified by AceView	chr21	+	Coding	33333454	33334026
+TC2100007048.hg.1	lersobo.aAug10	lersobo	Transcript Identified by AceView	chr21	+	Coding	36328552	36354845
+TC2100007439.hg.1				chr21	+	NonCoding	45923978	45924904
+TC2100007806.hg.1	smuvee.aAug10-unspliced	smuvee	Transcript Identified by AceView	chr21	-	Unassigned	25994393	25995241
+TC2100007987.hg.1				chr21	-	NonCoding	33273764	33273829
+TC2100008036.hg.1				chr21	-	NonCoding	34823464	34826406
+TC2100008040.hg.1	peetaw.aAug10-unspliced	peetaw	Transcript Identified by AceView	chr21	-	Unassigned	34873349	34874044
+TC2100008041.hg.1	dysy.aAug10-unspliced	dysy	Transcript Identified by AceView	chr21	-	Unassigned	34878450	34879673
+TC2200007428.hg.1	mocho.aAug10-unspliced	mocho	Transcript Identified by AceView	chr22	+	Coding	40287731	40290045
+TC2200007478.hg.1	sarura.aAug10-unspliced	sarura	Transcript Identified by AceView	chr22	+	Coding	41508355	41508942
+TC2200007523.hg.1	NR_027786; ENST00000359906; ENST00000434218; ENST00000455578; BC093888	SERHL	serine hydrolase-like (pseudogene)	chr22	+	Multiple_Complex	42500579	42512996
+TC2200007684.hg.1	zorbla.aAug10-unspliced	zorbla	Transcript Identified by AceView	chr22	+	Coding	46939979	46940625
+TC2200008106.hg.1	stawfy.aAug10-unspliced	stawfy	Transcript Identified by AceView	chr22	-	Coding	21796298	21796947
+TC2200008352.hg.1	tovaw.aAug10-unspliced	tovaw	Transcript Identified by AceView	chr22	-	Unassigned	27900396	27901367
+TC2200008353.hg.1	blawpey.aAug10-unspliced	blawpey	Transcript Identified by AceView	chr22	-	Unassigned	27908327	27909033
+TC2200008581.hg.1	sufaw.aAug10-unspliced	sufaw	Transcript Identified by AceView	chr22	-	Coding	35943925	35945193
+TC2200009249.hg.1				chr22	+	NonCoding	29119992	29120715
+TSUnmapped00000842.hg.1						NonCoding		
+TSUnmapped00000848.hg.1						Small_RNA		
+TSUnmapped00000906.hg.1						Small_RNA		
+TSUnmapped00000947.hg.1						NonCoding		
+TSUnmapped00000997.hg.1						NonCoding		
