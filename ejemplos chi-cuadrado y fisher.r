@@ -18,13 +18,12 @@ test$expected
 
 
 
-test2 <- fisher.test(dat)
+test2 <- fisher.test(dat, alternative = "two.sided")
 test2
 
 test2$p.value
 
 
-# rejecting the null hypothesis for the Fisher’s exact test of independence
-# means that there is a significant relationship between the two categorical
-# variables (smoking habits and being an athlete or not). Therefore, knowing the
-# value of one variable helps to predict the value of the other variable.
+# Rechazamos la hipótesis nula del test exacto de Fisher, existe una relación
+# significativa entre los dos factores (hábito de fumar y estar en forma). Saber
+# si el paciente fuma o no ayuda a predecir si estará en forma o no.
