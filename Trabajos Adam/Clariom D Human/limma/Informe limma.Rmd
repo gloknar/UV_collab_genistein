@@ -525,10 +525,7 @@ data.fit.eb$coefficients[11600:11610,]
 data.fit.eb$p.value[11600:11610,]
 
 
-volcanoplot(data.fit.eb, highlight = 0)
-
-
-; abline(h = 1.301, v = c(-1,1))
+# volcanoplot(data.fit.eb, highlight = 0) ; abline(h = 1.301, v = c(-1,1))
 ```
 
 
