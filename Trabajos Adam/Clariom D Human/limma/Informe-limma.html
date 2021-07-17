@@ -329,7 +329,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Análisis de microarrays <em>Clariom D Human</em> en <code>limma</code></h1>
 <h4 class="author">Adam Casas</h4>
-<h4 class="date">Compilado: 14 de julio del 2021</h4>
+<h4 class="date">Compilado: 17 de julio del 2021</h4>
 
 </div>
 
@@ -611,7 +611,7 @@ div.tocify {
 </div>
 <div id="limma" class="section level2" number="5.3">
 <h2 number="5.3"><span class="header-section-number">5.3</span> <code>limma</code></h2>
-<p>Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete <code>limma</code>, ya que <code>oligo</code> carece de las funciones necesarias para ello. <code>limma</code> usa como <em>input</em> el objeto que devuelve el comando <code>rma()</code></p>
+<p>Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete <code>limma</code>, ya que <code>oligo</code> carece de las funciones necesarias para ello. <code>limma</code> usa como <em>input</em> el objeto que devuelve el comando <code>rma()</code>.</p>
 <p>NOTA: usé t-test no pareado, pero si las células troncales provienen del mismo individuo (no son sets independientes), entonces tendré que usar un t-test para datos pareados.</p>
 <p>Tras hablar con gambini, reuslta que son datos pareados. debo corregir eso-.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos el diseño del t-test no pareado</span></span>
