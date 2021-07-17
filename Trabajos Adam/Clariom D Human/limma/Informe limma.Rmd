@@ -440,7 +440,6 @@ colnames(diseno) = c("Control","Genisteina")
 
 # Generamos modelo lineal
 data.fit = lmFit(t(intensidades_normalizadas), diseno)
-
 data.fit$coefficients[1:10,]
 
 
@@ -498,8 +497,12 @@ ft = factor(groupsT,levels=c("Control","Genisteina"))
 # the argument specifies the right hand side of the model equation. The plus (+)
 # is used to combine factors.
 
+# Creamos el diseño del t-test pareado
 paired.design = model.matrix(~ fp + ft)
 colnames(paired.design)=c("Intercept","muestra2vsmuestra1","muestra3versusmuestra1","muestra4versusmuestra1", "GenisteinavsControl")
+
+
+# Generamos modelo lineal
 data.fit = lmFit(t(intensidades_normalizadas), paired.design)
 data.fit$coefficients[1:20,]
 
