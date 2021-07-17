@@ -425,7 +425,7 @@ oligo::MAplot(eSet_normalizado, refSamples = c(1,3,5,7), which = c(2,4,6,8), mai
 
 ## `limma`
 
-Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete `limma`, ya que `oligo` carece de las funciones necesarias para ello. `limma` usa como _input_ el objeto que devuelve el comando `rma()`
+Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete `limma`, ya que `oligo` carece de las funciones necesarias para ello. `limma` usa como _input_ el objeto que devuelve el comando `rma()`.
 
 NOTA: usé t-test no pareado, pero si las células troncales provienen del mismo individuo (no son sets independientes), entonces tendré que usar un t-test para datos pareados.
 
