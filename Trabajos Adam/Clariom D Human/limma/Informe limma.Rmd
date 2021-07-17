@@ -431,25 +431,68 @@ NOTA: usé t-test no pareado, pero si las células troncales provienen del mismo
 
 Tras hablar con gambini, reuslta que son datos pareados. debo corregir eso-.
 
-```{r, eval = F}
+
+
+`limma` contiene funciones para hacer t-tests o ANOVAs para identificar DEGs en microarrays. Estas funciones pueden ser usadas en datos provenientes de cualquier tipo de microarray y funcionan incluso para microarrays con diseños complejos o múltiples muestras. La idea principal es ajustar un modelo lineal a los datos de expresión de cada gen. Los datos de expresión pueden ser log-ratios o log-intensidades. Los métodos empleados obtienen información sobre todos los genes para hacer que los análisis sean estables incluso en experimentos con un bajo tamaño muestral.
+
+
+### 2 grupos de datos (no pareados)
+
+Antes de nada tenemos que indicar a `limma` mediante el hueco `phenoData` qué muestras son réplicas y cuáles pertenecen a diferentes grupos. Podemos ver que ya hemos hecho eso en pasos anteriores:
+
+```{r}
+pData(eSet_normalizado)
+```
+
+
+
+
+Ahora tenemos que indicar a `limma` qué muestras pertenecen a qué grupo:
+
+```{r}
+grupo = pData(eSet_normalizado)$condicion 
+```
+
+
+
+Ahora tenemos que crear una __matriz de diseño__, o sea una matriz de valores de la variable que agrupa los datos. El ANOVA (y los GLMs) necesita dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que `limma` usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método `model.matrix()`. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, `limma` calculará sólo la expresión génica media de cada grupo.
+
+```{r}
 # Creamos el diseño del t-test no pareado
-diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
+# diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
+diseno = model.matrix(~ 0 + grupo)
 colnames(diseno) = c("Control","Genisteina")
+```
 
 
+En esencia, `limma` va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas. Lo primero, `limma` debe calcular la expresión media de cada grupo usando el comando `lmFit()`. Este comando ajustará un modelo lineal (definido previamente con el comando `model.matrix`) a los datos para calcular la expresión génica media en las muestras control y las muestras tratadas:
 
-# Generamos modelo lineal
+```{r}
+# Generamos el modelo lineal
 data.fit = lmFit(t(intensidades_normalizadas), diseno)
-data.fit$coefficients[1:10,]
+```
 
 
 
 
+Podemos ver los resultados del modelo lineal en el bolsillo `$coefficients`:
+
+```{r}
+data.fit$coefficients[5000:5010,]
+```
+
+
+
+Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una matriz de contrastes en la cual se especifiquen las comparaciones a realizar mediante el comando `makeContrasts()`. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
+
+```{r}
 contrast.matrix = makeContrasts(Genisteina-Control, levels = diseno)
-
 data.fit.con = contrasts.fit(data.fit, contrast.matrix)
+```
 
 
+
+```{r, eval = F}
 data.fit.eb = eBayes(data.fit.con)
 
 
