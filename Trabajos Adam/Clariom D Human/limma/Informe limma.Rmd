@@ -513,7 +513,7 @@ names(data.fit.eb)
 
 
 
-Puedes obtener los log<sub>2</sub> fold changes de la expresión de cada gen a través del hueco `$coefficients` (it's simply the difference between the mean log expression in mutant samples and the mean log expression in control samples):
+Puedes obtener los log<sub>2</sub> fold changes de la expresión de cada gen a través del hueco `$coefficients` (los coeficientes son la diferencia entre la log expresión media en las muestras tratadas con genisteína y la log expresión media de las muestras control):
 
 ```{r}
 # Log2FC de genes:
@@ -521,20 +521,41 @@ data.fit.eb$coefficients[11600:11610,]
 ```
 
 
-```{r, eval = F}
 
 
-# p-valores de los t-tests moderados por eBayes
+Puedes encontrar los valores del estadístico t y el p-valor de cada gen en sus respectivos huecos:
+
+```{r}
 data.fit.eb$p.value[11600:11610,]
+data.fit.eb$t[11600:11610,]
+```
 
-head(data.fit.eb$coefficients)
 
+
+
+Remarkably, data.fit.eb also contains F-statistics and p-values for this F-statistic in the F and F.p.value slots while an F-statistic is in an ANOVA. Essentially, a t-test is a special case of an ANOVA used for single comparisons. If you have just a single comparison the F-statistic is the square of the t-statistic. For multiple comparisons, this relation is not true.
+
+```{r}
+data.fit.eb$t[1:10,]^2
+data.fit.eb$F[1:10]
+```
+
+
+
+
+The best way to decide on the number of DE genes you are going to select is via a Volcano plot. Volcano plots arrange genes along biological and statistical significance. The X-axis gives the log fold change between the two groups (log: so that up and down regulation appear symmetric), and the Y-axis represents the p-value of a t-test comparing samples (on a negative log scale so smaller p-values appear higher up). The first axis indicates biological impact of the change; the second indicates the statistical evidence of the change.
+To decide on the number of DE genes that you’re going to proceed with, you can make Volcano plots highlighting different numbers of genes. As you increase the number of genes highlighted on the plot, you can see at what point you begin to select genes with rather low fold changes. Make a conservative decision about the number of genes you want to use for follow up.
+
+```{r}
 # Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes
 # diferencialmente expresados y estadísticamente significativos
 volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1))
 ```
 
 
+
+
+### 2 grupos de datos pareados
 
 ```{r}
 # Creamos el diseño del t-test pareado (este es el bueno)
