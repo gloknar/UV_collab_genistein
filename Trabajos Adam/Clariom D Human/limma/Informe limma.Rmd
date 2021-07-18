@@ -483,7 +483,7 @@ data.fit$coefficients[5000:5010,]
 
 
 
-Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una matriz de contrastes en la cual se especifiquen las comparaciones a realizar mediante el comando `makeContrasts()`. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
+Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una __matriz de contrastes__ en la cual se especifiquen las comparaciones a realizar mediante el comando `makeContrasts()`. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
 
 ```{r}
 contrast.matrix = makeContrasts(Genisteina-Control, levels = diseno)
@@ -492,12 +492,37 @@ data.fit.con = contrasts.fit(data.fit, contrast.matrix)
 
 
 
-```{r, eval = F}
+
+Ahora `limma` está listo para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test.
+
+`limma` no realiza un t-test corriente, sino que calcula un t-test moderado con menor desviación estándar para cada gen. Un método bayesiano empírico se usa para reducir la desviación estándar de cada gen para hacerlos converger hasta un valor común a todos los genes. Esto se hace para minimizar la influencia de valores extremos (tanto grandes como pequeños) de desviaciones estándar en el t-test. Dado que nuestro nº de muestras es pequeño, las desviaciones estándar no serán fiables (lo que hace que no sea recomendable usar un t-test corriente y moliente). Empero, aunque el n muestral es pequeño, el nº total de comparaciones es enorme, por lo que la información se combina entre todos los genes (la desviación estándar de todo el genoma se reduce) para mejorar el rendimiento.
+
+El t-test moderado se realiza con el comando `eBayes()`:
+
+```{r}
 data.fit.eb = eBayes(data.fit.con)
+```
 
 
+
+El comando `eBayes()` devuelve un dataframe con múltiples huecos. Para ver un resumen de todos sus huecos, usa el comando `names()`: 
+
+```{r}
+names(data.fit.eb)
+```
+
+
+
+Puedes obtener los log<sub>2</sub> fold changes de la expresión de cada gen a través del hueco `$coefficients` (it's simply the difference between the mean log expression in mutant samples and the mean log expression in control samples):
+
+```{r}
 # Log2FC de genes:
 data.fit.eb$coefficients[11600:11610,]
+```
+
+
+```{r, eval = F}
+
 
 # p-valores de los t-tests moderados por eBayes
 data.fit.eb$p.value[11600:11610,]
