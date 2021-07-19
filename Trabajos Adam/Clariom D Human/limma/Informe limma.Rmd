@@ -532,8 +532,7 @@ data.fit.eb$t[11600:11610,]
 
 
 
-
-Remarkably, data.fit.eb also contains F-statistics and p-values for this F-statistic in the F and F.p.value slots while an F-statistic is in an ANOVA. Essentially, a t-test is a special case of an ANOVA used for single comparisons. If you have just a single comparison the F-statistic is the square of the t-statistic. For multiple comparisons, this relation is not true.
+el output de la función `eBayes()` contiene huecos para los p-valores y los estadísticos F (el estadístico F es un estadístico empleado en los ANOVAs). El t-test es un caso especial de ANOVA para comparaciones sencillas. En el caso del t-test, en el que realizas una comparación, el estadístico F es igual al estadístico t al cuadrado. En el ANOVA (_i.e._ comparaciones múltiples), eso no se cumple:
 
 ```{r}
 data.fit.eb$t[1:10,]^2
