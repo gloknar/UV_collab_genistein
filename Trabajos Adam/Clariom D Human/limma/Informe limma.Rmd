@@ -542,7 +542,7 @@ Tras realizar el t-test moderado, se grafican los resultados en un Volcano plot.
 ```{r}
 # Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes
 # diferencialmente expresados y estadísticamente significativos
-volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1))
+volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
 ```
 
 
@@ -554,6 +554,14 @@ volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1))
 ### 2 grupos de datos pareados
 
 Las células troncales tratadas con microvesículas provienen del mismo individuo (no son sets independientes), por lo que estamos tratando con datos pareados.
+
+
+Up to now we have always assumed that the groups are independent, meaning that samples of one group have no relation whatsoever with samples from another group. In independent data sets you have two groups of subjects (patients, mice, plants,....). You use one group as controls and you give the other group a treatment.
+Paired or dependent data means that there exists a relationship between the samples of different groups. The typical example is having a group of subjects and measuring each of them before and after treatment.
+It is important to tell limma if your data is paired or not since you need to use a different type of statistical test on paired compared to independent data:
+
+    paired t-test instead of regular two-samples t-test
+    repeated measures ANOVA instead of regular one-way ANOVA
 
 
 

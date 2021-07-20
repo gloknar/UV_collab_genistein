@@ -709,47 +709,50 @@ div.tocify {
 <div id="grupos-de-datos-pareados" class="section level3" number="5.3.2">
 <h3 number="5.3.2"><span class="header-section-number">5.3.2</span> 2 grupos de datos pareados</h3>
 <p>Las células troncales tratadas con microvesículas provienen del mismo individuo (no son sets independientes), por lo que estamos tratando con datos pareados.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos el diseño del t-test pareado (este es el bueno)</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co"># As an example we will compare 2 groups of 4 patients before and after treatment (no genistein and after genistein):</span></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Treatment is the grouping variable dividing the data set into two groups:</span></span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># control and genistein-treated. To tell limma that your data is paired you just</span></span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create a second grouping variable called patient:</span></span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(eSet_normalizado)</span></code></pre></div>
+<p>Up to now we have always assumed that the groups are independent, meaning that samples of one group have no relation whatsoever with samples from another group. In independent data sets you have two groups of subjects (patients, mice, plants,….). You use one group as controls and you give the other group a treatment. Paired or dependent data means that there exists a relationship between the samples of different groups. The typical example is having a group of subjects and measuring each of them before and after treatment. It is important to tell limma if your data is paired or not since you need to use a different type of statistical test on paired compared to independent data:</p>
+<pre><code>paired t-test instead of regular two-samples t-test
+repeated measures ANOVA instead of regular one-way ANOVA</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos el diseño del t-test pareado (este es el bueno)</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="co"># As an example we will compare 2 groups of 4 patients before and after treatment (no genistein and after genistein):</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Treatment is the grouping variable dividing the data set into two groups:</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="co"># control and genistein-treated. To tell limma that your data is paired you just</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create a second grouping variable called patient:</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(eSet_normalizado)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["muestra"],"name":[1],"type":["int"],"align":["right"]},{"label":["condicion"],"name":[2],"type":["fct"],"align":["left"]}],"data":[{"1":"1","2":"Control","_rn_":"Control_1"},{"1":"2","2":"Genisteina","_rn_":"Genisteina_1"},{"1":"3","2":"Control","_rn_":"Control_2"},{"1":"4","2":"Genisteina","_rn_":"Genisteina_2"},{"1":"5","2":"Control","_rn_":"Control_3"},{"1":"6","2":"Genisteina","_rn_":"Genisteina_3"},{"1":"7","2":"Control","_rn_":"Control_4"},{"1":"8","2":"Genisteina","_rn_":"Genisteina_4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(eSet_normalizado)[,<span class="dv">3</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;muestra1&quot;</span>, <span class="st">&quot;muestra1&quot;</span>, <span class="st">&quot;muestra2&quot;</span>, <span class="st">&quot;muestra2&quot;</span>, <span class="st">&quot;muestra3&quot;</span>, <span class="st">&quot;muestra3&quot;</span>, <span class="st">&quot;muestra4&quot;</span>, <span class="st">&quot;muestra4&quot;</span>)</span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(eSet_normalizado<span class="sc">@</span>phenoData<span class="sc">@</span>data)[<span class="dv">3</span>] <span class="ot">=</span> <span class="st">&quot;pareados&quot;</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Of course, now you need to factorize both grouping variables: </span></span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>groupsP <span class="ot">=</span> <span class="fu">pData</span>(eSet_normalizado)<span class="sc">$</span>pareados </span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>groupsT <span class="ot">=</span> <span class="fu">pData</span>(eSet_normalizado)<span class="sc">$</span>condicion</span>
-<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>fp <span class="ot">=</span> <span class="fu">factor</span>(groupsP,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;muestra1&quot;</span>,<span class="st">&quot;muestra2&quot;</span>,<span class="st">&quot;muestra3&quot;</span>,<span class="st">&quot;muestra4&quot;</span>))</span>
-<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>ft <span class="ot">=</span> <span class="fu">factor</span>(groupsT,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Genisteina&quot;</span>))</span>
-<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Then you need to create a design matrix, a matrix of values of the grouping</span></span>
-<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a><span class="co"># variable. ANOVA needs such a matrix to know which samples belong to which</span></span>
-<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a><span class="co"># group. Since limma performs an ANOVA, it needs such a design matrix. You can</span></span>
-<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a><span class="co"># create it using the model.matrix() method.</span></span>
-<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The argument of the model.matrix method is a model formula. The tilde (~) in</span></span>
-<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a><span class="co"># the argument specifies the right hand side of the model equation. The plus (+)</span></span>
-<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a><span class="co"># is used to combine factors.</span></span>
-<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos el diseño del t-test pareado</span></span>
-<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a>paired.design <span class="ot">=</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> fp <span class="sc">+</span> ft)</span>
-<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(paired.design)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Intercept&quot;</span>,<span class="st">&quot;muestra2vsmuestra1&quot;</span>,<span class="st">&quot;muestra3versusmuestra1&quot;</span>,<span class="st">&quot;muestra4versusmuestra1&quot;</span>, <span class="st">&quot;GenisteinavsControl&quot;</span>)</span>
-<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-25"><a href="#cb65-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos modelo lineal</span></span>
-<span id="cb65-26"><a href="#cb65-26" aria-hidden="true" tabindex="-1"></a>data.fit <span class="ot">=</span> <span class="fu">lmFit</span>(<span class="fu">t</span>(intensidades_normalizadas), paired.design)</span>
-<span id="cb65-27"><a href="#cb65-27" aria-hidden="true" tabindex="-1"></a>data.fit<span class="sc">$</span>coefficients[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pData</span>(eSet_normalizado)[,<span class="dv">3</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;muestra1&quot;</span>, <span class="st">&quot;muestra1&quot;</span>, <span class="st">&quot;muestra2&quot;</span>, <span class="st">&quot;muestra2&quot;</span>, <span class="st">&quot;muestra3&quot;</span>, <span class="st">&quot;muestra3&quot;</span>, <span class="st">&quot;muestra4&quot;</span>, <span class="st">&quot;muestra4&quot;</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(eSet_normalizado<span class="sc">@</span>phenoData<span class="sc">@</span>data)[<span class="dv">3</span>] <span class="ot">=</span> <span class="st">&quot;pareados&quot;</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Of course, now you need to factorize both grouping variables: </span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>groupsP <span class="ot">=</span> <span class="fu">pData</span>(eSet_normalizado)<span class="sc">$</span>pareados </span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>groupsT <span class="ot">=</span> <span class="fu">pData</span>(eSet_normalizado)<span class="sc">$</span>condicion</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>fp <span class="ot">=</span> <span class="fu">factor</span>(groupsP,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;muestra1&quot;</span>,<span class="st">&quot;muestra2&quot;</span>,<span class="st">&quot;muestra3&quot;</span>,<span class="st">&quot;muestra4&quot;</span>))</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>ft <span class="ot">=</span> <span class="fu">factor</span>(groupsT,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Genisteina&quot;</span>))</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Then you need to create a design matrix, a matrix of values of the grouping</span></span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="co"># variable. ANOVA needs such a matrix to know which samples belong to which</span></span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="co"># group. Since limma performs an ANOVA, it needs such a design matrix. You can</span></span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a><span class="co"># create it using the model.matrix() method.</span></span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The argument of the model.matrix method is a model formula. The tilde (~) in</span></span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a><span class="co"># the argument specifies the right hand side of the model equation. The plus (+)</span></span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a><span class="co"># is used to combine factors.</span></span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos el diseño del t-test pareado</span></span>
+<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a>paired.design <span class="ot">=</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> fp <span class="sc">+</span> ft)</span>
+<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(paired.design)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Intercept&quot;</span>,<span class="st">&quot;muestra2vsmuestra1&quot;</span>,<span class="st">&quot;muestra3versusmuestra1&quot;</span>,<span class="st">&quot;muestra4versusmuestra1&quot;</span>, <span class="st">&quot;GenisteinavsControl&quot;</span>)</span>
+<span id="cb66-23"><a href="#cb66-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-24"><a href="#cb66-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-25"><a href="#cb66-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos modelo lineal</span></span>
+<span id="cb66-26"><a href="#cb66-26" aria-hidden="true" tabindex="-1"></a>data.fit <span class="ot">=</span> <span class="fu">lmFit</span>(<span class="fu">t</span>(intensidades_normalizadas), paired.design)</span>
+<span id="cb66-27"><a href="#cb66-27" aria-hidden="true" tabindex="-1"></a>data.fit<span class="sc">$</span>coefficients[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,]</span></code></pre></div>
 <pre><code>##                   Intercept muestra2vsmuestra1 muestra3versusmuestra1
 ## AFFX-BkGr-GC03_st  2.019290       -0.032784452            -0.18831154
 ## AFFX-BkGr-GC04_st  1.860191        0.150118369             0.11897527
@@ -792,17 +795,17 @@ div.tocify {
 ## AFFX-BkGr-GC20_st            -0.17741079         -0.36633810
 ## AFFX-BkGr-GC21_st            -0.21457095         -0.34193577
 ## AFFX-BkGr-GC22_st            -0.27003533         -0.36737218</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lmfit() will fit a linear model to the data. It will create a data frame called data.fit. The interesting data is in the coefficients table which contains 4 columns:</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     the first column contains the intercept of the linear fit, in most cases it has no implicit meaning.</span></span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     the second column compares patient 1 and patient 2: it is the difference between the average expression of patient 2 over the two treatments and the average expression level of patient 1 over the two treatments.</span></span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     the third column compares patient 1 and patient 3 in the same way.</span></span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     the fourth column compares before and after treatment: it calculates the average difference in expression level between after and before treatment. This is the measure that is used in the paired t-test and compared to 0. So these are the values we are interested in. The more this measure differs from 0 the more likely it is that the treatment has an effect.</span></span>
-<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing a moderated paired t-test is now done using eBayes(). </span></span>
-<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>data.fit.eb <span class="ot">=</span> <span class="fu">eBayes</span>(data.fit)</span>
-<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>p.value[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lmfit() will fit a linear model to the data. It will create a data frame called data.fit. The interesting data is in the coefficients table which contains 4 columns:</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     the first column contains the intercept of the linear fit, in most cases it has no implicit meaning.</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     the second column compares patient 1 and patient 2: it is the difference between the average expression of patient 2 over the two treatments and the average expression level of patient 1 over the two treatments.</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     the third column compares patient 1 and patient 3 in the same way.</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     the fourth column compares before and after treatment: it calculates the average difference in expression level between after and before treatment. This is the measure that is used in the paired t-test and compared to 0. So these are the values we are interested in. The more this measure differs from 0 the more likely it is that the treatment has an effect.</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing a moderated paired t-test is now done using eBayes(). </span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>data.fit.eb <span class="ot">=</span> <span class="fu">eBayes</span>(data.fit)</span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>p.value[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,]</span></code></pre></div>
 <pre><code>##                      Intercept muestra2vsmuestra1 muestra3versusmuestra1
 ## AFFX-BkGr-GC03_st 1.745815e-06          0.8926229              0.4455966
 ## AFFX-BkGr-GC04_st 7.603619e-07          0.4661509              0.5613528
@@ -845,8 +848,8 @@ div.tocify {
 ## AFFX-BkGr-GC20_st              0.4455338          0.04462309
 ## AFFX-BkGr-GC21_st              0.3606340          0.05791585
 ## AFFX-BkGr-GC22_st              0.2824467          0.05525999</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2FC de genes:</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>coefficients[<span class="dv">11600</span><span class="sc">:</span><span class="dv">11610</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2FC de genes:</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>coefficients[<span class="dv">11600</span><span class="sc">:</span><span class="dv">11610</span>,]</span></code></pre></div>
 <pre><code>##                   Intercept muestra2vsmuestra1 muestra3versusmuestra1
 ## TC0100015175.hg.1  2.766404       -0.139430790             0.14475594
 ## TC0100015176.hg.1  3.276849       -0.116559630             0.05658051
@@ -871,8 +874,8 @@ div.tocify {
 ## TC0100015184.hg.1             0.38820317         0.162419594
 ## TC0100015185.hg.1            -0.20293332        -0.291840810
 ## TC0100015186.hg.1             0.12181283        -0.410416456</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># p-valores de los t-tests moderados por eBayes</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>p.value[<span class="dv">11600</span><span class="sc">:</span><span class="dv">11610</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># p-valores de los t-tests moderados por eBayes</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>p.value[<span class="dv">11600</span><span class="sc">:</span><span class="dv">11610</span>,]</span></code></pre></div>
 <pre><code>##                      Intercept muestra2vsmuestra1 muestra3versusmuestra1
 ## TC0100015175.hg.1 1.589322e-07         0.58293918             0.56889014
 ## TC0100015176.hg.1 2.230446e-08         0.62729181             0.81271870
@@ -897,32 +900,32 @@ div.tocify {
 ## TC0100015184.hg.1             0.18290842          0.41547778
 ## TC0100015185.hg.1             0.42371370          0.12237078
 ## TC0100015186.hg.1             0.63456030          0.04358570</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># volcanoplot(data.fit.eb, highlight = 0) ; abline(h = 1.301, v = c(-1,1))</span></span></code></pre></div>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">=</span> <span class="fu">topTable</span>(data.fit.eb ,<span class="at">coef =</span> <span class="dv">1</span> ,<span class="at">number =</span> <span class="dv">138745</span>, <span class="at">adjust.method =</span><span class="st">&quot;BH&quot;</span>, <span class="at">sort.by =</span> <span class="st">&quot;p&quot;</span>)</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tab)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># volcanoplot(data.fit.eb, highlight = 0) ; abline(h = 1.301, v = c(-1,1))</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">=</span> <span class="fu">topTable</span>(data.fit.eb ,<span class="at">coef =</span> <span class="dv">1</span> ,<span class="at">number =</span> <span class="dv">138745</span>, <span class="at">adjust.method =</span><span class="st">&quot;BH&quot;</span>, <span class="at">sort.by =</span> <span class="st">&quot;p&quot;</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tab)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["logFC"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["AveExpr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["t"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["P.Value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["adj.P.Val"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["B"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"13.68823","2":"13.70311","3":"89.69498","4":"1.104053e-14","5":"2.100247e-11","6":"21.11416","_rn_":"TC1400010745.hg.1"},{"1":"13.70803","2":"13.68969","3":"89.55982","4":"1.119239e-14","5":"2.100247e-11","6":"21.10898","_rn_":"HTA2-pos-PSR10011618.hg.1"},{"1":"13.67800","2":"13.65842","3":"89.55420","4":"1.119875e-14","5":"2.100247e-11","6":"21.10877","_rn_":"HTA2-pos-PSR05000171.hg.1"},{"1":"13.66603","2":"13.65950","3":"89.37670","4":"1.140184e-14","5":"2.100247e-11","6":"21.10193","_rn_":"TC1400007085.hg.1"},{"1":"13.46666","2":"13.44662","3":"87.54518","4":"1.375397e-14","5":"2.100247e-11","6":"21.02956","_rn_":"TC2000007258.hg.1"},{"1":"13.32997","2":"13.32605","3":"86.77667","4":"1.489752e-14","5":"2.100247e-11","6":"20.99815","_rn_":"TC0100013203.hg.1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elegimos los genes que caen en las regiones del volcano plot de interés</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>genes_diferencialmente_expresados <span class="ot">&lt;-</span> <span class="fu">which</span>(tab<span class="sc">$</span>P.Value <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(tab<span class="sc">$</span>logFC) <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontramos 204 candidatos. Recordemos que el 60% de ellos puede ser ruido,</span></span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="co"># otros serán sondas de QC (HTA-pos/neg-3371052_st...)</span></span>
-<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(genes_diferencialmente_expresados)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elegimos los genes que caen en las regiones del volcano plot de interés</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>genes_diferencialmente_expresados <span class="ot">&lt;-</span> <span class="fu">which</span>(tab<span class="sc">$</span>P.Value <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(tab<span class="sc">$</span>logFC) <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontramos 204 candidatos. Recordemos que el 60% de ellos puede ser ruido,</span></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co"># otros serán sondas de QC (HTA-pos/neg-3371052_st...)</span></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(genes_diferencialmente_expresados)</span></code></pre></div>
 <pre><code>## [1] 138721</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>lista_DGE_limma <span class="ot">&lt;-</span> <span class="fu">rownames</span>(tab[genes_diferencialmente_expresados,])</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lista_DGE_limma &lt;- as.vector(lista_DGE_limma)</span></span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x =</span> lista_DGE_limma, <span class="at">file =</span> <span class="st">&quot;lista_DGE_limma.txt&quot;</span>, <span class="at">quote =</span> F, <span class="at">row.names =</span> F, <span class="at">col.names =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>lista_DGE_limma <span class="ot">&lt;-</span> <span class="fu">rownames</span>(tab[genes_diferencialmente_expresados,])</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lista_DGE_limma &lt;- as.vector(lista_DGE_limma)</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="at">x =</span> lista_DGE_limma, <span class="at">file =</span> <span class="st">&quot;lista_DGE_limma.txt&quot;</span>, <span class="at">quote =</span> F, <span class="at">row.names =</span> F, <span class="at">col.names =</span> F)</span></code></pre></div>
 <p><br></p>
 <p>NOTA: limma incluye el comando <code>vennDiagram()</code></p>
 <p><a href="https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/" class="uri">https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/</a> paquetes ggvenn o ggVennDiagram</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>DEresults <span class="ot">=</span> <span class="fu">decideTests</span>(data.fit.eb,<span class="at">method=</span><span class="st">&#39;global&#39;</span>,<span class="at">adjust.method=</span><span class="st">&quot;BH&quot;</span>,<span class="at">p.value=</span><span class="fl">0.05</span>,<span class="at">lfc=</span><span class="dv">1</span>)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>DEresults[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vennDiagram</span>(DEresults)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>DEresults <span class="ot">=</span> <span class="fu">decideTests</span>(data.fit.eb,<span class="at">method=</span><span class="st">&#39;global&#39;</span>,<span class="at">adjust.method=</span><span class="st">&quot;BH&quot;</span>,<span class="at">p.value=</span><span class="fl">0.05</span>,<span class="at">lfc=</span><span class="dv">1</span>)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>DEresults[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vennDiagram</span>(DEresults)</span></code></pre></div>
 <p><br></p>
 <hr />
 </div>
