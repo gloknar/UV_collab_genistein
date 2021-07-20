@@ -329,7 +329,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Análisis de microarrays <em>Clariom D Human</em> en <code>limma</code></h1>
 <h4 class="author">Adam Casas</h4>
-<h4 class="date">Compilado: 18 de julio del 2021</h4>
+<h4 class="date">Compilado: 20 de julio del 2021</h4>
 
 </div>
 
@@ -687,7 +687,7 @@ div.tocify {
 ##         1.5705740        -0.6832578         0.1173373        -0.6438466 
 ## TC0100015184.hg.1 TC0100015185.hg.1 TC0100015186.hg.1 
 ##         0.7015958        -1.8014018        -2.4101060</code></pre>
-<p>Remarkably, data.fit.eb also contains F-statistics and p-values for this F-statistic in the F and F.p.value slots while an F-statistic is in an ANOVA. Essentially, a t-test is a special case of an ANOVA used for single comparisons. If you have just a single comparison the F-statistic is the square of the t-statistic. For multiple comparisons, this relation is not true.</p>
+<p>El output de la función <code>eBayes()</code> contiene huecos para los p-valores y los estadísticos F (el estadístico F es un estadístico empleado en los ANOVAs). El t-test es un caso especial de ANOVA para comparaciones sencillas. En el caso del t-test, en el que realizas una comparación, el estadístico F es igual al estadístico t al cuadrado. En el ANOVA (<em>i.e.</em> comparaciones múltiples), eso no se cumple:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>t[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## AFFX-BkGr-GC03_st AFFX-BkGr-GC04_st AFFX-BkGr-GC05_st AFFX-BkGr-GC06_st 
 ##        1.35792547        0.10486658        0.02262827        0.07018338 
@@ -698,7 +698,7 @@ div.tocify {
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>data.fit.eb<span class="sc">$</span>F[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 1.35792547 0.10486658 0.02262827 0.07018338 0.01829479 0.14675275
 ##  [7] 0.04767460 0.01275277 0.03370752 0.05748540</code></pre>
-<p>The best way to decide on the number of DE genes you are going to select is via a Volcano plot. Volcano plots arrange genes along biological and statistical significance. The X-axis gives the log fold change between the two groups (log: so that up and down regulation appear symmetric), and the Y-axis represents the p-value of a t-test comparing samples (on a negative log scale so smaller p-values appear higher up). The first axis indicates biological impact of the change; the second indicates the statistical evidence of the change. To decide on the number of DE genes that you’re going to proceed with, you can make Volcano plots highlighting different numbers of genes. As you increase the number of genes highlighted on the plot, you can see at what point you begin to select genes with rather low fold changes. Make a conservative decision about the number of genes you want to use for follow up.</p>
+<p>Tras realizar el t-test moderado, se grafican los resultados en un Volcano plot. El volcano plot muestra en el eje X el log2FC entre dos grupos (<em>i.e.</em> impacto biológico del cambio), y el eje Y mide el p-valor del cambio (<em>i.e.</em> la evidencia estadística de los resultados).</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># diferencialmente expresados y estadísticamente significativos</span></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">volcanoplot</span>(data.fit.eb, <span class="at">highlight =</span> <span class="dv">0</span>); <span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">1.301</span>, <span class="at">v =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>

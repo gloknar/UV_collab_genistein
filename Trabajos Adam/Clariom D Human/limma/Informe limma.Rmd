@@ -311,7 +311,7 @@ De acuerdo a [McDermaid _et al._(2019)](https://www.ncbi.nlm.nih.gov/pmc/article
 <br>
 
 
-## Separación de las muestras: PCA y t-SNE
+## Separación de las muestras: PCA, t-SNE y UMAP
 
 Con los datos ya normalizados, podemos graficar los microarrays estudiados en un espacio de dimensionalidad reducida. La separación de los microarrays en dicho espacio nos dará una idea general de si existen genes diferencialmente expresados entre las condiciones estudiadas.
 
@@ -332,6 +332,9 @@ pca_microarrays <- PCA(intensidades_normalizadas_df, graph = F,
 
 # Graficamos las 2 primeras componentes principales
 plot.PCA(pca_microarrays, choix = "ind", habillage = 138746)
+
+# library(FactoInvestigate)
+# FactoInvestigate::Investigate(pca_microarrays)
 ```
 
 ```{r, eval = F}
@@ -532,7 +535,7 @@ data.fit.eb$t[11600:11610,]
 
 
 
-el output de la función `eBayes()` contiene huecos para los p-valores y los estadísticos F (el estadístico F es un estadístico empleado en los ANOVAs). El t-test es un caso especial de ANOVA para comparaciones sencillas. En el caso del t-test, en el que realizas una comparación, el estadístico F es igual al estadístico t al cuadrado. En el ANOVA (_i.e._ comparaciones múltiples), eso no se cumple:
+El output de la función `eBayes()` contiene huecos para los p-valores y los estadísticos F (el estadístico F es un estadístico empleado en los ANOVAs). El t-test es un caso especial de ANOVA para comparaciones sencillas. En el caso del t-test, en el que realizas una comparación, el estadístico F es igual al estadístico t al cuadrado. En el ANOVA (_i.e._ comparaciones múltiples), eso no se cumple:
 
 ```{r}
 data.fit.eb$t[1:10,]^2
@@ -540,10 +543,7 @@ data.fit.eb$F[1:10]
 ```
 
 
-
-
-The best way to decide on the number of DE genes you are going to select is via a Volcano plot. Volcano plots arrange genes along biological and statistical significance. The X-axis gives the log fold change between the two groups (log: so that up and down regulation appear symmetric), and the Y-axis represents the p-value of a t-test comparing samples (on a negative log scale so smaller p-values appear higher up). The first axis indicates biological impact of the change; the second indicates the statistical evidence of the change.
-To decide on the number of DE genes that you’re going to proceed with, you can make Volcano plots highlighting different numbers of genes. As you increase the number of genes highlighted on the plot, you can see at what point you begin to select genes with rather low fold changes. Make a conservative decision about the number of genes you want to use for follow up.
+Tras realizar el t-test moderado, se grafican los resultados en un Volcano plot. El volcano plot muestra en el eje X el log2FC entre dos grupos (_i.e._ impacto biológico del cambio), y el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados).
 
 ```{r}
 # Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes
