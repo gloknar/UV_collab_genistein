@@ -553,15 +553,13 @@ volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
 
 ### 2 grupos de datos pareados
 
-Las células troncales tratadas con microvesículas provienen del mismo individuo (no son sets independientes), por lo que estamos tratando con datos pareados.
+Las células troncales tratadas con microvesículas provienen del mismo individuo (no son sets independientes), por lo que estamos tratando con datos pareados. Que los datos sean pareados significa que existe una relación entre las muestras de los distintos grupos estudiados. Es importante especificarle a `limma` si los datos son pareados o no, ya que en función de ello usará unos tests estadísticos u otros, a saber:
 
+* Para dos grupos de datos: t-test pareado en lugar de un t-test normal
+    
+* Para más de 2 grupos de datos: ANOVA con medidas repetidas en lugar de un anova de una vía
 
-Up to now we have always assumed that the groups are independent, meaning that samples of one group have no relation whatsoever with samples from another group. In independent data sets you have two groups of subjects (patients, mice, plants,....). You use one group as controls and you give the other group a treatment.
-Paired or dependent data means that there exists a relationship between the samples of different groups. The typical example is having a group of subjects and measuring each of them before and after treatment.
-It is important to tell limma if your data is paired or not since you need to use a different type of statistical test on paired compared to independent data:
-
-    paired t-test instead of regular two-samples t-test
-    repeated measures ANOVA instead of regular one-way ANOVA
+    
 
 
 
