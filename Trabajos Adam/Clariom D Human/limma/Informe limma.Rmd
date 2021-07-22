@@ -426,56 +426,57 @@ oligo::MAplot(eSet_normalizado, refSamples = c(1,3,5,7), which = c(2,4,6,8), mai
 <br>
 
 
-## `limma`
+## `limma`: Análisis de 2 grupos de datos no pareados
 
-Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete `limma`, ya que `oligo` carece de las funciones necesarias para ello. `limma` usa como _input_ el objeto que devuelve el comando `rma()`.
+Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete `limma`, ya que `oligo` carece de las funciones necesarias para ello. `limma` usa como _input_ el objeto que devuelve el comando `rma()`. 
+
+Nuestros datos no son pareados, por lo que usaremos un t-test normal en lugar de uno para datos pareados (si comparásemos 3 grupos, usaríamos un ANOVA para medidas repetidas en lugar de un ANOVA de 1 vía).
 
 `limma` contiene funciones para hacer t-tests o ANOVAs para identificar DEGs en microarrays. Estas funciones pueden ser usadas en datos provenientes de cualquier tipo de microarray y funcionan incluso para microarrays con diseños complejos o múltiples muestras. La idea principal es ajustar un modelo lineal a los datos de expresión de cada gen. Los datos de expresión pueden ser log-ratios o log-intensidades. Los métodos empleados obtienen información sobre todos los genes para hacer que los análisis sean estables incluso en experimentos con un bajo tamaño muestral.
 
 
-### 2 grupos de datos (no pareados)
-
-Antes de nada tenemos que indicar a `limma` mediante el hueco `phenoData` qué muestras son réplicas y cuáles pertenecen a diferentes grupos. Podemos ver que ya hemos hecho eso en pasos anteriores:
+Antes de nada tenemos que indicar a `limma` mediante el hueco `phenoData` a qué grupo (en este caso, factor `condicion`) pertenece cada muestra. Podemos ver que ya hemos hecho eso en pasos anteriores:
 
 ```{r}
 pData(eSet_normalizado)
 ```
 
 
-
-
-Ahora tenemos que indicar a `limma` qué muestras pertenecen a qué grupo:
-
-```{r}
-grupo = pData(eSet_normalizado)$condicion 
-```
-
-
-
-Ahora tenemos que crear una __matriz de diseño__, o sea una matriz de valores de la variable que agrupa los datos. El ANOVA (y los GLMs) necesita dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que `limma` usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método `model.matrix()`. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, `limma` calculará sólo la expresión génica media de cada grupo.
+Ahora tenemos que crear una __matriz de diseño__, o sea una matriz de valores del factor que agrupa los datos. Los t-tests, ANOVAs y GLMs necesitan dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que `limma` usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método `model.matrix()`. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, `limma` calculará sólo la expresión génica media de cada grupo.
 
 ```{r}
 # Creamos el diseño del t-test no pareado
-# diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
-diseno = model.matrix(~ 0 + grupo)
-colnames(diseno) = c("Control","Genisteina")
+matriz_diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
+colnames(matriz_diseno) <- c("Control","Genisteina")
 ```
 
 
-En esencia, `limma` va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas. Lo primero, `limma` debe calcular la expresión media de cada grupo usando el comando `lmFit()`. Este comando ajustará un modelo lineal (definido previamente con el comando `model.matrix`) a los datos para calcular la expresión génica media en las muestras control y las muestras tratadas:
+Nuestra matriz de diseño tiene esta forma:
+
+```{r, echo = F}
+head(matriz_diseno)
+```
+
+
+
+
+En esencia, `limma` va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas con genisteína. Lo primero, `limma` debe calcular la expresión media de cada grupo usando el comando `lmFit()`. Este comando ajustará un modelo lineal (definido previamente con el comando `model.matrix()`) a los datos para calcular la expresión génica media en las muestras control y en las muestras tratadas:
 
 ```{r}
 # Generamos el modelo lineal
-data.fit = lmFit(t(intensidades_normalizadas), diseno)
+modelo_lineal <- lmFit(t(intensidades_normalizadas), matriz_diseno)
+
+# Vemos los bolsillos que posee el objeto `modelo_lineal`
+names(modelo_lineal)
 ```
 
 
 
 
-Podemos ver los resultados del modelo lineal en el bolsillo `$coefficients`:
+Podemos ver la expresión génica media de cada grupo en formato log<sub>2</sub> en el bolsillo `$coefficients` del modelo lineal:
 
 ```{r}
-data.fit$coefficients[5000:5010,]
+modelo_lineal$coefficients[5000:5005,]
 ```
 
 
@@ -483,38 +484,51 @@ data.fit$coefficients[5000:5010,]
 Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una __matriz de contrastes__ en la cual se especifiquen las comparaciones a realizar mediante el comando `makeContrasts()`. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
 
 ```{r}
-contrast.matrix = makeContrasts(Genisteina-Control, levels = diseno)
-data.fit.con = contrasts.fit(data.fit, contrast.matrix)
+# creamos matriz de contraste
+matriz_contrastes <- makeContrasts(Genisteina - Control, levels = matriz_diseno)
 ```
 
 
 
-
-Ahora `limma` está listo para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test.
-
-`limma` no realiza un t-test corriente, sino que calcula un t-test moderado con menor desviación estándar para cada gen. Un método bayesiano empírico se usa para reducir la desviación estándar de cada gen para hacerlos converger hasta un valor común a todos los genes. Esto se hace para minimizar la influencia de valores extremos (tanto grandes como pequeños) de desviaciones estándar en el t-test. Dado que nuestro nº de muestras es pequeño, las desviaciones estándar no serán fiables (lo que hace que no sea recomendable usar un t-test corriente y moliente). Empero, aunque el n muestral es pequeño, el nº total de comparaciones es enorme, por lo que la información se combina entre todos los genes (la desviación estándar de todo el genoma se reduce) para mejorar el rendimiento.
-
-El t-test moderado se realiza con el comando `eBayes()`:
+Nuestra matriz de contrastes tiene esta forma:
 
 ```{r}
-data.fit.eb = eBayes(data.fit.con)
+matriz_contrastes
 ```
 
 
 
-El comando `eBayes()` devuelve un dataframe con múltiples huecos. Para ver un resumen de todos sus huecos, usa el comando `names()`: 
+Ahora calculamos las comparaciones de interés con el comando `contrasts.fit()`. En este caso, calculamos la diferencia de la expresión de cada gen entre las muestras tratadas con genisteína y las muestras control. Nótese que el output del susodicho comando es similar al del comando `lmFit()`:
 
 ```{r}
-names(data.fit.eb)
+diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal, contrasts = matriz_contrastes)
 ```
 
 
 
-Puedes obtener los log<sub>2</sub> fold changes de la expresión de cada gen a través del hueco `$coefficients` (los coeficientes son la diferencia entre la log expresión media en las muestras tratadas con genisteína y la log expresión media de las muestras control):
+
+Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando `eBayes()` estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (_i.e._ aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
+
+```{r}
+t_test_bayes = eBayes(diferencia_genisteina_control)
+```
+
+
+
+El comando `eBayes()` devuelve un dataframe con múltiples huecos, similar al output del comando `contrasts.fit()`. Nótese que a diferencia de `contrasts.fit()` (que sólo calcula la diferencia entre la expresión génica de los dos grupos), `eBayes()` calcula los p-valores de dichas diferencias: 
+
+```{r}
+names(t_test_bayes)
+```
+
+
+
+
+Puedes obtener el fold change en formato log<sub>2</sub> de la expresión de cada gen a través del hueco `$coefficients` del t-test moderado:
 
 ```{r}
 # Log2FC de genes:
-data.fit.eb$coefficients[11600:11610,]
+head(t_test_bayes$coefficients)
 ```
 
 
@@ -523,114 +537,26 @@ data.fit.eb$coefficients[11600:11610,]
 Puedes encontrar los valores del estadístico t y el p-valor de cada gen en sus respectivos huecos:
 
 ```{r}
-data.fit.eb$p.value[11600:11610,]
-data.fit.eb$t[11600:11610,]
+head(t_test_bayes$p.value)
+head(t_test_bayes$t)
 ```
 
 
 
-El output de la función `eBayes()` contiene huecos para los p-valores y los estadísticos F (el estadístico F es un estadístico empleado en los ANOVAs). El t-test es un caso especial de ANOVA para comparaciones sencillas. En el caso del t-test, en el que realizas una comparación, el estadístico F es igual al estadístico t al cuadrado. En el ANOVA (_i.e._ comparaciones múltiples), eso no se cumple:
-
-```{r}
-data.fit.eb$t[1:10,]^2
-data.fit.eb$F[1:10]
-```
-
-
-Tras realizar el t-test moderado, se grafican los resultados en un Volcano plot. El volcano plot muestra en el eje X el log2FC entre dos grupos (_i.e._ impacto biológico del cambio), y el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados).
+Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log2FC entre dos grupos (_i.e._ impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2|:
 
 ```{r}
 # Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes
 # diferencialmente expresados y estadísticamente significativos
-volcanoplot(data.fit.eb, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
-```
-
-
-
-<br>
-
-***
-
-### 2 grupos de datos pareados
-
-Las células troncales tratadas con microvesículas provienen del mismo individuo (no son sets independientes), por lo que estamos tratando con datos pareados. Que los datos sean pareados significa que existe una relación entre las muestras de los distintos grupos estudiados. Es importante especificarle a `limma` si los datos son pareados o no, ya que en función de ello usará unos tests estadísticos u otros, a saber:
-
-* Para dos grupos de datos: t-test pareado en lugar de un t-test normal
-    
-* Para más de 2 grupos de datos: ANOVA con medidas repetidas en lugar de un anova de una vía
-
-    
-
-
-
-```{r}
-# Creamos el diseño del t-test pareado (este es el bueno)
-
-
-# As an example we will compare 2 groups of 4 patients before and after treatment (no genistein and after genistein):
-
-# Treatment is the grouping variable dividing the data set into two groups:
-# control and genistein-treated. To tell limma that your data is paired you just
-# create a second grouping variable called patient:
-pData(eSet_normalizado)
-pData(eSet_normalizado)[,3] = c("muestra1", "muestra1", "muestra2", "muestra2", "muestra3", "muestra3", "muestra4", "muestra4")
-colnames(eSet_normalizado@phenoData@data)[3] = "pareados"
-
-# Of course, now you need to factorize both grouping variables: 
-
-groupsP = pData(eSet_normalizado)$pareados 
-groupsT = pData(eSet_normalizado)$condicion
-fp = factor(groupsP,levels=c("muestra1","muestra2","muestra3","muestra4"))
-ft = factor(groupsT,levels=c("Control","Genisteina"))
-
-# Then you need to create a design matrix, a matrix of values of the grouping
-# variable. ANOVA needs such a matrix to know which samples belong to which
-# group. Since limma performs an ANOVA, it needs such a design matrix. You can
-# create it using the model.matrix() method.
-
-# The argument of the model.matrix method is a model formula. The tilde (~) in
-# the argument specifies the right hand side of the model equation. The plus (+)
-# is used to combine factors.
-
-# Creamos el diseño del t-test pareado
-paired.design = model.matrix(~ fp + ft)
-colnames(paired.design)=c("Intercept","muestra2vsmuestra1","muestra3versusmuestra1","muestra4versusmuestra1", "GenisteinavsControl")
-
-
-# Generamos modelo lineal
-data.fit = lmFit(t(intensidades_normalizadas), paired.design)
-data.fit$coefficients[1:20,]
-
-
-
-# Lmfit() will fit a linear model to the data. It will create a data frame called data.fit. The interesting data is in the coefficients table which contains 4 columns:
-# 
-#     the first column contains the intercept of the linear fit, in most cases it has no implicit meaning.
-#     the second column compares patient 1 and patient 2: it is the difference between the average expression of patient 2 over the two treatments and the average expression level of patient 1 over the two treatments.
-#     the third column compares patient 1 and patient 3 in the same way.
-#     the fourth column compares before and after treatment: it calculates the average difference in expression level between after and before treatment. This is the measure that is used in the paired t-test and compared to 0. So these are the values we are interested in. The more this measure differs from 0 the more likely it is that the treatment has an effect.
-# 
-# Performing a moderated paired t-test is now done using eBayes(). 
-
-data.fit.eb = eBayes(data.fit)
-data.fit.eb$p.value[1:20,]
-
-
-# Log2FC de genes:
-data.fit.eb$coefficients[11600:11610,]
-
-# p-valores de los t-tests moderados por eBayes
-data.fit.eb$p.value[11600:11610,]
-
-
-# volcanoplot(data.fit.eb, highlight = 0) ; abline(h = 1.301, v = c(-1,1))
+volcanoplot(t_test_bayes, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
 ```
 
 
 
 
+
 ```{r}
-tab = topTable(data.fit.eb ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
+tab = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
 head(tab)
 
 
@@ -647,22 +573,6 @@ lista_DGE_limma <- rownames(tab[genes_diferencialmente_expresados,])
 write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, row.names = F, col.names = F)
 ```
 
-
-<br>
-
-NOTA: limma incluye el comando `vennDiagram()`
-
-https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/
-paquetes ggvenn o ggVennDiagram
-
-
-```{r ejemplo vennDiagram, eval = F}
-DEresults = decideTests(data.fit.eb,method='global',adjust.method="BH",p.value=0.05,lfc=1)
-DEresults[1:10,]
-
-vennDiagram(DEresults)
-
-```
 
 
 <br>
