@@ -13,20 +13,16 @@ output:
 ---
 
 ```{r configuracion inicial, include=FALSE}
+##################################################
+#######        Encoded in UTF-8        ###########
+##################################################
+
 # Establecemos la configuración de los chunks
 knitr::opts_chunk$set(echo = T,
                       message = F,
                       warning = F,
                       tidy = F)
-
-# Establecemos el directorio de trabajo de este informe
-# knitr::opts_knit$set(root.dir = "C:/Users/Adam_/Desktop/microvesiculas - copia para trabajar/Resultados ClariomD_Human")
-
-
 set.seed(1)
-##################################################
-#######        Encoded in UTF-8        ###########
-##################################################
 ```
 
 ***
@@ -365,7 +361,7 @@ normalizado_tsne <- normalize_input(intensidades_normalizadas)
 tsne_microarrays <- Rtsne(normalizado_tsne, dims = 3, perplexity = 2)
 
 # Leyenda: Control negro, Genisteína rojo
-plot(tsne_microarrays$Y, col = c("black", "red"))
+plot(tsne_microarrays$Y, col = c("black", "red"), main = "t-SNE plot of individuals")
 ```
 
 ```{r, eval = F}
@@ -382,19 +378,17 @@ plot3d(tsne_microarrays$Y[,1:3], type = "s",
 y el UMAP:
 
 ```{r}
-
 umap_microarrays <- uwot::umap(intensidades_normalizadas, n_neighbors = 3, 
                                n_components = 3)
 
 # Leyenda: Control negro, Genisteína rojo
-plot(umap_microarrays, col = c("black", "red"))
+plot(umap_microarrays, col = c("black", "red"), main = "UMAP plot of individuals")
 ```
 
 ```{r, eval = F}
 # Graficamos el UMAP en 3D
 plot3d(umap_microarrays, type = "s", 
        col = c(rep(c("black", "red"), times = 4)))
-
 ```
 
 
@@ -411,9 +405,9 @@ En resumen, sólo el PCA 3D es informativo de la posible distribución de las mu
 
 ## Análisis cualitativo: MA Plots
 
-Para visualizar si hay genes diferencialmente expresados, podemos emplear el comando `MAplot` del paquete `oligo`. Los gráficos MA muestran en el eje X la intensidad media de una sonda dada a lo largo de los microarrays estudiados, y en el eje Y se observa el log2(fold change) o logaritmo en base dos del ratio de sobre/infraexpresión del gen al que mapea dicha sonda. 
+Para visualizar si hay genes diferencialmente expresados, podemos emplear el comando `MAplot` del paquete `oligo`. Los gráficos MA muestran en el eje X la intensidad media de una sonda dada a lo largo de los microarrays estudiados, y en el eje Y se observa el log<sub>2</sub>(fold change) o logaritmo en base dos del ratio de sobre/infraexpresión del gen al que mapea dicha sonda. 
 
-Los genes diferencialmente expresados se encontrarán lejos de la nube de puntos (log2(FC) > |1|), mientras que los genes que no varíen entre condiciones presentarán valores de log2(FC) cercanos a 0. No obstante, el MA plot no devuelve p-valores, por lo que para asegurarnos de que los resultados son significativos, deberíamos recurrir a un Volcano plot, que combina el log2(FC) y los p-valores de los genes estudiados.
+Los genes diferencialmente expresados se encontrarán lejos de la nube de puntos (log<sub>2</sub>(FC) > |1|), mientras que los genes que no varíen entre condiciones presentarán valores de log<sub>2</sub>(FC) cercanos a 0. No obstante, el MA plot no devuelve p-valores, por lo que para asegurarnos de que los resultados son significativos, deberíamos recurrir a un Volcano plot, que combina el log<sub>2</sub>(FC) y los p-valores de los genes estudiados.
 
 ```{r}
 par(mfrow=c(2,2))
