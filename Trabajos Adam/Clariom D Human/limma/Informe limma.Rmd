@@ -397,7 +397,7 @@ plot3d(umap_microarrays, type = "s",
 <br>
 
 
-En resumen, sólo el PCA 3D es informativo de la posible distribución de las muestras. El t-SNE y el UMAP en 3D no son concluyentes (los datos parecen mezclarse).
+En resumen, el PCA de 2 dimensiones es la reducción dimensional más informativa de la posible distribución de las muestras. El t-SNE y el UMAP en 3D no son concluyentes (los datos parecen mezclarse).
 
 
 
@@ -429,14 +429,14 @@ Nuestros datos no son pareados, por lo que usaremos un t-test normal en lugar de
 `limma` contiene funciones para hacer t-tests o ANOVAs para identificar DEGs en microarrays. Estas funciones pueden ser usadas en datos provenientes de cualquier tipo de microarray y funcionan incluso para microarrays con diseños complejos o múltiples muestras. La idea principal es ajustar un modelo lineal a los datos de expresión de cada gen. Los datos de expresión pueden ser log-ratios o log-intensidades. Los métodos empleados obtienen información sobre todos los genes para hacer que los análisis sean estables incluso en experimentos con un bajo tamaño muestral.
 
 
-Antes de nada tenemos que indicar a `limma` mediante el hueco `phenoData` a qué grupo (en este caso, factor `condicion`) pertenece cada muestra. Podemos ver que ya hemos hecho eso en pasos anteriores:
+Antes de nada tenemos que indicarle al susodicho paquete mediante el hueco `phenoData` a qué grupo (en este caso, factor `condicion`) pertenece cada muestra. Podemos ver que ya hemos hecho eso en pasos anteriores:
 
 ```{r}
 pData(eSet_normalizado)
 ```
 
 
-Ahora tenemos que crear una __matriz de diseño__, o sea una matriz de valores del factor que agrupa los datos. Los t-tests, ANOVAs y GLMs necesitan dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que `limma` usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método `model.matrix()`. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, `limma` calculará sólo la expresión génica media de cada grupo.
+Ahora tenemos que crear una __matriz de diseño__, o sea una matriz con los niveles del factor que agrupa los datos. Los t-tests, ANOVAs y GLMs necesitan dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que `limma` usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método `model.matrix()`. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, `limma` calculará sólo la expresión génica media de cada grupo.
 
 ```{r}
 # Creamos el diseño del t-test no pareado
@@ -454,7 +454,7 @@ head(matriz_diseno)
 
 
 
-En esencia, `limma` va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas con genisteína. Lo primero, `limma` debe calcular la expresión media de cada grupo usando el comando `lmFit()`. Este comando ajustará un modelo lineal (definido previamente con el comando `model.matrix()`) a los datos para calcular la expresión génica media en las muestras control y en las muestras tratadas:
+En esencia, `limma` va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas con genisteína. Lo primero, debemos calcular la expresión media de cada grupo usando el comando `lmFit()`. Este comando ajustará un modelo lineal (definido previamente con el comando `model.matrix()`) a los datos para calcular la expresión génica media en las muestras control y en las muestras tratadas:
 
 ```{r}
 # Generamos el modelo lineal
