@@ -29,12 +29,12 @@ options(tinytex.verbose = TRUE)
 
 # Introducción
 
-En este documento se muestra cómo analizar los archivos con extensión .CEL resultantes de secuenciar muestras biológicas en los microchips _Clariom D Human_ de Affymetrix. Llevaremos a cabo este análisis en R 3.6 con el paquete de Bioconductor \verb|oligo| versión 1.50.0. La versión de Biocondcutor empleada es la 3.10.
+En este documento se muestra cómo analizar los archivos con extensión .CEL resultantes de secuenciar muestras biológicas en los microchips \textit{Clariom D Human} de Affymetrix. Llevaremos a cabo este análisis en R 3.6 con el paquete de Bioconductor \verb|oligo| versión 1.50.0. La versión de Biocondcutor empleada es la 3.10.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.7\textwidth]{pdf1.png}
-  \caption{Microchip Clariom D Human y sus correspondientes reactivos.}
+  \caption{Microchip \textit{Clariom D Human} y sus correspondientes reactivos.}
 \end{figure}
 
 
@@ -71,7 +71,7 @@ Comenzamos cargando \verb|oligo| y paquetes accesorios:
 ```{r carga librerias}
 library("oligo")
 library("ggplot2")
-library("dplyr") 
+library("dplyr")
 library("FactoMineR") # PCA
 library("rgl") # 3D plots
 library("Rtsne") # t-SNE
@@ -128,9 +128,9 @@ sampleNames(datos_crudos_microarrays)
 
 \bigskip
 
-Al cargar los archivos \verb|.CEL| con \verb|read.celfiles()|, se almacena en el bolsillo \verb|datos_crudos_microarrays@assayData$exprs| la matriz de intensidades crudas de los fluoróforos Cy3 y Cy5 que hibridan con las distintas sondas de cada microarray. Esta matriz tiene tantas filas como sondas tiene el microarray, y tantas columnas como muestras hayamos secuenciado. Las funciones \verb|exprs()| e \verb|intensity()| del paquete \verb|oligo| simplifican el acceso a la misma (ambas funciones devuelven exactamente el mismo _output_).
+Al cargar los archivos \verb|.CEL| con \verb|read.celfiles()|, se almacena en el bolsillo \verb|datos_crudos_microarrays@assayData$exprs| la matriz de intensidades crudas de los fluoróforos Cy3 y Cy5 que hibridan con las distintas sondas de cada microarray. Esta matriz tiene tantas filas como sondas tiene el microarray, y tantas columnas como muestras hayamos secuenciado. Las funciones \verb|exprs()| e \verb|intensity()| del paquete \verb|oligo| simplifican el acceso a la misma (ambas funciones devuelven exactamente el mismo \textit{output}).
 
-* Las filas corresponden a cada sonda individual del microarray, identificada por un nº que va desde el 1 hasta el nº máximo de sondas presentes en el mismo (en el caso de los microarrays _Clariom D Human_, estos contienen un máximo de 6.892.960 sondas).
+* Las filas corresponden a cada sonda individual del microarray, identificada por un nº que va desde el 1 hasta el nº máximo de sondas presentes en el mismo (en el caso de los microarrays \textit{Clariom D Human}, estos contienen un máximo de 6.892.960 sondas).
 
 * Las columnas son las muestras, en nuestro caso Control_1, Genisteina_1, Control_2... etc
 
@@ -147,9 +147,9 @@ dim(intensidades)[1]
 
 \bigskip
 
-De acuerdo a la documentación de \href{https://www.affymetrix.com/support/help/exon_glossary/index.jsp#clusteroverview}{Affymetrix}, las sondas de los microarrays de tipo Clariom D Human (Gene Arrays) están agrupadas en _transcription clusters_ en vez de _probesets_.
+De acuerdo a la documentación de \href{https://www.affymetrix.com/support/help/exon_glossary/index.jsp#clusteroverview}{Affymetrix}, las sondas de los microarrays de tipo Clariom D Human (Gene Arrays) están agrupadas en \textit{transcription clusters} en vez de \textit{probesets}.
 
-Con el comando \verb|probeNames()| obtenemos los _transcription clusters_ a los que pertenecen las sondas de nuestro microchip, de manera que la primera sonda del microarray pertenece al _transcription cluster_ TC1300007722.hg.1: 
+Con el comando \verb|probeNames()| obtenemos los \textit{transcription clusters} a los que pertenecen las sondas de nuestro microchip, de manera que la primera sonda del microarray pertenece al \textit{transcription cluster} TC1300007722.hg.1: 
 
 ```{r}
 # Obtenemos y mostramos los transcription clusters a los que pertenece cada sonda
@@ -168,7 +168,7 @@ which(transcription_clusters == "TC1300007722.hg.1")
 
 \bigskip
 
-Si tenemos en cuenta la página web de ThermoFisher, podemos usar el centro de análisis NetAffx para obtener más información sobre dichos clusters. Por ejemplo, si nos fijamos en el segundo _transcription cluster_, [TC0300011139.hg.1](https://www.affymetrix.com/analysis/netaffx/exon/hta_transcript.affx?pk=778:TC0300011139.hg.1), vemos que las sondas de este cluster detectan la presencia/ausencia de expresión del pseudogen RNA5SP132 (identificador [Ensembl:ENSG00000201595](http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000201595;r=3:51694465-51694582;t=ENST00000364725)). 
+Si tenemos en cuenta la página web de ThermoFisher, podemos usar el centro de análisis NetAffx para obtener más información sobre dichos clusters. Por ejemplo, si nos fijamos en el segundo \textit{transcription cluster}, [TC0300011139.hg.1](https://www.affymetrix.com/analysis/netaffx/exon/hta_transcript.affx?pk=778:TC0300011139.hg.1), vemos que las sondas de este cluster detectan la presencia/ausencia de expresión del pseudogen RNA5SP132 (identificador [Ensembl:ENSG00000201595](http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000201595;r=3:51694465-51694582;t=ENST00000364725)). 
 
 
 
@@ -239,7 +239,7 @@ El programa TAC 4.0.2, propiedad también de ThermoFisher, muestra un resumen mu
 
 Según la documentación del programa, un valor de \verb|pos vs neg auc| > 0.7 es un buen primer cribado de calidad. Además de presentar un AUC > 0.7, el resto de controles han salido bien, por lo que podemos confiar en la calidad del secuenciado de los presentes microarrays.
 
-En R, el paquete oligo parece no poder sacar dichas métricas en microarrays de tipo _Clariom_, puesto que al ser nuevos, no llevan asociados archivos \verb|.CDF|. Quizás \verb|limma| o \verb|DESeq2| puedan tratar dichos microchips.
+En R, el paquete oligo parece no poder sacar dichas métricas en microarrays de tipo \textit{Clariom}, puesto que al ser nuevos, no llevan asociados archivos \verb|.CDF|. Quizás \verb|limma| o \verb|DESeq2| puedan tratar dichos microchips.
 
 
 
@@ -254,7 +254,7 @@ Antes de analizar los microarrays, necesitamos preprocesar las señales de las s
 
 Para preprocesar y normalizar datos de microarrays, se suelen emplear el algoritmo RMA o derivados (_i.e._ GCRMA o SST-RMA). En nuestro caso vamos a usar el algoritmo RMA, implementado en \verb|oligo|. Este algoritmo consta de 3 pasos:
 
-* __Background subtraction__. De acuerdo a la \href{http://bioconductor.org/packages/release/bioc/vignettes/oligo/inst/doc/oug.pdf}{documentación} de \verb|oligo|, el método de _background substraction_ implementado en RMA trata las sondas PM (_Perfect Match_, más informacion en [Flight _et al._, 2012](http://rmflight.github.io/affyMM/)) como una convolución de ruido y señal verdadera.
+* __Background subtraction__. De acuerdo a la \href{http://bioconductor.org/packages/release/bioc/vignettes/oligo/inst/doc/oug.pdf}{documentación} de \verb|oligo|, el método de \textit{background substraction} implementado en RMA trata las sondas PM (_Perfect Match_, más informacion en [Flight _et al._, 2012](http://rmflight.github.io/affyMM/)) como una convolución de ruido y señal verdadera.
 
 * __Quantile normalization__. Paso necesario para dotar de igual valor a los genes estudiados, independientemente de su nivel de expresión constitutivo (este paso evita, por ejemplo, que genes expresados de manera constitutiva pero poco interesantes para el estudio estén sobrerrepresentados en análisis posteriores con respecto de genes más relevantes, pero de menor expresión basal como son los genes codificantes de factores de transcripcion). El método de normalizado implementado en oligo es quantile.
 
@@ -413,7 +413,7 @@ En resumen, el PCA de 2 dimensiones es la reducción dimensional más informativ
 
 ## Análisis cualitativo: MA Plots
 
-Para visualizar si hay genes diferencialmente expresados, podemos emplear el comando \verb|MAplot()| del paquete oligo. Los gráficos MA muestran en el eje X la intensidad media de una sonda dada a lo largo de los microarrays estudiados, y en el eje Y se observa el log\textsubscript{2}(fold change) o logaritmo en base dos del ratio de sobre/infraexpresión del gen al que mapea dicha sonda. 
+Para visualizar si hay genes diferencialmente expresados, podemos emplear el comando \verb|MAplot()| del paquete \verb|oligo|. Los gráficos MA muestran en el eje X la intensidad media de una sonda dada a lo largo de los microarrays estudiados, y en el eje Y se observa el log\textsubscript{2}(fold change) o logaritmo en base dos del ratio de sobre/infraexpresión del gen al que mapea dicha sonda. 
 
 Los genes diferencialmente expresados se encontrarán lejos de la nube de puntos (log\textsubscript{2}(FC) > |1|), mientras que los genes que no varíen entre condiciones presentarán valores de log\textsubscript{2}(FC) cercanos a 0. No obstante, el MA plot no devuelve p-valores, por lo que para asegurarnos de que los resultados son significativos, deberíamos recurrir a un Volcano plot, que combina el log\textsubscript{2}(FC) y los p-valores de los genes estudiados.
 
@@ -429,7 +429,7 @@ oligo::MAplot(eSet_normalizado, refSamples = c(1,3,5,7), which = c(2,4,6,8), mai
 
 ## limma: Análisis de 2 grupos de datos no pareados
 
-Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete limma, ya que oligo carece de las funciones necesarias para ello. limma usa como _input_ el objeto que devuelve el comando \verb+rma()+. 
+Procedemos a detectar los genes diferencialmente expresados mediante las utilidades del paquete \verb+limma+, ya que \verb|oligo| carece de las funciones necesarias para ello. \verb|limma| usa como \textit{input} el objeto que devuelve el comando \verb+rma()+. 
 
 Nuestros datos no son pareados, por lo que usaremos un t-test normal en lugar de uno para datos pareados (si comparásemos 3 grupos, usaríamos un ANOVA para medidas repetidas en lugar de un ANOVA de 1 vía).
 
@@ -443,13 +443,18 @@ pData(eSet_normalizado)
 ```
 
 
-Ahora tenemos que crear una __matriz de diseño__, o sea una matriz con los niveles del factor que agrupa los datos. Los t-tests, ANOVAs y GLMs necesitan dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que \verb|limma| usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método \verb|model.matrix()|. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, \verb|limma| calculará sólo la expresión génica media de cada grupo.
+
+\bigskip
+
+Ahora tenemos que crear una \textbf{matriz de diseño}, o sea una matriz con los niveles del factor que agrupa los datos. Los t-tests, ANOVAs y GLMs necesitan dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que \verb|limma| usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método \verb|model.matrix()|. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, \verb|limma| calculará sólo la expresión génica media de cada grupo.
 
 ```{r}
 # Creamos el diseño del t-test no pareado
 matriz_diseno = model.matrix(~ 0 + eSet_normalizado$condicion)
 colnames(matriz_diseno) <- c("Control","Genisteina")
 ```
+
+\bigskip
 
 
 Nuestra matriz de diseño tiene esta forma:
@@ -460,6 +465,7 @@ head(matriz_diseno)
 
 
 
+\bigskip
 
 En esencia, \verb|limma| va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas con genisteína. Lo primero, debemos calcular la expresión media de cada grupo usando el comando \verb|lmFit()|. Este comando ajustará un modelo lineal (definido previamente con el comando \verb|model.matrix()|) a los datos para calcular la expresión génica media en las muestras control y en las muestras tratadas:
 
@@ -473,6 +479,7 @@ names(modelo_lineal)
 
 
 
+\bigskip
 
 Podemos ver la expresión génica media de cada grupo en formato log\textsubscript{2} en el bolsillo \verb|$coefficients| del modelo lineal:
 
@@ -481,8 +488,9 @@ modelo_lineal$coefficients[5000:5005,]
 ```
 
 
+\bigskip
 
-Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una __matriz de contrastes__ en la cual se especifiquen las comparaciones a realizar mediante el comando \verb|makeContrasts()|. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
+Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una \textbf{matriz de contrastes} en la cual se especifiquen las comparaciones a realizar mediante el comando \verb|makeContrasts()|. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
 
 ```{r}
 # creamos matriz de contraste
@@ -490,6 +498,7 @@ matriz_contrastes <- makeContrasts(Genisteina - Control, levels = matriz_diseno)
 ```
 
 
+\bigskip
 
 Nuestra matriz de contrastes tiene esta forma:
 
@@ -499,14 +508,18 @@ matriz_contrastes
 
 
 
+\bigskip
+
 Ahora calculamos las comparaciones de interés con el comando \verb|contrasts.fit()|. En este caso, calculamos la diferencia de la expresión de cada gen entre las muestras tratadas con genisteína y las muestras control. Nótese que el output del susodicho comando es similar al del comando \verb|lmFit()|:
 
 ```{r}
-diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal, contrasts = matriz_contrastes)
+diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal, 
+                                               contrasts = matriz_contrastes)
 ```
 
 
 
+\bigskip
 
 Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando \verb|eBayes()| estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (_i.e._ aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
 
@@ -516,6 +529,8 @@ t_test_bayes = eBayes(diferencia_genisteina_control)
 
 
 
+\bigskip
+
 El comando \verb|eBayes()| devuelve un dataframe con múltiples huecos, similar al output del comando \verb|contrasts.fit()|. Nótese que a diferencia de \verb|contrasts.fit()| (que sólo calcula la diferencia entre la expresión génica de los dos grupos), \verb|eBayes()| calcula los p-valores de dichas diferencias: 
 
 ```{r}
@@ -524,6 +539,7 @@ names(t_test_bayes)
 
 
 
+\bigskip
 
 Puedes obtener el fold change en formato log\textsubscript{2} de la expresión de cada gen a través del hueco \verb|$coefficients| del t-test moderado:
 
@@ -535,6 +551,8 @@ head(t_test_bayes$coefficients)
 
 
 
+\bigskip
+
 Puedes encontrar los valores del estadístico t y el p-valor de cada gen en sus respectivos huecos:
 
 ```{r}
@@ -543,6 +561,9 @@ head(t_test_bayes$t)
 ```
 
 
+
+
+\bigskip
 
 Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log\textsubscript{2}FC entre dos grupos (_i.e._ impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2|:
 
@@ -554,7 +575,7 @@ volcanoplot(t_test_bayes, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2
 
 
 
-
+\bigskip
 
 ```{r}
 tab = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
@@ -571,7 +592,8 @@ length(genes_diferencialmente_expresados)
 lista_DGE_limma <- rownames(tab[genes_diferencialmente_expresados,])
 
 # lista_DGE_limma <- as.vector(lista_DGE_limma)
-write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, row.names = F, col.names = F)
+write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, 
+            row.names = F, col.names = F)
 ```
 
 
