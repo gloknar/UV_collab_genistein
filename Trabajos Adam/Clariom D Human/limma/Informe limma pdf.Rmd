@@ -31,7 +31,7 @@ options(tinytex.verbose = TRUE)
 
 En este documento se muestra cómo analizar los archivos con extensión .CEL resultantes de secuenciar muestras biológicas en los microchips \textit{Clariom D Human} de Affymetrix. Llevaremos a cabo este análisis en R 3.6 con el paquete de Bioconductor \verb|oligo| versión 1.50.0. La versión de Biocondcutor empleada es la 3.10.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{pdf1.png}
   \caption{Microchip \textit{Clariom D Human} y sus correspondientes reactivos.}
@@ -89,7 +89,7 @@ directorio_trabajo <- "../Archivos secuenciado/"
 ```
 
 
-Listamos y cargamos los archivos de secuenciado en el objeto de tipo \verb|HTAFeatureSet| denominado \verb|datos_crudos_microarrays|. La carga de los archivos \verb|.CEL| se hace mediante la función \verb|read.celfiles()|, la cual lee y carga los archivos por orden alfabético de sus nombres (_i.e._ primero carga el archivo \verb|52CNT_(Clariom_D_Human).CEL|, luego \verb|52GEN_(Clariom_D_Human).CEL|, luego \verb|53CNT_(Clariom_D_Human).CEL|, ...etc):
+Listamos y cargamos los archivos de secuenciado en el objeto de tipo \verb|HTAFeatureSet| denominado \verb|datos_crudos_microarrays|. La carga de los archivos \verb|.CEL| se hace mediante la función \verb|read.celfiles()|, la cual lee y carga los archivos por orden alfabético de sus nombres (\textit{i.e.} primero carga el archivo \verb|52CNT_(Clariom_D_Human).CEL|, luego \verb|52GEN_(Clariom_D_Human).CEL|, luego \verb|53CNT_(Clariom_D_Human).CEL|, ...etc):
 
 ```{r}
 # Obtenemos la ruta completa de los archivos con el argumento `full.names = T`
@@ -229,7 +229,7 @@ En vista de que el secuenciado se realizó en un sólo lote (el mismo día y en 
 
 El programa TAC 4.0.2, propiedad también de ThermoFisher, muestra un resumen muy claro de las métricas de calidad de los microarrays.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{QC TAC}
   \caption{Las muestras pasan todos los controles de calidad.}
@@ -252,7 +252,7 @@ En R, el paquete oligo parece no poder sacar dichas métricas en microarrays de 
 
 Antes de analizar los microarrays, necesitamos preprocesar las señales de las sondas para corregir el ruido técnico (problema común en los microarrays) y agrupar la información de las sondas que mapeen para un mismo gen (_summarization_).
 
-Para preprocesar y normalizar datos de microarrays, se suelen emplear el algoritmo RMA o derivados (_i.e._ GCRMA o SST-RMA). En nuestro caso vamos a usar el algoritmo RMA, implementado en \verb|oligo|. Este algoritmo consta de 3 pasos:
+Para preprocesar y normalizar datos de microarrays, se suelen emplear el algoritmo RMA o derivados (\textit{i.e.} GCRMA o SST-RMA). En nuestro caso vamos a usar el algoritmo RMA, implementado en \verb|oligo|. Este algoritmo consta de 3 pasos:
 
 * __Background subtraction__. De acuerdo a la \href{http://bioconductor.org/packages/release/bioc/vignettes/oligo/inst/doc/oug.pdf}{documentación} de \verb|oligo|, el método de \textit{background substraction} implementado en RMA trata las sondas PM (_Perfect Match_, más informacion en [Flight _et al._, 2012](http://rmflight.github.io/affyMM/)) como una convolución de ruido y señal verdadera.
 
@@ -336,7 +336,7 @@ plot3d(pca_microarrays$ind$coord[,1:3], type = "s",
 
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{PCA 3D.png}
   \caption{PCA tridimensional. Los puntos negros representan las muestras control, mientras que los puntos rojos representan las muestras tratadas con genisteína.}
@@ -364,7 +364,7 @@ plot3d(tsne_microarrays$Y[,1:3], type = "s",
 ```
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{t-SNE 3D.png}
   \caption{Reducción dimensional no lineal t-SNE de 3 dimensiones. Los puntos negros representan las muestras control, mientras que los puntos rojos representan las muestras tratadas con genisteína.}
@@ -393,7 +393,7 @@ plot3d(umap_microarrays, type = "s",
 ```
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{UMAP 3D.png}
   \caption{Reducción dimensional no lineal UMAP de 3 dimensiones. Los puntos negros representan las muestras control, mientras que los puntos rojos representan las muestras tratadas con genisteína.}
@@ -521,7 +521,7 @@ diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal,
 
 \bigskip
 
-Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando \verb|eBayes()| estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (_i.e._ aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
+Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando \verb|eBayes()| estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (\textit{i.e.} aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
 
 ```{r}
 t_test_bayes = eBayes(diferencia_genisteina_control)
@@ -564,18 +564,23 @@ head(t_test_bayes$t)
 
 
 \bigskip
+\bigskip
 
-Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log\textsubscript{2}FC entre dos grupos (_i.e._ impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2|:
+# Resultados análisis DEG
+
+Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log\textsubscript{2}FC entre dos grupos (\textit{i.e.} impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (\textit{i.e.} la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2| (cuadrantes superiores derecho e izquierdo):
 
 ```{r}
-# Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes
-# diferencialmente expresados y estadísticamente significativos
-volcanoplot(t_test_bayes, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
+volcanoplot(t_test_bayes, coef = 1, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
 ```
+
+Nótese que el parámetro \verb|coef| del comando \verb|volcanoplot()| te permite seleccionar la comparación a graficar (disponible en el bolsillo \verb|t_test_bayes$coefficients|), pero en nuestro caso sólo hemos hecho una comparación (Genisteína vs Control), por lo que lo dejamos con su valor por defecto.
 
 
 
 \bigskip
+
+Tras analizar las regiones de interés del volcano plot, vemos que hay genes candidatos a estar diferencialmente expresados. Ahora procederemos a plasmarlos en una lista. 
 
 ```{r}
 tab = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
@@ -585,7 +590,7 @@ head(tab)
 # Elegimos los genes que caen en las regiones del volcano plot de interés
 genes_diferencialmente_expresados <- which(tab$P.Value <= 0.05 & abs(tab$logFC) >= 1)
 
-# Encontramos 204 candidatos. Recordemos que el 60% de ellos puede ser ruido,
+# Encontramos 204 candidatos. Recordemos que algunos de ellos puede ser ruido,
 # otros serán sondas de QC (HTA-pos/neg-3371052_st...)
 length(genes_diferencialmente_expresados)
 
@@ -597,7 +602,7 @@ write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F,
 ```
 
 
-
+Tras guardar los nombres de los genes diferencialmente expresados en el archivo de texto \verb|lista_DGE_limma.txt|, podemos realizar los análisis posteriores pertinentes (\textit{i.e.} GEA, GSEA, dianas de miRNA...).
 
 
 \bigskip
