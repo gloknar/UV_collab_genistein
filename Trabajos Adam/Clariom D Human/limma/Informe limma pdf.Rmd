@@ -626,7 +626,6 @@ En vista del output del chunk, vemos que tratar las muestras con genisteína pro
 Para finalizar este protocolo, procedemos a guardar en archivos de texto la lista total de genes diferencialmente expresados, los genes sobreexpresados y los infraexpresados para poder realizar más tarde los análisis pertinentes (\textit{i.e.} GEA, GSEA, dianas de miRNA...):
 
 
-
 ```{r, eval = F}
 # DEG_limma <- as.vector(DEG_limma)
 # Lista total de genes diferencialmente expresados
@@ -643,6 +642,7 @@ write.table(x = rownames(infraexpresados), file = "./Resultados DEG/infraexpresa
 ```
 
 
+A modo de \textit{addendum}, comentar que hemos guardado los genes con los nombres de los \textit{transcription clusters}. Si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx o bien consultando el archivo accesorio \verb|Anotaciones Genes NetAffx.tsv|.
 
 
 \bigskip
