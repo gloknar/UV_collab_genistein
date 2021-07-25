@@ -580,29 +580,69 @@ Nótese que el parámetro \verb|coef| del comando \verb|volcanoplot()| te permit
 
 \bigskip
 
-Tras analizar las regiones de interés del volcano plot, vemos que hay genes candidatos a estar diferencialmente expresados. Ahora procederemos a plasmarlos en una lista. 
+Tras analizar las regiones de interés del volcano plot, vemos que hay genes candidatos a estar diferencialmente expresados. Vamos a reunir todos los genes detectados en los microarrays en un dataframe y ordenarlos en función de su p-valor no ajustado mediante el comando \verb|topTable|: 
 
 ```{r}
-tab = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
-head(tab)
+df_DEG = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
+head(df_DEG)
+```
 
 
-# Elegimos los genes que caen en las regiones del volcano plot de interés
-genes_diferencialmente_expresados <- which(tab$P.Value <= 0.05 & abs(tab$logFC) >= 1)
 
-# Encontramos 204 candidatos. Recordemos que algunos de ellos puede ser ruido,
-# otros serán sondas de QC (HTA-pos/neg-3371052_st...)
+
+\bigskip
+
+Ahora procedemos a seleccionar sólo los genes que caen en los cuadrantes de interés del volcano plot (p-valor no ajustado < 0.05 y log\textsubscript{2}FC > |1|) y los guardamos en el dataframe \verb|DEG_limma|: 
+
+```{r}
+genes_diferencialmente_expresados <- which(df_DEG$P.Value <= 0.05 & abs(df_DEG$logFC) >= 1)
+DEG_limma <- df_DEG[genes_diferencialmente_expresados,]
 length(genes_diferencialmente_expresados)
+```
 
-lista_DGE_limma <- rownames(tab[genes_diferencialmente_expresados,])
 
-# lista_DGE_limma <- as.vector(lista_DGE_limma)
-write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, 
+
+
+\bigskip
+
+Vemos que hemos detectado 204 genes con un p-valor no ajustado < 0.05 y con un ratio de sobre/infraexpresión mayor o igual a 2. Ahora procedemos a separarlos en función de si están sobre o infraexpresados respecto a las muestras control:
+
+
+```{r}
+sobreexpresados <- DEG_limma[DEG_limma[,"logFC"] > 1,]
+nrow(sobreexpresados)
+head(sobreexpresados)
+
+infraexpresados <- DEG_limma[DEG_limma[,"logFC"] < -1  ,]
+nrow(infraexpresados)
+head(infraexpresados)
+```
+
+
+\bigskip
+
+En vista del output del chunk, vemos que tratar las muestras con genisteína provoca la sobreexpresión de 193 genes y la infraexpresión de 11 genes, todos ellos con un ratio de 2 (o sea, el gen TC1100007696.hg.1 está el doble de expresado en las muestras tratadas respecto de las muestras control, mientras que el gen TC1900009657.hg.1 está la mitad de expresado en las muestras tratadas respecto de las muestras control).
+
+Para finalizar este protocolo, procedemos a guardar en archivos de texto la lista total de genes diferencialmente expresados, los genes sobreexpresados y los infraexpresados para poder realizar más tarde los análisis pertinentes (\textit{i.e.} GEA, GSEA, dianas de miRNA...):
+
+
+
+```{r, eval = F}
+# DEG_limma <- as.vector(DEG_limma)
+# Lista total de genes diferencialmente expresados
+write.table(x = rownames(DEG_limma), file = "./Resultados DEG/DEG_total_limma.txt", quote = F, 
+            row.names = F, col.names = F)
+
+# Genes sobreexpresados
+write.table(x = rownames(sobreexpresados), file = "./Resultados DEG/sobreexpresados_limma.txt", quote = F, 
+            row.names = F, col.names = F)
+
+# Genes infraexpresados
+write.table(x = rownames(infraexpresados), file = "./Resultados DEG/infraexpresados_limma.txt", quote = F, 
             row.names = F, col.names = F)
 ```
 
 
-Tras guardar los nombres de los genes diferencialmente expresados en el archivo de texto \verb|lista_DGE_limma.txt|, podemos realizar los análisis posteriores pertinentes (\textit{i.e.} GEA, GSEA, dianas de miRNA...).
 
 
 \bigskip
