@@ -436,6 +436,8 @@ pData(eSet_normalizado)
 ```
 
 
+<br>
+
 Ahora tenemos que crear una __matriz de diseño__, o sea una matriz con los niveles del factor que agrupa los datos. Los t-tests, ANOVAs y GLMs necesitan dicha matriz para saber qué muestras pertenecen a qué grupo. Puesto que `limma` usa un t-test o un ANOVA, necesita dicha matriz de diseño. puedes crearla con el método `model.matrix()`. Esta función toma como argumento un modelo de fórmula (_model formula_). La virgulilla (~) especifica el lado derecho de la fórmula. Si usas como fórmula ~0, `limma` calculará sólo la expresión génica media de cada grupo.
 
 ```{r}
@@ -445,6 +447,9 @@ colnames(matriz_diseno) <- c("Control","Genisteina")
 ```
 
 
+
+<br>
+
 Nuestra matriz de diseño tiene esta forma:
 
 ```{r, echo = F}
@@ -452,7 +457,7 @@ head(matriz_diseno)
 ```
 
 
-
+<br>
 
 En esencia, `limma` va a comparar, para cada gen, su expresión media en las muestras control y su expresión media en las muestras tratadas con genisteína. Lo primero, debemos calcular la expresión media de cada grupo usando el comando `lmFit()`. Este comando ajustará un modelo lineal (definido previamente con el comando `model.matrix()`) a los datos para calcular la expresión génica media en las muestras control y en las muestras tratadas:
 
@@ -465,7 +470,7 @@ names(modelo_lineal)
 ```
 
 
-
+<br>
 
 Podemos ver la expresión génica media de cada grupo en formato log<sub>2</sub> en el bolsillo `$coefficients` del modelo lineal:
 
@@ -473,7 +478,7 @@ Podemos ver la expresión génica media de cada grupo en formato log<sub>2</sub>
 modelo_lineal$coefficients[5000:5005,]
 ```
 
-
+<br>
 
 Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una __matriz de contrastes__ en la cual se especifiquen las comparaciones a realizar mediante el comando `makeContrasts()`. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
 
@@ -484,6 +489,8 @@ matriz_contrastes <- makeContrasts(Genisteina - Control, levels = matriz_diseno)
 
 
 
+<br>
+
 Nuestra matriz de contrastes tiene esta forma:
 
 ```{r}
@@ -491,15 +498,19 @@ matriz_contrastes
 ```
 
 
+<br>
 
 Ahora calculamos las comparaciones de interés con el comando `contrasts.fit()`. En este caso, calculamos la diferencia de la expresión de cada gen entre las muestras tratadas con genisteína y las muestras control. Nótese que el output del susodicho comando es similar al del comando `lmFit()`:
 
 ```{r}
-diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal, contrasts = matriz_contrastes)
+diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal, 
+                                               contrasts = matriz_contrastes)
 ```
 
 
 
+
+<br>
 
 Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando `eBayes()` estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (_i.e._ aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
 
@@ -509,6 +520,8 @@ t_test_bayes = eBayes(diferencia_genisteina_control)
 
 
 
+<br>
+
 El comando `eBayes()` devuelve un dataframe con múltiples huecos, similar al output del comando `contrasts.fit()`. Nótese que a diferencia de `contrasts.fit()` (que sólo calcula la diferencia entre la expresión génica de los dos grupos), `eBayes()` calcula los p-valores de dichas diferencias: 
 
 ```{r}
@@ -516,7 +529,7 @@ names(t_test_bayes)
 ```
 
 
-
+<br>
 
 Puedes obtener el fold change en formato log<sub>2</sub> de la expresión de cada gen a través del hueco `$coefficients` del t-test moderado:
 
@@ -528,6 +541,8 @@ head(t_test_bayes$coefficients)
 
 
 
+<br>
+
 Puedes encontrar los valores del estadístico t y el p-valor de cada gen en sus respectivos huecos:
 
 ```{r}
@@ -537,35 +552,90 @@ head(t_test_bayes$t)
 
 
 
-Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log2FC entre dos grupos (_i.e._ impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2|:
+<br>
+
+***
+
+# Resultados análisis DEG
+
+Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log<sub>2</sub>FC entre dos grupos (_i.e._ impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2| (cuadrantes superiores derecho e izquierdo):
 
 ```{r}
-# Genes en los cuadrantes superiores derecho e izquierdo son candidatos de genes
-# diferencialmente expresados y estadísticamente significativos
 volcanoplot(t_test_bayes, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
 ```
 
 
+Nótese que el parámetro `coef` del comando `volcanoplot()` te permite seleccionar la comparación a graficar (disponible en el bolsillo `t_test_bayes$coefficients`), pero en nuestro caso sólo hemos hecho una comparación (Genisteína vs Control), por lo que lo dejamos con su valor por defecto.
 
+
+
+<br>
+
+Tras analizar las regiones de interés del volcano plot, vemos que hay genes candidatos a estar diferencialmente expresados. Vamos a reunir todos los genes detectados en los microarrays en un dataframe y ordenarlos en función de su p-valor no ajustado mediante el comando `topTable`: 
+
+```{r}
+df_DEG = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
+head(df_DEG)
+```
+
+
+
+
+<br>
+
+Ahora procedemos a seleccionar sólo los genes que caen en los cuadrantes de interés del volcano plot (p-valor no ajustado < 0.05 y log<sub>2</sub>FC > |1|) y los guardamos en el dataframe `DEG_limma`: 
+
+```{r}
+genes_diferencialmente_expresados <- which(df_DEG$P.Value <= 0.05 & abs(df_DEG$logFC) >= 1)
+DEG_limma <- df_DEG[genes_diferencialmente_expresados,]
+length(genes_diferencialmente_expresados)
+```
+
+
+
+
+<br>
+
+Vemos que hemos detectado 204 genes con un p-valor no ajustado < 0.05 y con un ratio de sobre/infraexpresión mayor o igual a 2. Ahora procedemos a separarlos en función de si están sobre o infraexpresados respecto a las muestras control:
 
 
 ```{r}
-tab = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
-head(tab)
+sobreexpresados <- DEG_limma[DEG_limma[,"logFC"] > 1,]
+nrow(sobreexpresados)
+head(sobreexpresados)
 
-
-# Elegimos los genes que caen en las regiones del volcano plot de interés
-genes_diferencialmente_expresados <- which(tab$P.Value <= 0.05 & abs(tab$logFC) >= 1)
-
-# Encontramos 204 candidatos. Recordemos que el 60% de ellos puede ser ruido,
-# otros serán sondas de QC (HTA-pos/neg-3371052_st...)
-length(genes_diferencialmente_expresados)
-
-lista_DGE_limma <- rownames(tab[genes_diferencialmente_expresados,])
-
-# lista_DGE_limma <- as.vector(lista_DGE_limma)
-write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, row.names = F, col.names = F)
+infraexpresados <- DEG_limma[DEG_limma[,"logFC"] < -1  ,]
+nrow(infraexpresados)
+head(infraexpresados)
 ```
+
+
+
+
+<br>
+
+En vista del output del chunk, vemos que tratar las muestras con genisteína provoca la sobreexpresión de 193 genes y la infraexpresión de 11 genes, todos ellos con un ratio de 2 (o sea, el gen TC1100007696.hg.1 está el doble de expresado en las muestras tratadas respecto de las muestras control, mientras que el gen TC1900009657.hg.1 está la mitad de expresado en las muestras tratadas respecto de las muestras control).
+
+Para finalizar este protocolo, procedemos a guardar en archivos de texto la lista total de genes diferencialmente expresados, los genes sobreexpresados y los infraexpresados para poder realizar más tarde los análisis pertinentes (_i.e._ GEA, GSEA, dianas de miRNA...):
+
+
+```{r, eval = F}
+# DEG_limma <- as.vector(DEG_limma)
+# Lista total de genes diferencialmente expresados
+write.table(x = rownames(DEG_limma), file = "./Resultados DEG/DEG_total_limma.txt", quote = F, 
+            row.names = F, col.names = F)
+
+# Genes sobreexpresados
+write.table(x = rownames(sobreexpresados), file = "./Resultados DEG/sobreexpresados_limma.txt", quote = F, 
+            row.names = F, col.names = F)
+
+# Genes infraexpresados
+write.table(x = rownames(infraexpresados), file = "./Resultados DEG/infraexpresados_limma.txt", quote = F, 
+            row.names = F, col.names = F)
+```
+
+
+A modo de _addendum_, comentar que hemos guardado los genes con los nombres de los _transcription clusters_. si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx o bien consultando el archivo accesorio `Anotaciones Genes NetAffx.tsv`.
 
 
 
@@ -589,13 +659,17 @@ write.table(x = lista_DGE_limma, file = "lista_DGE_limma.txt", quote = F, row.na
 
 
 
-***
+
 
 <br>
 
+***
 
 # sessionInfo()
 
 ```{r, echo = F}
 sessionInfo()
 ```
+
+
+
