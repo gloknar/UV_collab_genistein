@@ -1,0 +1,205 @@
+Transcript Cluster ID	Chromosome	Transcript Cluster Start	Transcript Cluster Stop	Transcript ID	Transcript Description	Gene Title	Gene Symbol	transcript cluster probe set id
+HTA2-neg-47419654_st	---	---	---	---	---	---	---	---
+HTA2-neg-47419801_st	---	---	---	---	---	---	---	---
+HTA2-neg-47423296_st	---	---	---	---	---	---	---	---
+HTA2-pos-2924331_st	---	---	---	---	---	---	---	---
+HTA2-pos-2985912_st	---	---	---	---	---	---	---	---
+HTA2-pos-2985916_st	---	---	---	---	---	---	---	---
+HTA2-pos-2999493_st	---	---	---	---	---	---	---	---
+HTA2-pos-3145790_st	---	---	---	---	---	---	---	---
+HTA2-pos-3371028_st	---	---	---	---	---	---	---	---
+HTA2-pos-3371052_st	---	---	---	---	---	---	---	---
+HTA2-pos-3374504_st	---	---	---	---	---	---	---	---
+HTA2-pos-3475282_st	---	---	---	---	---	---	---	---
+TC0100007890.hg.1	1	39053105	39053753	T008502	Transcript identified by MiTranscriptome	---	---	---
+TC0100009838.hg.1	1	148852504	148853928	spawby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	spawby	---
+TC0100009844.hg.1	1	148956112	148958794	stukler.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	stukler	---
+TC0100010281.hg.1	1	160115730	160143591	ENST00000361216 /// ENST00000392233 /// ENST00000447527 /// ENST00000459972 /// ENST00000463989 /// ENST00000468587 /// ENST00000472488 /// ENST00000478587 /// NM_000702 /// uc001fvc.4 /// uc057mio.1 /// uc057mip.1 /// uc057miq.1 /// uc057mir.1 /// uc057mis.1 /// uc057mit.1 /// uc057miu.1 /// BC052271 /// CCDS1196.1 /// OTTHUMT00000060642 /// OTTHUMT00000077389 /// OTTHUMT00000077390 /// OTTHUMT00000077391 /// OTTHUMT00000077392 /// OTTHUMT00000077393 /// OTTHUMT00000077394 /// OTTHUMT00000097641 /// NONHSAT007040 /// NONHSAT007040 /// NONHSAT007041 /// NONHSAT007042 /// NONHSAT007042	ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:protein_coding] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:protein_coding] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:protein_coding] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:processed_transcript] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [gene_biotype:protein_coding transcript_biotype:retained_intron] /// Homo sapiens ATPase, Na+/K+ transporting, alpha 2 polypeptide (ATP1A2), mRNA. /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// Homo sapiens ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide, mRNA (cDNA clone MGC:59864 IMAGE:6672133), complete cds. /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:protein_coding] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:protein_coding] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:processed_transcript] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:retained_intron] /// ATPase, Na+/K+ transporting, alpha 2 (+) polypeptide[gene_biotype:protein_coding transcript_biotype:protein_coding] /// Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Exonic /// Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Exonic	ATPase, Na+/K+ transporting, alpha 2 polypeptide /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800] /// ATPase, Na+/K+ transporting, alpha 2 polypeptide [Source:HGNC Symbol;Acc:HGNC:800]	ATP1A2 /// ATP1A2 /// ATP1A2	---
+TC0100010456.hg.1	1	165640169	165644017	loybar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	loybar	---
+TC0100011700.hg.1	1	222882424	222882763	jernobu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jernobu	---
+TC0100012223.hg.1	1	244657642	244658397	sormerbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sormerbu	---
+TC0100012764.hg.1	1	8408514	8410817	gomabo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	gomabo	---
+TC0100013271.hg.1	1	23150024	23150463	rawabo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	rawabo	---
+TC0100014464.hg.1	1	65015327	65016726	T012537	Transcript identified by MiTranscriptome	---	---	---
+TC0100014939.hg.1	1	92930705	92934098	klerneybu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	klerneybu	---
+TC0100015573.hg.1	1	144948907	144949546	timuma.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	timuma	---
+TC0100018055.hg.1	1	246255791	246258423	seseyo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	seseyo	---
+TC0200007024.hg.1	2	26122787	26123844	geybawbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	geybawbu	---
+TC0200007185.hg.1	2	32358586	32359013	chawklaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	chawklaw	---
+TC0200007763.hg.1	2	62895807	62896681	studaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	studaw	---
+TC0200007764.hg.1	2	62896914	62901082	shukubu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	shukubu	---
+TC0200007928.hg.1	2	69714115	69715169	spoydarbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	spoydarbu	---
+TC0200009779.hg.1	2	159186835	159186901	ENST00000621977 /// NR_106948 /// uc032ogy.1 /// NR_106948.1:1..67:precursor_RNA	microRNA 6888 [gene_biotype:miRNA transcript_biotype:miRNA] /// Homo sapiens microRNA 6888 (MIR6888), microRNA. /// microRNA 6888 [Source:HGNC Symbol;Acc:HGNC:50071] /// microRNA 6888 precursor.	microRNA 6888 /// microRNA 6888 [Source:HGNC Symbol;Acc:HGNC:50071]	MIR6888 /// MIR6888	---
+TC0200012323.hg.1	2	39323328	39323804	uc061ilj.1 /// ENST00000609671 /// ENST00000609671.1 /// OTTHUMT00000471547 /// HG493885.1:1..477:ncRNA	N/A /// havana:known chromosome:GRCh38:2:39323328:39323804:-1 gene:ENSG00000273035 gene_biotype:sense_intronic transcript_biotype:sense_intronic /// N/A /// novel transcript, sense intronic to MAP4K3 /// long non-coding RNA OTTHUMT00000471547.1 (RP11-449G16.1 gene	 ///  /// novel transcript, sense intronic to MAP4K3	RP11-449G16.1 /// RP11-449G16.1 /// RP11-449G16.1	---
+TC0200012965.hg.1	2	69523349	69525736	snoydarbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	snoydarbu	---
+TC0200013633.hg.1	2	99979502	99981073	kleydey.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	kleydey	---
+TC0200014169.hg.1	2	127267447	127269451	manemo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	manemo	---
+TC0200014742.hg.1	2	160490465	160491475	wawly.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	wawly	---
+TC0200014997.hg.1	2	174635519	174636181	forveybo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	forveybo	---
+TC0200015008.hg.1	2	175068910	175069992	T203279	Transcript identified by MiTranscriptome	---	---	---
+TC0200015740.hg.1	2	218652566	218652949	snogarbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	snogarbu	---
+TC0200015894.hg.1	2	224766764	224767264	DOCK10.rAug10-unspliced	Transcript Identified by AceView, Entrez Gene ID(s) 55619	Transcript Identified by AceView, Entrez Gene ID(s) 55619	DOCK10	---
+TC0300007403.hg.1	3	50018085	50018492	shaforbo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	shaforbo	---
+TC0300007650.hg.1	3	61894556	61895136	chr3_61880230_61880810	circRNA transcript identified by Guo, et al. on chr3 from 61880230-61880810 on Hg19	---	---	---
+TC0300008131.hg.1	3	99639269	99639653	nerswoyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	nerswoyby	---
+TC0300009215.hg.1	3	152402749	152403152	reyfawbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	reyfawbu	---
+TC0300009816.hg.1	3	188161440	188163951	mamera.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	mamera	---
+TC0300009819.hg.1	3	188216393	188216957	toybybo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	toybybo	---
+TC0300010003.hg.1	3	196169724	196175211	T258278	Transcript identified by MiTranscriptome	---	---	---
+TC0300010398.hg.1	3	15252882	15254247	T238617	Transcript identified by MiTranscriptome	---	---	---
+TC0300010726.hg.1	3	37147661	37148788	florfobo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	florfobo	---
+TC0300011005.hg.1	3	47964340	47965086	syfeybo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	syfeybo	---
+TC0300011654.hg.1	3	81501717	81503714	chordybo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	chordybo	---
+TC0300011818.hg.1	3	98831085	98834115	kakome.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	kakome	---
+TC0300012054.hg.1	3	114651647	114652914	blorbobu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	blorbobu	---
+TC0300012082.hg.1	3	116390442	116390754	plobabo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	plobabo	---
+TC0300012378.hg.1	3	129173101	129174303	charvawbo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	charvawbo	---
+TC0300013091.hg.1	3	170100977	170101164	NONHSAT093185	Non-coding transcript identified by NONCODE	---	---	---
+TC0300013214.hg.1	3	177010719	177011067	ENST00000434246 /// OTTHUMT00000347995 /// NONHSAT093335 /// NONHSAT093335	MT-ND5 pseudogene 15 [gene_biotype:processed_pseudogene transcript_biotype:processed_pseudogene] /// pseudogene similar to part of NADH dehydrogenase subunit 5 ND5[gene_biotype:processed_pseudogene transcript_biotype:processed_pseudogene] /// Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Linc	mitochondrially encoded NADH:ubiquinone oxidoreductase core subunit 5 pseudogene 15 [Source:HGNC Symbol;Acc:HGNC:42277]	MTND5P15	---
+TC0300013424.hg.1	3	185767847	185767904	ENST00000580207 /// NR_049838 /// uc032smp.1 /// LM611568.1:1..58:precursor_RNA /// NR_049838.1:1..58:precursor_RNA /// NONHSAT093785	microRNA 548aq [gene_biotype:miRNA transcript_biotype:miRNA] /// Homo sapiens microRNA 548aq (MIR548AQ), microRNA. /// microRNA 548aq [Source:HGNC Symbol;Acc:HGNC:43488] /// microRNA hsa-mir-548aq precursor /// microRNA 548aq precursor. /// Non-coding transcript identified by NONCODE	microRNA 548aq /// microRNA 548aq [Source:HGNC Symbol;Acc:HGNC:43488]	MIR548AQ /// MIR548AQ	---
+TC0400007123.hg.1	4	26354385	26355638	sutome.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sutome	---
+TC0400007273.hg.1	4	38923641	38924348	swoysmeyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	swoysmeyby	---
+TC0400007939.hg.1	4	78781535	78782644	lergar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	lergar	---
+TC0400008032.hg.1	4	85722443	85722550	ENST00000580577 /// NR_039656 /// uc021xps.2 /// LM611305.1:1..66:precursor_RNA /// NR_039656.1:1..66:precursor_RNA /// NONHSAT097264	ncrna:novel chromosome:GRCh38:4:85722443:85722550:1 gene:ENSG00000266421 gene_biotype:miRNA transcript_biotype:miRNA /// Homo sapiens microRNA 4451 (MIR4451), microRNA. /// N/A /// microRNA hsa-mir-4451 precursor /// microRNA 4451 precursor. /// Non-coding transcript identified by NONCODE	microRNA 4451 /// 	MIR4451 /// AC097108.1	---
+TC0400008261.hg.1	4	102168742	102175810	T268779	Transcript identified by MiTranscriptome	---	---	---
+TC0400009614.hg.1	4	189276208	189277937	NONHSAT099771 /// NONHSAT099771 /// lnc-FRG1-5:1 /// NONHSAT099772 /// TCONS_00008385 /// lnc-FRG1-5:2 /// NONHSAT099773 /// TCONS_00008386 /// lnc-FRG1-5:3 /// NONHSAT099774 /// TCONS_00008387 /// lnc-FRG1-5:5 /// NONHSAT099775 /// TCONS_00008983 /// lnc-FRG1-5:4 /// NONHSAT099776 /// TCONS_00008982	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Linc /// Transcript Originally Identified by LNCipedia, alternate transcript name:  NONHSAT099772 /// Non-coding transcript identified by NONCODE: Linc /// gene_id XLOC_003839; transcript_id TCONS_00008385; oId TCONS_00010518; linc_name linc-FRG1-5; tss_id TSS6183; class_code u; gene_name linc-FRG1-5; /// Transcript Originally Identified by LNCipedia, alternate transcript name:  NONHSAT099773 /// Non-coding transcript identified by NONCODE: Linc /// gene_id XLOC_003839; transcript_id TCONS_00008386; oId TCONS_00010519; linc_name linc-FRG1-5; tss_id TSS6183; class_code u; gene_name linc-FRG1-5; /// Transcript Originally Identified by LNCipedia, alternate transcript name:  NONHSAT099774 /// Non-coding transcript identified by NONCODE: Linc /// gene_id XLOC_003839; transcript_id TCONS_00008387; oId TCONS_00010520; linc_name linc-FRG1-5; tss_id TSS6183; class_code u; gene_name linc-FRG1-5; /// Transcript Originally Identified by LNCipedia, alternate transcript name:  NONHSAT099775 /// Non-coding transcript identified by NONCODE: Linc /// gene_id XLOC_003839; transcript_id TCONS_00008983; oId TCONS_00036615; linc_name linc-FRG1-5; tss_id TSS6184; class_code u; gene_name linc-FRG1-5; /// Transcript Originally Identified by LNCipedia, alternate transcript name:  NONHSAT099776 /// Non-coding transcript identified by NONCODE: Linc /// gene_id XLOC_003839; transcript_id TCONS_00008982; oId TCONS_00036614; linc_name linc-FRG1-5; tss_id TSS6184; class_code u; gene_name linc-FRG1-5;	---	---	---
+TC0400011385.hg.1	4	98561704	98562091	jeesnoby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jeesnoby	---
+TC0400011713.hg.1	4	119512998	119515565	susume.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	susume	---
+TC0400012299.hg.1	4	163048197	163075201	T273877	Transcript identified by MiTranscriptome	---	---	---
+TC0500006805.hg.1	5	14188786	14192278	pleygor.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	pleygor	---
+TC0500006808.hg.1	5	14341288	14343089	ENST00000627417 /// uc063ckq.1	GALI1870; Uncharacterized protein  [gene_biotype:protein_coding transcript_biotype:protein_coding] /// GALI1870  [Source:UniProtKB/TrEMBL;Acc:Q6UWR0]	GALI1870  [Source:UniProtKB/TrEMBL;Acc:Q6UWR0]	AC016549.1	---
+TC0500006812.hg.1	5	14425316	14430237	voyslarbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	voyslarbu	---
+TC0500006814.hg.1	5	14463207	14465420	smerflu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	smerflu	---
+TC0500006837.hg.1	5	15553154	15553580	ferslawbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	ferslawbu	---
+TC0500006841.hg.1	5	15649698	15655226	cheeworby.aAug10-unspliced /// jerstuby.aAug10-unspliced	Transcript Identified by AceView /// Transcript Identified by AceView	Transcript Identified by AceView /// Transcript Identified by AceView	cheeworby /// jerstuby	---
+TC0500006846.hg.1	5	15775711	15777036	NONHSAT100587 /// NONHSAT100587	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Sense No Exonic	---	---	---
+TC0500006934.hg.1	5	21958912	21959598	T279749	Transcript identified by MiTranscriptome	---	---	---
+TC0500007709.hg.1	5	71107734	71111353	shusloyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	shusloyby	---
+TC0500007739.hg.1	5	72143317	72145374	hewara.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	hewara	---
+TC0500007740.hg.1	5	72152757	72155240	NONHSAT102044 /// NONHSAT102044	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Sense No Exonic	---	---	---
+TC0500008831.hg.1	5	139569223	139569623	sleyjy.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sleyjy	---
+TC0500010461.hg.1	5	34109179	34112492	T280725	Transcript identified by MiTranscriptome	---	---	---
+TC0500010510.hg.1	5	37071621	37072709	lnc-C5orf42-1:1 /// NONHSAT101049 /// TCONS_00010304	Transcript Originally Identified by LNCipedia, alternate transcript name:  NONHSAT101049 /// Non-coding transcript identified by NONCODE: Linc /// gene_id XLOC_004787; transcript_id TCONS_00010304; oId TCONS_00011416; linc_name linc-RANBP3L-5; tss_id TSS7701; class_code u; gene_name linc-RANBP3L-5;	---	---	---
+TC0500010559.hg.1	5	39406827	39407339	DAB2andC9.vkAug10-unspliced	Transcript Identified by AceView, Entrez Gene ID(s) 735; 1601	Transcript Identified by AceView, Entrez Gene ID(s) 735; 1601	DAB2andC9	---
+TC0500010926.hg.1	5	65426844	65427376	jorger.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jorger	---
+TC0500011055.hg.1	5	71069793	71073308	LOC647859.cAug10-unspliced	Transcript Identified by AceView, Entrez Gene ID(s) 647859	Transcript Identified by AceView, Entrez Gene ID(s) 647859	LOC647859	---
+TC0500011302.hg.1	5	81536528	81537392	chr5_80832347_80833211	circRNA transcript identified by Guo, et al. on chr5 from 80832347-80833211 on Hg19	---	---	---
+TC0600007899.hg.1	6	37955346	37958811	leegloby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	leegloby	---
+TC0600007906.hg.1	6	38117259	38118755	seeseyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	seeseyby	---
+TC0600009450.hg.1	6	131299001	131300326	swospawbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	swospawbu	---
+TC0600009793.hg.1	6	149333434	149334130	korfly.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	korfly	---
+TC0600010132.hg.1	6	163537452	163538024	wusmoyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	wusmoyby	---
+TC0600010752.hg.1	6	8093176	8095233	chr6_8093409_8095466	circRNA transcript identified by Guo, et al. on chr6 from 8093409-8095466 on Hg19	---	---	---
+TC0600010815.hg.1	6	11225802	11227170	merblor.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	merblor	---
+TC0600010924.hg.1	6	16362020	16362580	blufleyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	blufleyby	---
+TC0600012866.hg.1	6	111479523	111481892	weesporby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	weesporby	---
+TC0600012867.hg.1	6	111481994	111482594	spaplobu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	spaplobu	---
+TC0600013416.hg.1	6	143045905	143046251	swawspeebu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	swawspeebu	---
+TC0600013684.hg.1	6	157310590	157312707	NONHSAT115709 /// NONHSAT115709	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Sense No Exonic	---	---	---
+TC0700007026.hg.1	7	27817908	27819270	tarblar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	tarblar	---
+TC0700007142.hg.1	7	33677023	33678213	sperky.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sperky	---
+TC0700007274.hg.1	7	39637210	39637461	kochoyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	kochoyby	---
+TC0700008020.hg.1	7	74936408	74937566	flymerby.aAug10-unspliced /// slorkloyby.aAug10-unspliced	Transcript Identified by AceView /// Transcript Identified by AceView	Transcript Identified by AceView /// Transcript Identified by AceView	slorkloyby /// flymerby	---
+TC0700009586.hg.1	7	148731639	148734040	flashuby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	flashuby	---
+TC0700010496.hg.1	7	24572156	24573910	sparshobu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sparshobu	---
+TC0700012096.hg.1	7	102559181	102559888	boneyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	boneyby	---
+TC0700012622.hg.1	7	130920239	130920925	peekee.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	peekee	---
+TC0700012801.hg.1	7	140209563	140209671	ENST00000363101 /// uc064ina.1 /// NONHSAT123668 /// AC005377.2:79495..79597:ncRNA	RNA, U6 small nuclear 797, pseudogene [gene_biotype:snRNA transcript_biotype:snRNA] /// RNA, U6 small nuclear 797, pseudogene [Source:HGNC Symbol;Acc:HGNC:47760] /// Non-coding transcript identified by NONCODE /// snRNA-U6-related	RNA, U6 small nuclear 797, pseudogene [Source:HGNC Symbol;Acc:HGNC:47760]	RNU6-797P	---
+TC0700013294.hg.1	7	158775206	158775899	leysleebu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	leysleebu	---
+TC0700013297.hg.1	7	158782486	158783437	farbley.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	farbley	---
+TC0800006441.hg.1	8	237045	237669	uc064jwb.1 /// ENST00000610248 /// ENST00000610248.1 /// OTTHUMT00000471620 /// HG500788.1:1..625:ncRNA	N/A /// havana:known chromosome:GRCh38:8:237045:237669:1 gene:ENSG00000273402 gene_biotype:antisense transcript_biotype:antisense /// N/A /// novel transcript, antisense to ZNF596 /// long non-coding RNA OTTHUMT00000471620.1 (RP5-855D21.2 gene	 ///  /// novel transcript, antisense to ZNF596	RP5-855D21.2 /// RP5-855D21.2 /// RP5-855D21.2	---
+TC0800006883.hg.1	8	18003349	18004044	swarslobu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	swarslobu	---
+TC0800007191.hg.1	8	30520369	30521481	sarshor.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sarshor	---
+TC0800007192.hg.1	8	30540951	30541413	zaveebu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	zaveebu	---
+TC0800007356.hg.1	8	38786011	38786380	noywerby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	noywerby	---
+TC0800008033.hg.1	8	78706354	78706874	slarkor.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	slarkor	---
+TC0800008857.hg.1	8	128008898	128008956	NR_031611 /// NR_031611.1:1..59:precursor_RNA /// NONHSAT129077	Homo sapiens microRNA 1206 (MIR1206), microRNA. /// microRNA 1206 precursor. /// Non-coding transcript identified by NONCODE	microRNA 1206	MIR1206	---
+TC0800009504.hg.1	8	8172860	8173208	blawslarbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	blawslarbu	---
+TC0800009771.hg.1	8	18902365	18905501	ratimu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	ratimu	---
+TC0800009773.hg.1	8	18928621	18929063	gaslarbu.bAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	gaslarbu	---
+TC0800009983.hg.1	8	28369146	28370525	shorker.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	shorker	---
+TC0800011055.hg.1	8	89692808	89693383	slarzeeby.bAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	slarzeeby	---
+TC0800011318.hg.1	8	102382727	102383471	darveeby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	darveeby	---
+TC0800011580.hg.1	8	117921986	117922971	varger.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	varger	---
+TC0800011583.hg.1	8	117980713	117984906	slobly.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	slobly	---
+TC0800011584.hg.1	8	117986208	117989212	sneela.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sneela	---
+TC0800011589.hg.1	8	118022338	118025163	snerla.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	snerla	---
+TC0900006759.hg.1	9	19231309	19234862	NONHSAT130328 /// NONHSAT130328	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Sense No Exonic	---	---	---
+TC0900008052.hg.1	9	95013478	95015455	slawtoby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	slawtoby	---
+TC0900008053.hg.1	9	95023048	95025881	gawlar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	gawlar	---
+TC0900008055.hg.1	9	95039626	95041373	chershee.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	chershee	---
+TC0900009611.hg.1	9	16785578	16787435	skorspey.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	skorspey	---
+TC0900010918.hg.1	9	96596904	96597189	parplawbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	parplawbu	---
+TC0X00010072.hg.1	X	74063313	74064556	bygoy.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	bygoy	---
+TC0X00010076.hg.1	X	74124412	74126023	teti.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	teti	---
+TC0X00010080.hg.1	X	74155845	74156122	T376427	Transcript identified by MiTranscriptome	---	---	---
+TC0X00010082.hg.1	X	74191379	74192509	shargoy.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	shargoy	---
+TC0X00010427.hg.1	X	103681243	103682849	choyvar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	choyvar	---
+TC0X00011360.hg.1	X	45746157	45746266	ENST00000385135 /// NR_029635 /// uc011mle.1 /// LM608366.1:1..110:precursor_RNA /// NONHSAT136804 /// NR_029635.1:1..110:precursor_RNA	microRNA 221 [gene_biotype:miRNA transcript_biotype:miRNA] /// Homo sapiens microRNA 221 (MIR221), microRNA. /// Homo sapiens microRNA 221 (MIR221), microRNA. /// precursor microRNA mir-221 /// Non-coding transcript identified by NONCODE /// precursor microRNA mir-221	microRNA 221	MIR221	---
+TC1000007705.hg.1	10	58547618	58547994	zoygleybu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	zoygleybu	---
+TC1000008389.hg.1	10	88992370	88992539	ENST00000620386 /// uc057utx.1	FAS antisense RNA 1 conserved region [Source:RFAM;Acc:RF02116] /// FAS antisense RNA 1 conserved region [Source:RFAM;Acc:RF02116]	FAS antisense RNA 1 conserved region [Source:RFAM;Acc:RF02116] /// FAS antisense RNA 1 conserved region [Source:RFAM;Acc:RF02116]	FAS-AS1 /// FAS-AS1	---
+TC1000009284.hg.1	10	127409892	127410666	borma.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	borma	---
+TC1000009468.hg.1	10	133446684	133449757	mitaro.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	mitaro	---
+TC1000009910.hg.1	10	16659301	16660663	slorlor.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	slorlor	---
+TC1000010066.hg.1	10	24650667	24651037	goneyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	goneyby	---
+TC1000010274.hg.1	10	33199390	33200539	boyshar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	boyshar	---
+TC1000010278.hg.1	10	33290368	33292432	jonoyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jonoyby	---
+TC1000010279.hg.1	10	33316956	33317828	jornoyby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jornoyby	---
+TC1100006607.hg.1	11	3166788	3168829	T053388	Transcript identified by MiTranscriptome	---	---	---
+TC1100006880.hg.1	11	12379135	12379579	shoflerbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	shoflerbu	---
+TC1100007695.hg.1	11	57772097	57773294	kise.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	kise	---
+TC1100007696.hg.1	11	57786858	57788059	pyplu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	pyplu	---
+TC1100008849.hg.1	11	95806267	95807666	beeskar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	beeskar	---
+TC1100009293.hg.1	11	120365666	120365963	ENST00000621414 /// uc058ill.1	7SK RNA [Source:RFAM;Acc:RF00100] /// 7SK RNA [Source:RFAM;Acc:RF00100]	7SK RNA [Source:RFAM;Acc:RF00100] /// 7SK RNA [Source:RFAM;Acc:RF00100]	7SK /// 7SK	---
+TC1100009296.hg.1	11	120426006	120426360	rorkarby.bAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	rorkarby	---
+TC1100009575.hg.1	11	132264280	132264849	zawglee.bAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	zawglee	---
+TC1100011801.hg.1	11	83057205	83058401	gleefey.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	gleefey	---
+TC1100011806.hg.1	11	83160223	83166175	rysku.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	rysku	---
+TC1100011834.hg.1	11	85702199	85704327	riyare.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	riyare	---
+TC1100012020.hg.1	11	95195125	95195629	SESN3.iAug10-unspliced	Transcript Identified by AceView, Entrez Gene ID(s) 143686	Transcript Identified by AceView, Entrez Gene ID(s) 143686	SESN3	---
+TC1100012043.hg.1	11	96224460	96225521	lermaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	lermaw	---
+TC1100012049.hg.1	11	96277916	96281531	sekira.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	sekira	---
+TC1100012051.hg.1	11	96309704	96311963	werforby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	werforby	---
+TC1100012438.hg.1	11	117092222	117093847	skeylerby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	skeylerby	---
+TC1200008044.hg.1	12	65869151	65870177	kunemi.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	kunemi	---
+TC1200008467.hg.1	12	93389724	93391140	faney.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	faney	---
+TC1200009218.hg.1	12	122755845	122757577	woytybo.aAug10	Transcript Identified by AceView	Transcript Identified by AceView	woytybo	---
+TC1300008559.hg.1	13	32527794	32531226	wawcha.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	wawcha	---
+TC1400007233.hg.1	14	55281782	55282665	jybuby.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jybuby	---
+TC1400007269.hg.1	14	56596987	56598576	lacheybu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	lacheybu	---
+TC1400010677.hg.1	14	100979002	100979090	ENST00000364166 /// uc059fhj.1 /// NONHSAT039893	Small nucleolar RNA SNORD113/SNORD114 family [gene_biotype:snoRNA transcript_biotype:snoRNA] /// Small nucleolar RNA SNORD113/SNORD114 family [Source:RFAM;Acc:RF00181] /// Non-coding transcript identified by NONCODE	Small nucleolar RNA SNORD113/SNORD114 family [Source:RFAM;Acc:RF00181]	SNORD113	---
+TC1400010688.hg.1	14	100991919	100991990	ENST00000364448 /// NR_003223 /// uc001yju.4 /// NR_003223.1:1..71:ncRNA /// NONHSAT039910	small nucleolar RNA, C/D box 114-30 [gene_biotype:snoRNA transcript_biotype:snoRNA] /// Homo sapiens small nucleolar RNA, C/D box 114-30 (SNORD114-30), small nucleolar RNA. /// small nucleolar RNA, C/D box 114-30 [Source:HGNC Symbol;Acc:HGNC:33018] /// small nucleolar RNA, C/D box 114-30 (SNORD114-30), small nucleolar RNA. /// Non-coding transcript identified by NONCODE	small nucleolar RNA, C/D box 114-30 /// small nucleolar RNA, C/D box 114-30 [Source:HGNC Symbol;Acc:HGNC:33018]	SNORD114-30 /// SNORD114-30	---
+TC1500006677.hg.1	15	28603111	28605507	pluchubu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	pluchubu	---
+TC1500007241.hg.1	15	51833134	51833426	ENST00000621102 /// uc059jgy.1 /// LK938314.1:1..293:ncRNA /// OTTHUMT00000473925	havana:known chromosome:GRCh38:15:51833134:51833426:1 gene:ENSG00000274954 gene_biotype:sense_intronic transcript_biotype:sense_intronic /// N/A /// long non-coding RNA OTTHUMT00000473925.1 /// novel transcript	 /// novel transcript	RP11-56B16.6 /// RP11-56B16.6	---
+TC1500007746.hg.1	15	71424331	71424877	jorey.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jorey	---
+TC1500007988.hg.1	15	78906127	78906809	ENST00000624440 /// uc059mgi.1 /// OTTHUMT00000421839 /// NONHSAT047623 /// NONHSAT047623	N/A /// N/A /// tec /// Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Linc	 ///  /// tec	RP11-16K12.2 /// RP11-16K12.2 /// RP11-16K12.2	---
+TC1500008050.hg.1	15	80802978	80803485	klorstoy.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	klorstoy	---
+TC1500008493.hg.1	15	98779763	98780171	plyskaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	plyskaw	---
+TC1500008874.hg.1	15	30564940	30625773	uc059hbr.1 /// ENST00000501830 /// ENST00000501830.2 /// OTTHUMT00000430725 /// lnc-RP11-382B18.2.1-1:1 /// HG506828.1:1..970:ncRNA /// NONHSAT041375 /// NONHSAT041375	N/A /// havana:known chromosome:GRCh38:15:30616998:30625773:-1 gene:ENSG00000247728 gene_biotype:antisense transcript_biotype:antisense /// N/A /// novel transcript, antisense to ARHGAP11B /// Transcript Originally Identified by LNCipedia /// long non-coding RNA OTTHUMT00000430725.1 (RP11-932O9.7 gene /// Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Linc	 ///  /// novel transcript, antisense to ARHGAP11B	RP11-932O9.7 /// RP11-932O9.7 /// RP11-932O9.7	---
+TC1500009183.hg.1	15	42180935	42181564	flyzawbu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	flyzawbu	---
+TC1500009464.hg.1	15	52671861	52672081	lustu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	lustu	---
+TC1500009652.hg.1	15	60884348	60885780	veezo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	veezo	---
+TC1500009664.hg.1	15	61220726	61221110	chr15_61512925_61513309	circRNA transcript identified by Guo, et al. on chr15 from 61512925-61513309 on Hg19	---	---	---
+TC1500009922.hg.1	15	70758269	70758856	ENST00000621778 /// uc059kwb.1 /// LK938347.1:1..588:ncRNA /// OTTHUMT00000474076	havana:known chromosome:GRCh38:15:70758269:70758856:-1 gene:ENSG00000274297 gene_biotype:sense_intronic transcript_biotype:sense_intronic /// N/A /// long non-coding RNA OTTHUMT00000474076.1 /// novel transcript, sense intronic to UACA	 /// novel transcript, sense intronic to UACA	RP11-138H8.8 /// RP11-138H8.8	---
+TC1500010657.hg.1	15	101221894	101224966	jawswaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	jawswaw	---
+TC1600007273.hg.1	16	25072411	25072473	NONHSAT141337	Non-coding transcript identified by NONCODE	---	---	---
+TC1600007898.hg.1	16	53991012	53994454	ENST00000624987 /// uc059ugq.1 /// OTTHUMT00000433145	N/A /// N/A /// novel transcript	 ///  /// novel transcript	RP11-357N13.6 /// RP11-357N13.6 /// RP11-357N13.6	---
+TC1600009298.hg.1	16	7818157	7818413	T126851	Transcript identified by MiTranscriptome	---	---	---
+TC1600009359.hg.1	16	10462686	10465944	lnc-EMP2-2:1	Transcript Originally Identified by LNCipedia	---	---	---
+TC1600009707.hg.1	16	22498669	22499259	pleypo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	pleypo	---
+TC1600009740.hg.1	16	23501767	23502788	blozu.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	blozu	---
+TC1700006730.hg.1	17	7236147	7236672	tower.aAug10	Transcript Identified by AceView	Transcript Identified by AceView	tower	---
+TC1700009418.hg.1	17	2072823	2072886	NONHSAT144907 /// NONHSAT144909	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE	---	---	---
+TC1700011455.hg.1	17	64656902	64658197	tuwaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	tuwaw	---
+TC1700011469.hg.1	17	64905883	64906018	ENST00000606708 /// OTTHUMT00000470482	havana:known chromosome:GRCh38:17:64905883:64906018:-1 gene:ENSG00000271974 gene_biotype:transcribed_processed_pseudogene transcript_biotype:transcribed_processed_pseudogene /// RAD52 motif 1 (RDM1) pseudogene[gene_biotype:transcribed_processed_pseudogene transcript_biotype:transcribed_processed_pseudogene]	---	RP11-927P21.12	---
+TC1700011488.hg.1	17	65420583	65420660	NONHSAT055373	Non-coding transcript identified by NONCODE	---	---	---
+TC1800006494.hg.1	18	2909009	2909638	zeeklar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	zeeklar	---
+TC1800008829.hg.1	18	59672123	59672641	swoywo.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	swoywo	---
+TC1800008830.hg.1	18	59676987	59677550	kohiri.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	kohiri	---
+TC1900009657.hg.1	19	11011985	11018814	T168425	Transcript identified by MiTranscriptome	---	---	---
+TC2000006675.hg.1	20	9081879	9084838	swywar.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	swywar	---
+TC2000007188.hg.1	20	34466325	34466418	ENST00000385262 /// NR_030374 /// uc021wcb.1 /// NONHSAT079444 /// NR_030374.1:1..94:precursor_RNA	microRNA 644a [gene_biotype:miRNA transcript_biotype:miRNA] /// Homo sapiens microRNA 644a (MIR644A), microRNA. /// Homo sapiens microRNA 644a (MIR644A), microRNA. /// Non-coding transcript identified by NONCODE /// microRNA mir-644	microRNA 644a	MIR644A	---
+TC2000007381.hg.1	20	41037833	41038992	NONHSAT079756 /// NONHSAT079756	Non-coding transcript identified by NONCODE /// Non-coding transcript identified by NONCODE: Sense No Exonic	---	---	---
+TC2000009441.hg.1	20	50897752	50898605	smeera.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	smeera	---
+TC2100008040.hg.1	21	34873349	34874044	peetaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	peetaw	---
+TC2200008352.hg.1	22	27900396	27901367	tovaw.aAug10-unspliced	Transcript Identified by AceView	Transcript Identified by AceView	tovaw	---
