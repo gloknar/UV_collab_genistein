@@ -1,0 +1,3 @@
+seguir con edgeR, cutdiff2 y el otro protocolo y cruzarlos todos.
+
+Sugerencia de Gambini: hacer un cuaderno de bitacora donde vaya apuntando qué he ido haciendo y qué bases de datos he visitado parea luego escribirlo en el artículo final. basicamente deberia escribir en otro informe lo de que estuve haciendo el GEA y no encontré nada, y que exploré los genes con NetAffx y los ví en ACEVIEW
