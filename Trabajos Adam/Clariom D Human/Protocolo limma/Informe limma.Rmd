@@ -302,7 +302,7 @@ boxplot(eSet_normalizado, main = "Después",
 
 # Análisis DEG
 
-De acuerdo a [McDermaid _et al._(2019)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6954399/), podría usar para DGE análisis edgeR, Cutdiff/Cutdiff2, limma, DESeq2.. etc
+De acuerdo a la revisión de [McDermaid _et al._(2019)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6954399/), los paquetes más populares para el análisis DEG son `limma`, `edgeR`, `Cutdiff/Cutdiff2`, y `DESeq2`. En este informe nos centraremos en `limma` y en futuros informes exploraremos el uso de los otros paquetes.
 
 <br>
 
@@ -657,6 +657,8 @@ A modo de _addendum_, comentar que hemos guardado los genes con los nombres de l
 
 * R. M. Flight, A. M. Eteleeb and E. C. Rouchka, "Affymetrix® Mismatch (MM) Probes: Useful after All," 2012 ASE/IEEE International Conference on BioMedical Computing (BioMedCom), 2012, pp. 6-13, doi: 10.1109/BioMedCom.2012.8.
 
+* McDermaid A, Monier B, Zhao J, Liu B, Ma Q. Interpretation of differential gene expression results of RNA-seq data: review and integration. Brief Bioinform. 2019;20(6):2044-2054. doi:10.1093/bib/bby067
+
 
 
 
@@ -667,9 +669,13 @@ A modo de _addendum_, comentar que hemos guardado los genes con los nombres de l
 
 # sessionInfo()
 
+<details>
+<summary> __Click para mostrar__ </summary>
+
+
 ```{r, echo = F}
 sessionInfo()
 ```
 
 
-
+</details>
