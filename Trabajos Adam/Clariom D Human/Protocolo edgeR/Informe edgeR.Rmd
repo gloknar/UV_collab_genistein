@@ -46,7 +46,7 @@ Primero debemos instalar `edgeR`. Téngase en cuenta que en R 3.6 se instala la 
 # Instalación edgeR en R 3.6:
 Sys.setenv(MAKE = "make -j4")
 BiocManager::install("edgeR")
-install.packages("httpuv", Ncpus = 4, type = "source")
+install.packages("RCurl", type = "source")
 
 # Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
 remove.packages("ff")
@@ -65,6 +65,7 @@ Comenzamos cargando `oligo` y paquetes accesorios:
 
 ```{r carga librerias}
 library("oligo")
+library("edgeR")
 library("ggplot2")
 library("dplyr") 
 library("FactoMineR") # PCA
