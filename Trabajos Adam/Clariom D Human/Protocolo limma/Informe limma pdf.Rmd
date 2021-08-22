@@ -304,6 +304,13 @@ boxplot(eSet_normalizado, main = "Después",
 
 # Análisis DEG
 
+De acuerdo a la revisión de \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6954399/}{McDermaid \textit{et al.} (2019)}, los paquetes más populares para el análisis DEG son \verb|limma|, \verb|edgeR|, \verb|Cutdiff/Cutdiff2|, y \verb|DESeq2|. En este informe nos centraremos en `limma` y en futuros informes exploraremos el uso de los otros paquetes.
+
+
+
+\bigskip
+\bigskip
+
 ## Separación de las muestras: PCA, t-SNE y UMAP
 
 Con los datos ya normalizados, podemos graficar los microarrays estudiados en un espacio de dimensionalidad reducida. La separación de los microarrays en dicho espacio nos dará una idea general de si existen genes diferencialmente expresados entre las condiciones estudiadas.
@@ -661,6 +668,9 @@ A modo de \textit{addendum}, comentar que hemos guardado los genes con los nombr
 * http://bioconductor.org/packages/release/bioc/vignettes/oligo/inst/doc/oug.pdf
 
 * R. M. Flight, A. M. Eteleeb and E. C. Rouchka, "Affymetrix® Mismatch (MM) Probes: Useful after All," 2012 ASE/IEEE International Conference on BioMedical Computing (BioMedCom), 2012, pp. 6-13, doi: 10.1109/BioMedCom.2012.8.
+
+* McDermaid A, Monier B, Zhao J, Liu B, Ma Q. Interpretation of differential gene expression results of RNA-seq data: review and integration. Brief Bioinform. 2019;20(6):2044-2054. doi:10.1093/bib/bby067
+
 
 
 
