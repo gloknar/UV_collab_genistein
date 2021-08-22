@@ -352,16 +352,13 @@ div.tocify {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;oligo&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">remove.packages</span>(<span class="st">&quot;ff&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz&quot;</span>, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">installed.packages</span>()</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete RSQLite versión 2.1.4:</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz&quot;</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># remove.packages(&quot;ff&quot;)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz&quot;</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete RSQLite versión 2.1.4:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
 <p><br></p>
 <p>Comenzamos cargando <code>oligo</code> y paquetes accesorios:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;oligo&quot;</span>)</span>
@@ -819,59 +816,54 @@ div.tocify {
 ##  [1] pd.clariom.d.human_3.14.1 DBI_1.1.1                
 ##  [3] RSQLite_2.1.4             limma_3.42.2             
 ##  [5] uwot_0.1.10               Matrix_1.3-4             
-##  [7] Rtsne_0.15                rgl_0.106.8              
+##  [7] Rtsne_0.15                rgl_0.107.14             
 ##  [9] FactoMineR_2.4            dplyr_1.0.7              
-## [11] ggplot2_3.3.4             oligo_1.50.0             
+## [11] ggplot2_3.3.5             oligo_1.50.0             
 ## [13] Biostrings_2.54.0         XVector_0.26.0           
 ## [15] IRanges_2.20.2            S4Vectors_0.24.4         
 ## [17] Biobase_2.46.0            oligoClasses_1.48.0      
 ## [19] BiocGenerics_0.32.0      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bitops_1.0-7                matrixStats_0.59.0         
+##  [1] bitops_1.0-7                matrixStats_0.60.0         
 ##  [3] bit64_4.0.5                 GenomeInfoDb_1.22.1        
 ##  [5] tools_3.6.3                 bslib_0.2.5.1              
-##  [7] utf8_1.2.1                  R6_2.5.0                   
+##  [7] utf8_1.2.1                  R6_2.5.1                   
 ##  [9] DT_0.18                     affyio_1.56.0              
-## [11] KernSmooth_2.23-20          colorspace_2.0-1           
-## [13] manipulateWidget_0.11.0     withr_2.4.2                
-## [15] tidyselect_1.1.1            bit_4.0.4                  
-## [17] compiler_3.6.3              preprocessCore_1.48.0      
-## [19] flashClust_1.01-2           DelayedArray_0.12.3        
-## [21] labeling_0.4.2              sass_0.4.0                 
-## [23] scales_1.1.1                stringr_1.4.0              
-## [25] digest_0.6.27               rmarkdown_2.9              
-## [27] pkgconfig_2.0.3             htmltools_0.5.1.1          
-## [29] highr_0.9                   fastmap_1.1.0              
-## [31] htmlwidgets_1.5.3           rlang_0.4.11               
-## [33] FNN_1.1.3                   shiny_1.6.0                
-## [35] farver_2.1.0                jquerylib_0.1.4            
-## [37] generics_0.1.0              jsonlite_1.7.2             
-## [39] crosstalk_1.1.1             BiocParallel_1.20.1        
-## [41] RCurl_1.98-1.3              magrittr_2.0.1             
-## [43] GenomeInfoDbData_1.2.2      leaps_3.1                  
-## [45] Rcpp_1.0.6                  munsell_0.5.0              
-## [47] fansi_0.5.0                 lifecycle_1.0.0            
-## [49] scatterplot3d_0.3-41        stringi_1.6.2              
-## [51] yaml_2.2.1                  MASS_7.3-54                
-## [53] SummarizedExperiment_1.16.1 zlibbioc_1.32.0            
-## [55] grid_3.6.3                  affxparser_1.58.0          
-## [57] blob_1.2.1                  promises_1.2.0.1           
-## [59] ggrepel_0.9.1               crayon_1.4.1               
-## [61] miniUI_0.1.1.1              lattice_0.20-44            
-## [63] splines_3.6.3               knitr_1.33                 
-## [65] pillar_1.6.1                GenomicRanges_1.38.0       
-## [67] codetools_0.2-18            glue_1.4.2                 
-## [69] evaluate_0.14               BiocManager_1.30.16        
-## [71] vctrs_0.3.8                 httpuv_1.6.1               
-## [73] foreach_1.5.1               gtable_0.3.0               
-## [75] purrr_0.3.4                 cachem_1.0.5               
-## [77] xfun_0.24                   mime_0.10                  
-## [79] xtable_1.8-4                ff_2.2-0                   
-## [81] RSpectra_0.16-0             later_1.2.0                
-## [83] tibble_3.1.2                iterators_1.0.13           
-## [85] memoise_2.0.0               cluster_2.1.2              
-## [87] ellipsis_0.3.2</code></pre>
+## [11] KernSmooth_2.23-20          colorspace_2.0-2           
+## [13] withr_2.4.2                 tidyselect_1.1.1           
+## [15] bit_4.0.4                   compiler_3.6.3             
+## [17] preprocessCore_1.48.0       flashClust_1.01-2          
+## [19] DelayedArray_0.12.3         labeling_0.4.2             
+## [21] sass_0.4.0                  scales_1.1.1               
+## [23] stringr_1.4.0               digest_0.6.27              
+## [25] rmarkdown_2.10              pkgconfig_2.0.3            
+## [27] htmltools_0.5.1.1           highr_0.9                  
+## [29] fastmap_1.1.0               htmlwidgets_1.5.3          
+## [31] rlang_0.4.11                FNN_1.1.3                  
+## [33] farver_2.1.0                jquerylib_0.1.4            
+## [35] generics_0.1.0              jsonlite_1.7.2             
+## [37] BiocParallel_1.20.1         RCurl_1.98-1.3             
+## [39] magrittr_2.0.1              GenomeInfoDbData_1.2.2     
+## [41] leaps_3.1                   Rcpp_1.0.7                 
+## [43] munsell_0.5.0               fansi_0.5.0                
+## [45] lifecycle_1.0.0             scatterplot3d_0.3-41       
+## [47] stringi_1.7.3               yaml_2.2.1                 
+## [49] MASS_7.3-54                 SummarizedExperiment_1.16.1
+## [51] zlibbioc_1.32.0             grid_3.6.3                 
+## [53] affxparser_1.58.0           blob_1.2.2                 
+## [55] ggrepel_0.9.1               crayon_1.4.1               
+## [57] lattice_0.20-44             splines_3.6.3              
+## [59] knitr_1.33                  pillar_1.6.2               
+## [61] GenomicRanges_1.38.0        codetools_0.2-18           
+## [63] glue_1.4.2                  evaluate_0.14              
+## [65] BiocManager_1.30.16         vctrs_0.3.8                
+## [67] foreach_1.5.1               gtable_0.3.0               
+## [69] purrr_0.3.4                 cachem_1.0.6               
+## [71] xfun_0.24                   ff_2.2-0                   
+## [73] RSpectra_0.16-0             tibble_3.1.1               
+## [75] iterators_1.0.13            memoise_2.0.0              
+## [77] cluster_2.1.2               ellipsis_0.3.2</code></pre>
 </details>
 </div>
 

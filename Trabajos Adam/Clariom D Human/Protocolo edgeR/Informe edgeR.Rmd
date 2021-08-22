@@ -1,5 +1,5 @@
 ---
-title: "Análisis de microarrays _Clariom D Human_ en `limma`"
+title: "Análisis de microarrays _Clariom D Human_ en `edgeR`"
 author: "Adam Casas"
 date: 'Compilado: `r format(Sys.Date(), "%d de %B del %Y")`'
 output: 
@@ -29,9 +29,8 @@ set.seed(1)
 
 # Introducción
 
-En este documento se muestra cómo analizar los archivos con extensión `.CEL` resultantes de secuenciar muestras biológicas en los microchips _Clariom D Human_ de Affymetrix. Llevaremos a cabo este análisis en R 3.6 con el paquete de Bioconductor `oligo` versión 1.50.0. La versión de Biocondcutor empleada es la 3.10.
+Este documento es una continuación del protocolo `limma` en el paquete `edgeR` y por tanto podemos omitir el control de calidad de las muestras. El raciocinio detrás de este informe es analizar nuestros microarrays de ARNm en varios paquetes para posteriormente cruzar los resultados mediante diagramas de Venn.
 
-![Microchip "_Clariom D Human_" y sus correspondientes reactivos.](https://assets.thermofisher.com/TFS-Assets/LSG/product-images/902922-650x600.jpg-650.jpg)
 
 
 
@@ -41,19 +40,18 @@ En este documento se muestra cómo analizar los archivos con extensión `.CEL` r
 
 # Carga de datos y librerías
 
-Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.0 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
+Primero debemos instalar `edgeR`. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.0 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
 
-```{r instalacion oligo y dependencias, eval = F}
-# Instalación oligo en R 3.6:
-BiocManager::install("oligo")
+```{r instalacion edgeR y dependencias, eval = F}
+# Instalación edgeR en R 3.6:
+Sys.setenv(MAKE = "make -j4")
+BiocManager::install("edgeR")
+install.packages("httpuv", Ncpus = 4, type = "source")
 
 # Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
 remove.packages("ff")
-
 install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
                  repos=NULL, type = "source")
-
-installed.packages()
 
 # Paquete RSQLite versión 2.1.4:
 install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",

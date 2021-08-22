@@ -51,12 +51,9 @@ Primero debemos instalar \verb|oligo|. Téngase en cuenta que en R 3.6 se instal
 BiocManager::install("oligo")
 
 # Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
-remove.packages("ff")
-
+# remove.packages("ff")
 install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
                  repos=NULL, type = "source")
-
-installed.packages()
 
 # Paquete RSQLite versión 2.1.4:
 install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",
