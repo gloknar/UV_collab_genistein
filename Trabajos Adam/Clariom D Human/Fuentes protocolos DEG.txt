@@ -1,6 +1,3 @@
 https://hbctraining.github.io/DGE_workshop_salmon_online/schedule/links-to-lessons.html
 
-
-https://wiki.bits.vib.be/index.php/Analyze_your_own_microarray_data_in_R/Bioconductor
-
 https://www.bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
