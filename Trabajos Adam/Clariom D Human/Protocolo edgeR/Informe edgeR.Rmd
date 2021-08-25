@@ -31,48 +31,50 @@ set.seed(1)
 
 Este documento es una continuación del protocolo `limma` en el paquete `edgeR` y por tanto podemos omitir el control de calidad de las muestras. El raciocinio detrás de este informe es analizar nuestros microarrays de ARNm en varios paquetes para posteriormente cruzar los resultados mediante diagramas de Venn.
 
-De acuerdo a sus [creadores](http://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf), `edgeR` es un paquete diseñado para el análisis DEG de muestras de tanto RNA-Seq como ChIP-Seq, Hi-C Seq, SAGE-Seq y _screens_ genéticos con CRISPR-Cas9, entre otros.
+De acuerdo a sus [creadores](http://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf), `edgeR` es un paquete diseñado para el análisis DEG de muestras de tanto RNA-Seq como ChIP-Seq, Hi-C Seq, secuenciación por bisulfito, SAGE-Seq y _screens_ genéticos con CRISPR-Cas9.
+
+NOTA: `edgeR` trabaja con matrices de conteos de lecturas (obtienes secuencias y las mapeas a un genoma de referencia. Y SON VALORES ENTEROS), no con matrices de intensidades normalizadas (nuestro caso, tenemos VALORES EN COMA FLOTANTE)...
 
 
+https://gist.github.com/jdblischak/11384914
 
 <br>
 
 ***
 
-# Carga de datos y librerías
+# Carga de librerías y datos
 
-Primero debemos instalar `edgeR`. Puesto que usamos R 3.6, instalaremos la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.0 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
-
-```{r instalacion edgeR y dependencias, eval = F}
-# Instalación edgeR en R 3.6:
-BiocManager::install("edgeR")
-
-# Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
+```{r eval = F, echo = F}
+# Si usas R 3.6, necesitas instalar oligo 1.50 y sus dependencias ff versión 2.2.0 y RSQLite versión 2.1.4:
 # remove.packages("ff")
-install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
-                 repos=NULL, type = "source")
+install.packages(
+  "https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
+  repos=NULL, 
+  type = "source")
 
-# Paquete RSQLite versión 2.1.4:
-install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",
-                 repos=NULL, type = "source")
+install.packages(
+  "https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",
+   repos=NULL, 
+   type = "source")
 ```
 
 
+
 <br>
-https://gist.github.com/jdblischak/11384914
 
 Comenzamos cargando `oligo`, `edgeR` y paquetes accesorios:
 
 ```{r carga librerias, message = F}
-library("oligo")
-library("edgeR")
-library("ggplot2")
-library("dplyr") 
-library("FactoMineR") # PCA
+library("oligo") # Data import, pre-processing, and QC 
+library("edgeR") # DEG Analysis
+library("ggplot2") # Plots
 library("rgl") # 3D plots
+library("dplyr")  # Data wrangling
+library("FactoMineR") # PCA
 library("Rtsne") # t-SNE
 library("uwot") # UMAP
 ```
+
 
 <br>
 
@@ -82,6 +84,8 @@ Acto seguido definimos el directorio de trabajo en la carpeta donde se encuentra
 directorio_trabajo <- "../Archivos secuenciado/"
 ```
 
+
+<br>
 
 Cargamos los archivos de secuenciado en el objeto `datos_crudos_microarrays`.
 
@@ -94,29 +98,10 @@ datos_crudos_microarrays <- read.celfiles(filenames = ruta_completa_archivos_sec
 ```
 
 
-Cambiamos sus nombres por otros más claros:
-
-```{r}
-sampleNames(datos_crudos_microarrays) <- c("Control_1", "Genisteina_1",
-                                           "Control_2", "Genisteina_2",
-                                           "Control_3", "Genisteina_3",
-                                           "Control_4", "Genisteina_4")
-sampleNames(datos_crudos_microarrays)
-```
 
 <br>
 
-Obtenemos la matriz cruda de intensidades:
-
-```{r}
-intensidades <- oligo::exprs(datos_crudos_microarrays)
-```
-
-
-<br>
-
-
-En relación a lo dicho en el párrafo anterior, las gráficas que generemos a lo largo del protocolo de análisis pueden usar información ubicada en el bolsillo `datos_crudos_microarrays@phenoData@data`, por lo que podemos añadir metadatos de interés con el comando `pData()` de `Biobase` tal que así:
+Arreglamos los metadatos del objeto `datos_crudos_microarrays`, situados en el bolsillo `phenodata`:
 
 ```{r}
 # Renombramos la columna "index" a "muestra"
@@ -125,7 +110,13 @@ colnames(pData(datos_crudos_microarrays)) <- "muestra"
 # Añadimos el factor "Condición" a los metadatos de nuestro estudio
 pData(datos_crudos_microarrays)$condicion <- as.factor(rep(c("Control", "Genisteina"), times = 4))
 
-# Visualizamos los metadatos
+# Ponemos nombres más claros a las muestras
+sampleNames(datos_crudos_microarrays) <- c("Control_1", "Genisteina_1",
+                                           "Control_2", "Genisteina_2",
+                                           "Control_3", "Genisteina_3",
+                                           "Control_4", "Genisteina_4")
+
+# Visualizamos los metadatos limpios
 pData(datos_crudos_microarrays)
 ```
 
@@ -134,105 +125,12 @@ pData(datos_crudos_microarrays)
 
 <br>
 
-***
-
-
-## Comprobación del normalizado: Boxplots
-
-Podemos comparar los datos antes y después del normalizado y control de ruido técnico. Observamos que las intensidades medianas y los cuartiles 25-75 son idénticos entre todos los microarrays tras el normalizado, cosa que no era cierta en los datos crudos:
+Finalmente obtenemos la matriz procesada de intensidades, pues contiene los nombres de los _transcription clusters_:
 
 ```{r}
-par(mfcol = c(1,2))
-
-boxplot(datos_crudos_microarrays, "all", 
-        main = "Antes", col = rainbow(8), 
-        ylab = "intensidad sondas (log2)")
-
-boxplot(intensidades2, main = "Después",
-        col = rainbow(8), ylab = "intensidad sondas (log2)")
-```
-
-
-
-```{r}
-cpm_log <- cpm(intensidades, log = TRUE)
-median_log2_cpm <- apply(cpm_log, 1, median)
-hist(median_log2_cpm)
-expr_cutoff <- -1
-abline(v = expr_cutoff, col = "red", lwd = 3)
-
-
-intensidades2 <- intensidades[median_log2_cpm > expr_cutoff, ]
-
-cpm_log <- cpm(intensidades2, log = TRUE)
-```
-
-
-
-<br>
-
-***
-
-# Análisis DEG
-
-
-## `edgeR`: Análisis de 2 grupos de datos no pareados
-
-
-Ahora creamos un objeto de tipo `DGEList`, el cual usa `edgeR` para almacenar la información de nuestro experimento de RNA-Seq.
-
-
-```{r}
-y <- DGEList(counts = intensidades, group = pData(datos_crudos_microarrays)$condicion)
-```
-
-
-edgeR normalizes the genes counts using the method TMM (trimmed means of m values) developed by Robinson and Oshlack (2010). Recall from lecture that the read counts for moderately to lowly expressed genes can be strongly influenced by small fluctuations in the expression level of highly expressed genes. In other words, small differences in expression of highly expressed genes between samples can give the appearance that many lower expressed genes are differentially expressed between conditions. TMM adjusts for this by removing the extremely lowly and highly expressed genes and also those genes that are very different across samples. It then compares the total counts for this subset of genes between the two samples to get the scaling factor (this is a simplification). Similar to normalization methods for microarray data, this method assumes the majority of genes are not differentially expressed between any two samples.
-
-
-```{r}
-y <- calcNormFactors(y)
-y$samples
-```
-
-
-
-The next step is to model the variance of the read counts per gene. A natural method for modeling gene counts is the Poisson distribution. However, the Poisson assumes the mean and variance are identical, but it has been found empirically that the variance in RNA-seq measurements of gene expression are larger than the mean (termed “overdispersion”). So instead the negative binomial distribution is used, which has a dispersion parameter for modeling the increase in variance from a Poisson process. edgeR treats the Poisson variance as simple sampling variance, and refers to the dispersion estimate as the “biological coefficient of variation.” Though it should be mentioned that any technical biases are also included in this estimate. edgeR shares information across genes to determine a common dispersion. It extends this to a trended dispersion to model the mean-variance relationship (lowly expressed genes are typically more noisy). Lastly it calculates a dispersion estimate per gene and shrinks it towards the trended dispersion. The gene-specific (referred to in edgeR as tagwise) dispersion estimates are used in the test for differential expression.
-
-```{r}
-y <- estimateDisp(y)
-sqrt(y$common.dispersion) # biological coefficient of variation
-plotBCV(y)
-```
-
-
-
-
-
-
-The biological coefficient of variation is lower than normally seen in human studies (~0.4) because the samples are technical replicates.
-
-edgeR tests for differential expression between two classes using a method similar in idea to the Fisher’s Exact Test.
-
-
-
-
-```{r}
-et <- exactTest(y)
-results_edgeR <- topTags(et, n = nrow(intensidades), sort.by = "none")
-head(results_edgeR$table)
-```
-
-
-
-
-How many genes are differentially expressed at an p-valor del 5%?
-
-```{r}
-sum(results_edgeR$table$PValue < .05)
-
-plotSmear(et, de.tags = rownames(results_edgeR)[results_edgeR$table$PValue < .1])
-abline(h = c(-2, 2), col = "blue")
+intensidades <- exprs(datos_crudos_microarrays)
+eSet_normalizado <- rma(datos_crudos_microarrays)
+intensidades_normalizadas <- exprs(eSet_normalizado)
 ```
 
 
@@ -242,86 +140,81 @@ abline(h = c(-2, 2), col = "blue")
 
 ***
 
-# Resultados análisis DEG
+# Creación `DGEList`
 
-Tras realizar el t-test moderado, se grafican los resultados en un volcano plot. El volcano plot muestra en el eje X el log<sub>2</sub>FC entre dos grupos (_i.e._ impacto biológico del cambio) y en el eje Y mide el p-valor del cambio (_i.e._ la evidencia estadística de los resultados). En nuestro caso resaltaremos las regiones del gráfico cuyos genes tengan simultáneamente un p-valor < 0.05 y un FC > |2| (cuadrantes superiores derecho e izquierdo):
+`edgeR` gestiona la información génica mediante objetos de tipo `DGEList`, los cuales se caracterizan por contener los siguientes bolsillos:
 
-```{r}
-volcanoplot(t_test_bayes, highlight = 0); abline(h = 1.301, v = c(-1,1), lty = 2)
-```
+* Un bolsillo `counts` con la matriz de expresión génica de dimensiones `gen x muestra`
 
+* Un bolsillo `samples` con información sobre las muestras, y debe contener obligatoriamente una columna `group` con el tratamiento de cada muestra
 
-Nótese que el parámetro `coef` del comando `volcanoplot()` te permite seleccionar la comparación a graficar (disponible en el bolsillo `t_test_bayes$coefficients`), pero en nuestro caso sólo hemos hecho una comparación (Genisteína vs Control), por lo que lo dejamos con su valor por defecto.
-
+* Un bolsillo `genes` con anotaciones sobre los genes o elementos genómicos analizados (puede contener los nombres de los genes, por ejemplo)
 
 
 <br>
 
-Tras analizar las regiones de interés del volcano plot, vemos que hay genes candidatos a estar diferencialmente expresados. Vamos a reunir todos los genes detectados en los microarrays en un dataframe y ordenarlos en función de su p-valor no ajustado mediante el comando `topTable`: 
+Primero creamos el objeto `DGEList`:
 
 ```{r}
-df_DEG = topTable(t_test_bayes ,coef = 1 ,number = 138745, adjust.method ="BH", sort.by = "p")
-head(df_DEG)
+y <- DGEList(counts = intensidades_normalizadas, 
+             group = pData(datos_crudos_microarrays)$condicion)
+y$genes <- data.frame(Transcription.Cluster = rownames(intensidades_normalizadas))
+
+show(y)
 ```
 
 
 
+# Filtrado
 
-<br>
-
-Ahora procedemos a seleccionar sólo los genes que caen en los cuadrantes de interés del volcano plot (p-valor no ajustado < 0.05 y log<sub>2</sub>FC > |1|) y los guardamos en el dataframe `DEG_limma`: 
+En este protocolo se deben filtrar los genes con expresión nula o escasa bajo el razonamiento de los autores de que "genes con pocas lecturas a lo largo de todas las muestras ofrecen una escasa evidencia para la expresión diferencial, dado que a nivel biológico, un gen debe expresarse a un nivel mínimo antes de que sea traducido o sea biológicamente relevante". Los autores usan como umbral 10 lecturas (`min.count = 10`), y en nuestro caso conservaremos aquellos genes que tengan >=10 lecturas como mínimo en 4 muestras.
 
 ```{r}
-genes_diferencialmente_expresados <- which(df_DEG$P.Value <= 0.05 & abs(df_DEG$logFC) >= 1)
-DEG_limma <- df_DEG[genes_diferencialmente_expresados,]
-length(genes_diferencialmente_expresados)
+keep <- filterByExpr(y)
+y <- y[keep, , keep.lib.sizes = F]
 ```
 
 
+# Normalizado
+
+No es necesario normalizar los datos en `edgeR` dado que sus desarrolladores asumen que sólo nos interesan los cambios de expresión relativos entre condiciones. Por tanto el normalizado es sólo necesario cuando hayan factores técnicos que afecten exclusivamente a ciertas muestras. Nótese que `edgeR` tiene en cuenta automáticamente las diferentes profundidades de secuenciado de cada muestra, por lo que el usuario no necesita realizar ninguna acción al respecto.
 
 
 <br>
 
-Vemos que hemos detectado 204 genes con un p-valor no ajustado < 0.05 y con un ratio de sobre/infraexpresión mayor o igual a 2. Ahora procedemos a separarlos en función de si están sobre o infraexpresados respecto a las muestras control:
+***
 
-
-```{r}
-sobreexpresados <- DEG_limma[DEG_limma[,"logFC"] > 1,]
-nrow(sobreexpresados)
-head(sobreexpresados)
-
-infraexpresados <- DEG_limma[DEG_limma[,"logFC"] < -1  ,]
-nrow(infraexpresados)
-head(infraexpresados)
-```
-
-
-
-
-<br>
-
-En vista del output del chunk, vemos que tratar las muestras con genisteína provoca la sobreexpresión de 193 genes y la infraexpresión de 11 genes, todos ellos con un ratio de 2 (o sea, el gen TC1100007696.hg.1 está el doble de expresado en las muestras tratadas respecto de las muestras control, mientras que el gen TC1900009657.hg.1 está la mitad de expresado en las muestras tratadas respecto de las muestras control).
-
-Para finalizar este protocolo, procedemos a guardar en archivos de texto la lista total de genes diferencialmente expresados, los genes sobreexpresados y los infraexpresados para poder realizar más tarde los análisis pertinentes (_i.e._ GEA, GSEA, dianas de miRNA...):
-
+# QUICK START
 
 ```{r, eval = F}
-# DEG_limma <- as.vector(DEG_limma)
-# Lista total de genes diferencialmente expresados
-write.table(x = rownames(DEG_limma), file = "./Resultados DEG/DEG_total_limma.txt", quote = F, 
-            row.names = F, col.names = F)
+# edgeR quickstart
+y <- DGEList(counts = intensidades_normalizadas, 
+             group = pData(datos_crudos_microarrays)$condicion)
+y$genes <- data.frame(Symbol = rownames(intensidades_normalizadas))
+keep <- filterByExpr(y)
+y <- y[keep,,keep.lib.sizes=FALSE]
 
-# Genes sobreexpresados
-write.table(x = rownames(sobreexpresados), file = "./Resultados DEG/sobreexpresados_limma.txt", quote = F, 
-            row.names = F, col.names = F)
 
-# Genes infraexpresados
-write.table(x = rownames(infraexpresados), file = "./Resultados DEG/infraexpresados_limma.txt", quote = F, 
-            row.names = F, col.names = F)
+y <- calcNormFactors(y)
+design <- model.matrix(~pData(datos_crudos_microarrays)$condicion)
+y <- estimateDisp(y,design)
+```
+
+Nota: El manual de edgeR habla de librerías para referise a las muestras.
+
+```{r, eval = F}
+# Quasi-likelihood F test, recomendado para bulk RNA-Seq
+fit <- glmQLFit(y,design)
+qlf <- glmQLFTest(fit,coef=2)
+tabla <- topTags(qlf)
+
+View(tabla$table)
+sort(tabla$table$PValue, decreasing = F)
+which(tabla$table$PValue < .05)
+
 ```
 
 
-A modo de _addendum_, comentar que hemos guardado los genes con los nombres de los _transcription clusters_. si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx o bien consultando el archivo accesorio `Anotaciones Genes NetAffx.tsv`.
 
 
 

@@ -39,7 +39,7 @@ En este documento se muestra cómo analizar los archivos con extensión `.CEL` r
 
 ***
 
-# Carga de datos y librerías
+# Carga de librerías y datos
 
 Primero debemos instalar `oligo`. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de `oligo`, el cual depende de los paquetes `ff` versión 2.2.0 y `RSQLite` versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de `oligo` y en los análisis posteriores:
 
@@ -49,12 +49,16 @@ BiocManager::install("oligo")
 
 # Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)
 # remove.packages("ff")
-install.packages("https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz", 
-                 repos=NULL, type = "source")
+install.packages(
+  "https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz",
+  repos=NULL, 
+  type = "source")
 
 # Paquete RSQLite versión 2.1.4:
-install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",
-                 repos=NULL, type = "source")
+install.packages(
+  "https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz",
+  repos=NULL, 
+  type = "source")
 ```
 
 
@@ -63,14 +67,14 @@ install.packages("https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite
 Comenzamos cargando `oligo` y paquetes accesorios:
 
 ```{r carga librerias}
-library("oligo")
-library("ggplot2")
-library("dplyr") 
-library("FactoMineR") # PCA
+library("oligo") # Data import, pre-processing, and QC 
+library("limma") # DEG Analysis
+library("ggplot2") # Plots
 library("rgl") # 3D plots
+library("dplyr")  # Data wrangling
+library("FactoMineR") # PCA
 library("Rtsne") # t-SNE
 library("uwot") # UMAP
-library("limma") # DEG Analysis
 ```
 
 <br>
