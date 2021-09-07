@@ -1,0 +1,13 @@
+Analicé los microarrays de ARNm (transcriptoma) con TAC 4 y limma + RMA en R (no se puede usar GCRMA en microarrays sin archivos cdf, como son los clariom D/S Human). Podría usar como normalizado dChip (DNA-Chip Analyzer) o MAS5. 
+
+Intenté analizar los arrays con edgeR, DESeq2 y Cuffdiff/Cuffdiff2, pero esos paquetes sólo funcionan en matrices de conteo de transcritos (nosotros tenemos una matriz de intensidades, o sea un microarray, por lo que no nos sirven).
+
+
+
+También he visto que se pueden usar ontologias especificas para microARN, podríamos usarlo para los otros microarrays. también pon bien los nombres de los genes.
+
+ontologias:
+-https://www.ebi.ac.uk/ols/ontologies/omit  y  https://bioportal.bioontology.org/ontologies/OMIT (ontologia para microRNA OMIT)
+-miRWalk 2.0
+-DIANA-miRPath v3.0
+-TAM 2.0: tool for MicroRNA set analysis (https://academic.oup.com/nar/article/46/W1/W180/5033528)
