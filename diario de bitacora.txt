@@ -1,4 +1,4 @@
-Analicé los microarrays de ARNm (transcriptoma) con TAC 4 y limma + RMA en R (no se puede usar GCRMA en microarrays sin archivos cdf, como son los clariom D/S Human). Podría usar como normalizado dChip (DNA-Chip Analyzer) o MAS5 (affy::mas5() ). 
+Analicé los microarrays de ARNm (transcriptoma) con TAC 4 y limma + RMA en R (no se puede usar GCRMA en microarrays sin archivos cdf, como son los clariom D/S Human). Podría usar como normalizado dChip (DNA-Chip Analyzer) o MAS5. 
 
 Intenté analizar los arrays con edgeR, DESeq2 y Cuffdiff/Cuffdiff2, pero esos paquetes sólo funcionan en matrices de conteo de transcritos (nosotros tenemos una matriz de intensidades, o sea un microarray, por lo que no nos sirven).
 
