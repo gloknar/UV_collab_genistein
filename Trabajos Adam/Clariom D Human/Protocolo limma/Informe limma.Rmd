@@ -279,9 +279,11 @@ eSet_normalizado <- oligo::rma(object = datos_crudos_microarrays,
 head(eSet_normalizado@assayData$exprs)[,1:4]
 ```
 
+
+
 <br>
 
-## Comprobación del normalizado: Boxplots
+## Comprobación del normalizado: Boxplots y gráficos de densidad
 
 
 Para poder analizar y comparar las muestras, es necesario que estén normalizadas. El hecho de que sus medianas estén centradas es un claro indicador de que el normalizado ha sido exitoso. Podemos comparar los datos antes y después del normalizado y control del ruido técnico. Observamos que las intensidades medianas y los cuartiles 25-75 son idénticos entre todos los microarrays tras el normalizado, cosa que no era cierta en los datos crudos:
@@ -297,9 +299,23 @@ boxplot(eSet_normalizado, main = "Después",
         col = rainbow(8), ylab = "intensidad sondas (log2)")
 ```
 
+```{r, eval = F, echo = F}
+# Comparación por grupos en vez de por muestras.
+boxplot(formula = intensidades_normalizadas ~ eSet_normalizado$condicion, 
+        main = "Después", ylab = "intensidad sondas (log2)",
+        xlab = "", col = rainbow(2))
+```
+
+
+
+<br>
+
+Otra manera de visualizar la información contenida en los boxplots es graficar la distribución de las intensidades en un gráfico de densidad. Este gráfico es el equivalente a observar los boxplots desde un lateral, y al igual que en el boxplot, para poder comparar las muestras es necesario que sus curvas de densidad sean similares:
+
 ```{r}
-plotDensities(eSet_normalizado, legend = "topright")
-plotDensities(intensidades, legend = "topright")
+plotDensities(exprs(eSet_normalizado), legend = "topright", 
+              group = eSet_normalizado$condicion, col = rainbow(2),
+              main = "Expression density")
 ```
 
 
@@ -561,7 +577,7 @@ head(t_test_bayes$t)
 ```
 
 
-```{r, qqplot, eval = F}
+```{r, qqplot, eval = F, echo = F}
 # El eje X es la distribución de una t de student teórica, mientras que el eje Y
 # es la distribución de nuestros datos. Si ambas coinciden (línea diagonal), los
 # datos son normales (la t de student es normal al fin y al cabo, y estás
