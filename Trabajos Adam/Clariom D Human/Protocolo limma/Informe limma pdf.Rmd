@@ -553,6 +553,27 @@ t_test_bayes = eBayes(diferencia_genisteina_control)
 ```
 
 
+```{r, echo = F, eval = F}
+# Graficos de Mean-Variance Trend:
+
+# Sigma vs A plot for microarray linear model
+plotSA(t_test_bayes, xlab = "Average log-expression", 
+       ylab = "log2(sigma)", zero.weights = F, 
+       pch = 16, cex = 0.2)
+
+
+# De acuerdo a Gordon Smyth en https://support.bioconductor.org/p/67590/ ,
+# vooma() está obsoleto. En su lugar usa voom(). Parece que voom() y vooma() son
+# para RNA-Seq (y ChIP-Seq) con conteo de transcritos y no para microarrays de
+# intensidades.
+vooma(eSet_normalizado, design = matriz_diseno, correlation, block=NULL, plot = T, span = NULL)
+
+voomaByGroup(eSet_normalizado, group = eSet_normalizado$condicion, 
+             design=matriz_diseno, correlation, block = NULL,
+             plot = T, span = NULL, col = NULL, lwd = 1, alpha = 0.5,
+             pch = 16, cex = 0.3, legend = "topright")
+```
+
 
 \bigskip
 

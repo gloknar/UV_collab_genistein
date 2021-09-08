@@ -541,10 +541,55 @@ diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal,
 Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando `eBayes()` estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (_i.e._ aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
 
 ```{r}
-t_test_bayes = eBayes(diferencia_genisteina_control)
+t_test_bayes = eBayes(diferencia_genisteina_control, trend = F)
 ```
 
 
+Tras realizar el test t de Student moderado, procedemos a graficar la tendencia de la media-varianza para analizar la relación entre la expresión media y la varianza de cada gen: (mas info en https://www.ncbi.nlm.nih.gov/geo/info/geo2r.html#how_to_use)
+
+```{r}
+# Sigma vs A plot for microarray linear model
+plotSA(t_test_bayes, xlab = "Average log-expression", 
+       ylab = "log2(sigma)", zero.weights = F, 
+       pch = 16, cex = 0.2)
+```
+
+
+La línea azul marca la susodicha tendencia Hay tendencia, luego hacemos trend =) T:
+
+
+```{r}
+t_test_bayes = eBayes(diferencia_genisteina_control, trend = T)
+```
+
+```{r, echo = F, eval = F}
+# De acuerdo a su desarrollador Gordon Smyth en
+# https://support.bioconductor.org/p/67590/ , vooma() está obsoleto. En su lugar
+# usa voom(). Parece que voom() y vooma() son para RNA-Seq (y ChIP-Seq) con
+# conteo de transcritos y no para microarrays de intensidades.
+
+# Para microarrays, usa:
+#
+# fit <- lmFit(y, design)
+# fit <- eBayes(fit, trend=TRUE)
+
+
+
+# Para RNA-Seq con matrices de conteo, usa esto debido a la diferencia de
+# profundidad de secuenciado de cada muestra/librería:
+#
+# v <- vooma(matriz_conteo_normalizada, matriz_disenno)
+# fit <- lmFit(v, matriz_disenno)
+# fit <- eBayes(fit)
+
+
+vooma(exprs(eSet_normalizado), design = matriz_diseno, correlation, block=NULL, plot = T, span = NULL)
+
+voomaByGroup(eSet_normalizado, group = eSet_normalizado$condicion, 
+             design=matriz_diseno, correlation, block = NULL,
+             plot = T, span = NULL, col = NULL, lwd = 1, alpha = 0.5,
+             pch = 16, cex = 0.3, legend = "topright")
+```
 
 <br>
 
@@ -712,6 +757,3 @@ sessionInfo()
 
 
 </details>
-
-
-
