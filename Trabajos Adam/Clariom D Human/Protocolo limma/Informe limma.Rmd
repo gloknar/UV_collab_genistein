@@ -297,6 +297,10 @@ boxplot(eSet_normalizado, main = "Después",
         col = rainbow(8), ylab = "intensidad sondas (log2)")
 ```
 
+```{r}
+plotDensities(eSet_normalizado, legend = "topright")
+plotDensities(intensidades, legend = "topright")
+```
 
 
 
