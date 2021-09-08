@@ -279,7 +279,7 @@ head(eSet_normalizado@assayData$exprs)[,1:4]
 
 ## Comprobación del normalizado: Boxplots
 
-Podemos comparar los datos antes y después del normalizado y control de ruido técnico. Observamos que las intensidades medianas y los cuartiles 25-75 son idénticos entre todos los microarrays tras el normalizado, cosa que no era cierta en los datos crudos:
+Para poder analizar y comparar las muestras, es necesario que estén normalizadas. El hecho de que sus medianas estén centradas es un claro indicador de que el normalizado ha sido exitoso. Podemos comparar los datos antes y después del normalizado y control del ruido técnico. Observamos que las intensidades medianas y los cuartiles 25-75 son idénticos entre todos los microarrays tras el normalizado, cosa que no era cierta en los datos crudos:
 
 ```{r}
 par(mfcol = c(1,2))
@@ -568,6 +568,13 @@ head(t_test_bayes$t)
 ```
 
 
+```{r, qqplot, eval = F}
+# El eje X es la distribución de una t de student teórica, mientras que el eje Y
+# es la distribución de nuestros datos. Si ambas coinciden (línea diagonal), los
+# datos son normales (la t de student es normal al fin y al cabo, y estás
+# comparándola contra tus datos).
+qqt(y = t_test_bayes$t[,1], df= t_test_bayes$df.residual + t_test_bayes$df.prior); abline(0,1)
+```
 
 
 \bigskip
