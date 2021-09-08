@@ -461,7 +461,7 @@ colnames(matriz_diseno) <- c("Control","Genisteina")
 \bigskip
 
 
-Nuestra matriz de diseño tiene esta forma:
+En nuestra matriz de diseño podemos ver a qué grupo o nivel del factor pertenece cada muestra (columna de la izquierda del 1 al 6). Un 1 representa que la muestra pertenece a dicho grupo.
 
 ```{r, echo = F}
 head(matriz_diseno)
@@ -496,6 +496,9 @@ modelo_lineal$coefficients[5000:5005,]
 
 Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una \textbf{matriz de contrastes} en la cual se especifiquen las comparaciones a realizar mediante el comando \verb|makeContrasts()|. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).
 
+Téngase en cuenta que el orden en el que defines los grupos afecta a la interpretación de los resultados. Para comparaciones de 2 grupos, es conveniente definir primero el grupo de tratamiento y luego el grupo control, pues de esa manera el el log fold change se puede interpretar en base al grupo control. Así, genes con un log\textsubscript{2}FC positivo estarán sobreexpresados en el tratamiento respecto al control, y viceversa para los genes infraexpresados.
+
+
 ```{r}
 # creamos matriz de contraste
 matriz_contrastes <- makeContrasts(Genisteina - Control, levels = matriz_diseno)
@@ -504,7 +507,7 @@ matriz_contrastes <- makeContrasts(Genisteina - Control, levels = matriz_diseno)
 
 \bigskip
 
-Nuestra matriz de contrastes tiene esta forma:
+La manera de interpretar una matriz de contrastes es, para cada contraste, si sale un -1 es el grupo control; si sale un 0 no actúa, y si sale un 1 es el grupo de tratamiento. A continuación mostramos nuestra matriz de contrastes: 
 
 ```{r}
 matriz_contrastes

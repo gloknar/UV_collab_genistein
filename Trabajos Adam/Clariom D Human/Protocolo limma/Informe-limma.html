@@ -329,7 +329,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Análisis de microarrays <em>Clariom D Human</em> en <code>limma</code></h1>
 <h4 class="author">Adam Casas</h4>
-<h4 class="date">Compilado: 22 de agosto del 2021</h4>
+<h4 class="date">Compilado: 08 de septiembre del 2021</h4>
 
 </div>
 
@@ -345,30 +345,34 @@ div.tocify {
 <p><br></p>
 <hr />
 </div>
-<div id="carga-de-datos-y-librerías" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> Carga de datos y librerías</h1>
+<div id="carga-de-librerías-y-datos" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Carga de librerías y datos</h1>
 <p>Primero debemos instalar <code>oligo</code>. Téngase en cuenta que en R 3.6 se instala la versión 1.50.0 de <code>oligo</code>, el cual depende de los paquetes <code>ff</code> versión 2.2.0 y <code>RSQLite</code> versión 2.1.4. Instalar versiones posteriores ocasionará fallos en la carga de <code>oligo</code> y en los análisis posteriores:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación oligo en R 3.6:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;oligo&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete ff versión 2.2.0: (en el portatil la 2.2.14 funciona, en el sobremesa no)</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># remove.packages(&quot;ff&quot;)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz&quot;</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete RSQLite versión 2.1.4:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz&quot;</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos=</span><span class="cn">NULL</span>, <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/ff/ff_2.2-0.tar.gz&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">repos=</span><span class="cn">NULL</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquete RSQLite versión 2.1.4:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://cran.r-project.org/src/contrib/Archive/RSQLite/RSQLite_2.1.4.tar.gz&quot;</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">repos=</span><span class="cn">NULL</span>, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
 <p><br></p>
 <p>Comenzamos cargando <code>oligo</code> y paquetes accesorios:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;oligo&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>) </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;FactoMineR&quot;</span>) <span class="co"># PCA</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rgl&quot;</span>) <span class="co"># 3D plots</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;Rtsne&quot;</span>) <span class="co"># t-SNE</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;uwot&quot;</span>) <span class="co"># UMAP</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;limma&quot;</span>) <span class="co"># DEG Analysis</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;oligo&quot;</span>) <span class="co"># Data import, pre-processing, and QC </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;limma&quot;</span>) <span class="co"># DEG Analysis</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># Plots</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rgl&quot;</span>) <span class="co"># 3D plots</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)  <span class="co"># Data wrangling</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;FactoMineR&quot;</span>) <span class="co"># PCA</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;Rtsne&quot;</span>) <span class="co"># t-SNE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;uwot&quot;</span>) <span class="co"># UMAP</span></span></code></pre></div>
 <p><br></p>
 <p>Acto seguido definimos el directorio de trabajo en la carpeta donde se encuentran los archivos de secuenciado.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>directorio_trabajo <span class="ot">&lt;-</span> <span class="st">&quot;../Archivos secuenciado/&quot;</span></span></code></pre></div>
@@ -626,7 +630,7 @@ div.tocify {
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>matriz_diseno <span class="ot">=</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> eSet_normalizado<span class="sc">$</span>condicion)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matriz_diseno) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Genisteina&quot;</span>)</span></code></pre></div>
 <p><br></p>
-<p>Nuestra matriz de diseño tiene esta forma:</p>
+<p>En nuestra matriz de diseño podemos ver a qué grupo o nivel del factor pertenece cada muestra (columna de la izquierda del 1 al 6). Un 1 representa que la muestra pertenece a dicho grupo.</p>
 <pre><code>##   Control Genisteina
 ## 1       1          0
 ## 2       0          1
@@ -656,10 +660,11 @@ div.tocify {
 ## TC0100008477.hg.1 1.698808   1.536160</code></pre>
 <p><br></p>
 <p>Ahora debes indicarle al paquete qué grupos quieres comparar. Para ello debes definir una <strong>matriz de contrastes</strong> en la cual se especifiquen las comparaciones a realizar mediante el comando <code>makeContrasts()</code>. Usando los nombres de las columnas de la matriz de diseño, puedes especificar el grupo control respecto al cual quieres comparar el grupo de interés (tratado con genisteína).</p>
+<p>Téngase en cuenta que el orden en el que defines los grupos afecta a la interpretación de los resultados. Para comparaciones de 2 grupos, es conveniente definir primero el grupo de tratamiento y luego el grupo control, pues de esa manera el el log fold change se puede interpretar en base al grupo control. Así, genes con un log<sub>2</sub>FC positivo estarán sobreexpresados en el tratamiento respecto al control, y viceversa para los genes infraexpresados.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creamos matriz de contraste</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>matriz_contrastes <span class="ot">&lt;-</span> <span class="fu">makeContrasts</span>(Genisteina <span class="sc">-</span> Control, <span class="at">levels =</span> matriz_diseno)</span></code></pre></div>
 <p><br></p>
-<p>Nuestra matriz de contrastes tiene esta forma:</p>
+<p>La manera de interpretar una matriz de contrastes es, para cada contraste, si sale un -1 es el grupo control; si sale un 0 no actúa, y si sale un 1 es el grupo de tratamiento. A continuación mostramos nuestra matriz de contrastes:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>matriz_contrastes</span></code></pre></div>
 <pre><code>##             Contrasts
 ## Levels       Genisteina - Control
@@ -677,10 +682,10 @@ div.tocify {
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(t_test_bayes)</span></code></pre></div>
 <pre><code>##  [1] &quot;coefficients&quot;     &quot;rank&quot;             &quot;assign&quot;           &quot;qr&quot;              
 ##  [5] &quot;df.residual&quot;      &quot;sigma&quot;            &quot;cov.coefficients&quot; &quot;stdev.unscaled&quot;  
-##  [9] &quot;Amean&quot;            &quot;method&quot;           &quot;design&quot;           &quot;contrasts&quot;       
-## [13] &quot;df.prior&quot;         &quot;s2.prior&quot;         &quot;var.prior&quot;        &quot;proportion&quot;      
-## [17] &quot;s2.post&quot;          &quot;t&quot;                &quot;df.total&quot;         &quot;p.value&quot;         
-## [21] &quot;lods&quot;             &quot;F&quot;                &quot;F.p.value&quot;</code></pre>
+##  [9] &quot;pivot&quot;            &quot;Amean&quot;            &quot;method&quot;           &quot;design&quot;          
+## [13] &quot;contrasts&quot;        &quot;df.prior&quot;         &quot;s2.prior&quot;         &quot;var.prior&quot;       
+## [17] &quot;proportion&quot;       &quot;s2.post&quot;          &quot;t&quot;                &quot;df.total&quot;        
+## [21] &quot;p.value&quot;          &quot;lods&quot;             &quot;F&quot;                &quot;F.p.value&quot;</code></pre>
 <p><br></p>
 <p>Puedes obtener el fold change en formato log<sub>2</sub> de la expresión de cada gen a través del hueco <code>$coefficients</code> del t-test moderado:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2FC de genes:</span></span>
@@ -797,7 +802,7 @@ div.tocify {
 <summary>
 <strong>Click para mostrar</strong>
 </summary>
-<pre><code>## R version 3.6.3 (2020-02-29)
+<pre><code>## R version 4.1.0 (2021-05-18)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 10 x64 (build 19043)
 ## 
@@ -814,54 +819,54 @@ div.tocify {
 ## 
 ## other attached packages:
 ##  [1] pd.clariom.d.human_3.14.1 DBI_1.1.1                
-##  [3] RSQLite_2.1.4             limma_3.42.2             
-##  [5] uwot_0.1.10               Matrix_1.3-4             
-##  [7] Rtsne_0.15                rgl_0.107.14             
-##  [9] FactoMineR_2.4            dplyr_1.0.7              
-## [11] ggplot2_3.3.5             oligo_1.50.0             
-## [13] Biostrings_2.54.0         XVector_0.26.0           
-## [15] IRanges_2.20.2            S4Vectors_0.24.4         
-## [17] Biobase_2.46.0            oligoClasses_1.48.0      
-## [19] BiocGenerics_0.32.0      
+##  [3] RSQLite_2.2.8             uwot_0.1.10              
+##  [5] Matrix_1.3-4              Rtsne_0.15               
+##  [7] FactoMineR_2.4            dplyr_1.0.7              
+##  [9] rgl_0.107.14              ggplot2_3.3.5            
+## [11] limma_3.48.3              oligo_1.56.0             
+## [13] Biostrings_2.60.2         GenomeInfoDb_1.28.4      
+## [15] XVector_0.32.0            IRanges_2.26.0           
+## [17] S4Vectors_0.30.0          Biobase_2.52.0           
+## [19] oligoClasses_1.54.0       BiocGenerics_0.38.0      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bitops_1.0-7                matrixStats_0.60.0         
-##  [3] bit64_4.0.5                 GenomeInfoDb_1.22.1        
-##  [5] tools_3.6.3                 bslib_0.2.5.1              
-##  [7] utf8_1.2.1                  R6_2.5.1                   
-##  [9] DT_0.18                     affyio_1.56.0              
-## [11] KernSmooth_2.23-20          colorspace_2.0-2           
-## [13] withr_2.4.2                 tidyselect_1.1.1           
-## [15] bit_4.0.4                   compiler_3.6.3             
-## [17] preprocessCore_1.48.0       flashClust_1.01-2          
-## [19] DelayedArray_0.12.3         labeling_0.4.2             
-## [21] sass_0.4.0                  scales_1.1.1               
-## [23] stringr_1.4.0               digest_0.6.27              
-## [25] rmarkdown_2.10              pkgconfig_2.0.3            
-## [27] htmltools_0.5.1.1           highr_0.9                  
+##  [1] bitops_1.0-7                matrixStats_0.60.1         
+##  [3] bit64_4.0.5                 tools_4.1.0                
+##  [5] bslib_0.3.0                 utf8_1.2.2                 
+##  [7] R6_2.5.1                    DT_0.19                    
+##  [9] affyio_1.62.0               KernSmooth_2.23-20         
+## [11] colorspace_2.0-2            withr_2.4.2                
+## [13] tidyselect_1.1.1            bit_4.0.4                  
+## [15] compiler_4.1.0              preprocessCore_1.54.0      
+## [17] flashClust_1.01-2           DelayedArray_0.18.0        
+## [19] labeling_0.4.2              sass_0.4.0                 
+## [21] scales_1.1.1                stringr_1.4.0              
+## [23] digest_0.6.27               rmarkdown_2.10             
+## [25] pkgconfig_2.0.3             htmltools_0.5.2            
+## [27] MatrixGenerics_1.4.3        highr_0.9                  
 ## [29] fastmap_1.1.0               htmlwidgets_1.5.3          
 ## [31] rlang_0.4.11                FNN_1.1.3                  
 ## [33] farver_2.1.0                jquerylib_0.1.4            
 ## [35] generics_0.1.0              jsonlite_1.7.2             
-## [37] BiocParallel_1.20.1         RCurl_1.98-1.3             
-## [39] magrittr_2.0.1              GenomeInfoDbData_1.2.2     
-## [41] leaps_3.1                   Rcpp_1.0.7                 
-## [43] munsell_0.5.0               fansi_0.5.0                
-## [45] lifecycle_1.0.0             scatterplot3d_0.3-41       
-## [47] stringi_1.7.3               yaml_2.2.1                 
-## [49] MASS_7.3-54                 SummarizedExperiment_1.16.1
-## [51] zlibbioc_1.32.0             grid_3.6.3                 
-## [53] affxparser_1.58.0           blob_1.2.2                 
-## [55] ggrepel_0.9.1               crayon_1.4.1               
-## [57] lattice_0.20-44             splines_3.6.3              
-## [59] knitr_1.33                  pillar_1.6.2               
-## [61] GenomicRanges_1.38.0        codetools_0.2-18           
-## [63] glue_1.4.2                  evaluate_0.14              
-## [65] BiocManager_1.30.16         vctrs_0.3.8                
-## [67] foreach_1.5.1               gtable_0.3.0               
-## [69] purrr_0.3.4                 cachem_1.0.6               
-## [71] xfun_0.24                   ff_2.2-0                   
-## [73] RSpectra_0.16-0             tibble_3.1.1               
+## [37] RCurl_1.98-1.4              magrittr_2.0.1             
+## [39] GenomeInfoDbData_1.2.6      leaps_3.1                  
+## [41] Rcpp_1.0.7                  munsell_0.5.0              
+## [43] fansi_0.5.0                 lifecycle_1.0.0            
+## [45] scatterplot3d_0.3-41        stringi_1.7.4              
+## [47] yaml_2.2.1                  MASS_7.3-54                
+## [49] SummarizedExperiment_1.22.0 zlibbioc_1.38.0            
+## [51] grid_4.1.0                  affxparser_1.64.0          
+## [53] blob_1.2.2                  ggrepel_0.9.1              
+## [55] crayon_1.4.1                lattice_0.20-44            
+## [57] splines_4.1.0               knitr_1.33                 
+## [59] pillar_1.6.2                GenomicRanges_1.44.0       
+## [61] codetools_0.2-18            glue_1.4.2                 
+## [63] evaluate_0.14               BiocManager_1.30.16        
+## [65] vctrs_0.3.8                 foreach_1.5.1              
+## [67] gtable_0.3.0                purrr_0.3.4                
+## [69] assertthat_0.2.1            cachem_1.0.6               
+## [71] xfun_0.25                   ff_4.0.4                   
+## [73] RSpectra_0.16-0             tibble_3.1.4               
 ## [75] iterators_1.0.13            memoise_2.0.0              
 ## [77] cluster_2.1.2               ellipsis_0.3.2</code></pre>
 </details>
