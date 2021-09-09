@@ -274,6 +274,16 @@ head(eSet_normalizado@assayData$exprs)[,1:4]
 ```
 
 
+\bigskip
+
+Comentar que hemos guardado los genes con los nombres de los _transcription clusters_. Si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx, o bien consultando el archivo accesorio `Anotaciones Genes NetAffx.tsv`, o bien automáticamente con el comando `annotateEset()` del paquete `affycoretools`:
+
+```{r}
+library("affycoretools")
+eSet_normalizado <- annotateEset(eSet_normalizado, pd.clariom.d.human, columns = c("ENTREZID", "SYMBOL", "GENENAME","ENSEMBL","ENSEMBLTRANS","REFSEQ","EVIDENCE"))
+tail(fData(eSet_normalizado), n = 200L)
+```
+
 
 \bigskip
 
@@ -493,7 +503,7 @@ En esencia, \verb|limma| va a comparar, para cada gen, su expresión media en la
 
 ```{r}
 # Generamos el modelo lineal
-modelo_lineal <- lmFit(t(intensidades_normalizadas), matriz_diseno)
+modelo_lineal <- lmFit(t(intensidades_normalizadas), design = matriz_diseno)
 
 # Vemos los bolsillos que posee el objeto `modelo_lineal`
 names(modelo_lineal)
@@ -549,30 +559,67 @@ diferencia_genisteina_control <- contrasts.fit(fit = modelo_lineal,
 Con las diferencias calculadas, estamos listos para realizar los tests estadísticos para comparar los grupos. Ya que compararemos dos grupos, usaremos un t-test para datos no pareados. No obstante, en el caso de los microarrays se debe usar un t-test moderado ya que al tener pocas muestras, aumenta la varianza de los datos y los resultados se vuelven poco fiables. El comando \verb|eBayes()| estima la varianza media de todo el genoma y converge la varianza de cada gen hacia dicho valor global estimado (\textit{i.e.} aumenta la varianza de genes poco variables y disminuye la varianza de genes muy variables). Este t-test moderado por el método de Bayes empírico es a consecuencia más potente que el t-test estándar para estudios de microarrays.
 
 ```{r}
-t_test_bayes = eBayes(diferencia_genisteina_control)
+t_test_bayes = eBayes(diferencia_genisteina_control, trend = T)
+```
+
+
+
+\bigskip
+
+Tras realizar el test t de Student moderado, es conveniente analizar la relación entre la expresión media y la varianza de cada gen mediante un gráfico _Sigma vs A_. Este tipo de gráfico muestra si hay mucha varianza en los genes y si es necesario tener en cuenta la tendencia de la media-varianza de estos. Dicho con otras palabras, en caso de que haya mucha varianza en los datos, se le debe dar más peso a los microarrays/muestras que mejor se ajusten al modelo lineal que hemos generado con el comando `ebayes()`, y viceversa para aquellas muestras que se desvíen mucho de dicho modelo, pues ello mejorará la potencia estadística del test sin afectar al FDR. Para más información, consulte la información disponible sobre estos gráficos en el apartado _"Visualization"_ de la documentación de [GEO2R](https://www.ncbi.nlm.nih.gov/geo/info/geo2r.html#how_to_use) y el [capítulo 10](http://bioconductor.org/packages/2.6/bioc/vignettes/limma/inst/doc/usersguide.pdf) de la documentación oficial del paquete `limma`.
+
+```{r}
+# Sigma vs A plot for microarray linear model
+plotSA(t_test_bayes, xlab = "Average log2-expression", 
+       ylab = "log2(sigma)", pch = 16, cex = 0.2)
+```
+
+
+
+\bigskip
+
+En el gráfico vemos marcada en azul la susodicha tendencia. Si la tendencia se asemejase a una línea horizontal, tendríamos que correr el test moderado con el comando `trend = F`, pues si la varianza es constante, nos estaría indicando que todos los arrays se ajustan por igual al modelo lineal entrenado y no sería necesario ajustar sus pesos. En nuestro caso lo dejaremos tal cual está debido a que vemos una ligera tendencia. Por último, mencionar que si graficamos el output del comando `arrayWeights()`, podemos visualizar la explicación del párrafo anterior:
+
+```{r}
+pesos <- arrayWeights(eSet_normalizado, design = matriz_diseno)
+barplot(pesos, xlab = "Microarray", ylab = "Peso", col = "white", las = 2)
+abline(h = 1, lty = 2)
+
+# El objeto `pesos` se puede usar como input del parámetro `weights` del comando
+# lmFit()
 ```
 
 
 ```{r, echo = F, eval = F}
-# Graficos de Mean-Variance Trend:
+# De acuerdo a su desarrollador Gordon Smyth en
+# https://support.bioconductor.org/p/67590/ , vooma() está obsoleto. En su lugar
+# usa voom(). Parece que voom() y vooma() son para RNA-Seq (y ChIP-Seq) con
+# conteo de transcritos y no para microarrays de intensidades.
 
-# Sigma vs A plot for microarray linear model
-plotSA(t_test_bayes, xlab = "Average log-expression", 
-       ylab = "log2(sigma)", zero.weights = F, 
-       pch = 16, cex = 0.2)
+# Para microarrays, usa:
+#
+# fit <- lmFit(y, design)
+# fit <- eBayes(fit, trend=TRUE)
 
 
-# De acuerdo a Gordon Smyth en https://support.bioconductor.org/p/67590/ ,
-# vooma() está obsoleto. En su lugar usa voom(). Parece que voom() y vooma() son
-# para RNA-Seq (y ChIP-Seq) con conteo de transcritos y no para microarrays de
-# intensidades.
-vooma(eSet_normalizado, design = matriz_diseno, correlation, block=NULL, plot = T, span = NULL)
+
+# Para RNA-Seq con matrices de conteo, usa esto debido a la diferencia de
+# profundidad de secuenciado de cada muestra/librería:
+#
+# v <- vooma(matriz_conteo_normalizada, matriz_disenno)
+# fit <- lmFit(v, matriz_disenno)
+# fit <- eBayes(fit)
+
+# Nótese que puedes ahorrarte todo el tema de voom() y vooma() usando trend = T
+# en eBayes()
+vooma(exprs(eSet_normalizado), design = matriz_diseno, correlation, block=NULL, plot = T, span = NULL)
 
 voomaByGroup(eSet_normalizado, group = eSet_normalizado$condicion, 
              design=matriz_diseno, correlation, block = NULL,
              plot = T, span = NULL, col = NULL, lwd = 1, alpha = 0.5,
              pch = 16, cex = 0.3, legend = "topright")
 ```
+
 
 
 \bigskip
@@ -650,6 +697,9 @@ Ahora procedemos a seleccionar sólo los genes que caen en los cuadrantes de int
 ```{r}
 genes_diferencialmente_expresados <- which(df_DEG$P.Value <= 0.05 & abs(df_DEG$logFC) >= 1)
 DEG_limma <- df_DEG[genes_diferencialmente_expresados,]
+# Añadimos la anotación de los genes diferencialmente expresados
+rownames(DEG_limma) <- sort(rownames(DEG_limma))
+DEG_limma <- cbind(DEG_limma, fData(eSet_normalizado)[fData(eSet_normalizado)$PROBEID %in% rownames(DEG_limma),])
 length(genes_diferencialmente_expresados)
 ```
 
@@ -658,13 +708,14 @@ length(genes_diferencialmente_expresados)
 
 \bigskip
 
-Vemos que hemos detectado 204 genes con un p-valor no ajustado < 0.05 y con un ratio de sobre/infraexpresión mayor o igual a 2. Ahora procedemos a separarlos en función de si están sobre o infraexpresados respecto a las muestras control:
+Vemos que hemos detectado 207 genes con un p-valor no ajustado < 0.05 y con un ratio de sobre/infraexpresión mayor o igual a 2. Ahora procedemos a separarlos en función de si están sobre o infraexpresados respecto a las muestras control:
 
 
 ```{r}
 sobreexpresados <- DEG_limma[DEG_limma[,"logFC"] > 1,]
 nrow(sobreexpresados)
 head(sobreexpresados)
+
 
 infraexpresados <- DEG_limma[DEG_limma[,"logFC"] < -1  ,]
 nrow(infraexpresados)
@@ -674,28 +725,25 @@ head(infraexpresados)
 
 \bigskip
 
-En vista del output del chunk, vemos que tratar las muestras con genisteína provoca la sobreexpresión de 193 genes y la infraexpresión de 11 genes, todos ellos con un ratio de 2 (o sea, el gen TC1100007696.hg.1 está el doble de expresado en las muestras tratadas respecto de las muestras control, mientras que el gen TC1900009657.hg.1 está la mitad de expresado en las muestras tratadas respecto de las muestras control).
+En vista del output del chunk, vemos que tratar las muestras con genisteína provoca la sobreexpresión de 196 genes y la infraexpresión de 11 genes, todos ellos con un ratio de 2 (o sea, el gen TC1100007696.hg.1 está el doble de expresado en las muestras tratadas respecto de las muestras control, mientras que el gen TC1900009657.hg.1 está la mitad de expresado en las muestras tratadas respecto de las muestras control).
 
 Para finalizar este protocolo, procedemos a guardar en archivos de texto la lista total de genes diferencialmente expresados, los genes sobreexpresados y los infraexpresados para poder realizar más tarde los análisis pertinentes (\textit{i.e.} GEA, GSEA, dianas de miRNA...):
 
 
 ```{r, eval = F}
-# DEG_limma <- as.vector(DEG_limma)
 # Lista total de genes diferencialmente expresados
-write.table(x = rownames(DEG_limma), file = "./Resultados DEG/DEG_total_limma.txt", quote = F, 
-            row.names = F, col.names = F)
+write.table(x = DEG_limma, file = "./Resultados DEG/DEG_total_limma.tsv", 
+            quote = F, row.names = F, col.names = T, sep = "\t")
 
 # Genes sobreexpresados
-write.table(x = rownames(sobreexpresados), file = "./Resultados DEG/sobreexpresados_limma.txt", quote = F, 
-            row.names = F, col.names = F)
+write.table(x = sobreexpresados, file = "./Resultados DEG/sobreexpresados_limma.tsv", 
+            quote = F, row.names = F, col.names = T, sep = "\t")
 
 # Genes infraexpresados
-write.table(x = rownames(infraexpresados), file = "./Resultados DEG/infraexpresados_limma.txt", quote = F, 
-            row.names = F, col.names = F)
+write.table(x = infraexpresados, file = "./Resultados DEG/infraexpresados_limma.tsv", 
+            quote = F, row.names = F, col.names = T, sep = "\t")
 ```
 
-
-A modo de \textit{addendum}, comentar que hemos guardado los genes con los nombres de los \textit{transcription clusters}. Si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx o bien consultando el archivo accesorio \verb|Anotaciones Genes NetAffx.tsv|.
 
 
 \bigskip
