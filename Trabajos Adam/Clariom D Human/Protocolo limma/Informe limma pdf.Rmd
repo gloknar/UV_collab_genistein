@@ -280,8 +280,28 @@ Comentar que hemos guardado los genes con los nombres de los _transcription clus
 
 ```{r}
 library("affycoretools")
-eSet_normalizado <- annotateEset(eSet_normalizado, pd.clariom.d.human, columns = c("ENTREZID", "SYMBOL", "GENENAME","ENSEMBL","ENSEMBLTRANS","REFSEQ","EVIDENCE"))
-tail(fData(eSet_normalizado), n = 200L)
+library("clariomdhumantranscriptcluster.db")
+eSet_normalizado <- annotateEset(
+  eSet_normalizado, 
+  clariomdhumantranscriptcluster.db, 
+  multivals = "first",
+  columns = c("ENTREZID", "SYMBOL", "GENENAME", "ENSEMBL", "REFSEQ", "ACCNUM",
+              "ALIAS", "GENETYPE", "GO", "GOALL", "ONTOLOGY", "ONTOLOGYALL",
+              "PATH", "PROBEID")) 
+```
+
+```{r, echo = F, eval = F}
+# Puedes usar como paquete de anotación tanto la librería `pd.clariom.d.human`
+# como `clariomdhumantranscriptcluster.db`. Cada una tiene unas anotaciones que
+# la otra no contiene. Lo mejor es generar dos tablas, una para cada librería, y
+# cruzar los resultados
+
+# Para ver los tipos de anotaciones disponibles en
+# `clariomdhumantranscriptcluster.db``, usa:
+#
+# columns(clariomdhumantranscriptcluster.db)
+
+# El método `columns()` no está disponible para el paquete `pd.clariom.d.human`
 ```
 
 

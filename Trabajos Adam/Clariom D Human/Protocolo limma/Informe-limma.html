@@ -525,13 +525,14 @@ div.tocify {
 <p><br></p>
 <p>Comentar que hemos guardado los genes con los nombres de los <em>transcription clusters</em>. Si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx, o bien consultando el archivo accesorio <code>Anotaciones Genes NetAffx.tsv</code>, o bien automáticamente con el comando <code>annotateEset()</code> del paquete <code>affycoretools</code>:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;affycoretools&quot;</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>eSet_normalizado <span class="ot">&lt;-</span> <span class="fu">annotateEset</span>(eSet_normalizado, pd.clariom.d.human, <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;ENTREZID&quot;</span>, <span class="st">&quot;SYMBOL&quot;</span>, <span class="st">&quot;GENENAME&quot;</span>,<span class="st">&quot;ENSEMBL&quot;</span>,<span class="st">&quot;ENSEMBLTRANS&quot;</span>,<span class="st">&quot;REFSEQ&quot;</span>,<span class="st">&quot;EVIDENCE&quot;</span>))</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">fData</span>(eSet_normalizado), <span class="at">n =</span> 200L)</span></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["PROBEID"],"name":[1],"type":["chr"],"align":["left"]},{"label":["ID"],"name":[2],"type":["chr"],"align":["left"]},{"label":["SYMBOL"],"name":[3],"type":["chr"],"align":["left"]},{"label":["GENENAME"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"TSUnmapped00000803.hg.1","2":"ENST00000630502","3":"OR5P3","4":"olfactory receptor, family 5, subfamily P, member 3","_rn_":"TSUnmapped00000803.hg.1"},{"1":"TSUnmapped00000804.hg.1","2":"ENST00000633074","3":"PRAMEF5","4":"PRAME family member 5","_rn_":"TSUnmapped00000804.hg.1"},{"1":"TSUnmapped00000805.hg.1","2":"ENST00000633078","3":"ULK4P3","4":"ULK4 pseudogene 3","_rn_":"TSUnmapped00000805.hg.1"},{"1":"TSUnmapped00000806.hg.1","2":"ENST00000630915","3":"Metazoa_SRP","4":"Metazoan signal recognition particle RNA [Source:RFAM;Acc:RF00017]","_rn_":"TSUnmapped00000806.hg.1"},{"1":"TSUnmapped00000807.hg.1","2":"ENST00000633284","3":"CTD-2022H16.1","4":"---","_rn_":"TSUnmapped00000807.hg.1"},{"1":"TSUnmapped00000808.hg.1","2":"ENST00000632952","3":"PRAMEF8","4":"PRAME family member 8","_rn_":"TSUnmapped00000808.hg.1"},{"1":"TSUnmapped00000809.hg.1","2":"ENST00000633427","3":"RP11-758N13.3","4":"---","_rn_":"TSUnmapped00000809.hg.1"},{"1":"TSUnmapped00000810.hg.1","2":"ENST00000631823","3":"PRAMEF19","4":"PRAME family member 19 [Source:EntrezGene;Acc:645414]","_rn_":"TSUnmapped00000810.hg.1"},{"1":"TSUnmapped00000811.hg.1","2":"ENST00000630767","3":"RPL23AP66","4":"ribosomal protein L23a pseudogene 66 [Source:HGNC Symbol;Acc:HGNC:35940]","_rn_":"TSUnmapped00000811.hg.1"},{"1":"TSUnmapped00000812.hg.1","2":"ENST00000630375","3":"BCL2L14","4":"BCL2-like 14 (apoptosis facilitator)","_rn_":"TSUnmapped00000812.hg.1"},{"1":"TSUnmapped00000813.hg.1","2":"ENST00000631631","3":"AC026150.8","4":"---","_rn_":"TSUnmapped00000813.hg.1"},{"1":"TSUnmapped00000814.hg.1","2":"ENST00000632454","3":"RP5-845O24.8","4":"---","_rn_":"TSUnmapped00000814.hg.1"},{"1":"TSUnmapped00000815.hg.1","2":"ENST00000631108","3":"RPS6KA1","4":"ribosomal protein S6 kinase, 90kDa, polypeptide 1","_rn_":"TSUnmapped00000815.hg.1"},{"1":"TSUnmapped00000816.hg.1","2":"ENST00000634204","3":"IGKV1-33","4":"immunoglobulin kappa variable 1-33 [Source:HGNC Symbol;Acc:HGNC:5737]","_rn_":"TSUnmapped00000816.hg.1"},{"1":"TSUnmapped00000817.hg.1","2":"NM_001312675","3":"F10","4":"coagulation factor X","_rn_":"TSUnmapped00000817.hg.1"},{"1":"TSUnmapped00000818.hg.1","2":"NM_001312674","3":"F10","4":"coagulation factor X","_rn_":"TSUnmapped00000818.hg.1"},{"1":"TSUnmapped00000819.hg.1","2":"NM_001312673","3":"PCYT1A","4":"phosphate cytidylyltransferase 1, choline, alpha","_rn_":"TSUnmapped00000819.hg.1"},{"1":"TSUnmapped00000820.hg.1","2":"NM_001312672","3":"CFHR2","4":"complement factor H-related 2","_rn_":"TSUnmapped00000820.hg.1"},{"1":"TSUnmapped00000821.hg.1","2":"NM_012149","3":"DUX5","4":"double homeobox 5","_rn_":"TSUnmapped00000821.hg.1"},{"1":"TSUnmapped00000822.hg.1","2":"NM_012148","3":"DUX3","4":"double homeobox 3","_rn_":"TSUnmapped00000822.hg.1"},{"1":"TSUnmapped00000823.hg.1","2":"NM_012146","3":"DUX1","4":"double homeobox 1","_rn_":"TSUnmapped00000823.hg.1"},{"1":"TSUnmapped00000824.hg.1","2":"NR_132393","3":"LINC01613","4":"long intergenic non-protein coding RNA 1613","_rn_":"TSUnmapped00000824.hg.1"},{"1":"TSUnmapped00000825.hg.1","2":"NR_132385","3":"LINC01297","4":"long intergenic non-protein coding RNA 1297","_rn_":"TSUnmapped00000825.hg.1"},{"1":"TSUnmapped00000826.hg.1","2":"NR_132384","3":"LOC101927000","4":"uncharacterized LOC101927000","_rn_":"TSUnmapped00000826.hg.1"},{"1":"TSUnmapped00000827.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000827.hg.1"},{"1":"TSUnmapped00000828.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000828.hg.1"},{"1":"TSUnmapped00000829.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000829.hg.1"},{"1":"TSUnmapped00000830.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000830.hg.1"},{"1":"TSUnmapped00000831.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000831.hg.1"},{"1":"TSUnmapped00000832.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000832.hg.1"},{"1":"TSUnmapped00000833.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000833.hg.1"},{"1":"TSUnmapped00000834.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000834.hg.1"},{"1":"TSUnmapped00000835.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000835.hg.1"},{"1":"TSUnmapped00000836.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000836.hg.1"},{"1":"TSUnmapped00000837.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000837.hg.1"},{"1":"TSUnmapped00000838.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000838.hg.1"},{"1":"TSUnmapped00000839.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000839.hg.1"},{"1":"TSUnmapped00000840.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000840.hg.1"},{"1":"TSUnmapped00000841.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000841.hg.1"},{"1":"TSUnmapped00000842.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000842.hg.1"},{"1":"TSUnmapped00000843.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000843.hg.1"},{"1":"TSUnmapped00000844.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000844.hg.1"},{"1":"TSUnmapped00000845.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000845.hg.1"},{"1":"TSUnmapped00000846.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000846.hg.1"},{"1":"TSUnmapped00000847.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000847.hg.1"},{"1":"TSUnmapped00000848.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000848.hg.1"},{"1":"TSUnmapped00000849.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000849.hg.1"},{"1":"TSUnmapped00000850.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000850.hg.1"},{"1":"TSUnmapped00000851.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000851.hg.1"},{"1":"TSUnmapped00000852.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000852.hg.1"},{"1":"TSUnmapped00000853.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000853.hg.1"},{"1":"TSUnmapped00000854.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000854.hg.1"},{"1":"TSUnmapped00000855.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000855.hg.1"},{"1":"TSUnmapped00000856.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000856.hg.1"},{"1":"TSUnmapped00000857.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000857.hg.1"},{"1":"TSUnmapped00000858.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000858.hg.1"},{"1":"TSUnmapped00000859.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000859.hg.1"},{"1":"TSUnmapped00000860.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000860.hg.1"},{"1":"TSUnmapped00000861.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000861.hg.1"},{"1":"TSUnmapped00000862.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000862.hg.1"},{"1":"TSUnmapped00000863.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000863.hg.1"},{"1":"TSUnmapped00000864.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000864.hg.1"},{"1":"TSUnmapped00000865.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000865.hg.1"},{"1":"TSUnmapped00000866.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000866.hg.1"},{"1":"TSUnmapped00000867.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000867.hg.1"},{"1":"TSUnmapped00000868.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000868.hg.1"},{"1":"TSUnmapped00000869.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000869.hg.1"},{"1":"TSUnmapped00000870.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000870.hg.1"},{"1":"TSUnmapped00000871.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000871.hg.1"},{"1":"TSUnmapped00000872.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000872.hg.1"},{"1":"TSUnmapped00000873.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000873.hg.1"},{"1":"TSUnmapped00000874.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000874.hg.1"},{"1":"TSUnmapped00000875.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000875.hg.1"},{"1":"TSUnmapped00000876.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000876.hg.1"},{"1":"TSUnmapped00000877.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000877.hg.1"},{"1":"TSUnmapped00000878.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000878.hg.1"},{"1":"TSUnmapped00000879.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000879.hg.1"},{"1":"TSUnmapped00000880.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000880.hg.1"},{"1":"TSUnmapped00000881.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000881.hg.1"},{"1":"TSUnmapped00000882.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000882.hg.1"},{"1":"TSUnmapped00000883.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000883.hg.1"},{"1":"TSUnmapped00000884.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000884.hg.1"},{"1":"TSUnmapped00000885.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000885.hg.1"},{"1":"TSUnmapped00000886.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000886.hg.1"},{"1":"TSUnmapped00000887.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000887.hg.1"},{"1":"TSUnmapped00000888.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000888.hg.1"},{"1":"TSUnmapped00000889.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000889.hg.1"},{"1":"TSUnmapped00000890.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000890.hg.1"},{"1":"TSUnmapped00000891.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000891.hg.1"},{"1":"TSUnmapped00000892.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000892.hg.1"},{"1":"TSUnmapped00000893.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000893.hg.1"},{"1":"TSUnmapped00000894.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000894.hg.1"},{"1":"TSUnmapped00000895.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000895.hg.1"},{"1":"TSUnmapped00000896.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000896.hg.1"},{"1":"TSUnmapped00000897.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000897.hg.1"},{"1":"TSUnmapped00000898.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000898.hg.1"},{"1":"TSUnmapped00000899.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000899.hg.1"},{"1":"TSUnmapped00000900.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000900.hg.1"},{"1":"TSUnmapped00000901.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000901.hg.1"},{"1":"TSUnmapped00000902.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000902.hg.1"},{"1":"TSUnmapped00000903.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000903.hg.1"},{"1":"TSUnmapped00000904.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000904.hg.1"},{"1":"TSUnmapped00000905.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000905.hg.1"},{"1":"TSUnmapped00000906.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000906.hg.1"},{"1":"TSUnmapped00000907.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000907.hg.1"},{"1":"TSUnmapped00000908.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000908.hg.1"},{"1":"TSUnmapped00000909.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000909.hg.1"},{"1":"TSUnmapped00000910.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000910.hg.1"},{"1":"TSUnmapped00000911.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000911.hg.1"},{"1":"TSUnmapped00000912.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000912.hg.1"},{"1":"TSUnmapped00000913.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000913.hg.1"},{"1":"TSUnmapped00000914.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000914.hg.1"},{"1":"TSUnmapped00000915.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000915.hg.1"},{"1":"TSUnmapped00000916.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000916.hg.1"},{"1":"TSUnmapped00000917.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000917.hg.1"},{"1":"TSUnmapped00000918.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000918.hg.1"},{"1":"TSUnmapped00000919.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000919.hg.1"},{"1":"TSUnmapped00000920.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000920.hg.1"},{"1":"TSUnmapped00000921.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000921.hg.1"},{"1":"TSUnmapped00000922.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000922.hg.1"},{"1":"TSUnmapped00000923.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000923.hg.1"},{"1":"TSUnmapped00000924.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000924.hg.1"},{"1":"TSUnmapped00000925.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000925.hg.1"},{"1":"TSUnmapped00000926.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000926.hg.1"},{"1":"TSUnmapped00000927.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000927.hg.1"},{"1":"TSUnmapped00000928.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000928.hg.1"},{"1":"TSUnmapped00000929.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000929.hg.1"},{"1":"TSUnmapped00000930.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000930.hg.1"},{"1":"TSUnmapped00000931.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000931.hg.1"},{"1":"TSUnmapped00000932.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000932.hg.1"},{"1":"TSUnmapped00000933.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000933.hg.1"},{"1":"TSUnmapped00000934.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000934.hg.1"},{"1":"TSUnmapped00000935.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000935.hg.1"},{"1":"TSUnmapped00000936.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000936.hg.1"},{"1":"TSUnmapped00000937.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000937.hg.1"},{"1":"TSUnmapped00000938.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000938.hg.1"},{"1":"TSUnmapped00000939.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000939.hg.1"},{"1":"TSUnmapped00000940.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000940.hg.1"},{"1":"TSUnmapped00000941.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000941.hg.1"},{"1":"TSUnmapped00000942.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000942.hg.1"},{"1":"TSUnmapped00000943.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000943.hg.1"},{"1":"TSUnmapped00000944.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000944.hg.1"},{"1":"TSUnmapped00000945.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000945.hg.1"},{"1":"TSUnmapped00000946.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000946.hg.1"},{"1":"TSUnmapped00000947.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000947.hg.1"},{"1":"TSUnmapped00000948.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000948.hg.1"},{"1":"TSUnmapped00000949.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000949.hg.1"},{"1":"TSUnmapped00000950.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000950.hg.1"},{"1":"TSUnmapped00000951.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000951.hg.1"},{"1":"TSUnmapped00000952.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000952.hg.1"},{"1":"TSUnmapped00000953.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000953.hg.1"},{"1":"TSUnmapped00000954.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000954.hg.1"},{"1":"TSUnmapped00000955.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000955.hg.1"},{"1":"TSUnmapped00000956.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000956.hg.1"},{"1":"TSUnmapped00000957.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000957.hg.1"},{"1":"TSUnmapped00000958.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000958.hg.1"},{"1":"TSUnmapped00000959.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000959.hg.1"},{"1":"TSUnmapped00000960.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000960.hg.1"},{"1":"TSUnmapped00000961.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000961.hg.1"},{"1":"TSUnmapped00000962.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000962.hg.1"},{"1":"TSUnmapped00000963.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000963.hg.1"},{"1":"TSUnmapped00000964.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000964.hg.1"},{"1":"TSUnmapped00000965.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000965.hg.1"},{"1":"TSUnmapped00000966.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000966.hg.1"},{"1":"TSUnmapped00000967.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000967.hg.1"},{"1":"TSUnmapped00000968.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000968.hg.1"},{"1":"TSUnmapped00000969.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000969.hg.1"},{"1":"TSUnmapped00000970.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000970.hg.1"},{"1":"TSUnmapped00000971.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000971.hg.1"},{"1":"TSUnmapped00000972.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000972.hg.1"},{"1":"TSUnmapped00000973.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000973.hg.1"},{"1":"TSUnmapped00000974.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000974.hg.1"},{"1":"TSUnmapped00000975.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000975.hg.1"},{"1":"TSUnmapped00000976.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000976.hg.1"},{"1":"TSUnmapped00000977.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000977.hg.1"},{"1":"TSUnmapped00000978.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000978.hg.1"},{"1":"TSUnmapped00000979.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000979.hg.1"},{"1":"TSUnmapped00000980.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000980.hg.1"},{"1":"TSUnmapped00000981.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000981.hg.1"},{"1":"TSUnmapped00000982.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000982.hg.1"},{"1":"TSUnmapped00000983.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000983.hg.1"},{"1":"TSUnmapped00000984.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000984.hg.1"},{"1":"TSUnmapped00000985.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000985.hg.1"},{"1":"TSUnmapped00000986.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000986.hg.1"},{"1":"TSUnmapped00000987.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000987.hg.1"},{"1":"TSUnmapped00000988.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000988.hg.1"},{"1":"TSUnmapped00000989.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000989.hg.1"},{"1":"TSUnmapped00000990.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000990.hg.1"},{"1":"TSUnmapped00000991.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000991.hg.1"},{"1":"TSUnmapped00000992.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000992.hg.1"},{"1":"TSUnmapped00000993.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000993.hg.1"},{"1":"TSUnmapped00000994.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000994.hg.1"},{"1":"TSUnmapped00000995.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000995.hg.1"},{"1":"TSUnmapped00000996.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000996.hg.1"},{"1":"TSUnmapped00000997.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000997.hg.1"},{"1":"TSUnmapped00000998.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000998.hg.1"},{"1":"TSUnmapped00000999.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00000999.hg.1"},{"1":"TSUnmapped00001000.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00001000.hg.1"},{"1":"TSUnmapped00001001.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00001001.hg.1"},{"1":"TSUnmapped00001002.hg.1","2":"NA","3":"NA","4":"NA","_rn_":"TSUnmapped00001002.hg.1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;clariomdhumantranscriptcluster.db&quot;</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>eSet_normalizado <span class="ot">&lt;-</span> <span class="fu">annotateEset</span>(</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  eSet_normalizado, </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  clariomdhumantranscriptcluster.db, </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">multivals =</span> <span class="st">&quot;first&quot;</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;ENTREZID&quot;</span>, <span class="st">&quot;SYMBOL&quot;</span>, <span class="st">&quot;GENENAME&quot;</span>, <span class="st">&quot;ENSEMBL&quot;</span>, <span class="st">&quot;REFSEQ&quot;</span>, <span class="st">&quot;ACCNUM&quot;</span>,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;ALIAS&quot;</span>, <span class="st">&quot;GENETYPE&quot;</span>, <span class="st">&quot;GO&quot;</span>, <span class="st">&quot;GOALL&quot;</span>, <span class="st">&quot;ONTOLOGY&quot;</span>, <span class="st">&quot;ONTOLOGYALL&quot;</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;PATH&quot;</span>, <span class="st">&quot;PROBEID&quot;</span>)) </span></code></pre></div>
 <p><br></p>
 <div id="comprobación-del-normalizado-boxplots-y-gráficos-de-densidad" class="section level2" number="4.1">
 <h2 number="4.1"><span class="header-section-number">4.1</span> Comprobación del normalizado: Boxplots y gráficos de densidad</h2>
@@ -784,7 +785,7 @@ div.tocify {
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sobreexpresados)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["logFC"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["AveExpr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["t"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["P.Value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["adj.P.Val"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["B"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["PROBEID"],"name":[7],"type":["chr"],"align":["left"]},{"label":["ID"],"name":[8],"type":["chr"],"align":["left"]},{"label":["SYMBOL"],"name":[9],"type":["chr"],"align":["left"]},{"label":["GENENAME"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1.147524","2":"5.124595","3":"6.724900","4":"1.477171e-05","5":"0.6346477","6":"-0.03121166","7":"HTA2-neg-47419801_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-neg-47419801_st"},{"1":"1.088852","2":"3.466509","3":"6.062605","4":"4.162968e-05","5":"0.6346477","6":"-0.38975408","7":"HTA2-neg-47423296_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-neg-47423296_st"},{"1":"1.043817","2":"3.929857","3":"5.950324","4":"4.992192e-05","5":"0.6346477","6":"-0.45640072","7":"HTA2-pos-2985912_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-2985912_st"},{"1":"1.108281","2":"4.470662","3":"5.876183","4":"5.633789e-05","5":"0.6346477","6":"-0.50139580","7":"HTA2-pos-2985916_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-2985916_st"},{"1":"1.270081","2":"4.472553","3":"5.750476","4":"6.927782e-05","5":"0.6346477","6":"-0.57951775","7":"HTA2-pos-2999493_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-2999493_st"},{"1":"1.103866","2":"2.909106","3":"5.695329","4":"7.590810e-05","5":"0.6346477","6":"-0.61452718","7":"HTA2-pos-3145790_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-3145790_st"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["logFC"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["AveExpr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["t"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["P.Value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["adj.P.Val"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["B"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["PROBEID"],"name":[7],"type":["chr"],"align":["left"]},{"label":["ENTREZID"],"name":[8],"type":["chr"],"align":["left"]},{"label":["SYMBOL"],"name":[9],"type":["chr"],"align":["left"]},{"label":["GENENAME"],"name":[10],"type":["chr"],"align":["left"]},{"label":["ENSEMBL"],"name":[11],"type":["chr"],"align":["left"]},{"label":["REFSEQ"],"name":[12],"type":["chr"],"align":["left"]},{"label":["ACCNUM"],"name":[13],"type":["chr"],"align":["left"]},{"label":["ALIAS"],"name":[14],"type":["chr"],"align":["left"]},{"label":["GENETYPE"],"name":[15],"type":["chr"],"align":["left"]},{"label":["GO"],"name":[16],"type":["chr"],"align":["left"]},{"label":["GOALL"],"name":[17],"type":["chr"],"align":["left"]},{"label":["ONTOLOGY"],"name":[18],"type":["chr"],"align":["left"]},{"label":["ONTOLOGYALL"],"name":[19],"type":["chr"],"align":["left"]},{"label":["PATH"],"name":[20],"type":["chr"],"align":["left"]}],"data":[{"1":"1.147524","2":"5.124595","3":"6.724900","4":"1.477171e-05","5":"0.6346477","6":"-0.03121166","7":"HTA2-neg-47419801_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-neg-47419801_st"},{"1":"1.088852","2":"3.466509","3":"6.062605","4":"4.162968e-05","5":"0.6346477","6":"-0.38975408","7":"HTA2-neg-47423296_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-neg-47423296_st"},{"1":"1.043817","2":"3.929857","3":"5.950324","4":"4.992192e-05","5":"0.6346477","6":"-0.45640072","7":"HTA2-pos-2985912_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-2985912_st"},{"1":"1.108281","2":"4.470662","3":"5.876183","4":"5.633789e-05","5":"0.6346477","6":"-0.50139580","7":"HTA2-pos-2985916_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-2985916_st"},{"1":"1.270081","2":"4.472553","3":"5.750476","4":"6.927782e-05","5":"0.6346477","6":"-0.57951775","7":"HTA2-pos-2999493_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-2999493_st"},{"1":"1.103866","2":"2.909106","3":"5.695329","4":"7.590810e-05","5":"0.6346477","6":"-0.61452718","7":"HTA2-pos-3145790_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-3145790_st"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>infraexpresados <span class="ot">&lt;-</span> DEG_limma[DEG_limma[,<span class="st">&quot;logFC&quot;</span>] <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span>  ,]</span>
@@ -793,7 +794,7 @@ div.tocify {
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(infraexpresados)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["logFC"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["AveExpr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["t"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["P.Value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["adj.P.Val"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["B"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["PROBEID"],"name":[7],"type":["chr"],"align":["left"]},{"label":["ID"],"name":[8],"type":["chr"],"align":["left"]},{"label":["SYMBOL"],"name":[9],"type":["chr"],"align":["left"]},{"label":["GENENAME"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"-1.067277","2":"4.600619","3":"-6.911627","4":"1.114860e-05","5":"0.6346477","6":"0.05992418","7":"HTA2-neg-47419654_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-neg-47419654_st"},{"1":"-1.033416","2":"3.181483","3":"-6.030772","4":"4.382194e-05","5":"0.6346477","6":"-0.40846832","7":"HTA2-pos-2924331_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-2924331_st"},{"1":"-1.029588","2":"4.538992","3":"-5.572220","4":"9.323252e-05","5":"0.6346477","6":"-0.69433677","7":"HTA2-pos-3371028_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-3371028_st"},{"1":"-1.056987","2":"2.771931","3":"-5.489243","4":"1.072162e-04","5":"0.6346477","6":"-0.74943668","7":"HTA2-pos-3371052_st","8":"NA","9":"NA","10":"NA","_rn_":"HTA2-pos-3371052_st"},{"1":"-1.057761","2":"3.731258","3":"-5.039640","4":"2.324390e-04","5":"0.6346477","6":"-1.06690719","7":"TC0100007890.hg.1","8":"NA","9":"NA","10":"NA","_rn_":"TC0100007890.hg.1"},{"1":"-1.037510","2":"3.504346","3":"-3.474050","4":"4.161407e-03","5":"0.6346477","6":"-2.43003876","7":"TC0500011055.hg.1","8":"LOC647859.cAug10-unspliced","9":"LOC647859","10":"Transcript Identified by AceView, Entrez Gene ID(s) 647859","_rn_":"TC0500011055.hg.1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["logFC"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["AveExpr"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["t"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["P.Value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["adj.P.Val"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["B"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["PROBEID"],"name":[7],"type":["chr"],"align":["left"]},{"label":["ENTREZID"],"name":[8],"type":["chr"],"align":["left"]},{"label":["SYMBOL"],"name":[9],"type":["chr"],"align":["left"]},{"label":["GENENAME"],"name":[10],"type":["chr"],"align":["left"]},{"label":["ENSEMBL"],"name":[11],"type":["chr"],"align":["left"]},{"label":["REFSEQ"],"name":[12],"type":["chr"],"align":["left"]},{"label":["ACCNUM"],"name":[13],"type":["chr"],"align":["left"]},{"label":["ALIAS"],"name":[14],"type":["chr"],"align":["left"]},{"label":["GENETYPE"],"name":[15],"type":["chr"],"align":["left"]},{"label":["GO"],"name":[16],"type":["chr"],"align":["left"]},{"label":["GOALL"],"name":[17],"type":["chr"],"align":["left"]},{"label":["ONTOLOGY"],"name":[18],"type":["chr"],"align":["left"]},{"label":["ONTOLOGYALL"],"name":[19],"type":["chr"],"align":["left"]},{"label":["PATH"],"name":[20],"type":["chr"],"align":["left"]}],"data":[{"1":"-1.067277","2":"4.600619","3":"-6.911627","4":"1.114860e-05","5":"0.6346477","6":"0.05992418","7":"HTA2-neg-47419654_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-neg-47419654_st"},{"1":"-1.033416","2":"3.181483","3":"-6.030772","4":"4.382194e-05","5":"0.6346477","6":"-0.40846832","7":"HTA2-pos-2924331_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-2924331_st"},{"1":"-1.029588","2":"4.538992","3":"-5.572220","4":"9.323252e-05","5":"0.6346477","6":"-0.69433677","7":"HTA2-pos-3371028_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-3371028_st"},{"1":"-1.056987","2":"2.771931","3":"-5.489243","4":"1.072162e-04","5":"0.6346477","6":"-0.74943668","7":"HTA2-pos-3371052_st","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"HTA2-pos-3371052_st"},{"1":"-1.057761","2":"3.731258","3":"-5.039640","4":"2.324390e-04","5":"0.6346477","6":"-1.06690719","7":"TC0100007890.hg.1","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"TC0100007890.hg.1"},{"1":"-1.037510","2":"3.504346","3":"-3.474050","4":"4.161407e-03","5":"0.6346477","6":"-2.43003876","7":"TC0500011055.hg.1","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","_rn_":"TC0500011055.hg.1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p><br></p>
@@ -849,98 +850,111 @@ div.tocify {
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] affycoretools_1.64.0      pd.clariom.d.human_3.14.1
-##  [3] DBI_1.1.1                 RSQLite_2.2.8            
-##  [5] uwot_0.1.10               Matrix_1.3-4             
-##  [7] Rtsne_0.15                FactoMineR_2.4           
-##  [9] dplyr_1.0.7               rgl_0.107.14             
-## [11] ggplot2_3.3.5             limma_3.48.3             
-## [13] oligo_1.56.0              Biostrings_2.60.2        
-## [15] GenomeInfoDb_1.28.4       XVector_0.32.0           
-## [17] IRanges_2.26.0            S4Vectors_0.30.0         
-## [19] Biobase_2.52.0            oligoClasses_1.54.0      
-## [21] BiocGenerics_0.38.0      
+##  [1] clariomdhumantranscriptcluster.db_8.8.0
+##  [2] org.Hs.eg.db_3.13.0                    
+##  [3] AnnotationDbi_1.54.1                   
+##  [4] affycoretools_1.64.0                   
+##  [5] pd.clariom.d.human_3.14.1              
+##  [6] DBI_1.1.1                              
+##  [7] RSQLite_2.2.8                          
+##  [8] uwot_0.1.10                            
+##  [9] Matrix_1.3-4                           
+## [10] Rtsne_0.15                             
+## [11] FactoMineR_2.4                         
+## [12] dplyr_1.0.7                            
+## [13] rgl_0.107.14                           
+## [14] ggplot2_3.3.5                          
+## [15] limma_3.48.3                           
+## [16] oligo_1.56.0                           
+## [17] Biostrings_2.60.2                      
+## [18] GenomeInfoDb_1.28.4                    
+## [19] XVector_0.32.0                         
+## [20] IRanges_2.26.0                         
+## [21] S4Vectors_0.30.0                       
+## [22] Biobase_2.52.0                         
+## [23] oligoClasses_1.54.0                    
+## [24] BiocGenerics_0.38.0                    
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] utf8_1.2.2                  R.utils_2.10.1             
-##   [3] tidyselect_1.1.1            AnnotationDbi_1.54.1       
-##   [5] htmlwidgets_1.5.4           grid_4.1.0                 
-##   [7] BiocParallel_1.26.2         munsell_0.5.0              
-##   [9] codetools_0.2-18            preprocessCore_1.54.0      
-##  [11] DT_0.19                     withr_2.4.2                
-##  [13] colorspace_2.0-2            Category_2.58.0            
-##  [15] filelock_1.0.2              OrganismDbi_1.34.0         
-##  [17] highr_0.9                   knitr_1.34                 
-##  [19] rstudioapi_0.13             leaps_3.1                  
-##  [21] labeling_0.4.2              MatrixGenerics_1.4.3       
-##  [23] GenomeInfoDbData_1.2.6      hwriter_1.3.2              
-##  [25] farver_2.1.0                bit64_4.0.5                
-##  [27] vctrs_0.3.8                 generics_0.1.0             
-##  [29] xfun_0.25                   biovizBase_1.40.0          
-##  [31] BiocFileCache_2.0.0         affxparser_1.64.0          
-##  [33] R6_2.5.1                    Glimma_2.2.0               
-##  [35] locfit_1.5-9.4              AnnotationFilter_1.16.0    
-##  [37] bitops_1.0-7                cachem_1.0.6               
-##  [39] reshape_0.8.8               DelayedArray_0.18.0        
-##  [41] assertthat_0.2.1            BiocIO_1.2.0               
-##  [43] scales_1.1.1                nnet_7.3-16                
-##  [45] gtable_0.3.0                affy_1.70.0                
-##  [47] ggbio_1.40.0                ensembldb_2.16.4           
-##  [49] rlang_0.4.11                genefilter_1.74.0          
-##  [51] scatterplot3d_0.3-41        splines_4.1.0              
-##  [53] rtracklayer_1.52.1          lazyeval_0.2.2             
-##  [55] dichromat_2.0-0             checkmate_2.0.0            
-##  [57] BiocManager_1.30.16         yaml_2.2.1                 
-##  [59] reshape2_1.4.4              GenomicFeatures_1.44.2     
-##  [61] backports_1.2.1             Hmisc_4.5-0                
-##  [63] RBGL_1.68.0                 tools_4.1.0                
-##  [65] gplots_3.1.1                affyio_1.62.0              
-##  [67] ellipsis_0.3.2              jquerylib_0.1.4            
-##  [69] ff_4.0.4                    RColorBrewer_1.1-2         
-##  [71] Rcpp_1.0.7                  plyr_1.8.6                 
-##  [73] base64enc_0.1-3             progress_1.2.2             
-##  [75] zlibbioc_1.38.0             purrr_0.3.4                
-##  [77] RCurl_1.98-1.4              prettyunits_1.1.1          
-##  [79] rpart_4.1-15                SummarizedExperiment_1.22.0
-##  [81] ggrepel_0.9.1               cluster_2.1.2              
-##  [83] magrittr_2.0.1              RSpectra_0.16-0            
-##  [85] data.table_1.14.0           ProtGenerics_1.24.0        
-##  [87] matrixStats_0.60.1          hms_1.1.0                  
-##  [89] evaluate_0.14               xtable_1.8-4               
-##  [91] XML_3.99-0.7                gcrma_2.64.0               
-##  [93] jpeg_0.1-9                  gridExtra_2.3              
-##  [95] compiler_4.1.0              biomaRt_2.48.3             
-##  [97] tibble_3.1.4                KernSmooth_2.23-20         
-##  [99] crayon_1.4.1                R.oo_1.24.0                
-## [101] ReportingTools_2.32.1       htmltools_0.5.2            
-## [103] GOstats_2.58.0              Formula_1.2-4              
-## [105] geneplotter_1.70.0          dbplyr_2.1.1               
-## [107] MASS_7.3-54                 rappdirs_0.3.3             
-## [109] R.methodsS3_1.8.1           GenomicRanges_1.44.0       
-## [111] pkgconfig_2.0.3             flashClust_1.01-2          
-## [113] GenomicAlignments_1.28.0    foreign_0.8-81             
-## [115] xml2_1.3.2                  foreach_1.5.1              
-## [117] annotate_1.70.0             bslib_0.3.0                
-## [119] AnnotationForge_1.34.0      stringr_1.4.0              
-## [121] VariantAnnotation_1.38.0    digest_0.6.27              
-## [123] graph_1.70.0                rmarkdown_2.10             
-## [125] htmlTable_2.2.1             edgeR_3.34.1               
-## [127] GSEABase_1.54.0             restfulr_0.0.13            
-## [129] curl_4.3.2                  gtools_3.9.2               
-## [131] Rsamtools_2.8.0             rjson_0.2.20               
-## [133] lifecycle_1.0.0             jsonlite_1.7.2             
-## [135] PFAM.db_3.13.0              BSgenome_1.60.0            
-## [137] fansi_0.5.0                 pillar_1.6.2               
-## [139] lattice_0.20-44             GGally_2.1.2               
-## [141] KEGGREST_1.32.0             fastmap_1.1.0              
-## [143] httr_1.4.2                  survival_3.2-13            
-## [145] GO.db_3.13.0                glue_1.4.2                 
-## [147] FNN_1.1.3                   png_0.1-7                  
-## [149] iterators_1.0.13            bit_4.0.4                  
-## [151] Rgraphviz_2.36.0            stringi_1.7.4              
-## [153] sass_0.4.0                  blob_1.2.2                 
-## [155] DESeq2_1.32.0               caTools_1.18.2             
-## [157] latticeExtra_0.6-29         memoise_2.0.0</code></pre>
+##   [3] tidyselect_1.1.1            htmlwidgets_1.5.4          
+##   [5] grid_4.1.0                  BiocParallel_1.26.2        
+##   [7] munsell_0.5.0               codetools_0.2-18           
+##   [9] preprocessCore_1.54.0       DT_0.19                    
+##  [11] withr_2.4.2                 colorspace_2.0-2           
+##  [13] Category_2.58.0             filelock_1.0.2             
+##  [15] OrganismDbi_1.34.0          highr_0.9                  
+##  [17] knitr_1.34                  rstudioapi_0.13            
+##  [19] leaps_3.1                   labeling_0.4.2             
+##  [21] MatrixGenerics_1.4.3        GenomeInfoDbData_1.2.6     
+##  [23] hwriter_1.3.2               farver_2.1.0               
+##  [25] bit64_4.0.5                 vctrs_0.3.8                
+##  [27] generics_0.1.0              xfun_0.25                  
+##  [29] biovizBase_1.40.0           BiocFileCache_2.0.0        
+##  [31] affxparser_1.64.0           R6_2.5.1                   
+##  [33] Glimma_2.2.0                locfit_1.5-9.4             
+##  [35] AnnotationFilter_1.16.0     bitops_1.0-7               
+##  [37] cachem_1.0.6                reshape_0.8.8              
+##  [39] DelayedArray_0.18.0         assertthat_0.2.1           
+##  [41] BiocIO_1.2.0                scales_1.1.1               
+##  [43] nnet_7.3-16                 gtable_0.3.0               
+##  [45] affy_1.70.0                 ggbio_1.40.0               
+##  [47] ensembldb_2.16.4            rlang_0.4.11               
+##  [49] genefilter_1.74.0           scatterplot3d_0.3-41       
+##  [51] splines_4.1.0               rtracklayer_1.52.1         
+##  [53] lazyeval_0.2.2              dichromat_2.0-0            
+##  [55] checkmate_2.0.0             BiocManager_1.30.16        
+##  [57] yaml_2.2.1                  reshape2_1.4.4             
+##  [59] GenomicFeatures_1.44.2      backports_1.2.1            
+##  [61] Hmisc_4.5-0                 RBGL_1.68.0                
+##  [63] tools_4.1.0                 gplots_3.1.1               
+##  [65] affyio_1.62.0               ellipsis_0.3.2             
+##  [67] jquerylib_0.1.4             ff_4.0.4                   
+##  [69] RColorBrewer_1.1-2          Rcpp_1.0.7                 
+##  [71] plyr_1.8.6                  base64enc_0.1-3            
+##  [73] progress_1.2.2              zlibbioc_1.38.0            
+##  [75] purrr_0.3.4                 RCurl_1.98-1.4             
+##  [77] prettyunits_1.1.1           rpart_4.1-15               
+##  [79] SummarizedExperiment_1.22.0 ggrepel_0.9.1              
+##  [81] cluster_2.1.2               magrittr_2.0.1             
+##  [83] RSpectra_0.16-0             data.table_1.14.0          
+##  [85] ProtGenerics_1.24.0         matrixStats_0.60.1         
+##  [87] hms_1.1.0                   evaluate_0.14              
+##  [89] xtable_1.8-4                XML_3.99-0.7               
+##  [91] gcrma_2.64.0                jpeg_0.1-9                 
+##  [93] gridExtra_2.3               compiler_4.1.0             
+##  [95] biomaRt_2.48.3              tibble_3.1.4               
+##  [97] KernSmooth_2.23-20          crayon_1.4.1               
+##  [99] R.oo_1.24.0                 ReportingTools_2.32.1      
+## [101] htmltools_0.5.2             GOstats_2.58.0             
+## [103] Formula_1.2-4               geneplotter_1.70.0         
+## [105] dbplyr_2.1.1                MASS_7.3-54                
+## [107] rappdirs_0.3.3              R.methodsS3_1.8.1          
+## [109] GenomicRanges_1.44.0        pkgconfig_2.0.3            
+## [111] flashClust_1.01-2           GenomicAlignments_1.28.0   
+## [113] foreign_0.8-81              xml2_1.3.2                 
+## [115] foreach_1.5.1               annotate_1.70.0            
+## [117] bslib_0.3.0                 AnnotationForge_1.34.0     
+## [119] stringr_1.4.0               VariantAnnotation_1.38.0   
+## [121] digest_0.6.27               graph_1.70.0               
+## [123] rmarkdown_2.10              htmlTable_2.2.1            
+## [125] edgeR_3.34.1                GSEABase_1.54.0            
+## [127] restfulr_0.0.13             curl_4.3.2                 
+## [129] gtools_3.9.2                Rsamtools_2.8.0            
+## [131] rjson_0.2.20                lifecycle_1.0.0            
+## [133] jsonlite_1.7.2              PFAM.db_3.13.0             
+## [135] BSgenome_1.60.0             fansi_0.5.0                
+## [137] pillar_1.6.2                lattice_0.20-44            
+## [139] GGally_2.1.2                KEGGREST_1.32.0            
+## [141] fastmap_1.1.0               httr_1.4.2                 
+## [143] survival_3.2-13             GO.db_3.13.0               
+## [145] glue_1.4.2                  FNN_1.1.3                  
+## [147] png_0.1-7                   iterators_1.0.13           
+## [149] bit_4.0.4                   Rgraphviz_2.36.0           
+## [151] stringi_1.7.4               sass_0.4.0                 
+## [153] blob_1.2.2                  DESeq2_1.32.0              
+## [155] caTools_1.18.2              latticeExtra_0.6-29        
+## [157] memoise_2.0.0</code></pre>
 </details>
 </div>
 
