@@ -1,0 +1,39 @@
+---
+title: "Análisis de microarrays _Clariom D Human_ en `limma`"
+author: "Adam Casas"
+date: 'Compilado: `r format(Sys.Date(), "%d de %B del %Y")`'
+output: 
+  html_document:
+    df_print: paged
+    highlight: kate
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+---
+
+```{r configuracion inicial, include=FALSE}
+##################################################
+#######        Encoded in UTF-8        ###########
+##################################################
+
+# Establecemos la configuración de los chunks
+knitr::opts_chunk$set(echo = T,
+                      message = F,
+                      warning = F,
+                      tidy = F)
+set.seed(1)
+```
+
+***
+
+# Introducción
+
+https://github.com/MikeJSeo/SAM
+
+```{r}
+library(samr)
+runSAM()
+```
+
+
