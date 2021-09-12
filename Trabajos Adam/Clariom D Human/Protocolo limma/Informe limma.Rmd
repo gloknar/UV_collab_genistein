@@ -391,6 +391,7 @@ plot.PCA(pca_microarrays, choix = "ind", habillage = 138746)
 ```{r, eval = F}
 # Para otros análisis
 saveRDS(intensidades_normalizadas_df, file = "intensidades_normalizadas_df.rds")
+saveRDS(eSet_normalizado, file = "eSet_normalizado.rds")
 ```
 
 
