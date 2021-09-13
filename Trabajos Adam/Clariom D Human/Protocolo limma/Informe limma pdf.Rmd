@@ -281,9 +281,10 @@ Comentar que hemos guardado los genes con los nombres de los _transcription clus
 ```{r}
 library("affycoretools")
 library("clariomdhumantranscriptcluster.db")
+# library("pd.clariom.d.human")
 eSet_normalizado <- annotateEset(
   eSet_normalizado, 
-  clariomdhumantranscriptcluster.db, 
+  clariomdhumantranscriptcluster.db,    # pd.clariom.d.human
   multivals = "first",
   columns = c("ENTREZID", "SYMBOL", "GENENAME", "ENSEMBL", "REFSEQ", "ACCNUM",
               "ALIAS", "GENETYPE", "GO", "GOALL", "ONTOLOGY", "ONTOLOGYALL",
