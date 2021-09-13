@@ -31,6 +31,9 @@ set.seed(1)
 
 https://github.com/MikeJSeo/SAM
 
+
+https://statweb.stanford.edu/~tibs/SAM/
+
 ```{r}
 library(samr)
 runSAM()
