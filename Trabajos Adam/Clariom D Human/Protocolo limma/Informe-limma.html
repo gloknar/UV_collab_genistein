@@ -329,7 +329,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Análisis de microarrays <em>Clariom D Human</em> en <code>limma</code></h1>
 <h4 class="author">Adam Casas</h4>
-<h4 class="date">Compilado: 09 de septiembre del 2021</h4>
+<h4 class="date">Compilado: 13 de septiembre del 2021</h4>
 
 </div>
 
@@ -526,13 +526,14 @@ div.tocify {
 <p>Comentar que hemos guardado los genes con los nombres de los <em>transcription clusters</em>. Si queremos saber el nombre oficial de los genes (en caso de que lo tengan), debemos traducirlos mediante el ya mencionado portal NetAffx, o bien consultando el archivo accesorio <code>Anotaciones Genes NetAffx.tsv</code>, o bien automáticamente con el comando <code>annotateEset()</code> del paquete <code>affycoretools</code>:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;affycoretools&quot;</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;clariomdhumantranscriptcluster.db&quot;</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>eSet_normalizado <span class="ot">&lt;-</span> <span class="fu">annotateEset</span>(</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  eSet_normalizado, </span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  clariomdhumantranscriptcluster.db, </span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">multivals =</span> <span class="st">&quot;first&quot;</span>,</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;ENTREZID&quot;</span>, <span class="st">&quot;SYMBOL&quot;</span>, <span class="st">&quot;GENENAME&quot;</span>, <span class="st">&quot;ENSEMBL&quot;</span>, <span class="st">&quot;REFSEQ&quot;</span>, <span class="st">&quot;ACCNUM&quot;</span>,</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;ALIAS&quot;</span>, <span class="st">&quot;GENETYPE&quot;</span>, <span class="st">&quot;GO&quot;</span>, <span class="st">&quot;GOALL&quot;</span>, <span class="st">&quot;ONTOLOGY&quot;</span>, <span class="st">&quot;ONTOLOGYALL&quot;</span>,</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;PATH&quot;</span>, <span class="st">&quot;PROBEID&quot;</span>)) </span></code></pre></div>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(&quot;pd.clariom.d.human&quot;)</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>eSet_normalizado <span class="ot">&lt;-</span> <span class="fu">annotateEset</span>(</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  eSet_normalizado, </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  clariomdhumantranscriptcluster.db,    <span class="co"># pd.clariom.d.human</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">multivals =</span> <span class="st">&quot;first&quot;</span>,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;ENTREZID&quot;</span>, <span class="st">&quot;SYMBOL&quot;</span>, <span class="st">&quot;GENENAME&quot;</span>, <span class="st">&quot;ENSEMBL&quot;</span>, <span class="st">&quot;REFSEQ&quot;</span>, <span class="st">&quot;ACCNUM&quot;</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;ALIAS&quot;</span>, <span class="st">&quot;GENETYPE&quot;</span>, <span class="st">&quot;GO&quot;</span>, <span class="st">&quot;GOALL&quot;</span>, <span class="st">&quot;ONTOLOGY&quot;</span>, <span class="st">&quot;ONTOLOGYALL&quot;</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;PATH&quot;</span>, <span class="st">&quot;PROBEID&quot;</span>)) </span></code></pre></div>
 <p><br></p>
 <div id="comprobación-del-normalizado-boxplots-y-gráficos-de-densidad" class="section level2" number="4.1">
 <h2 number="4.1"><span class="header-section-number">4.1</span> Comprobación del normalizado: Boxplots y gráficos de densidad</h2>
@@ -582,7 +583,8 @@ div.tocify {
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(FactoInvestigate)</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FactoInvestigate::Investigate(pca_microarrays)</span></span></code></pre></div>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para otros análisis</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(intensidades_normalizadas_df, <span class="at">file =</span> <span class="st">&quot;intensidades_normalizadas_df.rds&quot;</span>)</span></code></pre></div>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(intensidades_normalizadas_df, <span class="at">file =</span> <span class="st">&quot;intensidades_normalizadas_df.rds&quot;</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(eSet_normalizado, <span class="at">file =</span> <span class="st">&quot;eSet_normalizado.rds&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos las 3 primeras componentes principales</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot3d</span>(pca_microarrays<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">type =</span> <span class="st">&quot;s&quot;</span>, </span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="at">times =</span> <span class="dv">4</span>)))</span></code></pre></div>
