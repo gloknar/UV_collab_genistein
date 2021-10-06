@@ -2,7 +2,8 @@ Analicé los microarrays de ARNm (transcriptoma) con TAC 4 y limma + RMA en R (n
 
 Intenté analizar los arrays con los protocolos que comenta McDermaid en su revisión: edgeR, DESeq2, NOIseq, sleuth /sluz/ y Cuffdiff/Cuffdiff2, pero esos paquetes sólo funcionan en matrices de conteo de transcritos (nosotros tenemos una matriz de intensidades, o sea un microarray, por lo que no nos sirven).
 
-Podría probar SAMseq.
+
+Respecto a la busqueda de genes mediante ontologias, busque en amiGO el término GO:0016209, el cual me devolvió los genes en homosapiens quew rgeulan la actividad antioxidante. Por otro lado, tambien descargue una lista de genes anotados directamente con la actividad anbtioxidante.
 
 
 También he visto que se pueden usar ontologias especificas para microARN, podríamos usarlo para los otros microarrays. también pon bien los nombres de los genes.
