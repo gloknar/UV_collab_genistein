@@ -12,8 +12,9 @@ df_genes_regular_antioxidantes <- df_genes_regular_antioxidantes[-42,]
 
 View(DEG_limma)
 DEG_limma[df_genes_antioxidantes$V2,]
+DEG_limma$SYMBOL %in% df_genes_antioxidantes$V2
+View(DEG_limma[DEG_limma$SYMBOL %in% df_genes_antioxidantes$V2,])
 
 
-genes_interes <- which(DEG_limma$P.Value <= 0.05 & abs(df_DEG$logFC) >= 1)
-DEG_limma <- DEG_limma[genes_diferencialmente_expresados,]
+View(DEG_limma[DEG_limma$SYMBOL %in% df_genes_regular_antioxidantes$V2,])
 
