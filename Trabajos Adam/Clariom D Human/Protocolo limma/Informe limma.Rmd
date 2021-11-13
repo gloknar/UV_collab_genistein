@@ -711,6 +711,7 @@ DEG_limma <- df_DEG[genes_diferencialmente_expresados,]
 rownames(DEG_limma) <- sort(rownames(DEG_limma))
 DEG_limma <- cbind(DEG_limma, fData(eSet_normalizado)[fData(eSet_normalizado)$PROBEID %in% rownames(DEG_limma),])
 length(genes_diferencialmente_expresados)
+# saveRDS(DEG_limma, "tabla_resultados_total.rds")
 ```
 
 
