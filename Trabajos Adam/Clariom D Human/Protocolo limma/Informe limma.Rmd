@@ -543,7 +543,7 @@ Téngase en cuenta que el orden en el que defines los grupos afecta a la interpr
 
 ```{r}
 # creamos matriz de contraste
-matriz_contrastes <- makeContrasts(Genisteina - Control, levels = matriz_diseno)
+matriz_contrastes <- makeContrasts(Control - Genisteina, levels = matriz_diseno)
 ```
 
 
